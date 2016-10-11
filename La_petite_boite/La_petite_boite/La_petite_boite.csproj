@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FBC5C311-6A8B-480E-98C1-1A61B177D52C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>La_petite_boite</RootNamespace>
+    <AssemblyName>La_petite_boite</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Chasse aux mots">
+      <HintPath>..\..\..\Activites\ChasseAuxMotsAllLvl\ChasseAuxMotsAllLvl\Chasse aux mots 4\Chasse aux mots\bin\Debug\Chasse aux mots.exe</HintPath>
+    </Reference>
+    <Reference Include="chasseAuxMots12Cartes">
+      <HintPath>..\..\..\Activites\ChasseAuxMotsAllLvl\ChasseAuxMotsAllLvl\chasseAuxMots12Cartes\chasseAuxMots12Cartes\bin\Debug\chasseAuxMots12Cartes.exe</HintPath>
+    </Reference>
+    <Reference Include="chassesAuxMots8Cartes">
+      <HintPath>..\..\..\Activites\ChasseAuxMotsAllLvl\ChasseAuxMotsAllLvl\chasseAuxMots8Cartes\chassesAuxMots8Cartes\bin\Debug\chassesAuxMots8Cartes.exe</HintPath>
+    </Reference>
+    <Reference Include="Grand ou Petit">
+      <HintPath>..\..\..\Activites\GrandOuPetitAllLvl\GrandOuPetitAllLvl\Grand ou Petit 4\Grand ou Petit\bin\Debug\Grand ou Petit.exe</HintPath>
+    </Reference>
+    <Reference Include="Grand ou petit 12">
+      <HintPath>..\..\..\Activites\GrandOuPetitAllLvl\GrandOuPetitAllLvl\Grand ou petit 12\Grand ou petit 12\bin\Debug\Grand ou petit 12.exe</HintPath>
+    </Reference>
+    <Reference Include="Grand ou petit 8">
+      <HintPath>..\..\..\Activites\GrandOuPetitAllLvl\GrandOuPetitAllLvl\Grand ou petit 8\Grand ou petit 8\bin\Debug\Grand ou petit 8.exe</HintPath>
+    </Reference>
+    <Reference Include="memory12cartes">
+      <HintPath>..\..\..\Activites\MemoryAllLvl\MemoryAllLvl\memory12cartes\memory12cartes\bin\Debug\memory12cartes.exe</HintPath>
+    </Reference>
+    <Reference Include="memory16Cartes">
+      <HintPath>..\..\..\Activites\MemoryAllLvl\MemoryAllLvl\memory16Cartes\memory16Cartes\bin\Debug\memory16Cartes.exe</HintPath>
+    </Reference>
+    <Reference Include="memory8Cartes">
+      <HintPath>..\..\..\Activites\MemoryAllLvl\MemoryAllLvl\memory8Cartes\memory8Cartes\bin\Debug\memory8Cartes.exe</HintPath>
+    </Reference>
+    <Reference Include="Que fait le Roi">
+      <HintPath>..\..\..\Activites\QueFaitLeRoiAllLvl\QueFaitLeRoiAllLvl\Que fait le Roi\Que fait le Roi\bin\Debug\Que fait le Roi.exe</HintPath>
+    </Reference>
+    <Reference Include="Que fait le roi 12">
+      <HintPath>..\..\..\Activites\QueFaitLeRoiAllLvl\QueFaitLeRoiAllLvl\Que fait le roi 12\Que fait le roi 12\bin\Debug\Que fait le roi 12.exe</HintPath>
+    </Reference>
+    <Reference Include="Que fait le roi 8">
+      <HintPath>..\..\..\Activites\QueFaitLeRoiAllLvl\QueFaitLeRoiAllLvl\Que fait le roi 8\Que fait le roi 8\bin\Debug\Que fait le roi 8.exe</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Charger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Charger.Designer.cs">
+      <DependentUpon>Charger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etoile.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Joueur.cs" />
+    <Compile Include="Lieu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Charger.resx">
+      <DependentUpon>Charger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\Chargement_LapetiteBoite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chargement_la_petite_boite.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\chateau.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\clairiere.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\coffre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\disquette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\etoileGrise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\etoileJaune.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\guide_roi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\map.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\montagne.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\riviere.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\roi2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\roi3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\roi4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\village.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\mapCsharp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\accueil.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\magicien.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\presentationJeu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\plan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\planJeu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\villageIcone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\villageIconeGris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\chateauIcone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\chateauIconeGris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\cabaneIcone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\cabaneIconeGris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\troncIcone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\troncIconeGris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\montagneIcone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\montagneIconeGris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\guide.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

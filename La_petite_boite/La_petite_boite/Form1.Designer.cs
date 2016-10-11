@@ -55,7 +55,7 @@
             this.chargement.Controls.Add(this.progressBar1);
             this.chargement.Location = new System.Drawing.Point(-6, -2);
             this.chargement.Name = "chargement";
-            this.chargement.Size = new System.Drawing.Size(1283, 722);
+            this.chargement.Size = new System.Drawing.Size(1400, 722);
             this.chargement.TabIndex = 2;
             // 
             // timer2
@@ -71,6 +71,7 @@
             this.ClientSize = new System.Drawing.Size(1267, 683);
             this.Controls.Add(this.chargement);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(1300, 722);
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;

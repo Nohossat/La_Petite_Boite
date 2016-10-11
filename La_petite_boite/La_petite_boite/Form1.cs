@@ -53,10 +53,10 @@ namespace La_petite_boite
         Button Yes;
         Button No;
         ComboBox listeDossierSauvegarde = new ComboBox();
-        Lieu Village = new Lieu(470, -38, 448, 270, Properties.Resources.villageIconeGris,new Point(605,186), "Memory");
+        Lieu Village = new Lieu(470, -38, 448, 270, Properties.Resources.villageIconeGris, new Point(310, 460), "Memory");
         Lieu Chateau = new Lieu(190, 1005, 227, 263, Properties.Resources.chateauIconeGris, new Point(453, 1050), "Chateau");
-        Lieu Cabane = new Lieu(370, 740, 140, 146, Properties.Resources.cabaneIconeGris, new Point(516, 810), "Chasse aux mots");
-        Lieu Tronc = new Lieu(65, 625, 177, 196, Properties.Resources.troncIconeGris, new Point(261, 713), "Grand Ou Petit");
+        Lieu Cabane = new Lieu(370, 740, 140, 146, Properties.Resources.cabaneIconeGris, new Point(760, 420), "Chasse aux mots");
+        Lieu Tronc = new Lieu(65, 625, 177, 196, Properties.Resources.troncIconeGris, new Point(605, 186), "Grand Ou Petit");
         Lieu Montagne = new Lieu(0, 0, 312, 196, Properties.Resources.montagneIconeGris, new Point(191, 156), "Que fait le Roi?");
         Lieu arrivee = new Lieu();
         Label menuPrincipal = new Label();
@@ -885,7 +885,6 @@ namespace La_petite_boite
             //on affiche le bouton afficherCarte
             diaporamaHistoire.Controls.Add(textePresentationJeu);
             diaporamaHistoire.Controls.Add(AfficherCarte);
-            diaporamaHistoire.Controls.Add(suivant);
 
             this.Controls.Add(diaporamaHistoire);
             
@@ -910,18 +909,22 @@ namespace La_petite_boite
         {
             //le timer est deja declenche. a chaque tick, le perso bouge
             //on a le point de depart et le point d-arrivee. on fait d-abord bouger l-abscisse puis l-ordonnee
-            
             while (imgChevalier.Left != arrivee.getPosition().X)
             {
                 if (imgChevalier.Left < arrivee.getPosition().X)
                 {
                     imgChevalier.Left+=1;
-                    this.Refresh();
+                    imgChevalier.Refresh();
+                    arrivee.Refresh();
+                    chevalier.positionJoueur().Refresh();
+                    
                 }
                 else
                 {
                     imgChevalier.Left-=1;
-                    this.Refresh();
+                    imgChevalier.Refresh();
+                    arrivee.Refresh();
+                    chevalier.positionJoueur().Refresh();
                 }
             }
 
@@ -930,16 +933,20 @@ namespace La_petite_boite
                 if (imgChevalier.Top < arrivee.getPosition().Y)
                 {
                     imgChevalier.Top+=1;
-                    this.Refresh();
+                    imgChevalier.Refresh();
+                    arrivee.Refresh();
+                    chevalier.positionJoueur().Refresh();
                 }
                 else
                 {
                     imgChevalier.Top-=1;
-                    this.Refresh();
+                    imgChevalier.Refresh();
+                    arrivee.Refresh();
+                    chevalier.positionJoueur().Refresh();
                 }
             }
-            
 
+            imgChevalier.Parent = arrivee;
             //on desactive le timer
             timer2.Enabled = false;
             chevalier.setPosition(arrivee);
@@ -1206,6 +1213,9 @@ namespace La_petite_boite
             this.Controls.Add(CarteJeu);
 
             //on initialise les elements de la carte : avatar, magicien, chateau, prochaine etoile,
+
+            //pour afficher le decor il faut que l-image chevalier appartienne au label de depart
+            imgChevalier.Parent = chevalier.positionJoueur();
             imgChevalier.Image = Image.FromFile(@chevalier.avatarJoueur());
             imgChevalier.SizeMode = PictureBoxSizeMode.StretchImage;
             imgChevalier.Width = 100;

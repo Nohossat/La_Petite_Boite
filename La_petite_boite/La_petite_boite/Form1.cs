@@ -40,6 +40,8 @@ namespace La_petite_boite
         public static String dos;
         public int IndiceJeu = 0;
         public static Label titreJeu = new Label();
+        public static Lieu positionInitiale = new Lieu();
+        public static String lieuTemporaire;
         Button nouvellePartie = new Button();
         Button chargerPartie = new Button();
         Button commencer = new Button();
@@ -51,11 +53,12 @@ namespace La_petite_boite
         Button Yes;
         Button No;
         ComboBox listeDossierSauvegarde = new ComboBox();
-        Lieu Village = new Lieu(470, -38, 448, 270, Properties.Resources.villageIconeGris,new Point(605,186), "Memory");
+        Lieu Village = new Lieu(470, -38, 448, 270, Properties.Resources.villageIconeGris, new Point(310, 460), "Memory");
         Lieu Chateau = new Lieu(190, 1005, 227, 263, Properties.Resources.chateauIconeGris, new Point(453, 1050), "Chateau");
-        Lieu Cabane = new Lieu(370, 740, 140, 146, Properties.Resources.cabaneIconeGris, new Point(516, 810), "Chasse aux mots");
-        Lieu Tronc = new Lieu(65, 625, 177, 196, Properties.Resources.troncIconeGris, new Point(261, 713), "Grand Ou Petit");
+        Lieu Cabane = new Lieu(370, 740, 140, 146, Properties.Resources.cabaneIconeGris, new Point(760, 420), "Chasse aux mots");
+        Lieu Tronc = new Lieu(65, 625, 177, 196, Properties.Resources.troncIconeGris, new Point(605, 186), "Grand Ou Petit");
         Lieu Montagne = new Lieu(0, 0, 312, 196, Properties.Resources.montagneIconeGris, new Point(191, 156), "Que fait le Roi?");
+        Lieu arrivee = new Lieu();
         Label menuPrincipal = new Label();
         Label prenomLabel = new Label();
         Label ageLabel = new Label();
@@ -74,9 +77,8 @@ namespace La_petite_boite
         Panel Jeu = new Panel();
         Panel tabBord = new Panel();
         Panel miniJeu = new Panel();
-        Panel arrivee;
         Panel CourRoi;
-        Panel Recompense;
+        Panel Recompense = new Panel();
         PictureBox imgChevalier = new PictureBox();
         PictureBox imagePersonnage1 = new PictureBox();
         PictureBox imagePersonnage2 = new PictureBox();
@@ -112,19 +114,52 @@ namespace La_petite_boite
 
             //chargement
             chargement.BackgroundImage = Properties.Resources.Chargement_LapetiteBoite1;
+
             //accueil
             accueil.Top = 0;
             accueil.Left = 3;
-            accueil.Width = 1283;
+            accueil.Width = 1400;
             accueil.Height = 722;
             accueil.BackgroundImage = Properties.Resources.accueil;
 
             //ecran nouveau joueur
-            nouveauJoueur.Width = 1283;
+            nouveauJoueur.Width = 1400;
             nouveauJoueur.Height = 722;
             nouveauJoueur.Top = 0;
             nouveauJoueur.Left = 0;
-            nouveauJoueur.BackgroundImage = Properties.Resources.menu1; 
+            nouveauJoueur.BackgroundImage = Properties.Resources.menu1;
+
+            //diaporamaHistoire
+            diaporamaHistoire.Top = 0;
+            diaporamaHistoire.Left = 0;
+            diaporamaHistoire.Width = 1400;
+            diaporamaHistoire.Height = 722;
+            diaporamaHistoire.BackgroundImage = Properties.Resources.presentationJeu;
+
+            //carteJeu
+            CarteJeu.Top = 0;
+            CarteJeu.Name = "Carte";
+            CarteJeu.Left = 0;
+            CarteJeu.Width = 1400;
+            CarteJeu.Height = 722;
+            CarteJeu.BackgroundImage = Properties.Resources.map;
+
+            //Cour du roi
+            CourRoi = new Panel();
+            CourRoi.Width = 1400;
+            CourRoi.Height = 722;
+            CourRoi.Location = new Point(0, 0);
+            CourRoi.BackgroundImage = Properties.Resources.presentationJeu;
+
+            //ecran mini-jeu
+            Jeu.Top = 0;
+            Jeu.Left = 0;
+            Jeu.Width = 1400;
+            Jeu.Height = 722;
+            Jeu.Name = "Jeu";
+            Jeu.BorderStyle = BorderStyle.FixedSingle;
+
+            //--------------------MINI PANELS-------------------------------//
 
             //mini-panel choix avatar
             choixAvatar.Width = 900;
@@ -140,31 +175,7 @@ namespace La_petite_boite
             saisirInfos.Left = 391;
             saisirInfos.BackColor = Color.Transparent;
             saisirInfos.BorderStyle = BorderStyle.FixedSingle;
-
-           
-            //diaporamaHistoire
-            diaporamaHistoire.Top = 0;
-            diaporamaHistoire.Left = 0;
-            diaporamaHistoire.Width = 1283;
-            diaporamaHistoire.Height = 722;
-            diaporamaHistoire.BackgroundImage = Properties.Resources.presentationJeu;
-
-            //carteJeu
-            CarteJeu.Top = 0;
-            CarteJeu.Name = "Carte";
-            CarteJeu.Left = 0;
-            CarteJeu.Width = 1283;
-            CarteJeu.Height = 722;
-            CarteJeu.BackgroundImage = Properties.Resources.map; 
-
-            //ecran mini-jeu
-            Jeu.Top = 0;
-            Jeu.Left = 0;
-            Jeu.Width = 1280;
-            Jeu.Height = 722;
-            Jeu.Name = "Jeu";
-            Jeu.BorderStyle = BorderStyle.FixedSingle;
-
+            
             //tabBord
 
             tabBord.Width = 150;
@@ -172,14 +183,7 @@ namespace La_petite_boite
             tabBord.Top = 650;
             tabBord.Left = 1100;
             tabBord.BackColor = Color.Transparent;
-
-            //Cour du roi
-            CourRoi = new Panel();
-            CourRoi.Width = 1283;
-            CourRoi.Height = 722;
-            CourRoi.Location = new Point(0, 0);
-            CourRoi.BackgroundImage = Properties.Resources.presentationJeu;
-
+            
             //on ajoute les boutons au tableau de bord
 
             tabBord.Controls.Add(sauvegarde);
@@ -733,18 +737,24 @@ namespace La_petite_boite
 
         private void charger_partie_button(object sender, EventArgs e)
         {
+            int i;
             var ChargeBox = new Charger();
             ChargeBox.ShowDialog();
 
             if (chargementReussi == true)
             {
-                chevalier = new Joueur(nom, age, avatar, top, left, score, dos, epreuvesEmportees);
-                Console.Write(chevalier.getNiveau());
+                //on retrouve le lieu associe a la valeur contenu dans lieuTemporaire (recupere dans Charger.cs)
+                for (i=0;i<listeLieux.Length;i++)
+                {
+                    if (listeLieux[i].Name.Equals(lieuTemporaire))
+                    {
+                        positionInitiale = listeLieux[i];
+                    }
+                }
+                Console.Write(positionInitiale);
+                //on instancie le joueur
+                chevalier = new Joueur(nom, age, avatar, positionInitiale, score, dos, epreuvesEmportees);
                 afficherDiaporama();
-            }
-            else
-            {
-                MessageBox.Show("Erreur","Erreur");
             }
         }
 
@@ -848,13 +858,13 @@ namespace La_petite_boite
                 {
                     int[] epreuves = { 0, 0, 0, 0 };
                     //apres toutes les verifications, on peut enregistrer le nouveau joueur
-                    String enregistrementJoueur = prenomField.Text.ToLower() + "-" + ageJoueur + "-" + sauvegardeImgAvatar + "-" + top + "-" + left + "-" + etoile + "-" + dossier + "-" + epreuves[0] + "-" + epreuves[1] + "-" + epreuves[2] + "-" + epreuves[3];
+                    String enregistrementJoueur = prenomField.Text.ToLower() + "-" + ageJoueur + "-" + sauvegardeImgAvatar + "-" + Montagne.Name + "-" + etoile + "-" + dossier + "-" + epreuves[0] + "-" + epreuves[1] + "-" + epreuves[2] + "-" + epreuves[3];
                     System.IO.File.AppendAllText("Joueurs.txt", Environment.NewLine);
                     System.IO.File.AppendAllText("Joueurs.txt", enregistrementJoueur);
 
                     //il faut creer une nouvelle instance de joueur
-
-                    chevalier = new Joueur(prenomField.Text, ageJoueur, sauvegardeImgAvatar, dossier, epreuves);
+                    
+                    chevalier = new Joueur(prenomField.Text, ageJoueur, sauvegardeImgAvatar, Chateau, Int16.Parse(etoile), dossier, epreuves);
                     Console.WriteLine("Le dossier " + dossier + " a ete cree");
                     Console.Write(chevalier.getNiveau());
                     //on affiche le prelude
@@ -875,7 +885,6 @@ namespace La_petite_boite
             //on affiche le bouton afficherCarte
             diaporamaHistoire.Controls.Add(textePresentationJeu);
             diaporamaHistoire.Controls.Add(AfficherCarte);
-            diaporamaHistoire.Controls.Add(suivant);
 
             this.Controls.Add(diaporamaHistoire);
             
@@ -900,43 +909,49 @@ namespace La_petite_boite
         {
             //le timer est deja declenche. a chaque tick, le perso bouge
             //on a le point de depart et le point d-arrivee. on fait d-abord bouger l-abscisse puis l-ordonnee
-            
-            while (imgChevalier.Left != arrivee.Left)
+            while (imgChevalier.Left != arrivee.getPosition().X)
             {
-                if (imgChevalier.Left < arrivee.Left)
+                if (imgChevalier.Left < arrivee.getPosition().X)
                 {
                     imgChevalier.Left+=1;
                     imgChevalier.Refresh();
+                    arrivee.Refresh();
+                    chevalier.positionJoueur().Refresh();
+                    
                 }
                 else
                 {
                     imgChevalier.Left-=1;
                     imgChevalier.Refresh();
+                    arrivee.Refresh();
+                    chevalier.positionJoueur().Refresh();
                 }
             }
 
-            while (imgChevalier.Top != arrivee.Top)
+            while (imgChevalier.Top != arrivee.getPosition().Y)
             {
-                if (imgChevalier.Top < arrivee.Top)
+                if (imgChevalier.Top < arrivee.getPosition().Y)
                 {
                     imgChevalier.Top+=1;
                     imgChevalier.Refresh();
+                    arrivee.Refresh();
+                    chevalier.positionJoueur().Refresh();
                 }
                 else
                 {
                     imgChevalier.Top-=1;
                     imgChevalier.Refresh();
+                    arrivee.Refresh();
+                    chevalier.positionJoueur().Refresh();
                 }
             }
-            imgChevalier.Refresh();
 
+            imgChevalier.Parent = arrivee;
             //on desactive le timer
             timer2.Enabled = false;
+            chevalier.setPosition(arrivee);
 
-            //on change le backcolor du label pour lancer le jeu
-            chevalier.setJoueurTop(imgChevalier.Top);
-            chevalier.setJoueurLeft(imgChevalier.Left);
-
+            //on change le curseur pour lancer le jeu
             if (arrivee.Cursor == Cursors.Default)
             {
                 arrivee.Cursor = Cursors.Hand;
@@ -958,9 +973,8 @@ namespace La_petite_boite
             //sauvegarde en pleine partie / enregistrement dans le tableau joueursFichier. l-enregistrement en dur se fera a la fermeture de l-application
             Boolean enregistrer = false;
 
-            chevalier.setJoueurTop(imgChevalier.Top);
-            chevalier.setJoueurLeft(imgChevalier.Left);
-            String enregistrementJoueur = chevalier.nomJoueur() + "-" + chevalier.ageJoueur() + "-" + chevalier.avatarJoueur() + "-" + chevalier.topJoueur() + "-" + chevalier.leftJoueur() + "-" + chevalier.scoreJoueur() + "-" + chevalier.dossierJoueur() +"-" + chevalier.getEpreuvesGagnees(0) + "-" + chevalier.getEpreuvesGagnees(1) + "-" + chevalier.getEpreuvesGagnees(2) + "-" + chevalier.getEpreuvesGagnees(3);
+            chevalier.setPosition(arrivee);
+            String enregistrementJoueur = chevalier.nomJoueur() + "-" + chevalier.ageJoueur() + "-" + chevalier.avatarJoueur() + "-" + chevalier.positionJoueur().Name + "-" + chevalier.scoreJoueur() + "-" + chevalier.dossierJoueur() +"-" + chevalier.getEpreuvesGagnees(0) + "-" + chevalier.getEpreuvesGagnees(1) + "-" + chevalier.getEpreuvesGagnees(2) + "-" + chevalier.getEpreuvesGagnees(3);
 
             //on enregistre dans le tableau joueursFichiers les nouvelles valeurs pour le joueur actuel
 
@@ -1199,6 +1213,9 @@ namespace La_petite_boite
             this.Controls.Add(CarteJeu);
 
             //on initialise les elements de la carte : avatar, magicien, chateau, prochaine etoile,
+
+            //pour afficher le decor il faut que l-image chevalier appartienne au label de depart
+            imgChevalier.Parent = chevalier.positionJoueur();
             imgChevalier.Image = Image.FromFile(@chevalier.avatarJoueur());
             imgChevalier.SizeMode = PictureBoxSizeMode.StretchImage;
             imgChevalier.Width = 100;
@@ -1206,8 +1223,8 @@ namespace La_petite_boite
             imgChevalier.BackColor = Color.Transparent;
 
             //position  
-            imgChevalier.Left = chevalier.leftJoueur();
-            imgChevalier.Top = chevalier.topJoueur();
+            imgChevalier.Left = chevalier.positionJoueur().Left;
+            imgChevalier.Top = chevalier.positionJoueur().Top;
 
             //on affiche les elements du jeu
             CarteJeu.Controls.Add(imgChevalier);
@@ -1427,7 +1444,7 @@ namespace La_petite_boite
             this.Controls.Remove(CourRoi);
             this.Controls.Add(Recompense);
 
-            Recompense.Width = 1280;
+            Recompense.Width = 1400;
             Recompense.Height = 722;
             Recompense.Location = new Point(0, 0);
             Recompense.BackColor = Color.AliceBlue;

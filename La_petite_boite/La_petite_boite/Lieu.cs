@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace La_petite_boite
 {
-    class Lieu : System.Windows.Forms.Panel
+    public class Lieu : System.Windows.Forms.Panel
     {
         Point position;
 

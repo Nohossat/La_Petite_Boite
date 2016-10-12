@@ -217,14 +217,13 @@ namespace La_petite_boite
                         Form1.nom = splitjoueurFichier[0];
                         Form1.age = Convert.ToInt16(splitjoueurFichier[1]);
                         Form1.avatar = splitjoueurFichier[2];
-                        Form1.top = Convert.ToInt16(splitjoueurFichier[3]);
-                        Form1.left = Convert.ToInt16(splitjoueurFichier[4]);
-                        Form1.score = Convert.ToInt16(splitjoueurFichier[5]);
-                        Form1.dos = splitjoueurFichier[6];
-                        Form1.epreuvesEmportees[0] = Convert.ToInt16(splitjoueurFichier[7]);
-                        Form1.epreuvesEmportees[1] = Convert.ToInt16(splitjoueurFichier[8]);
-                        Form1.epreuvesEmportees[2] = Convert.ToInt16(splitjoueurFichier[9]);
-                        Form1.epreuvesEmportees[3] = Convert.ToInt16(splitjoueurFichier[10]);
+                        Form1.lieuTemporaire = splitjoueurFichier[3];
+                        Form1.score = Convert.ToInt16(splitjoueurFichier[4]);
+                        Form1.dos = splitjoueurFichier[5];
+                        Form1.epreuvesEmportees[0] = Convert.ToInt16(splitjoueurFichier[6]);
+                        Form1.epreuvesEmportees[1] = Convert.ToInt16(splitjoueurFichier[7]);
+                        Form1.epreuvesEmportees[2] = Convert.ToInt16(splitjoueurFichier[8]);
+                        Form1.epreuvesEmportees[3] = Convert.ToInt16(splitjoueurFichier[9]);
                         trouve = true;
                     }
                 }

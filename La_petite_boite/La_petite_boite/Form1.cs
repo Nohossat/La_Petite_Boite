@@ -54,7 +54,7 @@ namespace La_petite_boite
         Button No;
         ComboBox listeDossierSauvegarde = new ComboBox();
         Lieu Village = new Lieu(470, -38, 448, 270, Properties.Resources.villageIconeGris, new Point(310, 460), "Memory");
-        Lieu Chateau = new Lieu(190, 1005, 227, 263, Properties.Resources.chateauIconeGris, new Point(453, 1050), "Chateau");
+        Lieu Chateau = new Lieu(190, 1005, 227, 263, Properties.Resources.chateauIconeGris, new Point(453, 1000), "Chateau");
         Lieu Cabane = new Lieu(370, 740, 140, 146, Properties.Resources.cabaneIconeGris, new Point(760, 420), "Chasse aux mots");
         Lieu Tronc = new Lieu(65, 625, 177, 196, Properties.Resources.troncIconeGris, new Point(605, 186), "Grand Ou Petit");
         Lieu Montagne = new Lieu(0, 0, 312, 196, Properties.Resources.montagneIconeGris, new Point(191, 156), "Que fait le Roi?");
@@ -93,6 +93,7 @@ namespace La_petite_boite
         PictureBox recompense2;
         PictureBox recompense3;
         PictureBox[] listeAvatars;
+        Rectangle box = new Rectangle();
         String sauvegardeImgAvatar = null;
         String[] listeSauvegarde;
         String jeuEnCours = "";
@@ -142,7 +143,7 @@ namespace La_petite_boite
             CarteJeu.Left = 0;
             CarteJeu.Width = 1400;
             CarteJeu.Height = 722;
-            CarteJeu.BackgroundImage = Properties.Resources.map;
+            CarteJeu.BackgroundImage = Properties.Resources.mapCsharp;
 
             //Cour du roi
             CourRoi = new Panel();
@@ -226,19 +227,19 @@ namespace La_petite_boite
 
             //avatars
 
-            imagePersonnage1.Name = "images/roi2.png";
+            imagePersonnage1.Name = "images/chevalier1.png";
             imagePersonnage1.Image = Image.FromFile(@imagePersonnage1.Name);
             imagePersonnage1.Left = 100;
 
-            imagePersonnage2.Name = "images/roi3.png";
+            imagePersonnage2.Name = "images/chevalier2.png";
             imagePersonnage2.Image = Image.FromFile(@imagePersonnage2.Name);
             imagePersonnage2.Left = 300;
 
-            imagePersonnage3.Name = "images/roi4.png";
+            imagePersonnage3.Name = "images/chevalier3.png";
             imagePersonnage3.Image = Image.FromFile(@imagePersonnage3.Name);
             imagePersonnage3.Left = 500;
 
-            imagePersonnage4.Name = "images/guide_roi.png";
+            imagePersonnage4.Name = "images/chevalier4.png";
             imagePersonnage4.Image = Image.FromFile(@imagePersonnage4.Name);
             imagePersonnage4.Left = 700;
             
@@ -901,30 +902,59 @@ namespace La_petite_boite
         private void declencheTimer(object sender, EventArgs e)
         {
             arrivee = (Lieu)sender;
-            
+
+            //il faut afficher la bonne carte
+
+            if (arrivee.Name.Equals("Memory"))
+            {
+                CarteJeu.BackgroundImage = Properties.Resources.mapVillage;
+            }
+            else if (arrivee.Name.Equals("Chateau"))
+            {
+                CarteJeu.BackgroundImage = Properties.Resources.mapChateau;
+            }
+            else if (arrivee.Name.Equals("Chasse aux mots"))
+            {
+                CarteJeu.BackgroundImage = Properties.Resources.mapCabane;
+            }
+            else if (arrivee.Name.Equals("Grand Ou Petit"))
+            {
+                CarteJeu.BackgroundImage = Properties.Resources.mapTronc;
+            }
+            else
+            {
+                CarteJeu.BackgroundImage = Properties.Resources.mapMontagne;
+            }
+
+            CarteJeu.Controls.Remove(Village);
+            CarteJeu.Controls.Remove(Montagne);
+            CarteJeu.Controls.Remove(Tronc);
+            CarteJeu.Controls.Remove(Cabane);
+            CarteJeu.Controls.Remove(Chateau);
+
+            this.Refresh();
+
             timer2.Enabled = true;
         }
        
         private void timerDeplacement(object sender, EventArgs e)
         {
+            
             //le timer est deja declenche. a chaque tick, le perso bouge
             //on a le point de depart et le point d-arrivee. on fait d-abord bouger l-abscisse puis l-ordonnee
+
             while (imgChevalier.Left != arrivee.getPosition().X)
             {
                 if (imgChevalier.Left < arrivee.getPosition().X)
                 {
                     imgChevalier.Left+=1;
                     imgChevalier.Refresh();
-                    arrivee.Refresh();
-                    chevalier.positionJoueur().Refresh();
                     
                 }
                 else
                 {
                     imgChevalier.Left-=1;
                     imgChevalier.Refresh();
-                    arrivee.Refresh();
-                    chevalier.positionJoueur().Refresh();
                 }
             }
 
@@ -934,19 +964,14 @@ namespace La_petite_boite
                 {
                     imgChevalier.Top+=1;
                     imgChevalier.Refresh();
-                    arrivee.Refresh();
-                    chevalier.positionJoueur().Refresh();
                 }
                 else
                 {
                     imgChevalier.Top-=1;
                     imgChevalier.Refresh();
-                    arrivee.Refresh();
-                    chevalier.positionJoueur().Refresh();
                 }
             }
-
-            imgChevalier.Parent = arrivee;
+            
             //on desactive le timer
             timer2.Enabled = false;
             chevalier.setPosition(arrivee);
@@ -1215,7 +1240,6 @@ namespace La_petite_boite
             //on initialise les elements de la carte : avatar, magicien, chateau, prochaine etoile,
 
             //pour afficher le decor il faut que l-image chevalier appartienne au label de depart
-            imgChevalier.Parent = chevalier.positionJoueur();
             imgChevalier.Image = Image.FromFile(@chevalier.avatarJoueur());
             imgChevalier.SizeMode = PictureBoxSizeMode.StretchImage;
             imgChevalier.Width = 100;

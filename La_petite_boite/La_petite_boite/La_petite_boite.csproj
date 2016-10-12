@@ -250,6 +250,48 @@
   <ItemGroup>
     <None Include="bin\Debug\images\guide.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\chevalier1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\chevalier2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\chevalier3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\chevalier4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\mapCabane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\mapChateau.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\mapMontagne.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\mapReference.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\mapTronc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\mapVillage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\chateauMap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\chateauMapGris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\montagneMap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\images\montagneMapGris.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

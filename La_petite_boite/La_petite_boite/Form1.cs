@@ -54,10 +54,10 @@ namespace La_petite_boite
         Button No;
         ComboBox listeDossierSauvegarde = new ComboBox();
         Lieu Village = new Lieu(470, -38, 448, 270, Properties.Resources.villageIconeGris, new Point(310, 460), "Memory");
-        Lieu Chateau = new Lieu(190, 1005, 227, 263, Properties.Resources.chateauIconeGris, new Point(453, 1000), "Chateau");
+        Lieu Chateau = new Lieu(190, 1005, 227, 263, Properties.Resources.chateauMapGris, new Point(453, 1000), "Chateau");
         Lieu Cabane = new Lieu(370, 740, 140, 146, Properties.Resources.cabaneIconeGris, new Point(760, 420), "Chasse aux mots");
         Lieu Tronc = new Lieu(65, 625, 177, 196, Properties.Resources.troncIconeGris, new Point(605, 186), "Grand Ou Petit");
-        Lieu Montagne = new Lieu(0, 0, 312, 196, Properties.Resources.montagneIconeGris, new Point(191, 156), "Que fait le Roi?");
+        Lieu Montagne = new Lieu(0, 0, 312, 196, Properties.Resources.montagneMapGris, new Point(191, 156), "Que fait le Roi?");
         Lieu arrivee = new Lieu();
         Label menuPrincipal = new Label();
         Label prenomLabel = new Label();
@@ -93,7 +93,6 @@ namespace La_petite_boite
         PictureBox recompense2;
         PictureBox recompense3;
         PictureBox[] listeAvatars;
-        Rectangle box = new Rectangle();
         String sauvegardeImgAvatar = null;
         String[] listeSauvegarde;
         String jeuEnCours = "";
@@ -143,7 +142,7 @@ namespace La_petite_boite
             CarteJeu.Left = 0;
             CarteJeu.Width = 1400;
             CarteJeu.Height = 722;
-            CarteJeu.BackgroundImage = Properties.Resources.mapCsharp;
+            CarteJeu.BackgroundImage = Properties.Resources.mapReference;
 
             //Cour du roi
             CourRoi = new Panel();
@@ -1051,7 +1050,7 @@ namespace La_petite_boite
             }
             else if (P.Name.Equals("Chateau"))
             {
-                P.BackgroundImage = Properties.Resources.chateauIconeGris;
+                P.BackgroundImage = Properties.Resources.chateauMapGris;
             }
             else if (P.Name.Equals("Chasse aux mots"))
             {
@@ -1063,15 +1062,13 @@ namespace La_petite_boite
             }
             else
             {
-                P.BackgroundImage = Properties.Resources.montagneIconeGris;
+                P.BackgroundImage = Properties.Resources.montagneMapGris;
             }
 
             this.Update();
         }
 
-        //MINI JEUX
-
-        private void nouvelleImageLieu (Panel P)
+        private void nouvelleImageLieu(Panel P)
         {
             if (P.Name.Equals("Memory"))
             {
@@ -1079,7 +1076,7 @@ namespace La_petite_boite
             }
             else if (P.Name.Equals("Chateau"))
             {
-                P.BackgroundImage = Properties.Resources.chateauIcone;
+                P.BackgroundImage = Properties.Resources.chateauMap;
             }
             else if (P.Name.Equals("Chasse aux mots"))
             {
@@ -1091,11 +1088,13 @@ namespace La_petite_boite
             }
             else
             {
-                P.BackgroundImage = Properties.Resources.montagneIcone;
+                P.BackgroundImage = Properties.Resources.montagneMap;
             }
 
             this.Update();
         }
+
+        //MINI JEUX
 
         private void afficheJeu (String nomJeu, Image img, Panel p)
         {

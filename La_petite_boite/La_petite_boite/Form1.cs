@@ -53,11 +53,11 @@ namespace La_petite_boite
         Button Yes;
         Button No;
         ComboBox listeDossierSauvegarde = new ComboBox();
-        Lieu Village = new Lieu(470, -38, 448, 270, Properties.Resources.villageIconeGris, new Point(310, 460), "Memory");
-        Lieu Chateau = new Lieu(190, 1005, 227, 263, Properties.Resources.chateauMapGris, new Point(453, 1000), "Chateau");
-        Lieu Cabane = new Lieu(370, 740, 140, 146, Properties.Resources.cabaneIconeGris, new Point(760, 420), "Chasse aux mots");
-        Lieu Tronc = new Lieu(65, 625, 177, 196, Properties.Resources.troncIconeGris, new Point(605, 186), "Grand Ou Petit");
-        Lieu Montagne = new Lieu(0, 0, 312, 196, Properties.Resources.montagneMapGris, new Point(191, 156), "Que fait le Roi?");
+        Lieu Village = new Lieu(512, -28, 448, 270, Properties.Resources.villageIconeGris, new Point(310, 460), "Memory");
+        Lieu Chateau = new Lieu(100, 1037, 325, 397, Properties.Resources.chateauMapGris, new Point(500, 150), "Chateau");
+        Lieu Cabane = new Lieu(447, 811, 140, 146, Properties.Resources.cabaneIconeGris, new Point(800, 420), "Chasse aux mots");
+        Lieu Tronc = new Lieu(104, 620, 177, 196, Properties.Resources.troncIconeGris, new Point(605, 186), "Grand Ou Petit");
+        Lieu Montagne = new Lieu(0, -4, 378, 215, Properties.Resources.montagneMapGris, new Point(191, 156), "Que fait le Roi?");
         Lieu arrivee = new Lieu();
         Label menuPrincipal = new Label();
         Label prenomLabel = new Label();
@@ -1246,8 +1246,8 @@ namespace La_petite_boite
             imgChevalier.BackColor = Color.Transparent;
 
             //position  
-            imgChevalier.Left = chevalier.positionJoueur().Left;
-            imgChevalier.Top = chevalier.positionJoueur().Top;
+            imgChevalier.Left = chevalier.positionJoueur().getPosition().X;
+            imgChevalier.Top = chevalier.positionJoueur().getPosition().Y;
 
             //on affiche les elements du jeu
             CarteJeu.Controls.Add(imgChevalier);

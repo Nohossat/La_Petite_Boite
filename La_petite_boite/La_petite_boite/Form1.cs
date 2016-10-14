@@ -56,7 +56,7 @@ namespace La_petite_boite
         Lieu Village = new Lieu(512, -28, 448, 270, Properties.Resources.villageIconeGris, new Point(140, 520), "Memory");
         Lieu Chateau = new Lieu(98, 1034, 300, 420, Properties.Resources.chateauMapGris, new Point(1130, 380), "Chateau");
         Lieu Cabane = new Lieu(447, 811, 140, 146, Properties.Resources.cabaneIconeGris, new Point(830, 520), "Chasse aux mots");
-        Lieu Tronc = new Lieu(104, 620, 177, 196, Properties.Resources.troncIconeGris, new Point(650, 196), "Grand Ou Petit");
+        Lieu Tronc = new Lieu(104, 620, 177, 196, Properties.Resources.troncIconeGris, new Point(650, 190), "Grand Ou Petit");
         Lieu Montagne = new Lieu(-2, -2, 378, 215, Properties.Resources.montagneMapGris, new Point(140, 156), "Que fait le Roi?");
         Lieu arrivee = new Lieu();
         Label menuPrincipal = new Label();
@@ -180,8 +180,8 @@ namespace La_petite_boite
 
             tabBord.Width = 150;
             tabBord.Height = 50;
-            tabBord.Top = 650;
-            tabBord.Left = 1100;
+            tabBord.Top = 680;
+            tabBord.Left = 1200;
             tabBord.BackColor = Color.Transparent;
             
             //on ajoute les boutons au tableau de bord
@@ -945,8 +945,17 @@ namespace La_petite_boite
 
             if (chevalier.positionJoueur().Name.Equals("Chateau"))
             {
-                //chateau
-                 deplacementVertical(arrivee);
+                if (arrivee.Name.Equals("Que fait le Roi?"))
+                {
+                    deplacementVertical(Tronc);
+                    deplacementVertical(arrivee);
+                }
+                else
+                {
+                    //chateau
+                    deplacementVertical(arrivee);
+                }
+                
 
                 //deplacement chateau / montagne a regler
             }
@@ -978,8 +987,17 @@ namespace La_petite_boite
             }
             else if (chevalier.positionJoueur().Name.Equals("Que fait le Roi?"))
             {
-                //montagne
-                deplacementVertical(arrivee);
+                if (arrivee.Name.Equals("Chateau"))
+                {
+                    deplacementVertical(Tronc);
+                    deplacementVertical(arrivee);
+                }
+                else
+                {
+                    //montagne
+                    deplacementVertical(arrivee);
+                }
+                
             }
             
 
@@ -1006,13 +1024,13 @@ namespace La_petite_boite
             {
                 if (imgChevalier.Left < a.getPosition().X)
                 {
-                    imgChevalier.Left += 1;
+                    imgChevalier.Left += 2;
                     imgChevalier.Refresh();
 
                 }
                 else
                 {
-                    imgChevalier.Left -= 1;
+                    imgChevalier.Left -= 2;
                     imgChevalier.Refresh();
                 }
             }
@@ -1021,12 +1039,12 @@ namespace La_petite_boite
             {
                 if (imgChevalier.Top < a.getPosition().Y)
                 {
-                    imgChevalier.Top += 1;
+                    imgChevalier.Top += 2;
                     imgChevalier.Refresh();
                 }
                 else
                 {
-                    imgChevalier.Top -= 1;
+                    imgChevalier.Top -= 2;
                     imgChevalier.Refresh();
                 }
             }
@@ -1039,12 +1057,12 @@ namespace La_petite_boite
             {
                 if (imgChevalier.Top < a.getPosition().Y)
                 {
-                    imgChevalier.Top += 1;
+                    imgChevalier.Top += 2;
                     imgChevalier.Refresh();
                 }
                 else
                 {
-                    imgChevalier.Top -= 1;
+                    imgChevalier.Top -= 2;
                     imgChevalier.Refresh();
                 }
             }
@@ -1053,13 +1071,13 @@ namespace La_petite_boite
             {
                 if (imgChevalier.Left < a.getPosition().X)
                 {
-                    imgChevalier.Left += 1;
+                    imgChevalier.Left += 2;
                     imgChevalier.Refresh();
 
                 }
                 else
                 {
-                    imgChevalier.Left -= 1;
+                    imgChevalier.Left -= 2;
                     imgChevalier.Refresh();
                 }
             }
@@ -1355,6 +1373,11 @@ namespace La_petite_boite
                 this.Controls.Remove(Jeu);
                 Carte();
             }
+            else if (parent.Parent == CourRoi)
+            {
+                this.Controls.Remove(CourRoi);
+                Carte();
+            }
             else if (parent.Parent == CarteJeu)
             {
                 DialogResult res = afficheMessageBox("Attention","Tu es sur le point de quitter la partie. Souhaites-tu sauvegarder tes donnees? Appuies sur Annuler pour revenir sur la carte.");
@@ -1529,6 +1552,7 @@ namespace La_petite_boite
             CourRoi.Controls.Add(Yes);
             CourRoi.Controls.Add(No);
             CourRoi.Controls.Add(GrosCoffre);
+            CourRoi.Controls.Add(tabBord);
             this.Controls.Add(CourRoi);
             
         }

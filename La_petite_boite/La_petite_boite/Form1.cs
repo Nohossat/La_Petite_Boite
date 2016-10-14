@@ -53,11 +53,11 @@ namespace La_petite_boite
         Button Yes;
         Button No;
         ComboBox listeDossierSauvegarde = new ComboBox();
-        Lieu Village = new Lieu(512, -28, 448, 270, Properties.Resources.villageIconeGris, new Point(310, 460), "Memory");
-        Lieu Chateau = new Lieu(100, 1037, 325, 397, Properties.Resources.chateauMapGris, new Point(500, 170), "Chateau");
-        Lieu Cabane = new Lieu(447, 811, 140, 146, Properties.Resources.cabaneIconeGris, new Point(800, 420), "Chasse aux mots");
-        Lieu Tronc = new Lieu(104, 620, 177, 196, Properties.Resources.troncIconeGris, new Point(605, 186), "Grand Ou Petit");
-        Lieu Montagne = new Lieu(0, -4, 378, 215, Properties.Resources.montagneMapGris, new Point(191, 156), "Que fait le Roi?");
+        Lieu Village = new Lieu(512, -28, 448, 270, Properties.Resources.villageIconeGris, new Point(140, 520), "Memory");
+        Lieu Chateau = new Lieu(98, 1034, 300, 420, Properties.Resources.chateauMapGris, new Point(1130, 380), "Chateau");
+        Lieu Cabane = new Lieu(447, 811, 140, 146, Properties.Resources.cabaneIconeGris, new Point(830, 520), "Chasse aux mots");
+        Lieu Tronc = new Lieu(104, 620, 177, 196, Properties.Resources.troncIconeGris, new Point(650, 196), "Grand Ou Petit");
+        Lieu Montagne = new Lieu(-2, -2, 378, 215, Properties.Resources.montagneMapGris, new Point(140, 156), "Que fait le Roi?");
         Lieu arrivee = new Lieu();
         Label menuPrincipal = new Label();
         Label prenomLabel = new Label();
@@ -939,38 +939,51 @@ namespace La_petite_boite
         private void timerDeplacement(object sender, EventArgs e)
         {
             
-            //le timer est deja declenche. a chaque tick, le perso bouge
-            //on a le point de depart et le point d-arrivee. on fait d-abord bouger l-abscisse puis l-ordonnee
+            //selon le depart, le deplacement n-est pas le meme
 
-            while (imgChevalier.Left != arrivee.getPosition().X)
+            //si depart == chateau
+
+            if (chevalier.positionJoueur().Name.Equals("Chateau"))
             {
-                if (imgChevalier.Left < arrivee.getPosition().X)
+                //chateau
+                 deplacementVertical(arrivee);
+
+                //deplacement chateau / montagne a regler
+            }
+            else if (chevalier.positionJoueur().Name.Equals("Memory"))
+            {
+                //village
+
+                if (arrivee.Name.Equals("Grand Ou Petit") || arrivee.Name.Equals("Que fait le Roi?"))
                 {
-                    imgChevalier.Left+=1;
-                    imgChevalier.Refresh();
-                    
+                    deplacementVertical(arrivee);
                 }
                 else
                 {
-                    imgChevalier.Left-=1;
-                    imgChevalier.Refresh();
+                    deplacementHorizontal(arrivee);
                 }
             }
-
-            while (imgChevalier.Top != arrivee.getPosition().Y)
+            else if (chevalier.positionJoueur().Name.Equals("Chasse aux mots") || chevalier.positionJoueur().Name.Equals("Grand Ou Petit"))
             {
-                if (imgChevalier.Top < arrivee.getPosition().Y)
+                if (arrivee.Name.Equals("Chasse aux mots") || arrivee.Name.Equals("Grand Ou Petit"))
                 {
-                    imgChevalier.Top+=1;
-                    imgChevalier.Refresh();
+                    //cabane ou tronc
+                    deplacementCabaneTronc();
                 }
                 else
                 {
-                    imgChevalier.Top-=1;
-                    imgChevalier.Refresh();
+                    deplacementHorizontal(arrivee);
                 }
+                
+            }
+            else if (chevalier.positionJoueur().Name.Equals("Que fait le Roi?"))
+            {
+                //montagne
+                deplacementVertical(arrivee);
             }
             
+
+            imgChevalier.Refresh();
             //on desactive le timer
             timer2.Enabled = false;
             chevalier.setPosition(arrivee);
@@ -985,6 +998,77 @@ namespace La_petite_boite
                 arrivee.Cursor = Cursors.Default;
             }
             
+        }
+
+        private void deplacementHorizontal(Lieu a)
+        {
+            while (imgChevalier.Left != a.getPosition().X)
+            {
+                if (imgChevalier.Left < a.getPosition().X)
+                {
+                    imgChevalier.Left += 1;
+                    imgChevalier.Refresh();
+
+                }
+                else
+                {
+                    imgChevalier.Left -= 1;
+                    imgChevalier.Refresh();
+                }
+            }
+
+            while (imgChevalier.Top != a.getPosition().Y)
+            {
+                if (imgChevalier.Top < a.getPosition().Y)
+                {
+                    imgChevalier.Top += 1;
+                    imgChevalier.Refresh();
+                }
+                else
+                {
+                    imgChevalier.Top -= 1;
+                    imgChevalier.Refresh();
+                }
+            }
+        }
+
+        private void deplacementVertical(Lieu a)
+        {
+
+            while (imgChevalier.Top != a.getPosition().Y)
+            {
+                if (imgChevalier.Top < a.getPosition().Y)
+                {
+                    imgChevalier.Top += 1;
+                    imgChevalier.Refresh();
+                }
+                else
+                {
+                    imgChevalier.Top -= 1;
+                    imgChevalier.Refresh();
+                }
+            }
+
+            while (imgChevalier.Left != a.getPosition().X)
+            {
+                if (imgChevalier.Left < a.getPosition().X)
+                {
+                    imgChevalier.Left += 1;
+                    imgChevalier.Refresh();
+
+                }
+                else
+                {
+                    imgChevalier.Left -= 1;
+                    imgChevalier.Refresh();
+                }
+            }
+        }
+
+        private void deplacementCabaneTronc ()
+        {
+            deplacementHorizontal(Chateau);
+            deplacementVertical(Tronc);
         }
 
         private void sauvegardeButton (object sender, EventArgs e)
@@ -1250,6 +1334,7 @@ namespace La_petite_boite
             imgChevalier.Top = chevalier.positionJoueur().getPosition().Y;
 
             //on affiche les elements du jeu
+            CarteJeu.BackgroundImage = Properties.Resources.mapReference;
             CarteJeu.Controls.Add(imgChevalier);
             CarteJeu.Controls.Add(Village);
             CarteJeu.Controls.Add(Montagne);

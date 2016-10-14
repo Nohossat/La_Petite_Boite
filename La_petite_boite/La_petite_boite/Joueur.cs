@@ -17,7 +17,7 @@ using System.Windows.Forms;
 
 namespace La_petite_boite
 {
-    internal class Joueur
+    internal class Joueur : System.Windows.Forms.Panel
     {
         String nom;
         int age;
@@ -41,6 +41,7 @@ namespace La_petite_boite
             this.ScoreEtoile = etoile;
             this.dossierSauvegarde = dossier;
             this.epreuvesGagnees = epreuves;
+            this.DoubleBuffered = true;
 
             if (this.age < 6)
             {

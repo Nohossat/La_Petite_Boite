@@ -54,7 +54,7 @@ namespace La_petite_boite
         Button No;
         ComboBox listeDossierSauvegarde = new ComboBox();
         Lieu Village = new Lieu(512, -28, 448, 270, Properties.Resources.villageIconeGris, new Point(310, 460), "Memory");
-        Lieu Chateau = new Lieu(100, 1037, 325, 397, Properties.Resources.chateauMapGris, new Point(500, 150), "Chateau");
+        Lieu Chateau = new Lieu(100, 1037, 325, 397, Properties.Resources.chateauMapGris, new Point(500, 170), "Chateau");
         Lieu Cabane = new Lieu(447, 811, 140, 146, Properties.Resources.cabaneIconeGris, new Point(800, 420), "Chasse aux mots");
         Lieu Tronc = new Lieu(104, 620, 177, 196, Properties.Resources.troncIconeGris, new Point(605, 186), "Grand Ou Petit");
         Lieu Montagne = new Lieu(0, -4, 378, 215, Properties.Resources.montagneMapGris, new Point(191, 156), "Que fait le Roi?");

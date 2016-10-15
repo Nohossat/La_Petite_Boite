@@ -99,7 +99,7 @@ namespace Grand_ou_petit_8
                 coordonneesGrandeCarte.Remove(p);
             }
 
-            //récupérer les localisations des grandes cartes
+            //récupérer les localisations des emplacements de cartes
             foreach (PictureBox image in conteneurCarteAPlacer.Controls)
             {
                 image.Enabled = true;

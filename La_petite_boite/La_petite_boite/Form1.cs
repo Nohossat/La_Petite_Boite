@@ -226,20 +226,20 @@ namespace La_petite_boite
 
             //avatars
 
-            imagePersonnage1.Name = "images/chevalier1.png";
-            imagePersonnage1.Image = Image.FromFile(@imagePersonnage1.Name);
+            imagePersonnage1.Name = "chevalier1";
+            imagePersonnage1.Image = Properties.Resources.chevalier1;
             imagePersonnage1.Left = 100;
 
-            imagePersonnage2.Name = "images/chevalier2.png";
-            imagePersonnage2.Image = Image.FromFile(@imagePersonnage2.Name);
+            imagePersonnage2.Name = "chevalier2";
+            imagePersonnage2.Image = Properties.Resources.chevalier2;
             imagePersonnage2.Left = 300;
 
-            imagePersonnage3.Name = "images/chevalier3.png";
-            imagePersonnage3.Image = Image.FromFile(@imagePersonnage3.Name);
+            imagePersonnage3.Name = "chevalier3";
+            imagePersonnage3.Image = Properties.Resources.chevalier3;
             imagePersonnage3.Left = 500;
 
-            imagePersonnage4.Name = "images/chevalier4.png";
-            imagePersonnage4.Image = Image.FromFile(@imagePersonnage4.Name);
+            imagePersonnage4.Name = "chevalier4";
+            imagePersonnage4.Image = Properties.Resources.chevalier4;
             imagePersonnage4.Left = 700;
             
             listeAvatars = new PictureBox[] { imagePersonnage1, imagePersonnage2, imagePersonnage3, imagePersonnage4 };
@@ -1341,7 +1341,26 @@ namespace La_petite_boite
             //on initialise les elements de la carte : avatar, magicien, chateau, prochaine etoile,
 
             //pour afficher le decor il faut que l-image chevalier appartienne au label de depart
-            imgChevalier.Image = Image.FromFile(@chevalier.avatarJoueur());
+
+            //conditions pour afficher la bonne image
+
+            if (chevalier.avatarJoueur().Equals("chevalier1"))
+            {
+                imgChevalier.Image = Properties.Resources.chevalier1;
+            }
+            else if (chevalier.avatarJoueur().Equals("chevalier2"))
+            {
+                imgChevalier.Image = Properties.Resources.chevalier2;
+            }
+            else if (chevalier.avatarJoueur().Equals("chevalier3"))
+            {
+                imgChevalier.Image = Properties.Resources.chevalier3;
+            }
+            else
+            {
+                imgChevalier.Image = Properties.Resources.chevalier4;
+            }
+           
             imgChevalier.SizeMode = PictureBoxSizeMode.StretchImage;
             imgChevalier.Width = 100;
             imgChevalier.Height = 130;

@@ -17,11 +17,13 @@ using System.Reflection;
 //reste a faire:  design,
 
 namespace La_petite_boite
-
     //il faut regler bug affichage images, ajouter les recompenses et diapo roi. il y a un bug sur deux mini jeux, facilement reglables je pense
 {
+   
     public partial class Form1 : Form
     {
+        Assembly _assembly = Assembly.GetExecutingAssembly();
+        Stream _imageStream;
         //creation des objets et variables globales
         public static Boolean chargementReussi = false;
         public static int age;
@@ -55,11 +57,11 @@ namespace La_petite_boite
         Button Yes;
         Button No;
         ComboBox listeDossierSauvegarde = new ComboBox();
-        Lieu Village = new Lieu(512, -28, 448, 270, "villageIconeGris", new Point(140, 520), "Memory");
-        Lieu Chateau = new Lieu(98, 1034, 300, 420, "chateauMapGris", new Point(1130, 380), "Chateau");
-        Lieu Cabane = new Lieu(447, 811, 140, 146, "cabaneIconeGris", new Point(830, 520), "Chasse aux mots");
-        Lieu Tronc = new Lieu(104, 620, 177, 196, "troncIconeGris", new Point(650, 190), "Grand Ou Petit");
-        Lieu Montagne = new Lieu(-2, -2, 378, 215, "montagneMapGris", new Point(140, 156), "Que fait le Roi?");
+        Lieu Village = new Lieu(512, -28, 448, 270, "villageIconeGris.png", new Point(140, 520), "Memory");
+        Lieu Chateau = new Lieu(98, 1034, 300, 420, "chateauMapGris.png", new Point(1130, 380), "Chateau");
+        Lieu Cabane = new Lieu(447, 811, 140, 146, "cabaneIconeGris.png", new Point(830, 520), "Chasse aux mots");
+        Lieu Tronc = new Lieu(104, 620, 177, 196, "troncIconeGris.png", new Point(650, 190), "Grand Ou Petit");
+        Lieu Montagne = new Lieu(-2, -2, 378, 215, "montagneMapGris.png", new Point(140, 156), "Que fait le Roi?");
         Lieu arrivee = new Lieu();
         Label menuPrincipal = new Label();
         Label prenomLabel = new Label();
@@ -101,14 +103,22 @@ namespace La_petite_boite
         String message ="";
         TextBox prenomField = new TextBox();
         TextBox ageField = new TextBox();
-        Assembly _assembly = Assembly.GetExecutingAssembly();
-        Stream _imageStream;
+        
 
         public Form1()
         {
             InitializeComponent();
-            //generation des elements
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            generationElements();
+        }
+
+        private void generationElements()
+        {
             //---------------------PANELS------------------------//
+
 
             //chargement
             chargementImage("Chargement_LapetiteBoite.png", chargement);
@@ -126,31 +136,31 @@ namespace La_petite_boite
             nouveauJoueur.Height = 722;
             nouveauJoueur.Top = 0;
             nouveauJoueur.Left = 0;
-           
-            
+
+
             //diaporamaHistoire
-            chargementImage("presentationJeu.png",diaporamaHistoire);
+            chargementImage("presentationJeu.png", diaporamaHistoire);
             diaporamaHistoire.Top = 0;
             diaporamaHistoire.Left = 0;
             diaporamaHistoire.Width = 1400;
             diaporamaHistoire.Height = 722;
-            
-            
+
+
             //carteJeu
-            chargementImage("mapReference.png",CarteJeu);
+            chargementImage("mapReference.png", CarteJeu);
             CarteJeu.Top = 0;
             CarteJeu.Name = "Carte";
             CarteJeu.Left = 0;
             CarteJeu.Width = 1400;
             CarteJeu.Height = 722;
-            
+
             //Cour du roi
             chargementImage("presentationJeu.png", CourRoi);
             CourRoi = new Panel();
             CourRoi.Width = 1400;
             CourRoi.Height = 722;
             CourRoi.Location = new Point(0, 0);
-            
+
 
             //ecran mini-jeu
             Jeu.Top = 0;
@@ -176,7 +186,7 @@ namespace La_petite_boite
             saisirInfos.Left = 391;
             saisirInfos.BackColor = Color.Transparent;
             saisirInfos.BorderStyle = BorderStyle.FixedSingle;
-            
+
             //tabBord
 
             tabBord.Width = 150;
@@ -184,7 +194,7 @@ namespace La_petite_boite
             tabBord.Top = 680;
             tabBord.Left = 1200;
             tabBord.BackColor = Color.Transparent;
-            
+
             //on ajoute les boutons au tableau de bord
 
             tabBord.Controls.Add(sauvegarde);
@@ -226,22 +236,22 @@ namespace La_petite_boite
             //------------------------IMAGES-------------------------------//
 
             //avatars
-            chargementImage("chevalier1",imagePersonnage1);
+            chargementImage("chevalier1", imagePersonnage1);
             imagePersonnage1.Name = "chevalier1.png";
             imagePersonnage1.Left = 100;
-            
-            chargementImage("chevalier2",imagePersonnage2);
+
+            chargementImage("chevalier2", imagePersonnage2);
             imagePersonnage2.Name = "chevalier2.png";
             imagePersonnage2.Left = 300;
-            
-            chargementImage("chevalier3",imagePersonnage3);
+
+            chargementImage("chevalier3", imagePersonnage3);
             imagePersonnage3.Name = "chevalier3.png";
             imagePersonnage3.Left = 500;
-            
-            chargementImage("chevalier4",imagePersonnage4);
+
+            chargementImage("chevalier4", imagePersonnage4);
             imagePersonnage4.Name = "chevalier4.png";
             imagePersonnage4.Left = 700;
-            
+
             listeAvatars = new PictureBox[] { imagePersonnage1, imagePersonnage2, imagePersonnage3, imagePersonnage4 };
             //on ajoute les images au panel choixAvatar
 
@@ -255,17 +265,17 @@ namespace La_petite_boite
                 listeAvatars[i].Width = 100;
                 listeAvatars[i].Height = 130;
             }
-            
+
             //guide
-            chargementImage("guide.png",guide);
+            chargementImage("guide.png", guide);
             guide.Width = 50;
             guide.Height = 50;
             //guide.Image = new Bitmap(_imageStream);
             guide.SizeMode = PictureBoxSizeMode.StretchImage;
             guide.Click += new EventHandler(AfficheMessage);
-            
+
             //coffre
-            chargementImage("coffre.png",coffre);
+            chargementImage("coffre.png", coffre);
             coffre.Width = 100;
             coffre.Height = 90;
             coffre.Top = 20;
@@ -275,16 +285,16 @@ namespace La_petite_boite
             coffre.BackColor = Color.Transparent;
 
             //gros coffre pour la fin du jeu
-            chargementImage("coffrepng.",GrosCoffre);
+            chargementImage("coffrepng.", GrosCoffre);
             GrosCoffre = new PictureBox();
-           // GrosCoffre.Image = new Bitmap(_imageStream);
+            // GrosCoffre.Image = new Bitmap(_imageStream);
             GrosCoffre.Location = new Point(800, 300);
             GrosCoffre.Size = new Size(300, 300);
             GrosCoffre.SizeMode = PictureBoxSizeMode.StretchImage;
             GrosCoffre.BackColor = Color.Transparent;
-            
+
             //sauvegarde
-            chargementImage("disquette.png",sauvegarde);
+            chargementImage("disquette.png", sauvegarde);
             sauvegarde.BackColor = Color.Green;
             sauvegarde.Width = 34;
             sauvegarde.Height = 34;
@@ -292,9 +302,9 @@ namespace La_petite_boite
             sauvegarde.SizeMode = PictureBoxSizeMode.StretchImage;
             sauvegarde.BackColor = Color.Transparent;
             sauvegarde.Click += new EventHandler(sauvegardeButton);
-            
+
             //quitterMiniJeu
-            chargementImage("exit.png",quitterMiniJeu);
+            chargementImage("exit.png", quitterMiniJeu);
             quitterMiniJeu.Name = "quitterMiniJeu";
             quitterMiniJeu.Width = 34;
             quitterMiniJeu.Height = 34;
@@ -302,19 +312,19 @@ namespace La_petite_boite
             quitterMiniJeu.SizeMode = PictureBoxSizeMode.StretchImage;
             quitterMiniJeu.BackColor = Color.Transparent;
             quitterMiniJeu.Click += new EventHandler(retourTabBord);
-            
+
             //recompenses
-            chargementImage("cabaneIcone",recompense1);
+            chargementImage("cabaneIcone", recompense1);
             recompense1 = new PictureBox();
             recompense1.Name = "";
             recompense1.BackColor = Color.Transparent;
             recompense1.Width = 100;
             recompense1.Height = 100;
-            recompense1.Location = new Point(100,100);
+            recompense1.Location = new Point(100, 100);
             recompense1.SizeMode = PictureBoxSizeMode.StretchImage;
-            
+
             //recompense1.Click
-            chargementImage("chateauIcone.png",recompense2);
+            chargementImage("chateauIcone.png", recompense2);
             recompense2 = new PictureBox();
             recompense2.Name = "";
             recompense2.BackColor = Color.Transparent;
@@ -322,9 +332,9 @@ namespace La_petite_boite
             recompense2.Height = 100;
             recompense1.Location = new Point(300, 100);
             recompense2.SizeMode = PictureBoxSizeMode.StretchImage;
-            
+
             //recompense2.Click
-            chargementImage("etoileGrise.png",recompense3);
+            chargementImage("etoileGrise.png", recompense3);
             recompense3 = new PictureBox();
             recompense3.Name = "";
             recompense3.BackColor = Color.Transparent;
@@ -368,7 +378,7 @@ namespace La_petite_boite
             {
                 Console.Write("Le fichier na as pu etre lu");
             }
-            
+
             //joueursFichier = System.IO.File.ReadAllLines("Joueurs.txt");
 
             //on lit le fichier Sauvegarde et on le met dans un tableau
@@ -436,7 +446,7 @@ namespace La_petite_boite
             retour.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             retour.BackColor = Color.Transparent;
             retour.Click += new EventHandler(retourButton);
-            
+
 
             //afficherCarte
             AfficherCarte.Text = "Commencer le Jeu";
@@ -466,7 +476,7 @@ namespace La_petite_boite
             quitter.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             quitter.BackColor = Color.Transparent;
             quitter.Click += new EventHandler(quitterPartie);
-            
+
 
             Yes = new Button();
             Yes.Text = "Oui";
@@ -528,11 +538,11 @@ namespace La_petite_boite
             listeDossierSauvegarde.SelectedIndexChanged += new EventHandler(afficherJoueursPossibles);
 
             //on link le tableau listeSauvegarde avec le combobox via une boucle
-           
-                for (int i = 0; i < listeSauvegarde.Length; i++)
-                {
-                    listeDossierSauvegarde.Items.Add(listeSauvegarde[i]);
-                }
+
+            for (int i = 0; i < listeSauvegarde.Length; i++)
+            {
+                listeDossierSauvegarde.Items.Add(listeSauvegarde[i]);
+            }
 
             //liste joueurs possibles selon le dossier de sauvegarde choisi
             joueursPossibles.Top = 150;
@@ -549,7 +559,7 @@ namespace La_petite_boite
             prenomLabel.Top = 30;
             prenomLabel.Left = 30;
 
-            prenomField.Font = new Font (prenomField.Font.FontFamily, 14);
+            prenomField.Font = new Font(prenomField.Font.FontFamily, 14);
             prenomField.Width = 150;
             prenomField.Height = 25;
             prenomField.Top = 30;
@@ -574,7 +584,7 @@ namespace La_petite_boite
             ageLabel.Top = 70;
             ageLabel.Left = 30;
 
-            
+
             ageField.Width = 150;
             ageField.Font = new Font(ageField.Font.FontFamily, 14);
             ageField.Height = 25;
@@ -592,7 +602,7 @@ namespace La_petite_boite
             textePresentationJeu.ForeColor = Color.White;
             textePresentationJeu.BackColor = Color.Transparent;
             textePresentationJeu.TextAlign = ContentAlignment.MiddleCenter;
-         
+
 
             MessageRoi = new Label();
             MessageRoi.Location = new Point(100, 500);
@@ -630,14 +640,13 @@ namespace La_petite_boite
             Cabane.CursorChanged += new EventHandler(LanceMiniJeu);
             Cabane.MouseEnter += new EventHandler(changementImageLieu);
             Cabane.MouseLeave += new EventHandler(changementImageLieuOrigine);
-            
+
             listeLieux = new Lieu[5];
             listeLieux[0] = Village;
             listeLieux[1] = Cabane;
             listeLieux[2] = Tronc;
             listeLieux[3] = Montagne;
             listeLieux[4] = Chateau;
-
         }
 
         private void chargementImage (String res, Panel pan)
@@ -645,10 +654,8 @@ namespace La_petite_boite
             //access resource
             try
             {
-                
                 _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Jeu." +res);
-                Console.WriteLine("La_petite_boite.Jeu." + res);
+                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.Jeu." + res);
             }
             catch (ArgumentException e)
             {
@@ -658,16 +665,12 @@ namespace La_petite_boite
             //display image
             try
             {
-                Image img = new Bitmap(_imageStream);
-                pan.BackgroundImage = img;
-                Console.WriteLine("Cest cree");
-                img.Dispose();
+                pan.BackgroundImage = new Bitmap(_imageStream);
             }
             catch (Exception e)
             {
-                Console.WriteLine("Cant create image!" + e);
+                Console.WriteLine("Can't create image!" + e);
             }
-            
         }
 
         private void chargementImage(String res, PictureBox pan)
@@ -676,8 +679,7 @@ namespace La_petite_boite
             try
             {
                 _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Jeu." + res + "png");
-                Console.WriteLine("La_petite_boite.Jeu" + res);
+                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.Jeu." + res + ".png");
 
             }
             catch
@@ -689,12 +691,16 @@ namespace La_petite_boite
             try
             {
                 pan.Image = new Bitmap(_imageStream);
-                Console.WriteLine("Cest cree");
             }
-            catch
+            catch (Exception e)
             {
-                Console.WriteLine("Cant creating image!");
+                Console.WriteLine("Cant create image!" + e);
             }
+        }
+
+        private void chargementTexte ()
+        {
+
         }
         
         private void timer1_Tick(object sender, EventArgs e)
@@ -1706,5 +1712,6 @@ namespace La_petite_boite
 
             //sur cette page, on a trois picturebox avec les liens vers les recompenses (video, coloriages, etc
         }
+        
     }
 }

@@ -70,8 +70,7 @@ namespace La_petite_boite
             try
             {
                 _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite." + res + ".png");
-                Console.Write("La_petite_boite.Jeu." + res + ".png");
+                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.Jeu." + res + ".png");
             }
             catch
             {

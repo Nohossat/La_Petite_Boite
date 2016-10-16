@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +12,7 @@ using memory8Cartes;
 using Chasse_aux_mots;
 using Grand_ou_Petit;
 using Que_fait_le_Roi;
+using System.Reflection;
 
 //reste a faire:  design,
 
@@ -31,7 +33,7 @@ namespace La_petite_boite
         public static Label obj = new Label();
         public static String resultatJeu;
         public static Panel objectif = new Panel();
-        public static String[] joueursFichier;
+        public static List <String> joueursFichier;
         public static Panel chargerJoueur = new Panel();
         public static Panel ConteneurEtoile = new Panel();
         public static String dossier = "";
@@ -53,11 +55,11 @@ namespace La_petite_boite
         Button Yes;
         Button No;
         ComboBox listeDossierSauvegarde = new ComboBox();
-        Lieu Village = new Lieu(512, -28, 448, 270, Properties.Resources.villageIconeGris, new Point(140, 520), "Memory");
-        Lieu Chateau = new Lieu(98, 1034, 300, 420, Properties.Resources.chateauMapGris, new Point(1130, 380), "Chateau");
-        Lieu Cabane = new Lieu(447, 811, 140, 146, Properties.Resources.cabaneIconeGris, new Point(830, 520), "Chasse aux mots");
-        Lieu Tronc = new Lieu(104, 620, 177, 196, Properties.Resources.troncIconeGris, new Point(650, 190), "Grand Ou Petit");
-        Lieu Montagne = new Lieu(-2, -2, 378, 215, Properties.Resources.montagneMapGris, new Point(140, 156), "Que fait le Roi?");
+        Lieu Village = new Lieu(512, -28, 448, 270, "La_petite_boite.villageIconeGris.png", new Point(140, 520), "Memory");
+        Lieu Chateau = new Lieu(98, 1034, 300, 420, "La_petite_boite.chateauMapGris.png", new Point(1130, 380), "Chateau");
+        Lieu Cabane = new Lieu(447, 811, 140, 146, "La_petite_boite.cabaneIconeGris.png", new Point(830, 520), "Chasse aux mots");
+        Lieu Tronc = new Lieu(104, 620, 177, 196, "La_petite_boite.troncIconeGris.png", new Point(650, 190), "Grand Ou Petit");
+        Lieu Montagne = new Lieu(-2, -2, 378, 215, "La_petite_boite.montagneMapGris.png", new Point(140, 156), "Que fait le Roi?");
         Lieu arrivee = new Lieu();
         Label menuPrincipal = new Label();
         Label prenomLabel = new Label();
@@ -99,57 +101,56 @@ namespace La_petite_boite
         String message ="";
         TextBox prenomField = new TextBox();
         TextBox ageField = new TextBox();
-        
+        Assembly _assembly = Assembly.GetExecutingAssembly();
+        Stream _imageStream;
 
         public Form1()
         {
             InitializeComponent();
             //generation des elements
-
-            //--------------------FORM---------------------------//
-
-            //this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            
             //---------------------PANELS------------------------//
 
             //chargement
-            chargement.BackgroundImage = Properties.Resources.Chargement_LapetiteBoite1;
+            chargementImage("Chargement_LapetiteBoite", chargement);
 
             //accueil
+            chargementImage("accueil", accueil);
             accueil.Top = 0;
             accueil.Left = 3;
             accueil.Width = 1400;
             accueil.Height = 722;
-            accueil.BackgroundImage = Properties.Resources.accueil;
 
             //ecran nouveau joueur
+            chargementImage("menu1", nouveauJoueur);
             nouveauJoueur.Width = 1400;
             nouveauJoueur.Height = 722;
             nouveauJoueur.Top = 0;
             nouveauJoueur.Left = 0;
-            nouveauJoueur.BackgroundImage = Properties.Resources.menu1;
-
+           
+            
             //diaporamaHistoire
+            chargementImage("presentationJeu",diaporamaHistoire);
             diaporamaHistoire.Top = 0;
             diaporamaHistoire.Left = 0;
             diaporamaHistoire.Width = 1400;
             diaporamaHistoire.Height = 722;
-            diaporamaHistoire.BackgroundImage = Properties.Resources.presentationJeu;
-
+            
+            
             //carteJeu
+            chargementImage("mapReference",CarteJeu);
             CarteJeu.Top = 0;
             CarteJeu.Name = "Carte";
             CarteJeu.Left = 0;
             CarteJeu.Width = 1400;
             CarteJeu.Height = 722;
-            CarteJeu.BackgroundImage = Properties.Resources.mapReference;
-
+            
             //Cour du roi
+            chargementImage("presentationJeu", CourRoi);
             CourRoi = new Panel();
             CourRoi.Width = 1400;
             CourRoi.Height = 722;
             CourRoi.Location = new Point(0, 0);
-            CourRoi.BackgroundImage = Properties.Resources.presentationJeu;
+            
 
             //ecran mini-jeu
             Jeu.Top = 0;
@@ -225,21 +226,20 @@ namespace La_petite_boite
             //------------------------IMAGES-------------------------------//
 
             //avatars
-
-            imagePersonnage1.Name = "images/chevalier1.png";
-            imagePersonnage1.Image = Image.FromFile(@imagePersonnage1.Name);
+            chargementImage("chevalier1",imagePersonnage1);
+            imagePersonnage1.Name = "chevalier1";
             imagePersonnage1.Left = 100;
-
-            imagePersonnage2.Name = "images/chevalier2.png";
-            imagePersonnage2.Image = Image.FromFile(@imagePersonnage2.Name);
+            
+            chargementImage("chevalier2",imagePersonnage2);
+            imagePersonnage2.Name = "chevalier2";
             imagePersonnage2.Left = 300;
-
-            imagePersonnage3.Name = "images/chevalier3.png";
-            imagePersonnage3.Image = Image.FromFile(@imagePersonnage3.Name);
+            
+            chargementImage("chevalier3",imagePersonnage3);
+            imagePersonnage3.Name = "chevalier3";
             imagePersonnage3.Left = 500;
-
-            imagePersonnage4.Name = "images/chevalier4.png";
-            imagePersonnage4.Image = Image.FromFile(@imagePersonnage4.Name);
+            
+            chargementImage("chevalier4",imagePersonnage4);
+            imagePersonnage4.Name = "chevalier4";
             imagePersonnage4.Left = 700;
             
             listeAvatars = new PictureBox[] { imagePersonnage1, imagePersonnage2, imagePersonnage3, imagePersonnage4 };
@@ -255,52 +255,56 @@ namespace La_petite_boite
                 listeAvatars[i].Width = 100;
                 listeAvatars[i].Height = 130;
             }
-
+            
             //guide
+            chargementImage("guide",guide);
             guide.Width = 50;
             guide.Height = 50;
-            guide.Image = Properties.Resources.guide;
+            //guide.Image = new Bitmap(_imageStream);
             guide.SizeMode = PictureBoxSizeMode.StretchImage;
             guide.Click += new EventHandler(AfficheMessage);
-
+            
             //coffre
+            chargementImage("coffre",coffre);
             coffre.Width = 100;
             coffre.Height = 90;
             coffre.Top = 20;
             coffre.Left = 1150;
-            coffre.Image = Properties.Resources.coffre;
+            //coffre.Image = new Bitmap(_imageStream);
             coffre.SizeMode = PictureBoxSizeMode.StretchImage;
             coffre.BackColor = Color.Transparent;
 
             //gros coffre pour la fin du jeu
-
+            chargementImage("coffre",GrosCoffre);
             GrosCoffre = new PictureBox();
-            GrosCoffre.Image = Properties.Resources.coffre;
+           // GrosCoffre.Image = new Bitmap(_imageStream);
             GrosCoffre.Location = new Point(800, 300);
             GrosCoffre.Size = new Size(300, 300);
             GrosCoffre.SizeMode = PictureBoxSizeMode.StretchImage;
             GrosCoffre.BackColor = Color.Transparent;
-
+            
             //sauvegarde
+            chargementImage("disquette1",sauvegarde);
             sauvegarde.BackColor = Color.Green;
             sauvegarde.Width = 34;
             sauvegarde.Height = 34;
-            sauvegarde.Image = Properties.Resources.disquette1;
+            //sauvegarde.Image = new Bitmap(_imageStream);
             sauvegarde.SizeMode = PictureBoxSizeMode.StretchImage;
             sauvegarde.BackColor = Color.Transparent;
             sauvegarde.Click += new EventHandler(sauvegardeButton);
-
+            
             //quitterMiniJeu
+            chargementImage("exit1",quitterMiniJeu);
             quitterMiniJeu.Name = "quitterMiniJeu";
             quitterMiniJeu.Width = 34;
             quitterMiniJeu.Height = 34;
-            quitterMiniJeu.Image = Properties.Resources.exit1;
+            //quitterMiniJeu.Image = new Bitmap(_imageStream);
             quitterMiniJeu.SizeMode = PictureBoxSizeMode.StretchImage;
             quitterMiniJeu.BackColor = Color.Transparent;
             quitterMiniJeu.Click += new EventHandler(retourTabBord);
-
+            
             //recompenses
-
+            chargementImage("cabaneIcone",recompense1);
             recompense1 = new PictureBox();
             recompense1.Name = "";
             recompense1.BackColor = Color.Transparent;
@@ -308,9 +312,9 @@ namespace La_petite_boite
             recompense1.Height = 100;
             recompense1.Location = new Point(100,100);
             recompense1.SizeMode = PictureBoxSizeMode.StretchImage;
-            recompense1.Image = Properties.Resources.cabaneIcone;
+            
             //recompense1.Click
-
+            chargementImage("chateauIcone",recompense2);
             recompense2 = new PictureBox();
             recompense2.Name = "";
             recompense2.BackColor = Color.Transparent;
@@ -318,9 +322,9 @@ namespace La_petite_boite
             recompense2.Height = 100;
             recompense1.Location = new Point(300, 100);
             recompense2.SizeMode = PictureBoxSizeMode.StretchImage;
-            recompense1.Image = Properties.Resources.chateauIcone;
+            
             //recompense2.Click
-
+            chargementImage("etoileGrise1",recompense3);
             recompense3 = new PictureBox();
             recompense3.Name = "";
             recompense3.BackColor = Color.Transparent;
@@ -328,7 +332,8 @@ namespace La_petite_boite
             recompense3.Height = 100;
             recompense1.Location = new Point(600, 100);
             recompense3.SizeMode = PictureBoxSizeMode.StretchImage;
-            recompense1.Image = Properties.Resources.etoileGrise1;
+
+
             //recompense3.Click
 
 
@@ -337,9 +342,37 @@ namespace La_petite_boite
             //---------------------------------FICHIERS-------------------------------------//
 
             //on lit le fichier Joueurs et on cree une nouvelle instance Joueur avec les donnees trouvees
-            joueursFichier = System.IO.File.ReadAllLines("Joueurs.txt");
+
+            //using (StreamReader reader = new StreamReader(Properties.Resources.Joueurs))
+            //{
+            //    String line;
+
+            //    while ((line = reader.ReadLine()) != null)
+            //    {
+            //        joueursFichier.Add(line);
+            //    }
+            //}
+
+            try
+            {
+                using (StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("La_petite_boite.Joueurs.txt")))
+                {
+                    String line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        joueursFichier.Add(line);
+                    }
+                }
+            }
+            catch
+            {
+                Console.Write("Le fichier na as pu etre lu");
+            }
+            
+            //joueursFichier = System.IO.File.ReadAllLines("Joueurs.txt");
 
             //on lit le fichier Sauvegarde et on le met dans un tableau
+            //A CORRIGER
             listeSauvegarde = System.IO.File.ReadAllLines("dossiers_sauvegarde.txt");
 
             //--------------------------------BOUTONS----------------------------------------//
@@ -607,6 +640,64 @@ namespace La_petite_boite
 
         }
 
+        private void chargementImage (String res, Panel pan)
+        {
+            //access resource
+            try
+            {
+                
+                _assembly = Assembly.GetExecutingAssembly();
+                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite" + res+".png");
+                Image img = new Bitmap(_imageStream);
+                pan.BackgroundImage = img;
+                Console.Write("Cest charge");
+                img.Dispose();
+            }
+            catch
+            {
+                Console.WriteLine("Error accessing resources!");
+            }
+
+            //display image
+            try
+            {
+                //pan.BackgroundImage = new Bitmap(_imageStream);
+                Console.Write("Cest cree");
+            }
+            catch
+            {
+                Console.WriteLine("Cant create image!");
+            }
+            
+        }
+
+        private void chargementImage(String res, PictureBox pan)
+        {
+            //access resource
+            try
+            {
+                _assembly = Assembly.GetExecutingAssembly();
+                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite" + res + ".png");
+                Console.Write("Cest charge");
+
+            }
+            catch
+            {
+                Console.WriteLine("Error accessing resources!");
+            }
+
+            //display image
+            try
+            {
+                pan.Image = new Bitmap(_imageStream);
+                Console.Write("Cest cree");
+            }
+            catch
+            {
+                Console.WriteLine("Cant creating image!");
+            }
+        }
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (progressBar1.Value < 100)
@@ -648,11 +739,11 @@ namespace La_petite_boite
                     joueursPossibles.Items.Clear();
                 }
 
-                for (int i = 0; i < joueursFichier.Length; i++)
+                for (int i = 0; i < joueursFichier.Count(); i++)
                 {
-                    if (joueursFichier[i].Contains(dossier))
+                    if (joueursFichier.ElementAt(i).Contains(dossier))
                     {
-                        ligne = joueursFichier[i].Split('-');
+                        ligne = joueursFichier.ElementAt(i).Split('-');
                         joueursPossibles.Items.Add(ligne[0]);
                     }
                 }
@@ -828,7 +919,7 @@ namespace La_petite_boite
                 }
 
                 //il faut s-assurer que le prenom n-existe pas dans la liste des joueurs
-                for (int i = 0; i < joueursFichier.Length; i++)
+                for (int i = 0; i < joueursFichier.Count(); i++)
                 {
                     if (joueursFichier[i].Contains(prenomField.Text.ToLower()))
                     {
@@ -901,30 +992,31 @@ namespace La_petite_boite
         private void declencheTimer(object sender, EventArgs e)
         {
             arrivee = (Lieu)sender;
-
             //il faut afficher la bonne carte
 
             if (arrivee.Name.Equals("Memory"))
             {
-                CarteJeu.BackgroundImage = Properties.Resources.mapVillage;
+                chargementImage("mapVillage",CarteJeu);
             }
             else if (arrivee.Name.Equals("Chateau"))
             {
-                CarteJeu.BackgroundImage = Properties.Resources.mapChateau;
+                chargementImage("mapChateau",CarteJeu);
+                
             }
             else if (arrivee.Name.Equals("Chasse aux mots"))
             {
-                CarteJeu.BackgroundImage = Properties.Resources.mapCabane;
+                chargementImage("mapCabane",CarteJeu);
             }
             else if (arrivee.Name.Equals("Grand Ou Petit"))
             {
-                CarteJeu.BackgroundImage = Properties.Resources.mapTronc;
+                chargementImage("mapTronc",CarteJeu);
             }
             else
             {
-                CarteJeu.BackgroundImage = Properties.Resources.mapMontagne;
+                chargementImage("mapMontagne",CarteJeu);
             }
 
+            //CarteJeu.BackgroundImage = new Bitmap(_imageStream);
             CarteJeu.Controls.Remove(Village);
             CarteJeu.Controls.Remove(Montagne);
             CarteJeu.Controls.Remove(Tronc);
@@ -1104,9 +1196,9 @@ namespace La_petite_boite
 
             //on enregistre dans le tableau joueursFichiers les nouvelles valeurs pour le joueur actuel
 
-            for (int i=0; i < joueursFichier.Length; i++)
+            for (int i=0; i < joueursFichier.Count(); i++)
             {
-                if (joueursFichier[i].Contains(chevalier.nomJoueur()) && enregistrer == false)
+                if (joueursFichier.ElementAt(i).Contains(chevalier.nomJoueur()) && enregistrer == false)
                 {
                     joueursFichier[i] = enregistrementJoueur;
                     enregistrer = true;
@@ -1128,7 +1220,23 @@ namespace La_petite_boite
         private void quitterPartie (object sender, EventArgs e)
         {
             //enregistrement en dur des donnees
-            System.IO.File.WriteAllLines("Joueurs.txt", joueursFichier);
+            //System.IO.File.WriteAllLines("Joueurs.txt", joueursFichier);
+
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(Assembly.GetExecutingAssembly().GetManifestResourceStream("La_petite_boite.Joueurs.txt")))
+                {
+
+                    foreach (String s in joueursFichier)
+                    {
+                        writer.WriteLine(s);
+                    }
+                }
+            }
+            catch
+            {
+                Console.Write("Erreur lors de l-ecriture du fichier");
+            }
 
             //on quitte le jeu
             Application.Exit();
@@ -1148,25 +1256,25 @@ namespace La_petite_boite
 
             if (P.Name.Equals("Memory"))
             {
-                P.BackgroundImage = Properties.Resources.villageIconeGris;
+                chargementImage("villageIconeGris",P);
             }
             else if (P.Name.Equals("Chateau"))
             {
-                P.BackgroundImage = Properties.Resources.chateauMapGris;
+                chargementImage("chateauMapGris",P);
             }
             else if (P.Name.Equals("Chasse aux mots"))
             {
-                P.BackgroundImage = Properties.Resources.cabaneIconeGris;
+                chargementImage("cabaneIconeGris",P);
             }
             else if (P.Name.Equals("Grand Ou Petit"))
             {
-                P.BackgroundImage = Properties.Resources.troncIconeGris;
+                chargementImage("troncIconeGris",P);
             }
             else
             {
-                P.BackgroundImage = Properties.Resources.montagneMapGris;
+                chargementImage("montagneMapGris",P);
             }
-
+            //P.BackgroundImage = new Bitmap(_imageStream);
             this.Update();
         }
 
@@ -1174,37 +1282,34 @@ namespace La_petite_boite
         {
             if (P.Name.Equals("Memory"))
             {
-                P.BackgroundImage = Properties.Resources.villageIcone;
+                chargementImage("villageIcone",P);
             }
             else if (P.Name.Equals("Chateau"))
             {
-                P.BackgroundImage = Properties.Resources.chateauMap;
+                chargementImage("chateauMap",P);
             }
             else if (P.Name.Equals("Chasse aux mots"))
             {
-                P.BackgroundImage = Properties.Resources.cabaneIcone;
+                chargementImage("cabaneIcone",P);
             }
             else if (P.Name.Equals("Grand Ou Petit"))
             {
-                P.BackgroundImage = Properties.Resources.troncIcone;
+                chargementImage("troncIcone",P);
             }
             else
             {
-                P.BackgroundImage = Properties.Resources.montagneMap;
+                chargementImage("montagneMap",P);
             }
 
+            //P.BackgroundImage = new Bitmap(_imageStream);
             this.Update();
         }
 
         //MINI JEUX
 
-        private void afficheJeu (String nomJeu, Image img, Panel p)
+        private void afficheJeu (String nomJeu, Panel p)
         {
             
-            //on met le bon fond d'ecran
-
-            Jeu.BackgroundImage = img;
-
             titreJeu.Text = "Niveau 1 : " + nomJeu;
             titreJeu.Width = 300;
             titreJeu.Height = 30;
@@ -1224,7 +1329,6 @@ namespace La_petite_boite
                 
             }
             
-
             //position de l'avatar en haut a gauche  
             imgChevalier.Left = 20;
             imgChevalier.Top = 20;
@@ -1289,10 +1393,9 @@ namespace La_petite_boite
 
         private void LanceMiniJeu(object sender, EventArgs e)
         {
-
             Lieu l = (Lieu)sender;
             this.Controls.Remove(CarteJeu);
-            Image img;
+            Boolean FonctionChateauActive = false;
 
             List<Panel> epreuvesO = chevalier.epreuvesJoueur();
 
@@ -1300,48 +1403,65 @@ namespace La_petite_boite
             if (l.Name == "Chasse aux mots")
             {
                 //la chasse aux mots se deroule dans la montagne
-                img = Properties.Resources.montagne1;
+                chargementImage("montagne1", Jeu);
                 IndiceJeu = 1;
-                afficheJeu(l.Name, img, epreuvesO.ElementAt(IndiceJeu));
             }
             else if (l.Name == "Grand Ou Petit")
             {
                 //grand ou petit se deroule dans une clairiere
-                img = Properties.Resources.clairiere1;
+                chargementImage("clairiere1", Jeu);
                 IndiceJeu = 2;
-                afficheJeu(l.Name, img, epreuvesO.ElementAt(IndiceJeu));
-
-
             }
             else if (l.Name == "Que fait le Roi?")
             {
                 //que fait le roi se deroule a cote de la riviere
-                img = Properties.Resources.riviere1;
+                chargementImage("riviere1", Jeu);
                 IndiceJeu = 3;
-                afficheJeu(l.Name, img, epreuvesO.ElementAt(IndiceJeu));
             }
-            else if (l.Name == "Memory") 
+            else if (l.Name == "Memory")
             {
-                img = Properties.Resources.village1;
+                chargementImage("village1", Jeu);
                 IndiceJeu = 0;
-                afficheJeu(l.Name, img, epreuvesO.ElementAt(IndiceJeu));
             }
             else
             {
+                FonctionChateauActive = true;
                 devoileCoffre();
+            }
+
+            if (FonctionChateauActive == false)
+            {
+                afficheJeu(l.Name, epreuvesO.ElementAt(IndiceJeu));
             }
         }
 
         private void Carte ()
         {
+
             //on mettra tout le contenu de CarteJeu
-            
+
             this.Controls.Add(CarteJeu);
 
             //on initialise les elements de la carte : avatar, magicien, chateau, prochaine etoile,
 
             //pour afficher le decor il faut que l-image chevalier appartienne au label de depart
-            imgChevalier.Image = Image.FromFile(@chevalier.avatarJoueur());
+
+            if (chevalier.avatarJoueur().Equals("chevalier1"))
+            {
+                chargementImage("chevalier1", imgChevalier);
+            }
+            else if (chevalier.avatarJoueur().Equals("chevalier2")) {
+                chargementImage("chevalier2", imgChevalier);
+            }
+            else if (chevalier.avatarJoueur().Equals("chevalier3"))
+            {
+                chargementImage("chevalier3", imgChevalier);
+            }
+            else if (chevalier.avatarJoueur().Equals("chevalier4"))
+            {
+                chargementImage("chevalier4", imgChevalier);
+            }
+            //imgChevalier.Image = new Bitmap(_imageStream);
             imgChevalier.SizeMode = PictureBoxSizeMode.StretchImage;
             imgChevalier.Width = 100;
             imgChevalier.Height = 130;
@@ -1352,7 +1472,8 @@ namespace La_petite_boite
             imgChevalier.Top = chevalier.positionJoueur().getPosition().Y;
 
             //on affiche les elements du jeu
-            CarteJeu.BackgroundImage = Properties.Resources.mapReference;
+            chargementImage("mapReference", CarteJeu);
+            //CarteJeu.BackgroundImage = new Bitmap(_imageStream);
             CarteJeu.Controls.Add(imgChevalier);
             CarteJeu.Controls.Add(Village);
             CarteJeu.Controls.Add(Montagne);

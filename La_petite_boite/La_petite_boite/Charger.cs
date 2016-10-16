@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Reflection;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +23,8 @@ namespace La_petite_boite
         Label annonce = new Label();
         Panel chargerJoueur = new Panel();
         Boolean trouve = false;
+        Assembly _assembly;
+        Stream _imageStream;
 
         public Charger()
         {
@@ -28,21 +32,48 @@ namespace La_petite_boite
             
         }
 
+        private void chargementImage(String res, Panel pan)
+        {
+            //accessing resources
+            try
+            {
+                _assembly = Assembly.GetExecutingAssembly();
+                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite." + res + ".png");
+
+            }
+            catch
+            {
+                Console.WriteLine("Error accessing resources!");
+            }
+
+            //creating image
+
+            try
+            {
+                pan.BackgroundImage = new Bitmap(_imageStream);
+                Console.Write("Cest cree");
+            }
+            catch
+            {
+                Console.WriteLine("Cant create image!");
+            }
+        }
+
         private void Charger_Load(object sender, EventArgs e)
         {
             //chargement fichier dossiers de sauvegarde
 
             listeSauvegarde = System.IO.File.ReadAllLines("dossiers_sauvegarde.txt");
-
-
+            
             //design
 
             //panel chargerJoueur
 
             //charger une partie
+            chargementImage("accueil",chargerJoueur);
             chargerJoueur.Width = 689;
             chargerJoueur.Height = 558;
-            chargerJoueur.BackgroundImage = Properties.Resources.accueil;
+            chargerJoueur.BackgroundImage = new Bitmap(_imageStream);
             chargerJoueur.BorderStyle = BorderStyle.FixedSingle;
 
             //label Selection
@@ -165,7 +196,7 @@ namespace La_petite_boite
                     joueursPossibles.Items.Clear();
                 }
 
-                for (int i = 0; i < Form1.joueursFichier.Length; i++)
+                for (int i = 0; i < Form1.joueursFichier.Count(); i++)
                 {
                     if (Form1.joueursFichier[i].Contains(dossier))
                     {
@@ -205,7 +236,7 @@ namespace La_petite_boite
             try
             {
                 //on boucle sur le tableau joueursFichier pour voir quelle ligne contient le nom du joueur
-                for (int i = 0; i < Form1.joueursFichier.Length; i++)
+                for (int i = 0; i < Form1.joueursFichier.Count(); i++)
                 {
                     if (Form1.joueursFichier[i].Contains(nomJoueur) && nomJoueur != "")
                     {

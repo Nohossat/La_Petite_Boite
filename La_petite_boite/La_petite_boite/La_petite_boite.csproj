@@ -160,9 +160,6 @@
     <None Include="bin\Debug\images\Chargement_LapetiteBoite.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Jeu\chargement_la_petite_boite.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="bin\Debug\images\chateau.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -323,7 +320,6 @@
     <EmbeddedResource Include="Resources\Jeu\biche.png" />
     <EmbeddedResource Include="Resources\Jeu\cabaneIcone.png" />
     <EmbeddedResource Include="Resources\Jeu\cabaneIconeGris.png" />
-    <EmbeddedResource Include="Resources\Jeu\CaptureMap.PNG" />
     <EmbeddedResource Include="Resources\Jeu\Chargement_LapetiteBoite.png" />
     <EmbeddedResource Include="Resources\Jeu\chateau2.png" />
     <EmbeddedResource Include="Resources\Jeu\chateauIcone.png" />

@@ -38,8 +38,8 @@ namespace La_petite_boite
             try
             {
                 _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite." + res + ".png");
-
+                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite." + res);
+                Console.Write("La_petite_boite.Jeu." + res + ".png");
             }
             catch
             {
@@ -70,7 +70,7 @@ namespace La_petite_boite
             //panel chargerJoueur
 
             //charger une partie
-            chargementImage("accueil",chargerJoueur);
+            chargementImage("accueil.jpg",chargerJoueur);
             chargerJoueur.Width = 689;
             chargerJoueur.Height = 558;
             chargerJoueur.BackgroundImage = new Bitmap(_imageStream);

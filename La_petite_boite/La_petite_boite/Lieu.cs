@@ -53,7 +53,7 @@ namespace La_petite_boite
             {
                 _assembly = Assembly.GetExecutingAssembly();
                 _imageStream = _assembly.GetManifestResourceStream(res);
-                Console.Write("Cest charge");
+                Console.WriteLine("La_petite_boite.Jeu." + res + ".png");
             }
             catch
             {
@@ -64,7 +64,7 @@ namespace La_petite_boite
             try
             {
                 this.BackgroundImage = new Bitmap(_imageStream);
-                Console.Write("Cest cree");
+                Console.WriteLine("Cest cree");
             }
             catch
             {

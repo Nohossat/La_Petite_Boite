@@ -79,7 +79,7 @@ namespace La_petite_boite
 
             Selection.Text = "Selectionne un dossier de sauvegarde";
             Selection.Top = 50;
-            Selection.Left = 170;
+            Selection.Left = 160;
             Selection.Width = 400;
             Selection.Height = 40;
             Selection.ForeColor = Color.White;
@@ -134,7 +134,7 @@ namespace La_petite_boite
             retour.FlatAppearance.MouseDownBackColor = System.Drawing.Color.AliceBlue;
             retour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             retour.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            retour.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            retour.ForeColor = Color.Black;
             retour.BackColor = Color.Transparent;
             retour.Click += new EventHandler(retourButton);
 
@@ -148,7 +148,7 @@ namespace La_petite_boite
             charger.FlatAppearance.MouseDownBackColor = System.Drawing.Color.AliceBlue;
             charger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             charger.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            charger.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            charger.ForeColor = Color.Black;
             charger.BackColor = Color.Transparent;
             charger.Click += new EventHandler(chargerMethod);
 

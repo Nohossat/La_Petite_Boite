@@ -156,8 +156,8 @@ namespace La_petite_boite
             CarteJeu.Height = 722;
 
             //Cour du roi
-            chargementImage("presentationJeu.png", CourRoi);
             CourRoi = new Panel();
+            chargementImage("presentationJeu.png", CourRoi);
             CourRoi.Width = 1400;
             CourRoi.Height = 722;
             CourRoi.Location = new Point(0, 0);
@@ -237,19 +237,19 @@ namespace La_petite_boite
             //------------------------IMAGES-------------------------------//
 
             //avatars
-            chargementImage("chevalier1", imagePersonnage1);
+            chargementImage("chevalier1.png", imagePersonnage1);
             imagePersonnage1.Name = "chevalier1.png";
             imagePersonnage1.Left = 100;
 
-            chargementImage("chevalier2", imagePersonnage2);
+            chargementImage("chevalier2.png", imagePersonnage2);
             imagePersonnage2.Name = "chevalier2.png";
             imagePersonnage2.Left = 300;
 
-            chargementImage("chevalier3", imagePersonnage3);
+            chargementImage("chevalier3.png", imagePersonnage3);
             imagePersonnage3.Name = "chevalier3.png";
             imagePersonnage3.Left = 500;
 
-            chargementImage("chevalier4", imagePersonnage4);
+            chargementImage("chevalier4.png", imagePersonnage4);
             imagePersonnage4.Name = "chevalier4.png";
             imagePersonnage4.Left = 700;
 
@@ -284,8 +284,8 @@ namespace La_petite_boite
             coffre.BackColor = Color.Transparent;
 
             //gros coffre pour la fin du jeu
-            chargementImage("coffrepng.", GrosCoffre);
             GrosCoffre = new PictureBox();
+            chargementImage("coffre.png", GrosCoffre);
             GrosCoffre.Location = new Point(800, 300);
             GrosCoffre.Size = new Size(300, 300);
             GrosCoffre.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -310,8 +310,8 @@ namespace La_petite_boite
             quitterMiniJeu.Click += new EventHandler(retourTabBord);
 
             //recompenses
-            chargementImage("cabaneIcone", recompense1);
             recompense1 = new PictureBox();
+            chargementImage("cabaneIcone.png", recompense1);
             recompense1.Name = "";
             recompense1.BackColor = Color.Transparent;
             recompense1.Width = 100;
@@ -320,8 +320,8 @@ namespace La_petite_boite
             recompense1.SizeMode = PictureBoxSizeMode.StretchImage;
 
             //recompense1.Click
-            chargementImage("chateauIcone.png", recompense2);
             recompense2 = new PictureBox();
+            chargementImage("chateauIcone.png", recompense2);
             recompense2.Name = "";
             recompense2.BackColor = Color.Transparent;
             recompense2.Width = 100;
@@ -330,8 +330,8 @@ namespace La_petite_boite
             recompense2.SizeMode = PictureBoxSizeMode.StretchImage;
 
             //recompense2.Click
-            chargementImage("etoileGrise.png", recompense3);
             recompense3 = new PictureBox();
+            chargementImage("etoileGrise.png", recompense3);
             recompense3.Name = "";
             recompense3.BackColor = Color.Transparent;
             recompense3.Width = 100;
@@ -363,12 +363,12 @@ namespace La_petite_boite
             nouvellePartie.Height = 60;
             nouvellePartie.Top = 200;
             nouvellePartie.Left = 550;
-            //nouvellePartie.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            nouvellePartie.BackColor = System.Drawing.SystemColors.ActiveCaption;
             nouvellePartie.FlatAppearance.BorderSize = 0;
-            //nouvellePartie.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            nouvellePartie.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             nouvellePartie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             nouvellePartie.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //nouvellePartie.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            nouvellePartie.ForeColor = Color.Black;
             nouvellePartie.BackColor = Color.Transparent;
             nouvellePartie.Click += new EventHandler(nouvelle_partie_button);
 
@@ -384,7 +384,7 @@ namespace La_petite_boite
             chargerPartie.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             chargerPartie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             chargerPartie.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //chargerPartie.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            chargerPartie.ForeColor = Color.Black;
             chargerPartie.BackColor = Color.Transparent;
             chargerPartie.Click += new EventHandler(charger_partie_button);
 
@@ -443,7 +443,7 @@ namespace La_petite_boite
             quitter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             quitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             quitter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //quitter.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            quitter.ForeColor = Color.Black;
             quitter.BackColor = Color.Transparent;
             quitter.Click += new EventHandler(quitterPartie);
 
@@ -482,12 +482,12 @@ namespace La_petite_boite
 
             menuPrincipal.Text = "Menu Principal";
             menuPrincipal.Font = new Font(menuPrincipal.Font.FontFamily, 25);
-            menuPrincipal.Top = 100;
+            menuPrincipal.Top = 90;
             menuPrincipal.Left = 550;
             menuPrincipal.Width = 300;
             menuPrincipal.Height = 70;
             menuPrincipal.BackColor = Color.Transparent;
-            menuPrincipal.ForeColor = Color.White;
+            menuPrincipal.ForeColor = Color.Black;
 
             //dossier de sauvegarde
 
@@ -626,6 +626,7 @@ namespace La_petite_boite
             {
                 _assembly = Assembly.GetExecutingAssembly();
                 _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.Jeu." + res);
+                Console.WriteLine(res);
             }
             catch (ArgumentException e)
             {
@@ -643,14 +644,14 @@ namespace La_petite_boite
             }
         }
 
-        private void chargementImage(String res, PictureBox pan)
+        private void chargementImage(String res, PictureBox p)
         {
             //access resource
             try
             {
                 _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.Jeu." + res + ".png");
-
+                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.Jeu." + res);
+                Console.WriteLine(res);
             }
             catch
             {
@@ -660,11 +661,11 @@ namespace La_petite_boite
             //display image
             try
             {
-                pan.Image = new Bitmap(_imageStream);
+                p.Image = new Bitmap(_imageStream);
             }
             catch (Exception e)
             {
-                Console.WriteLine("Cant create image!" + e);
+                Console.WriteLine("Cant create image for picturebox!" + e);
             }
         }
 
@@ -1248,25 +1249,24 @@ namespace La_petite_boite
 
             if (P.Name.Equals("Memory"))
             {
-                chargementImage("villageIconeGris",P);
+                chargementImage("villageIconeGris.png",P);
             }
             else if (P.Name.Equals("Chateau"))
             {
-                chargementImage("chateauMapGris",P);
+                chargementImage("chateauMapGris.png",P);
             }
             else if (P.Name.Equals("Chasse aux mots"))
             {
-                chargementImage("cabaneIconeGris",P);
+                chargementImage("cabaneIconeGris.png",P);
             }
             else if (P.Name.Equals("Grand Ou Petit"))
             {
-                chargementImage("troncIconeGris",P);
+                chargementImage("troncIconeGris.png",P);
             }
             else
             {
-                chargementImage("montagneMapGris",P);
+                chargementImage("montagneMapGris.png",P);
             }
-            //P.BackgroundImage = new Bitmap(_imageStream);
             this.Update();
         }
 
@@ -1274,26 +1274,25 @@ namespace La_petite_boite
         {
             if (P.Name.Equals("Memory"))
             {
-                chargementImage("villageIcone",P);
+                chargementImage("villageIcone.png",P);
             }
             else if (P.Name.Equals("Chateau"))
             {
-                chargementImage("chateauMap",P);
+                chargementImage("chateauMap.png",P);
             }
             else if (P.Name.Equals("Chasse aux mots"))
             {
-                chargementImage("cabaneIcone",P);
+                chargementImage("cabaneIcone.png",P);
             }
             else if (P.Name.Equals("Grand Ou Petit"))
             {
-                chargementImage("troncIcone",P);
+                chargementImage("troncIcone.png",P);
             }
             else
             {
-                chargementImage("montagneMap",P);
+                chargementImage("montagneMap.png",P);
             }
-
-            //P.BackgroundImage = new Bitmap(_imageStream);
+            
             this.Update();
         }
 
@@ -1438,22 +1437,21 @@ namespace La_petite_boite
 
             //pour afficher le decor il faut que l-image chevalier appartienne au label de depart
 
-            if (chevalier.avatarJoueur().Equals("chevalier1"))
+            if (chevalier.avatarJoueur().Equals("chevalier1.png"))
             {
                 chargementImage("chevalier1.png", imgChevalier);
             }
-            else if (chevalier.avatarJoueur().Equals("chevalier2")) {
+            else if (chevalier.avatarJoueur().Equals("chevalier2.png")) {
                 chargementImage("chevalier2.png", imgChevalier);
             }
-            else if (chevalier.avatarJoueur().Equals("chevalier3"))
+            else if (chevalier.avatarJoueur().Equals("chevalier3.png"))
             {
                 chargementImage("chevalier3.png", imgChevalier);
             }
-            else if (chevalier.avatarJoueur().Equals("chevalier4"))
+            else if (chevalier.avatarJoueur().Equals("chevalier4.png"))
             {
                 chargementImage("chevalier4.png", imgChevalier);
             }
-            //imgChevalier.Image = new Bitmap(_imageStream);
             imgChevalier.SizeMode = PictureBoxSizeMode.StretchImage;
             imgChevalier.Width = 100;
             imgChevalier.Height = 130;
@@ -1464,8 +1462,7 @@ namespace La_petite_boite
             imgChevalier.Top = chevalier.positionJoueur().getPosition().Y;
 
             //on affiche les elements du jeu
-            chargementImage("mapReference", CarteJeu);
-            //CarteJeu.BackgroundImage = new Bitmap(_imageStream);
+            chargementImage("mapReference.png", CarteJeu);
             CarteJeu.Controls.Add(imgChevalier);
             CarteJeu.Controls.Add(Village);
             CarteJeu.Controls.Add(Montagne);

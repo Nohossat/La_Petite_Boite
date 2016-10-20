@@ -19,13 +19,12 @@ namespace La_petite_boite
         {
             if (choix == 1)
             {
-                chargementImage("etoileJaune1");
+                chargementImage("etoileJaune.png");
             }
             else
             {
-                chargementImage("etoileGrise1");
+                chargementImage("etoileGrise.png");
             }
-            this.Image = new Bitmap(_imageStream);
             this.Width = 50;
             this.Height = 50;
             this.Top = 20;
@@ -38,13 +37,12 @@ namespace La_petite_boite
         {
             if (choix == 1)
             {
-                chargementImage("etoileJaune1");
+                chargementImage("etoileJaune.png");
             }
             else
             {
-                chargementImage("etoileGrise1");
+                chargementImage("etoileGrise.png");
             }
-            this.Image = new Bitmap(_imageStream);
             this.Width = 50;
             this.Height = 50;
             this.Top = T;
@@ -55,7 +53,7 @@ namespace La_petite_boite
 
         public Etoile (Point p, String nom)
         {
-            chargementImage("etoileGrise1");
+            chargementImage("etoileGrise.png");
             this.Name = nom;
             this.Width = 50;
             this.Height = 50;
@@ -70,23 +68,22 @@ namespace La_petite_boite
             try
             {
                 _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.Jeu." + res + ".png");
+                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.Jeu." + res);
+                Console.WriteLine(res);
             }
             catch
             {
                 Console.WriteLine("Error accessing resources!");
             }
 
-            //creating image
-            
+            //display image
             try
             {
                 this.Image = new Bitmap(_imageStream);
-                Console.Write("Cest cree");
             }
             catch
             {
-                Console.WriteLine("Cant create image");
+                Console.WriteLine("cant create image etoile!");
             }
         }
 

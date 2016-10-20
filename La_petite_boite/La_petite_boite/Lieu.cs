@@ -17,19 +17,6 @@ namespace La_petite_boite
 
         public Lieu (int Top, int Left, int Width, int Height, String image, Point p, String nom)
         {
-            //try
-            //{
-            //    _assembly = Assembly.GetExecutingAssembly();
-            //    _imageStream = _assembly.GetManifestResourceStream(image);
-            //    this.BackgroundImage = new Bitmap(_imageStream);
-
-            //}
-            //catch
-            //{
-            //    Console.WriteLine("Error accessing resources nono!");
-            //}
-
-            chargementImage(image);
             this.Name = nom;
             this.Top = Top;
             this.Left = Left;
@@ -38,7 +25,7 @@ namespace La_petite_boite
             this.BackColor = Color.Transparent;
             this.DoubleBuffered = true;
             this.position = p;
-            
+            chargementImage(image);
         }
 
         public Lieu ()
@@ -64,11 +51,10 @@ namespace La_petite_boite
             try
             {
                 this.BackgroundImage = new Bitmap(_imageStream);
-                Console.WriteLine("Cest cree");
             }
             catch
             {
-                Console.WriteLine("cant create image!");
+                Console.WriteLine("cant create image LIEU!");
             }
         }
 

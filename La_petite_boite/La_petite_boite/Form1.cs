@@ -35,7 +35,8 @@ namespace La_petite_boite
         public static Label obj = new Label();
         public static String resultatJeu;
         public static Panel objectif = new Panel();
-        public static List <String> joueursFichier;
+        public static List <String> joueursFichier = new List<string>();
+        public static List <String> listeSauvegarde = new List<string>();
         public static Panel chargerJoueur = new Panel();
         public static Panel ConteneurEtoile = new Panel();
         public static String dossier = "";
@@ -98,7 +99,7 @@ namespace La_petite_boite
         PictureBox recompense3;
         PictureBox[] listeAvatars;
         String sauvegardeImgAvatar = null;
-        String[] listeSauvegarde;
+        
         String jeuEnCours = "";
         String message ="";
         TextBox prenomField = new TextBox();
@@ -270,7 +271,6 @@ namespace La_petite_boite
             chargementImage("guide.png", guide);
             guide.Width = 50;
             guide.Height = 50;
-            //guide.Image = new Bitmap(_imageStream);
             guide.SizeMode = PictureBoxSizeMode.StretchImage;
             guide.Click += new EventHandler(AfficheMessage);
 
@@ -280,14 +280,12 @@ namespace La_petite_boite
             coffre.Height = 90;
             coffre.Top = 20;
             coffre.Left = 1150;
-            //coffre.Image = new Bitmap(_imageStream);
             coffre.SizeMode = PictureBoxSizeMode.StretchImage;
             coffre.BackColor = Color.Transparent;
 
             //gros coffre pour la fin du jeu
             chargementImage("coffrepng.", GrosCoffre);
             GrosCoffre = new PictureBox();
-            // GrosCoffre.Image = new Bitmap(_imageStream);
             GrosCoffre.Location = new Point(800, 300);
             GrosCoffre.Size = new Size(300, 300);
             GrosCoffre.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -298,7 +296,6 @@ namespace La_petite_boite
             sauvegarde.BackColor = Color.Green;
             sauvegarde.Width = 34;
             sauvegarde.Height = 34;
-            //sauvegarde.Image = new Bitmap(_imageStream);
             sauvegarde.SizeMode = PictureBoxSizeMode.StretchImage;
             sauvegarde.BackColor = Color.Transparent;
             sauvegarde.Click += new EventHandler(sauvegardeButton);
@@ -308,7 +305,6 @@ namespace La_petite_boite
             quitterMiniJeu.Name = "quitterMiniJeu";
             quitterMiniJeu.Width = 34;
             quitterMiniJeu.Height = 34;
-            //quitterMiniJeu.Image = new Bitmap(_imageStream);
             quitterMiniJeu.SizeMode = PictureBoxSizeMode.StretchImage;
             quitterMiniJeu.BackColor = Color.Transparent;
             quitterMiniJeu.Click += new EventHandler(retourTabBord);
@@ -352,38 +348,14 @@ namespace La_petite_boite
             //---------------------------------FICHIERS-------------------------------------//
 
             //on lit le fichier Joueurs et on cree une nouvelle instance Joueur avec les donnees trouvees
-
-            //using (StreamReader reader = new StreamReader(Properties.Resources.Joueurs))
-            //{
-            //    String line;
-
-            //    while ((line = reader.ReadLine()) != null)
-            //    {
-            //        joueursFichier.Add(line);
-            //    }
-            //}
-
-            try
-            {
-                using (StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("La_petite_boite.Joueurs.txt")))
-                {
-                    String line;
-                    while ((line = reader.ReadLine()) != null)
-                    {
-                        joueursFichier.Add(line);
-                    }
-                }
-            }
-            catch
-            {
-                Console.Write("Le fichier na as pu etre lu");
-            }
-
+            
+            chargementTexte("La_petite_boite.Resources.Joueurs.txt",joueursFichier);
             //joueursFichier = System.IO.File.ReadAllLines("Joueurs.txt");
 
             //on lit le fichier Sauvegarde et on le met dans un tableau
-            //A CORRIGER
-            listeSauvegarde = System.IO.File.ReadAllLines("dossiers_sauvegarde.txt");
+            
+            chargementTexte("La_petite_boite.Resources.dossiers_sauvegarde.txt", listeSauvegarde);
+            //listeSauvegarde = System.IO.File.ReadAllLines("dossiers_sauvegarde.txt");
 
             //--------------------------------BOUTONS----------------------------------------//
 
@@ -539,7 +511,7 @@ namespace La_petite_boite
 
             //on link le tableau listeSauvegarde avec le combobox via une boucle
 
-            for (int i = 0; i < listeSauvegarde.Length; i++)
+            for (int i = 0; i < listeSauvegarde.Count(); i++)
             {
                 listeDossierSauvegarde.Items.Add(listeSauvegarde[i]);
             }
@@ -698,9 +670,41 @@ namespace La_petite_boite
             }
         }
 
-        private void chargementTexte ()
+        private void chargementTexte (String nomFichier, List<String> tableauRes)
         {
+            try
+            {
+                using (StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream(nomFichier)))
+                {
+                    String line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        tableauRes.Add(line);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Write("Le fichier n'a pas pu etre lu" + e);
+            }
+        }
 
+        private void enregistrementFichier (String fichier)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(Assembly.GetExecutingAssembly().GetManifestResourceStream(fichier)))
+                {
+                    foreach (String s in joueursFichier)
+                    {
+                        writer.WriteLine(s);
+                    }
+                }
+            }
+            catch
+            {
+                Console.Write("Erreur lors de l-ecriture du fichier");
+            }
         }
         
         private void timer1_Tick(object sender, EventArgs e)
@@ -961,8 +965,7 @@ namespace La_petite_boite
                     //il faut creer une nouvelle instance de joueur
                     
                     chevalier = new Joueur(prenomField.Text, ageJoueur, sauvegardeImgAvatar, Chateau, Int16.Parse(etoile), dossier, epreuves);
-                    Console.WriteLine("Le dossier " + dossier + " a ete cree");
-                    Console.Write(chevalier.getNiveau());
+                    
                     //on affiche le prelude
                     afficherDiaporama();
                 }
@@ -1227,21 +1230,7 @@ namespace La_petite_boite
             //enregistrement en dur des donnees
             //System.IO.File.WriteAllLines("Joueurs.txt", joueursFichier);
 
-            try
-            {
-                using (StreamWriter writer = new StreamWriter(Assembly.GetExecutingAssembly().GetManifestResourceStream("La_petite_boite.Joueurs.txt")))
-                {
-
-                    foreach (String s in joueursFichier)
-                    {
-                        writer.WriteLine(s);
-                    }
-                }
-            }
-            catch
-            {
-                Console.Write("Erreur lors de l-ecriture du fichier");
-            }
+            enregistrementFichier("La_petite_boite.Resources.Joueurs.txt");
 
             //on quitte le jeu
             Application.Exit();

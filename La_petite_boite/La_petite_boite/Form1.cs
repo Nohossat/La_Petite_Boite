@@ -350,12 +350,10 @@ namespace La_petite_boite
             //on lit le fichier Joueurs et on cree une nouvelle instance Joueur avec les donnees trouvees
             
             chargementTexte("La_petite_boite.Resources.Joueurs.txt",joueursFichier);
-            //joueursFichier = System.IO.File.ReadAllLines("Joueurs.txt");
 
             //on lit le fichier Sauvegarde et on le met dans un tableau
             
             chargementTexte("La_petite_boite.Resources.dossiers_sauvegarde.txt", listeSauvegarde);
-            //listeSauvegarde = System.IO.File.ReadAllLines("dossiers_sauvegarde.txt");
 
             //--------------------------------BOUTONS----------------------------------------//
 
@@ -365,12 +363,12 @@ namespace La_petite_boite
             nouvellePartie.Height = 60;
             nouvellePartie.Top = 200;
             nouvellePartie.Left = 550;
-            nouvellePartie.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            //nouvellePartie.BackColor = System.Drawing.SystemColors.ActiveCaption;
             nouvellePartie.FlatAppearance.BorderSize = 0;
-            nouvellePartie.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            //nouvellePartie.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             nouvellePartie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             nouvellePartie.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nouvellePartie.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            //nouvellePartie.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             nouvellePartie.BackColor = Color.Transparent;
             nouvellePartie.Click += new EventHandler(nouvelle_partie_button);
 
@@ -386,7 +384,7 @@ namespace La_petite_boite
             chargerPartie.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             chargerPartie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             chargerPartie.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chargerPartie.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            //chargerPartie.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             chargerPartie.BackColor = Color.Transparent;
             chargerPartie.Click += new EventHandler(charger_partie_button);
 
@@ -445,7 +443,7 @@ namespace La_petite_boite
             quitter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             quitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             quitter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            quitter.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            //quitter.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             quitter.BackColor = Color.Transparent;
             quitter.Click += new EventHandler(quitterPartie);
 

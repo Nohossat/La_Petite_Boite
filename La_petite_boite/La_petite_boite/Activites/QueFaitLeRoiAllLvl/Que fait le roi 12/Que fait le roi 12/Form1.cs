@@ -51,7 +51,7 @@ namespace Que_fait_le_roi_12
         private System.Windows.Forms.PictureBox pictureBox23;
         private System.Windows.Forms.PictureBox pictureBox24;
         private System.Windows.Forms.Panel conteneurBouton;
-        //private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button9;
@@ -86,6 +86,8 @@ namespace Que_fait_le_roi_12
         private void QueFaitLeRoi_Load()
         {
             this.Enabled = true;
+            Score.Visible = false;
+            label1.Visible = false;
             Score.Text = "0";
             carteTag = "";
             sonTag = "";
@@ -115,8 +117,8 @@ namespace Que_fait_le_roi_12
             button10.Text = "Le roi s'installe à table.";
             button11.Tag = "11";
             button11.Text = "Kral pijama giyer.";
-            //button12.Tag = "12";
-            //button12.Text = "Le roi fait une pause.";
+            button12.Tag = "12";
+            button12.Text = "Le roi fait une pause.";
             
             foreach (PictureBox image in conteneurCarteAPlacer.Controls)
             {
@@ -243,12 +245,12 @@ namespace Que_fait_le_roi_12
                 System.Media.SoundPlayer son = new System.Media.SoundPlayer(kralPijamaGiyerSon);
                 son.Play();
             }
-            //else if ((String)bouton.Tag == "12")
-            //{
-            //    System.IO.Stream leRoiFaitUnePauseSon = Properties.Resources.leRoiFaitUnePauseSon;
-            //    System.Media.SoundPlayer son = new System.Media.SoundPlayer(leRoiFaitUnePauseSon);
-            //    son.Play();
-            //}
+            else if ((String)bouton.Tag == "12")
+            {
+                System.IO.Stream leRoiFaitUnePauseSon = Properties.Resources.leRoiFaitUnePauseSon;
+                System.Media.SoundPlayer son = new System.Media.SoundPlayer(leRoiFaitUnePauseSon);
+                son.Play();
+            }
         }
 
         private void Image_DragEnter(object sender, DragEventArgs e)
@@ -403,19 +405,30 @@ namespace Que_fait_le_roi_12
                     }
                     image.Enabled = false;
                 }
+                else if (sonTag == "12")
+                {
+                    foreach (PictureBox imageCarte in conteneurCarte.Controls)
+                    {
+                        if ((String)imageCarte.Tag == "12")
+                        {
+                            imageCarte.Hide();
+                        }
+
+                    }
+                    image.Enabled = false;
+                }
             }
             else
             {
                 System.IO.Stream pouet = Properties.Resources.pouet;
                 System.Media.SoundPlayer son = new System.Media.SoundPlayer(pouet);
                 son.Play();
-
-                MessageBox.Show("Ré-essayez !", "Dommage !");
+                
 
                 image.Image = null;
             }
 
-            if (Score.Text == "11")
+            if (Score.Text == "12")
             {
                 foreach (PictureBox imageCarte in conteneurCarte.Controls)
                 {
@@ -505,12 +518,12 @@ namespace Que_fait_le_roi_12
                 System.Media.SoundPlayer son = new System.Media.SoundPlayer(pijamaSon);
                 son.Play();
             }
-            //else if (sonBoutonEcoute == true & (String)image.Tag == "12")
-            //{
-            //    System.IO.Stream pauseSon = Properties.Resources.pauseSon;
-            //    System.Media.SoundPlayer son = new System.Media.SoundPlayer(pauseSon);
-            //    son.Play();
-            //}
+            else if (sonBoutonEcoute == true & (String)image.Tag == "12")
+            {
+                System.IO.Stream pauseSon = Properties.Resources.pauseSon;
+                System.Media.SoundPlayer son = new System.Media.SoundPlayer(pauseSon);
+                son.Play();
+            }
 
             conteneurCarteAPlacer.DoDragDrop("x", DragDropEffects.All);
         }

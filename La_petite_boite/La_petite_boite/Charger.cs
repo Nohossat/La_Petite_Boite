@@ -17,7 +17,6 @@ namespace La_petite_boite
         Label Selection = new Label();
         Button charger = new Button();
         Button retour = new Button();
-        String[] listeSauvegarde;
         ComboBox listeDossierSauvegarde = new ComboBox();
         ListBox joueursPossibles = new ListBox();
         Label annonce = new Label();
@@ -60,10 +59,6 @@ namespace La_petite_boite
 
         private void Charger_Load(object sender, EventArgs e)
         {
-            //chargement fichier dossiers de sauvegarde
-
-            listeSauvegarde = System.IO.File.ReadAllLines("dossiers_sauvegarde.txt");
-            
             //design
 
             //panel chargerJoueur
@@ -87,7 +82,6 @@ namespace La_petite_boite
             Selection.Font = new Font(Selection.Font.FontFamily, 15);
 
            
-
             //liste de dossiers de sauvegarde
 
             listeDossierSauvegarde.Font = new Font(Selection.Font.FontFamily, 14);
@@ -99,9 +93,9 @@ namespace La_petite_boite
             
             //ComboBox
 
-            for (int i = 0; i < listeSauvegarde.Length; i++)
+            for (int i = 0; i < Form1.listeSauvegarde.Count(); i++)
             {
-                listeDossierSauvegarde.Items.Add(listeSauvegarde[i]);
+                listeDossierSauvegarde.Items.Add(Form1.listeSauvegarde[i]);
             }
 
             //annonce

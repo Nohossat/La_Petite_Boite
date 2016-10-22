@@ -12,7 +12,7 @@ namespace memory8Cartes
 {
     public partial class Memory8 : Form
     {
-        private System.Windows.Forms.Label label1;
+        
         public Memory8()
         {
             InitializeComponent();
@@ -36,6 +36,7 @@ namespace memory8Cartes
         private PictureBox doubleCarte1;
         private PictureBox carte1;
         private Label Score;
+        private System.Windows.Forms.Label label1;
 
         public MemoryPanel()
         {
@@ -47,6 +48,10 @@ namespace memory8Cartes
         public void chargementPartie()
         {
             Score.Text = "0"; //initialisation du score à zéro
+            this.label1.Text = "Score";
+            Score.Visible = false;
+            label1.Visible = false;
+            
             ImageEnAttente1 = null; //initialisation à null
             ImageEnAttente2 = null; //initialisation à null
             this.Enabled = true;

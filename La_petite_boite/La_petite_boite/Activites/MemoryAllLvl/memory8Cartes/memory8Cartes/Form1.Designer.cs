@@ -28,25 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(5, 116);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Score";
+            
             // 
             // Memory8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 441);
-            this.Controls.Add(this.label1);
+            
+            this.Controls.Add(new MemoryPanel());
             this.Name = "Memory8";
             this.Text = "Jeu Memory";
             this.ResumeLayout(false);
@@ -93,6 +88,7 @@
             this.carte1 = new System.Windows.Forms.PictureBox();
             this.Score = new System.Windows.Forms.Label();
             this.conteneurCarte.SuspendLayout();
+            this.Controls.Add(this.label1);
             ((System.ComponentModel.ISupportInitialize)(this.doubleCarte4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carte4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doubleCarte3)).BeginInit();
@@ -102,6 +98,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.doubleCarte1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carte1)).BeginInit();
             this.SuspendLayout();
+
+            this.label1 = new System.Windows.Forms.Label();
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(5, 116);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 24);
+            this.label1.TabIndex = 1;
+            
             // 
             // conteneurCarte
             // 
@@ -218,6 +223,7 @@
             // MemoryPanel
             // 
             this.ClientSize = new System.Drawing.Size(999, 528);
+            this.Location = new System.Drawing.Point(180, 100);
             this.Controls.Add(this.Score);
             this.Controls.Add(this.conteneurCarte);
             this.Name = "Memory8";

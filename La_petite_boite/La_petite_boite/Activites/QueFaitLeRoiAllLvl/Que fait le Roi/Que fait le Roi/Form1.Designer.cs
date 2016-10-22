@@ -36,6 +36,7 @@
             this.Name = "QueFaitLeRoi";
             this.Text = "QueFaitLeRoi4";
             this.ResumeLayout(false);
+            this.Controls.Add(new QueFaitLeRoi4Panel());
 
         }
     }
@@ -285,7 +286,7 @@
             // 
             // QueFaitLeRoiPanel
             this.ClientSize = new System.Drawing.Size(999, 600);
-            this.Location = new System.Drawing.Point(120, 100);
+            this.Location = new System.Drawing.Point(180, 100);
             this.Controls.Add(this.Score);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.conteneurBouton);

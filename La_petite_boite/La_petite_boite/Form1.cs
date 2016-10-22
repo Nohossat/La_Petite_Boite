@@ -125,9 +125,8 @@ namespace La_petite_boite
             chargementImage("Chargement_LapetiteBoite.png", chargement);
 
             //accueil
-            chargementImage("accueil.jpg", accueil);
-            accueil.Top = 0;
-            accueil.Left = 3;
+            chargementImage("accueil.png", accueil);
+            accueil.Location = new System.Drawing.Point(-6, -2);
             accueil.Width = 1400;
             accueil.Height = 722;
 
@@ -135,23 +134,20 @@ namespace La_petite_boite
             chargementImage("menu.png", nouveauJoueur);
             nouveauJoueur.Width = 1400;
             nouveauJoueur.Height = 722;
-            nouveauJoueur.Top = 0;
-            nouveauJoueur.Left = 0;
+            nouveauJoueur.Location = new System.Drawing.Point(-6, -2);
 
 
             //diaporamaHistoire
             chargementImage("presentationJeu.png", diaporamaHistoire);
-            diaporamaHistoire.Top = 0;
-            diaporamaHistoire.Left = 0;
+            diaporamaHistoire.Location = new System.Drawing.Point(-6, -2);
             diaporamaHistoire.Width = 1400;
             diaporamaHistoire.Height = 722;
 
 
             //carteJeu
             chargementImage("mapReference.png", CarteJeu);
-            CarteJeu.Top = 0;
             CarteJeu.Name = "Carte";
-            CarteJeu.Left = 0;
+            CarteJeu.Location = new System.Drawing.Point(-6, -2);
             CarteJeu.Width = 1400;
             CarteJeu.Height = 722;
 
@@ -160,12 +156,11 @@ namespace La_petite_boite
             chargementImage("presentationJeu.png", CourRoi);
             CourRoi.Width = 1400;
             CourRoi.Height = 722;
-            CourRoi.Location = new Point(0, 0);
+            CourRoi.Location = new Point(-6, -2);
 
 
             //ecran mini-jeu
-            Jeu.Top = 0;
-            Jeu.Left = 0;
+            Jeu.Location = new System.Drawing.Point(-6, -2);
             Jeu.Width = 1400;
             Jeu.Height = 722;
             Jeu.Name = "Jeu";
@@ -177,23 +172,23 @@ namespace La_petite_boite
             choixAvatar.Width = 900;
             choixAvatar.Height = 200;
             choixAvatar.Top = 40;
-            choixAvatar.Left = 191;
+            choixAvatar.Left = 250;
             choixAvatar.BackColor = Color.Transparent;
 
             //mini panel saisie informations personnelles
             saisirInfos.Width = 500;
             saisirInfos.Height = 200;
             saisirInfos.Top = 300;
-            saisirInfos.Left = 391;
+            saisirInfos.Left = 450;
             saisirInfos.BackColor = Color.Transparent;
             saisirInfos.BorderStyle = BorderStyle.FixedSingle;
 
             //tabBord
 
-            tabBord.Width = 150;
-            tabBord.Height = 50;
-            tabBord.Top = 680;
-            tabBord.Left = 1200;
+            tabBord.Width = 50;
+            tabBord.Height = 200;
+            tabBord.Top = 520;
+            tabBord.Left = 1300;
             tabBord.BackColor = Color.Transparent;
 
             //on ajoute les boutons au tableau de bord
@@ -205,17 +200,17 @@ namespace La_petite_boite
             sauvegarde.Top = 0;
             sauvegarde.Left = 0;
 
-            quitterMiniJeu.Top = 0;
-            quitterMiniJeu.Left = 60;
+            quitterMiniJeu.Top = 70;
+            quitterMiniJeu.Left = 0;
 
-            guide.Top = 0;
-            guide.Left = 100;
+            guide.Top = 140;
+            guide.Left = 0;
 
             //conteneurEtoile
 
             ConteneurEtoile.Top = 20;
-            ConteneurEtoile.Left = 220;
-            ConteneurEtoile.Width = 900;
+            ConteneurEtoile.Left = 370;
+            ConteneurEtoile.Width = 880;
             ConteneurEtoile.Height = 100;
             ConteneurEtoile.BackColor = Color.Transparent;
 
@@ -229,8 +224,8 @@ namespace La_petite_boite
 
             //miniJeu
             miniJeu.Top = 90;
-            miniJeu.Left = 120;
-            miniJeu.Width = 1200;
+            miniJeu.Left = 100;
+            miniJeu.Width = 1274;
             miniJeu.Height = 700;
             miniJeu.BackColor = Color.Transparent;
 
@@ -279,7 +274,7 @@ namespace La_petite_boite
             coffre.Width = 100;
             coffre.Height = 90;
             coffre.Top = 20;
-            coffre.Left = 1150;
+            coffre.Left = 1250;
             coffre.SizeMode = PictureBoxSizeMode.StretchImage;
             coffre.BackColor = Color.Transparent;
 
@@ -391,7 +386,7 @@ namespace La_petite_boite
             //commencer
             commencer.Text = "Commencer";
             commencer.Top = 600;
-            commencer.Left = 466;
+            commencer.Left = 525;
             commencer.Width = 150;
             commencer.Height = 70;
             commencer.FlatAppearance.BorderSize = 0;
@@ -406,7 +401,7 @@ namespace La_petite_boite
             //retour
             retour.Text = "Retour";
             retour.Top = 600;
-            retour.Left = 666;
+            retour.Left = 725;
             retour.Width = 150;
             retour.Height = 70;
             retour.FlatAppearance.BorderSize = 0;

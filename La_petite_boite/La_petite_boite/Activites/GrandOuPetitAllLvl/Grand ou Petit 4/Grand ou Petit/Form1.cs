@@ -62,6 +62,8 @@ namespace Grand_ou_Petit
         {
             this.Enabled = true;
             Score.Text = "0"; //initialisation du score à zéro
+            Score.Visible = false;
+            label.Visible = false;
             carteRetournee = false;
             cartePetiteDejaSelectionnee = false;
             premiereCarteSelectionnee = "";
@@ -86,7 +88,7 @@ namespace Grand_ou_Petit
                 coordonneesGrandeCarte.Remove(p);
             }
 
-            //récupérer les localisations des grandes cartes
+            //récupérer les localisations des emplacements
             foreach (PictureBox image in conteneurCarteAPlacer.Controls)
             {
                 image.Enabled = true;
@@ -213,6 +215,9 @@ namespace Grand_ou_Petit
             PictureBox image = (PictureBox)sender;
             image.Image = petiteImageRecup;
             destinationCarte = (String)image.Tag;
+            Console.Write("haut / " + premiereCarteSelectionnee);
+            Console.Write("milieu / " + destinationCarte);
+            Console.Write("bas / " + deuxiemeCarteSelectionnee);
 
             if (premiereCarteSelectionnee == deuxiemeCarteSelectionnee & premiereCarteSelectionnee == destinationCarte)
             {

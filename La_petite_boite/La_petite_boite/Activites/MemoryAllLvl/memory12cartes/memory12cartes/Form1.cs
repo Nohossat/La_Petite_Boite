@@ -50,6 +50,8 @@ namespace memory12cartes
         private void chargementPartie()
         {
             Score.Text = "0"; //initialisation du score à zéro
+            Score.Visible = false;
+            label1.Visible = false; 
             ImageEnAttente1 = null; //initialisation à null
             ImageEnAttente2 = null; //initialisation à null
             this.Enabled = true;

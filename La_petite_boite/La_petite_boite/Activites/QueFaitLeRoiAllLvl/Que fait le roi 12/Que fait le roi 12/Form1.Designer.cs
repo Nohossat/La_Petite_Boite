@@ -97,7 +97,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.conteneurBouton = new System.Windows.Forms.Panel();
-            //this.button12 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
@@ -178,18 +178,18 @@
             // 
             // pictureBox18
             // 
-            //this.pictureBox18.Location = new System.Drawing.Point(1169, 5);
-            //this.pictureBox18.Name = "pictureBox18";
-            //this.pictureBox18.Size = new System.Drawing.Size(100, 130);
-            //this.pictureBox18.TabIndex = 11;
-            //this.pictureBox18.TabStop = false;
-            //this.pictureBox18.Tag = "12";
-            //this.pictureBox18.DragDrop += new System.Windows.Forms.DragEventHandler(this.Image_DragDrop);
-            //this.pictureBox18.DragEnter += new System.Windows.Forms.DragEventHandler(this.Image_DragEnter);
-            // 
+            this.pictureBox18.Location = new System.Drawing.Point(1136, 5);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(100, 130);
+            this.pictureBox18.TabIndex = 11;
+            this.pictureBox18.TabStop = false;
+            this.pictureBox18.Tag = "12";
+            this.pictureBox18.DragDrop += new System.Windows.Forms.DragEventHandler(this.Image_DragDrop);
+            this.pictureBox18.DragEnter += new System.Windows.Forms.DragEventHandler(this.Image_DragEnter);
+
             // pictureBox19
             // 
-            this.pictureBox19.Location = new System.Drawing.Point(1063, 5);
+            this.pictureBox19.Location = new System.Drawing.Point(1033, 5);
             this.pictureBox19.Name = "pictureBox19";
             this.pictureBox19.Size = new System.Drawing.Size(100, 130);
             this.pictureBox19.TabIndex = 10;
@@ -200,7 +200,7 @@
             // 
             // pictureBox20
             // 
-            this.pictureBox20.Location = new System.Drawing.Point(957, 5);
+            this.pictureBox20.Location = new System.Drawing.Point(930, 5);
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.Size = new System.Drawing.Size(100, 130);
             this.pictureBox20.TabIndex = 9;
@@ -211,7 +211,7 @@
             // 
             // pictureBox17
             // 
-            this.pictureBox17.Location = new System.Drawing.Point(851, 5);
+            this.pictureBox17.Location = new System.Drawing.Point(827, 5);
             this.pictureBox17.Name = "pictureBox17";
             this.pictureBox17.Size = new System.Drawing.Size(100, 130);
             this.pictureBox17.TabIndex = 8;
@@ -222,7 +222,7 @@
             // 
             // pictureBox15
             // 
-            this.pictureBox15.Location = new System.Drawing.Point(745, 5);
+            this.pictureBox15.Location = new System.Drawing.Point(724, 5);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(100, 130);
             this.pictureBox15.TabIndex = 7;
@@ -233,7 +233,7 @@
             // 
             // pictureBox11
             // 
-            this.pictureBox11.Location = new System.Drawing.Point(639, 5);
+            this.pictureBox11.Location = new System.Drawing.Point(621, 5);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(100, 130);
             this.pictureBox11.TabIndex = 6;
@@ -244,7 +244,7 @@
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Location = new System.Drawing.Point(533, 5);
+            this.pictureBox10.Location = new System.Drawing.Point(518, 5);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(100, 130);
             this.pictureBox10.TabIndex = 5;
@@ -255,7 +255,7 @@
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Location = new System.Drawing.Point(427, 5);
+            this.pictureBox9.Location = new System.Drawing.Point(415, 5);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(100, 130);
             this.pictureBox9.TabIndex = 4;
@@ -277,7 +277,7 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Location = new System.Drawing.Point(109, 5);
+            this.pictureBox6.Location = new System.Drawing.Point(106, 5);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(100, 130);
             this.pictureBox6.TabIndex = 1;
@@ -288,7 +288,7 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Location = new System.Drawing.Point(215, 5);
+            this.pictureBox7.Location = new System.Drawing.Point(209, 5);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(100, 130);
             this.pictureBox7.TabIndex = 2;
@@ -299,7 +299,7 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Location = new System.Drawing.Point(321, 5);
+            this.pictureBox8.Location = new System.Drawing.Point(312, 5);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(100, 130);
             this.pictureBox8.TabIndex = 3;
@@ -310,7 +310,7 @@
             // 
             // conteneurCarte
             // 
-            //this.conteneurCarte.Controls.Add(this.pictureBox21);
+            this.conteneurCarte.Controls.Add(this.pictureBox21);
             this.conteneurCarte.Controls.Add(this.pictureBox22);
             this.conteneurCarte.Controls.Add(this.pictureBox23);
             this.conteneurCarte.Controls.Add(this.pictureBox24);
@@ -328,22 +328,22 @@
             this.conteneurCarte.TabIndex = 20;
             // 
             //// pictureBox21
-            //// 
-            //this.pictureBox21.Cursor = System.Windows.Forms.Cursors.Default;
-            //this.pictureBox21.Image = global::Que_fait_le_roi_12.Properties.Resources.pauseGrand;
-            //this.pictureBox21.Location = new System.Drawing.Point(1169, 3);
-            //this.pictureBox21.Name = "pictureBox21";
-            //this.pictureBox21.Size = new System.Drawing.Size(100, 130);
-            //this.pictureBox21.TabIndex = 11;
-            //this.pictureBox21.TabStop = false;
-            //this.pictureBox21.Tag = "12";
-            //this.pictureBox21.MouseDown += new System.Windows.Forms.MouseEventHandler(this.receveurImage_MouseDown);
             // 
+            this.pictureBox21.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pictureBox21.Image = global::Que_fait_le_roi_12.Properties.Resources.pauseGrand;
+            this.pictureBox21.Location = new System.Drawing.Point(1136, 3);
+            this.pictureBox21.Name = "pictureBox21";
+            this.pictureBox21.Size = new System.Drawing.Size(100, 130);
+            this.pictureBox21.TabIndex = 11;
+            this.pictureBox21.TabStop = false;
+            this.pictureBox21.Tag = "12";
+            this.pictureBox21.MouseDown += new System.Windows.Forms.MouseEventHandler(this.receveurImage_MouseDown);
+
             // pictureBox22
             // 
             this.pictureBox22.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureBox22.Image = global::Que_fait_le_roi_12.Properties.Resources.pijamaGrand;
-            this.pictureBox22.Location = new System.Drawing.Point(1063, 3);
+            this.pictureBox22.Location = new System.Drawing.Point(1033, 3);
             this.pictureBox22.Name = "pictureBox22";
             this.pictureBox22.Size = new System.Drawing.Size(100, 130);
             this.pictureBox22.TabIndex = 10;
@@ -355,7 +355,7 @@
             // 
             this.pictureBox23.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureBox23.Image = global::Que_fait_le_roi_12.Properties.Resources.tableGrande;
-            this.pictureBox23.Location = new System.Drawing.Point(957, 3);
+            this.pictureBox23.Location = new System.Drawing.Point(930, 3);
             this.pictureBox23.Name = "pictureBox23";
             this.pictureBox23.Size = new System.Drawing.Size(100, 130);
             this.pictureBox23.TabIndex = 9;
@@ -367,7 +367,7 @@
             // 
             this.pictureBox24.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureBox24.Image = global::Que_fait_le_roi_12.Properties.Resources.bainGrand;
-            this.pictureBox24.Location = new System.Drawing.Point(851, 3);
+            this.pictureBox24.Location = new System.Drawing.Point(827, 3);
             this.pictureBox24.Name = "pictureBox24";
             this.pictureBox24.Size = new System.Drawing.Size(100, 130);
             this.pictureBox24.TabIndex = 8;
@@ -379,7 +379,7 @@
             // 
             this.pictureBox16.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureBox16.Image = global::Que_fait_le_roi_12.Properties.Resources.coffre2;
-            this.pictureBox16.Location = new System.Drawing.Point(745, 3);
+            this.pictureBox16.Location = new System.Drawing.Point(724, 3);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(100, 130);
             this.pictureBox16.TabIndex = 7;
@@ -391,7 +391,7 @@
             // 
             this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureBox14.Image = global::Que_fait_le_roi_12.Properties.Resources.chaise2;
-            this.pictureBox14.Location = new System.Drawing.Point(639, 3);
+            this.pictureBox14.Location = new System.Drawing.Point(621, 3);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(100, 130);
             this.pictureBox14.TabIndex = 6;
@@ -403,7 +403,7 @@
             // 
             this.pictureBox13.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureBox13.Image = global::Que_fait_le_roi_12.Properties.Resources.litGrand;
-            this.pictureBox13.Location = new System.Drawing.Point(533, 3);
+            this.pictureBox13.Location = new System.Drawing.Point(518, 3);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(100, 130);
             this.pictureBox13.TabIndex = 5;
@@ -415,7 +415,7 @@
             // 
             this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureBox12.Image = global::Que_fait_le_roi_12.Properties.Resources.escalierGrand;
-            this.pictureBox12.Location = new System.Drawing.Point(427, 3);
+            this.pictureBox12.Location = new System.Drawing.Point(415, 3);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(100, 130);
             this.pictureBox12.TabIndex = 4;
@@ -427,7 +427,7 @@
             // 
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureBox4.Image = global::Que_fait_le_roi_12.Properties.Resources.jardinGrand;
-            this.pictureBox4.Location = new System.Drawing.Point(321, 3);
+            this.pictureBox4.Location = new System.Drawing.Point(312, 3);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(100, 130);
             this.pictureBox4.TabIndex = 3;
@@ -449,7 +449,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Que_fait_le_roi_12.Properties.Resources.ecoleGrande;
-            this.pictureBox2.Location = new System.Drawing.Point(109, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(106, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 130);
             this.pictureBox2.TabIndex = 1;
@@ -460,7 +460,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Que_fait_le_roi_12.Properties.Resources.foretGrande;
-            this.pictureBox3.Location = new System.Drawing.Point(215, 3);
+            this.pictureBox3.Location = new System.Drawing.Point(209, 3);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(100, 130);
             this.pictureBox3.TabIndex = 2;
@@ -470,7 +470,7 @@
             // 
             // conteneurBouton
             // 
-            //this.conteneurBouton.Controls.Add(this.button12);
+            this.conteneurBouton.Controls.Add(this.button12);
             this.conteneurBouton.Controls.Add(this.button11);
             this.conteneurBouton.Controls.Add(this.button10);
             this.conteneurBouton.Controls.Add(this.button9);
@@ -488,20 +488,20 @@
             this.conteneurBouton.TabIndex = 25;
             // 
             // button12
-            // 
-            //this.button12.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.button12.Location = new System.Drawing.Point(1169, 3);
-            //this.button12.Name = "button12";
-            //this.button12.Size = new System.Drawing.Size(100, 37);
-            //this.button12.TabIndex = 12;
-            //this.button12.Tag = "";
-            //this.button12.UseVisualStyleBackColor = true;
-            //this.button12.Click += new System.EventHandler(this.Ecouter);
-            // 
+
+            this.button12.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.Location = new System.Drawing.Point(1136, 3);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(100, 37);
+            this.button12.TabIndex = 12;
+            this.button12.Tag = "";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.Ecouter);
+
             // button11
             // 
             this.button11.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(1063, 3);
+            this.button11.Location = new System.Drawing.Point(1033, 3);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(100, 37);
             this.button11.TabIndex = 11;
@@ -512,7 +512,7 @@
             // button10
             // 
             this.button10.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(957, 3);
+            this.button10.Location = new System.Drawing.Point(930, 3);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(100, 37);
             this.button10.TabIndex = 10;
@@ -523,7 +523,7 @@
             // button9
             // 
             this.button9.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(851, 3);
+            this.button9.Location = new System.Drawing.Point(827, 3);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(100, 37);
             this.button9.TabIndex = 9;
@@ -534,7 +534,7 @@
             // button8
             // 
             this.button8.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(745, 3);
+            this.button8.Location = new System.Drawing.Point(724, 3);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(100, 37);
             this.button8.TabIndex = 8;
@@ -545,7 +545,7 @@
             // button7
             // 
             this.button7.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(639, 3);
+            this.button7.Location = new System.Drawing.Point(621, 3);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 37);
             this.button7.TabIndex = 7;
@@ -556,7 +556,7 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(533, 3);
+            this.button6.Location = new System.Drawing.Point(518, 3);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(100, 37);
             this.button6.TabIndex = 6;
@@ -567,7 +567,7 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(427, 3);
+            this.button5.Location = new System.Drawing.Point(415, 3);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 37);
             this.button5.TabIndex = 5;
@@ -589,7 +589,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(109, 3);
+            this.button2.Location = new System.Drawing.Point(106, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 37);
             this.button2.TabIndex = 4;
@@ -600,7 +600,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(215, 3);
+            this.button3.Location = new System.Drawing.Point(209, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 37);
             this.button3.TabIndex = 3;
@@ -611,7 +611,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(321, 3);
+            this.button4.Location = new System.Drawing.Point(312, 3);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 37);
             this.button4.TabIndex = 2;
@@ -622,7 +622,7 @@
             // Que fait le roi 12
             // 
             this.ClientSize = new System.Drawing.Size(1300, 600);
-            this.Location = new System.Drawing.Point(-10, 100);
+            this.Location = new System.Drawing.Point(5, 100);
             this.Controls.Add(this.conteneurBouton);
             this.Controls.Add(this.Score);
             this.Controls.Add(this.label1);

@@ -341,6 +341,7 @@
             this.Controls.Add(this.conteneurCarte);
             this.Controls.Add(this.Score);
             this.Controls.Add(this.label1);
+            this.Location = new System.Drawing.Point(100, 100);
             this.Name = "Memory18";
             this.Text = "Memory18";
             this.conteneurCarte.ResumeLayout(false);

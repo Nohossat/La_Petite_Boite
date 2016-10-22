@@ -134,7 +134,7 @@
         this.conteneurPetiteCarte.Controls.Add(this.pictureBox19);
         this.conteneurPetiteCarte.Controls.Add(this.pictureBox18);
         this.conteneurPetiteCarte.Controls.Add(this.pictureBox17);
-        this.conteneurPetiteCarte.Location = new System.Drawing.Point(0, 360);
+        this.conteneurPetiteCarte.Location = new System.Drawing.Point(10, 360);
         this.conteneurPetiteCarte.Name = "conteneurPetiteCarte";
         this.conteneurPetiteCarte.Size = new System.Drawing.Size(1162, 167);
         this.conteneurPetiteCarte.TabIndex = 9;
@@ -230,7 +230,7 @@
         this.conteneurCarteAPlacer.Controls.Add(this.pictureBox16);
         this.conteneurCarteAPlacer.Controls.Add(this.pictureBox10);
         this.conteneurCarteAPlacer.Controls.Add(this.pictureBox15);
-        this.conteneurCarteAPlacer.Location = new System.Drawing.Point(0, 185);
+        this.conteneurCarteAPlacer.Location = new System.Drawing.Point(10, 185);
         this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
         this.conteneurCarteAPlacer.Size = new System.Drawing.Size(1162, 169);
         this.conteneurCarteAPlacer.TabIndex = 8;
@@ -336,7 +336,7 @@
         this.conteneurGrandeCarte.Controls.Add(this.pictureBox2);
         this.conteneurGrandeCarte.Controls.Add(this.pictureBox5);
         this.conteneurGrandeCarte.Controls.Add(this.pictureBox1);
-        this.conteneurGrandeCarte.Location = new System.Drawing.Point(0, 9);
+        this.conteneurGrandeCarte.Location = new System.Drawing.Point(10, 9);
         this.conteneurGrandeCarte.Name = "conteneurGrandeCarte";
         this.conteneurGrandeCarte.Size = new System.Drawing.Size(1162, 170);
         this.conteneurGrandeCarte.TabIndex = 6;
@@ -450,7 +450,7 @@
         // GrandOuPetit8
         // 
         this.ClientSize = new System.Drawing.Size(1200, 600);
-        this.Location = new System.Drawing.Point(0, 50);
+        this.Location = new System.Drawing.Point(70, 50);
         this.Controls.Add(this.Score);
         this.Controls.Add(this.label);
         this.Controls.Add(this.conteneurPetiteCarte);

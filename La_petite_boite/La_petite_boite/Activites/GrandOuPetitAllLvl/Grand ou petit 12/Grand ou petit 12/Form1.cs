@@ -85,6 +85,8 @@ namespace Grand_ou_petit_12
         private void chargementPartie()
         {
             this.Enabled = true;
+            Score.Visible = false;
+            label.Visible = false;
             Score.Text = "0"; //initialisation du score à zéro
             carteRetournee = false;
             cartePetiteDejaSelectionnee = false;

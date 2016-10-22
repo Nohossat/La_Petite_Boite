@@ -605,7 +605,7 @@
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(1400, 700);
-            this.Location = new System.Drawing.Point(0, 100);
+            this.Location = new System.Drawing.Point(10, 100);
             this.Controls.Add(this.Score);
             this.Controls.Add(this.label);
             this.Controls.Add(this.conteneurPetiteCarte);

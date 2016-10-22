@@ -64,7 +64,9 @@ namespace chasseAuxMots12Cartes
         {
             this.Enabled = true;
             Score.Text = "0";
+            Score.Visible = false;
             Ecouter.Enabled = true;
+            Resultat.Visible = false;
             demarrage = 0;
             carteACliquerTag = "";
             imageCliqueTag = "";

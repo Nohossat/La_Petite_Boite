@@ -86,6 +86,8 @@ namespace Que_fait_le_roi_12
         private void QueFaitLeRoi_Load()
         {
             this.Enabled = true;
+            Score.Visible = false;
+            label1.Visible = false;
             Score.Text = "0";
             carteTag = "";
             sonTag = "";
@@ -403,6 +405,18 @@ namespace Que_fait_le_roi_12
                     }
                     image.Enabled = false;
                 }
+                else if (sonTag == "12")
+                {
+                    foreach (PictureBox imageCarte in conteneurCarte.Controls)
+                    {
+                        if ((String)imageCarte.Tag == "12")
+                        {
+                            imageCarte.Hide();
+                        }
+
+                    }
+                    image.Enabled = false;
+                }
             }
             else
             {
@@ -414,7 +428,7 @@ namespace Que_fait_le_roi_12
                 image.Image = null;
             }
 
-            if (Score.Text == "11")
+            if (Score.Text == "12")
             {
                 foreach (PictureBox imageCarte in conteneurCarte.Controls)
                 {

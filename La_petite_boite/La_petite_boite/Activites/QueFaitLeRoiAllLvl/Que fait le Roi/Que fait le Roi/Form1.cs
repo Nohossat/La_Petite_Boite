@@ -29,7 +29,6 @@ namespace Que_fait_le_Roi
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel conteneurCarte;
         private System.Windows.Forms.Panel conteneurBouton;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Score;
         private System.Windows.Forms.PictureBox pictureBox8;
@@ -61,6 +60,8 @@ namespace Que_fait_le_Roi
         private void QueFaitLeRoi_Load()
         {
             this.Enabled = true;
+            Score.Visible = false;
+            label1.Visible = false;
             Score.Text = "0";
             carteTag = "";
             sonTag = "";
@@ -181,7 +182,6 @@ namespace Que_fait_le_Roi
                 System.IO.Stream applaudissement = Properties.Resources.applaudissement;
                 System.Media.SoundPlayer son = new System.Media.SoundPlayer(applaudissement);
                 son.Play();
-                MessageBox.Show("Bien joué !", "Bravo !!");
 
                 if (sonTag == "1")
                 {
@@ -209,8 +209,7 @@ namespace Que_fait_le_Roi
                 System.IO.Stream pouet = Properties.Resources.pouet;
                 System.Media.SoundPlayer son = new System.Media.SoundPlayer(pouet);
                 son.Play();
-
-                MessageBox.Show("Ré-essayez !", "Dommage !");
+                
 
                 image.Image = null;
             }

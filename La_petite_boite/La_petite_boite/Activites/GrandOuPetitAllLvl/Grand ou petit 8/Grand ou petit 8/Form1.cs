@@ -76,6 +76,8 @@ namespace Grand_ou_petit_8
         {
             this.Enabled = true;
             Score.Text = "0"; //initialisation du score à zéro
+            Score.Visible = false;
+            label.Visible = false;
             carteRetournee = false;
             cartePetiteDejaSelectionnee = false;
             premiereCarteSelectionnee = "";
@@ -154,7 +156,7 @@ namespace Grand_ou_petit_8
                 PictureBox carteCourante = (PictureBox)sender;
                 premiereCarteSelectionnee = (String)carteCourante.Tag;
                 carteRetournee = true;
-
+                Console.Write((String)carteCourante.Tag);
                 //attribution des mots pour chaque paires selon le tag 
                 if ((String)carteCourante.Tag == "1")
                 {
@@ -297,10 +299,15 @@ namespace Grand_ou_petit_8
 
         private void petiteImage_DragDrop(object sender, DragEventArgs e)
         {
+
             PictureBox image = (PictureBox)sender;
             image.Image = petiteImageRecup;
             destinationCarte = (String)image.Tag;
-
+            Console.Write("haut / " + premiereCarteSelectionnee);
+            Console.Write("milieu / " + destinationCarte);
+            Console.Write("bas / " + deuxiemeCarteSelectionnee);
+            Console.Write(petiteImageRecup);
+            
             if (premiereCarteSelectionnee == deuxiemeCarteSelectionnee & premiereCarteSelectionnee == destinationCarte)
             {
                 Score.Text = Convert.ToString(Convert.ToInt32(Score.Text) + 1);
@@ -311,6 +318,7 @@ namespace Grand_ou_petit_8
                 System.Media.SoundPlayer son = new System.Media.SoundPlayer(applaudissement);
                 son.Play();
 
+                //une fois qu'on a trouve la paire, on cache la petite carte et on desactive le clic sur la grande carte
                 if (premiereCarteSelectionnee == "1")
                 {
                     foreach (PictureBox imagePetite in conteneurPetiteCarte.Controls)
@@ -501,6 +509,7 @@ namespace Grand_ou_petit_8
                 PictureBox image = (PictureBox)sender;
                 deuxiemeCarteSelectionnee = (String)image.Tag;
                 cartePetiteDejaSelectionnee = true;
+                Console.Write("tag" + deuxiemeCarteSelectionnee);
 
                 if (carteRetournee == true)
                 {
@@ -512,7 +521,7 @@ namespace Grand_ou_petit_8
                         }
                     }
 
-                    if ((String)image.Tag == "1")
+                    if (deuxiemeCarteSelectionnee == "1")
                     {
                         image.Image = Properties.Resources.satoKucuk;
                         foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
@@ -525,7 +534,7 @@ namespace Grand_ou_petit_8
                         System.Media.SoundPlayer son = new System.Media.SoundPlayer(satoKucukSon);
                         son.Play();
                     }
-                    else if ((String)image.Tag == "2")
+                    else if (deuxiemeCarteSelectionnee == "2")
                     {
                         image.Image = Properties.Resources.boitePetite;
                         foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
@@ -538,7 +547,7 @@ namespace Grand_ou_petit_8
                         System.Media.SoundPlayer son = new System.Media.SoundPlayer(boitePetiteSon);
                         son.Play();
                     }
-                    else if ((String)image.Tag == "3")
+                    else if (deuxiemeCarteSelectionnee == "3")
                     {
                         image.Image = Properties.Resources.bahceKucuk;
                         foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
@@ -551,7 +560,7 @@ namespace Grand_ou_petit_8
                         System.Media.SoundPlayer son = new System.Media.SoundPlayer(bahceKucukSon);
                         son.Play();
                     }
-                    else if ((String)image.Tag == "4")
+                    else if (deuxiemeCarteSelectionnee == "4")
                     {
                         image.Image = Properties.Resources.pontPetit;
                         foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
@@ -564,7 +573,7 @@ namespace Grand_ou_petit_8
                         System.Media.SoundPlayer son = new System.Media.SoundPlayer(pontPetitSon);
                         son.Play();
                     }
-                    else if ((String)image.Tag == "5")
+                    else if (deuxiemeCarteSelectionnee == "5")
                     {
                         image.Image = Properties.Resources.yatakKucuk;
                         foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
@@ -577,7 +586,7 @@ namespace Grand_ou_petit_8
                         System.Media.SoundPlayer son = new System.Media.SoundPlayer(yatakKucukSon);
                         son.Play();
                     }
-                    else if ((String)image.Tag == "6")
+                    else if (deuxiemeCarteSelectionnee == "6")
                     {
                         image.Image = Properties.Resources.masaKucuk;
                         foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
@@ -590,7 +599,7 @@ namespace Grand_ou_petit_8
                         System.Media.SoundPlayer son = new System.Media.SoundPlayer(masaKucukSon);
                         son.Play();
                     }
-                    else if ((String)image.Tag == "7")
+                    else if (deuxiemeCarteSelectionnee == "7")
                     {
                         image.Image = Properties.Resources.chaisePetite;
                         foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
@@ -603,7 +612,7 @@ namespace Grand_ou_petit_8
                         System.Media.SoundPlayer son = new System.Media.SoundPlayer(chaisePetiteSon);
                         son.Play();
                     }
-                    else if ((String)image.Tag == "8")
+                    else if (deuxiemeCarteSelectionnee == "8")
                     {
                         image.Image = Properties.Resources.foretPetite;
                         foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)

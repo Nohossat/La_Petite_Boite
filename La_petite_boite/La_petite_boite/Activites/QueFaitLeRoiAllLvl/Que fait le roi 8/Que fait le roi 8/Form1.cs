@@ -74,6 +74,8 @@ namespace Que_fait_le_roi_8
         private void QueFaitLeRoi_Load()
         {
             this.Enabled = true;
+            Score.Visible = false;
+            label1.Visible = false;
             Score.Text = "0";
             carteTag = "";
             sonTag = "";

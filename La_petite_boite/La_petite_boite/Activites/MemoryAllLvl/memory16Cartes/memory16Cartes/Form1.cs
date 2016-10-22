@@ -27,7 +27,6 @@ namespace memory16Cartes
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Score;
-        private System.Windows.Forms.Button Rejouer;
         private System.Windows.Forms.Panel conteneurCarte;
         private System.Windows.Forms.PictureBox carte9Double;
         private System.Windows.Forms.PictureBox carte9;
@@ -57,6 +56,8 @@ namespace memory16Cartes
         private void chargementPartie()
         {
             Score.Text = "0"; //initialisation du score à zéro
+            Score.Visible = false;
+            label1.Visible = false;
             ImageEnAttente1 = null; //initialisation à null
             ImageEnAttente2 = null; //initialisation à null
             this.Enabled = true;

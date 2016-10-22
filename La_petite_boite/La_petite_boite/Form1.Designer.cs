@@ -72,10 +72,9 @@
             this.ClientSize = new System.Drawing.Size(1267, 683);
             this.Controls.Add(this.chargement);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(1400, 850);
+            this.MaximumSize = new System.Drawing.Size(1400, 789);
             this.MinimizeBox = false;
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "La petite Boite";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.chargement.ResumeLayout(false);

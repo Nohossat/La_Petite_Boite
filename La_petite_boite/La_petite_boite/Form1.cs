@@ -125,9 +125,8 @@ namespace La_petite_boite
             chargementImage("Chargement_LapetiteBoite.png", chargement);
 
             //accueil
-            chargementImage("accueil.jpg", accueil);
-            accueil.Top = 0;
-            accueil.Left = 3;
+            chargementImage("accueil.png", accueil);
+            accueil.Location = new System.Drawing.Point(-6, -2);
             accueil.Width = 1400;
             accueil.Height = 722;
 
@@ -135,23 +134,20 @@ namespace La_petite_boite
             chargementImage("menu.png", nouveauJoueur);
             nouveauJoueur.Width = 1400;
             nouveauJoueur.Height = 722;
-            nouveauJoueur.Top = 0;
-            nouveauJoueur.Left = 0;
+            nouveauJoueur.Location = new System.Drawing.Point(-6, -2);
 
 
             //diaporamaHistoire
             chargementImage("presentationJeu.png", diaporamaHistoire);
-            diaporamaHistoire.Top = 0;
-            diaporamaHistoire.Left = 0;
+            diaporamaHistoire.Location = new System.Drawing.Point(-6, -2);
             diaporamaHistoire.Width = 1400;
             diaporamaHistoire.Height = 722;
 
 
             //carteJeu
             chargementImage("mapReference.png", CarteJeu);
-            CarteJeu.Top = 0;
             CarteJeu.Name = "Carte";
-            CarteJeu.Left = 0;
+            CarteJeu.Location = new System.Drawing.Point(-6, -2);
             CarteJeu.Width = 1400;
             CarteJeu.Height = 722;
 
@@ -160,12 +156,11 @@ namespace La_petite_boite
             chargementImage("presentationJeu.png", CourRoi);
             CourRoi.Width = 1400;
             CourRoi.Height = 722;
-            CourRoi.Location = new Point(0, 0);
+            CourRoi.Location = new Point(-6, -2);
 
 
             //ecran mini-jeu
-            Jeu.Top = 0;
-            Jeu.Left = 0;
+            Jeu.Location = new System.Drawing.Point(-6, -2);
             Jeu.Width = 1400;
             Jeu.Height = 722;
             Jeu.Name = "Jeu";

@@ -227,7 +227,6 @@ namespace Que_fait_le_roi_8
                 System.IO.Stream applaudissement = Properties.Resources.applaudissement;
                 System.Media.SoundPlayer son = new System.Media.SoundPlayer(applaudissement);
                 son.Play();
-                MessageBox.Show("Bien joué !", "Bravo !!");
 
                 if (sonTag == "1")
                 {
@@ -331,8 +330,7 @@ namespace Que_fait_le_roi_8
                 System.IO.Stream pouet = Properties.Resources.pouet;
                 System.Media.SoundPlayer son = new System.Media.SoundPlayer(pouet);
                 son.Play();
-
-                MessageBox.Show("Ré-essayez !", "Dommage !");
+                
 
                 image.Image = null;
             }

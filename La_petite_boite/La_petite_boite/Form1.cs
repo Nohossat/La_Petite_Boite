@@ -224,8 +224,8 @@ namespace La_petite_boite
 
             //miniJeu
             miniJeu.Top = 90;
-            miniJeu.Left = 120;
-            miniJeu.Width = 1200;
+            miniJeu.Left = 100;
+            miniJeu.Width = 1274;
             miniJeu.Height = 700;
             miniJeu.BackColor = Color.Transparent;
 

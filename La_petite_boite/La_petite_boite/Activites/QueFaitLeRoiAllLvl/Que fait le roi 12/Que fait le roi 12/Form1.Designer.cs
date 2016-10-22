@@ -97,7 +97,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.conteneurBouton = new System.Windows.Forms.Panel();
-            //this.button12 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
@@ -178,15 +178,15 @@
             // 
             // pictureBox18
             // 
-            //this.pictureBox18.Location = new System.Drawing.Point(1169, 5);
-            //this.pictureBox18.Name = "pictureBox18";
-            //this.pictureBox18.Size = new System.Drawing.Size(100, 130);
-            //this.pictureBox18.TabIndex = 11;
-            //this.pictureBox18.TabStop = false;
-            //this.pictureBox18.Tag = "12";
-            //this.pictureBox18.DragDrop += new System.Windows.Forms.DragEventHandler(this.Image_DragDrop);
-            //this.pictureBox18.DragEnter += new System.Windows.Forms.DragEventHandler(this.Image_DragEnter);
-            // 
+            this.pictureBox18.Location = new System.Drawing.Point(1169, 5);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(100, 130);
+            this.pictureBox18.TabIndex = 11;
+            this.pictureBox18.TabStop = false;
+            this.pictureBox18.Tag = "12";
+            this.pictureBox18.DragDrop += new System.Windows.Forms.DragEventHandler(this.Image_DragDrop);
+            this.pictureBox18.DragEnter += new System.Windows.Forms.DragEventHandler(this.Image_DragEnter);
+
             // pictureBox19
             // 
             this.pictureBox19.Location = new System.Drawing.Point(1063, 5);
@@ -310,7 +310,7 @@
             // 
             // conteneurCarte
             // 
-            //this.conteneurCarte.Controls.Add(this.pictureBox21);
+            this.conteneurCarte.Controls.Add(this.pictureBox21);
             this.conteneurCarte.Controls.Add(this.pictureBox22);
             this.conteneurCarte.Controls.Add(this.pictureBox23);
             this.conteneurCarte.Controls.Add(this.pictureBox24);
@@ -328,17 +328,17 @@
             this.conteneurCarte.TabIndex = 20;
             // 
             //// pictureBox21
-            //// 
-            //this.pictureBox21.Cursor = System.Windows.Forms.Cursors.Default;
-            //this.pictureBox21.Image = global::Que_fait_le_roi_12.Properties.Resources.pauseGrand;
-            //this.pictureBox21.Location = new System.Drawing.Point(1169, 3);
-            //this.pictureBox21.Name = "pictureBox21";
-            //this.pictureBox21.Size = new System.Drawing.Size(100, 130);
-            //this.pictureBox21.TabIndex = 11;
-            //this.pictureBox21.TabStop = false;
-            //this.pictureBox21.Tag = "12";
-            //this.pictureBox21.MouseDown += new System.Windows.Forms.MouseEventHandler(this.receveurImage_MouseDown);
             // 
+            this.pictureBox21.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pictureBox21.Image = global::Que_fait_le_roi_12.Properties.Resources.pauseGrand;
+            this.pictureBox21.Location = new System.Drawing.Point(1169, 3);
+            this.pictureBox21.Name = "pictureBox21";
+            this.pictureBox21.Size = new System.Drawing.Size(100, 130);
+            this.pictureBox21.TabIndex = 11;
+            this.pictureBox21.TabStop = false;
+            this.pictureBox21.Tag = "12";
+            this.pictureBox21.MouseDown += new System.Windows.Forms.MouseEventHandler(this.receveurImage_MouseDown);
+
             // pictureBox22
             // 
             this.pictureBox22.Cursor = System.Windows.Forms.Cursors.Default;
@@ -470,7 +470,7 @@
             // 
             // conteneurBouton
             // 
-            //this.conteneurBouton.Controls.Add(this.button12);
+            this.conteneurBouton.Controls.Add(this.button12);
             this.conteneurBouton.Controls.Add(this.button11);
             this.conteneurBouton.Controls.Add(this.button10);
             this.conteneurBouton.Controls.Add(this.button9);
@@ -488,16 +488,16 @@
             this.conteneurBouton.TabIndex = 25;
             // 
             // button12
-            // 
-            //this.button12.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            //this.button12.Location = new System.Drawing.Point(1169, 3);
-            //this.button12.Name = "button12";
-            //this.button12.Size = new System.Drawing.Size(100, 37);
-            //this.button12.TabIndex = 12;
-            //this.button12.Tag = "";
-            //this.button12.UseVisualStyleBackColor = true;
-            //this.button12.Click += new System.EventHandler(this.Ecouter);
-            // 
+
+            this.button12.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.Location = new System.Drawing.Point(1169, 3);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(100, 37);
+            this.button12.TabIndex = 12;
+            this.button12.Tag = "";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.Ecouter);
+
             // button11
             // 
             this.button11.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

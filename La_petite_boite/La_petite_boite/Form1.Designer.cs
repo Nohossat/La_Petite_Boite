@@ -39,9 +39,9 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(340, 514);
+            this.progressBar1.Location = new System.Drawing.Point(371, 537);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(575, 16);
+            this.progressBar1.Size = new System.Drawing.Size(632, 5);
             this.progressBar1.TabIndex = 1;
             // 
             // timer1
@@ -71,6 +71,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1267, 683);
             this.Controls.Add(this.chargement);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1400, 789);
             this.MinimizeBox = false;

@@ -172,23 +172,23 @@ namespace La_petite_boite
             choixAvatar.Width = 900;
             choixAvatar.Height = 200;
             choixAvatar.Top = 40;
-            choixAvatar.Left = 191;
+            choixAvatar.Left = 250;
             choixAvatar.BackColor = Color.Transparent;
 
             //mini panel saisie informations personnelles
             saisirInfos.Width = 500;
             saisirInfos.Height = 200;
             saisirInfos.Top = 300;
-            saisirInfos.Left = 391;
+            saisirInfos.Left = 450;
             saisirInfos.BackColor = Color.Transparent;
             saisirInfos.BorderStyle = BorderStyle.FixedSingle;
 
             //tabBord
 
-            tabBord.Width = 150;
-            tabBord.Height = 50;
-            tabBord.Top = 680;
-            tabBord.Left = 1200;
+            tabBord.Width = 50;
+            tabBord.Height = 200;
+            tabBord.Top = 520;
+            tabBord.Left = 1300;
             tabBord.BackColor = Color.Transparent;
 
             //on ajoute les boutons au tableau de bord
@@ -200,17 +200,17 @@ namespace La_petite_boite
             sauvegarde.Top = 0;
             sauvegarde.Left = 0;
 
-            quitterMiniJeu.Top = 0;
-            quitterMiniJeu.Left = 60;
+            quitterMiniJeu.Top = 70;
+            quitterMiniJeu.Left = 0;
 
-            guide.Top = 0;
-            guide.Left = 100;
+            guide.Top = 140;
+            guide.Left = 0;
 
             //conteneurEtoile
 
             ConteneurEtoile.Top = 20;
-            ConteneurEtoile.Left = 220;
-            ConteneurEtoile.Width = 900;
+            ConteneurEtoile.Left = 370;
+            ConteneurEtoile.Width = 880;
             ConteneurEtoile.Height = 100;
             ConteneurEtoile.BackColor = Color.Transparent;
 
@@ -274,7 +274,7 @@ namespace La_petite_boite
             coffre.Width = 100;
             coffre.Height = 90;
             coffre.Top = 20;
-            coffre.Left = 1150;
+            coffre.Left = 1250;
             coffre.SizeMode = PictureBoxSizeMode.StretchImage;
             coffre.BackColor = Color.Transparent;
 
@@ -386,7 +386,7 @@ namespace La_petite_boite
             //commencer
             commencer.Text = "Commencer";
             commencer.Top = 600;
-            commencer.Left = 466;
+            commencer.Left = 525;
             commencer.Width = 150;
             commencer.Height = 70;
             commencer.FlatAppearance.BorderSize = 0;
@@ -401,7 +401,7 @@ namespace La_petite_boite
             //retour
             retour.Text = "Retour";
             retour.Top = 600;
-            retour.Left = 666;
+            retour.Left = 725;
             retour.Width = 150;
             retour.Height = 70;
             retour.FlatAppearance.BorderSize = 0;

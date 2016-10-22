@@ -310,7 +310,6 @@ namespace Grand_ou_petit_8
                 System.IO.Stream applaudissement = Properties.Resources.applaudissement;
                 System.Media.SoundPlayer son = new System.Media.SoundPlayer(applaudissement);
                 son.Play();
-                MessageBox.Show("Bien joué !", "Bravo !!");
 
                 if (premiereCarteSelectionnee == "1")
                 {
@@ -479,8 +478,6 @@ namespace Grand_ou_petit_8
                 System.Media.SoundPlayer son = new System.Media.SoundPlayer(pouet);
                 son.Play();
 
-                MessageBox.Show("Ré-essayez !", "Dommage !");
-
                 image.Image = null;
             }
 
@@ -491,7 +488,7 @@ namespace Grand_ou_petit_8
                     imageGrande.Enabled = false;
                 }
 
-                MessageBox.Show("Tu as fini le 2ème niveau !", "Bravo !");
+                MessageBox.Show("Tu as fini le 1er niveau !", "Bravo !");
                 this.Enabled = false;
                 chargementPartie();
             }

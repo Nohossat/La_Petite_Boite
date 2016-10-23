@@ -94,6 +94,7 @@ namespace Grand_ou_petit_12
             deuxiemeCarteSelectionnee = "";
             destinationCarte = "";
             petiteImageRecup = null;
+            int compteur = 0;
 
             //récupérer les localisations des grandes cartes
             foreach (PictureBox image in conteneurGrandeCarte.Controls)
@@ -102,16 +103,7 @@ namespace Grand_ou_petit_12
                 coordonneesGrandeCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
             }
 
-            //mélange des cartes
-            foreach (PictureBox image in conteneurGrandeCarte.Controls)
-            {
-                int next = localisationGrandeCarte.Next(coordonneesGrandeCarte.Count);
-                Point p = coordonneesGrandeCarte[next];
-                image.Location = p;
-                coordonneesGrandeCarte.Remove(p);
-            }
-
-            //récupérer les localisations des grandes cartes
+            //récupérer les localisations des emplacements
             foreach (PictureBox image in conteneurCarteAPlacer.Controls)
             {
                 image.Enabled = true;
@@ -119,15 +111,6 @@ namespace Grand_ou_petit_12
                 image.Image = null;
                 image.BorderStyle = BorderStyle.FixedSingle;
                 coordonneesCarteAPlacer.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
-            }
-
-            //mélange des cartes
-            foreach (PictureBox image in conteneurCarteAPlacer.Controls)
-            {
-                int next = localisationCarteAPlacer.Next(coordonneesCarteAPlacer.Count);
-                Point p = coordonneesCarteAPlacer[next];
-                image.Location = p;
-                coordonneesCarteAPlacer.Remove(p);
             }
 
             //récupérer les localisations des petites cartes
@@ -138,7 +121,20 @@ namespace Grand_ou_petit_12
                 coordonneesPetiteCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
             }
 
-            //mélange des cartes
+            //mélange des cartes Grande et Emplacements
+            foreach (PictureBox image in conteneurGrandeCarte.Controls)
+            {
+                int next = localisationGrandeCarte.Next(coordonneesGrandeCarte.Count);
+                Point pGrandeCarte = coordonneesGrandeCarte[next];
+                Point pEmplacement = coordonneesCarteAPlacer[next];
+                image.Location = pGrandeCarte;
+                conteneurCarteAPlacer.Controls[compteur].Location = pEmplacement;
+                coordonneesGrandeCarte.Remove(pGrandeCarte);
+                coordonneesCarteAPlacer.Remove(pEmplacement);
+                compteur++;
+            }
+
+            //mélange des petites cartes
             foreach (PictureBox image in conteneurPetiteCarte.Controls)
             {
                 int next = localisationPetiteCarte.Next(coordonneesPetiteCarte.Count);
@@ -376,6 +372,9 @@ namespace Grand_ou_petit_12
             PictureBox image = (PictureBox)sender;
             image.Image = petiteImageRecup;
             destinationCarte = (String)image.Tag;
+            Console.WriteLine(premiereCarteSelectionnee);
+            Console.WriteLine(destinationCarte);
+            Console.WriteLine(deuxiemeCarteSelectionnee);
 
             if (premiereCarteSelectionnee == deuxiemeCarteSelectionnee & premiereCarteSelectionnee == destinationCarte)
             {
@@ -812,19 +811,19 @@ namespace Grand_ou_petit_12
                         System.Media.SoundPlayer son = new System.Media.SoundPlayer(ecolePetiteSon);
                         son.Play();
                     }
-                    //else if ((String)image.Tag == "12")
-                    //{
-                    //    image.Image = Properties.Resources.doudouKucuk;
-                    //    foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
-                    //    {
-                    //        petiteImage.AllowDrop = true;
-                    //    }
+                    else if ((String)image.Tag == "12")
+                    {
+                        image.Image = Properties.Resources.doudouKucuk;
+                        foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
+                        {
+                            petiteImage.AllowDrop = true;
+                        }
 
-                    //    //lecture du son lié à la carte
-                    //    System.IO.Stream doudouKucukSon = Properties.Resources.doudouKucukSon;
-                    //    System.Media.SoundPlayer son = new System.Media.SoundPlayer(doudouKucukSon);
-                    //    son.Play();
-                    //}
+                        //lecture du son lié à la carte
+                        System.IO.Stream doudouKucukSon = Properties.Resources.doudouKucukSon;
+                        System.Media.SoundPlayer son = new System.Media.SoundPlayer(doudouKucukSon);
+                        son.Play();
+                    }
                     petiteImageRecup = image.Image;
                     conteneurCarteAPlacer.DoDragDrop("x", DragDropEffects.Move);
                 }

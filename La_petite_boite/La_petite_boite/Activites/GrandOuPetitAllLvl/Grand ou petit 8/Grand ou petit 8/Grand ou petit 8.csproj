@@ -79,118 +79,49 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dosCarte.png" />
+    <EmbeddedResource Include="Resources\dosCarte.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\applaudissement.wav" />
+    <EmbeddedResource Include="Resources\applaudissement.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pouet.wav" />
+    <EmbeddedResource Include="Resources\pouet.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\jardin1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\jardin3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\coffre1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\coffre3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chaise1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chaise3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\dosCarteGrande.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\foret1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\foret3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\table1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\table3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pont1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pont3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chateau1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chateau3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lit1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lit3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\applaudissement1.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Buyuk Bahce.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Kucuk Bahce.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\La Grande Boite.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Le Petite Boite.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\La Grande Chaise.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\La Petite Chaise.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\La Grande Foret.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\La Petite Foret.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Buyuk Masa.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Kucuk Masa.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Le Grand Pont.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Le Petit Pont.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pouet1.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Buyuk Sato.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Kucuk Sato.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Buyuk Yatak.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Kucuk Yatak.wav" />
+    <EmbeddedResource Include="Resources\Buyuk Bahce.wav" />
+    <EmbeddedResource Include="Resources\Buyuk Masa.wav" />
+    <EmbeddedResource Include="Resources\Buyuk Sato.wav" />
+    <EmbeddedResource Include="Resources\Buyuk Yatak.wav" />
+    <EmbeddedResource Include="Resources\chaise1.png" />
+    <EmbeddedResource Include="Resources\chaise3.png" />
+    <EmbeddedResource Include="Resources\chateau1.png" />
+    <EmbeddedResource Include="Resources\chateau3.png" />
+    <EmbeddedResource Include="Resources\coffre1.png" />
+    <EmbeddedResource Include="Resources\coffre3.png" />
+    <EmbeddedResource Include="Resources\dosCarteGrande.png" />
+    <EmbeddedResource Include="Resources\foret1.png" />
+    <EmbeddedResource Include="Resources\foret3.png" />
+    <EmbeddedResource Include="Resources\jardin1.png" />
+    <EmbeddedResource Include="Resources\jardin3.png" />
+    <EmbeddedResource Include="Resources\Kucuk Bahce.wav" />
+    <EmbeddedResource Include="Resources\Kucuk Masa.wav" />
+    <EmbeddedResource Include="Resources\Kucuk Sato.wav" />
+    <EmbeddedResource Include="Resources\Kucuk Yatak.wav" />
+    <EmbeddedResource Include="Resources\La Grande Boite.wav" />
+    <EmbeddedResource Include="Resources\La Grande Chaise.wav" />
+    <EmbeddedResource Include="Resources\La Grande Foret.wav" />
+    <EmbeddedResource Include="Resources\La Petite Chaise.wav" />
+    <EmbeddedResource Include="Resources\La Petite Foret.wav" />
+    <EmbeddedResource Include="Resources\Le Grand Pont.wav" />
+    <EmbeddedResource Include="Resources\Le Petit Pont.wav" />
+    <EmbeddedResource Include="Resources\Le Petite Boite.wav" />
+    <EmbeddedResource Include="Resources\lit1.png" />
+    <EmbeddedResource Include="Resources\lit3.png" />
+    <EmbeddedResource Include="Resources\pont1.png" />
+    <EmbeddedResource Include="Resources\pont3.png" />
+    <EmbeddedResource Include="Resources\pouet1.wav" />
+    <EmbeddedResource Include="Resources\table1.png" />
+    <EmbeddedResource Include="Resources\table3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -126,70 +126,6 @@ namespace Grand_ou_petit_8
             }
 
             //mélange des cartes
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             foreach (PictureBox image in conteneurPetiteCarte.Controls)
             {
                 int next = localisationPetiteCarte.Next(coordonneesPetiteCarte.Count);
@@ -201,12 +137,12 @@ namespace Grand_ou_petit_8
             //le dos des cartes est affiché
             foreach (PictureBox image in conteneurGrandeCarte.Controls)
             {
-                image.Image = Properties.Resources.dosCarte;
+                chargementResource("dosCarteGrande.png",image);
             }
 
             foreach (PictureBox image in conteneurPetiteCarte.Controls)
             {
-                image.Image = Properties.Resources.dosCarte;
+                chargementResource("dosCarteGrande.png", image);
             }
         }
 
@@ -273,15 +209,12 @@ namespace Grand_ou_petit_8
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            image.Image = Properties.Resources.dosCarte;
+                            chargementResource("dosCarteGrande.png", image);
                         }
                     }
 
                     //lecture du son lié à la carte
                     chargementSon("Buyuk Sato.wav", son);
-                    //System.IO.Stream satoBuyukSon = Properties.Resources.satoBuyukSon;
-                    //System.Media.SoundPlayer son = new System.Media.SoundPlayer(satoBuyukSon);
-                    //son.Play();
                 }
                 else if ((String)carteCourante.Tag == "2")
                 {
@@ -292,15 +225,12 @@ namespace Grand_ou_petit_8
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            image.Image = Properties.Resources.dosCarte;
+                            chargementResource("dosCarteGrande.png", image);
                         }
                     }
 
                     //lecture du son lié à la carte
                     chargementSon("La Grande Boite.wav", son);
-                    //System.IO.Stream boiteGrandeSon = Properties.Resources.boiteGrandeSon;
-                    //System.Media.SoundPlayer son = new System.Media.SoundPlayer(boiteGrandeSon);
-                    //son.Play();
                 }
                 else if ((String)carteCourante.Tag == "3")
                 {
@@ -311,15 +241,12 @@ namespace Grand_ou_petit_8
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            image.Image = Properties.Resources.dosCarte;
+                            chargementResource("dosCarteGrande.png", image);
                         }
                     }
 
                     //lecture du son lié à la carte
                     chargementSon("Buyuk Bahce.wav", son);
-                    //System.IO.Stream bahceBuyukSon = Properties.Resources.bahceBuyukSon;
-                    //System.Media.SoundPlayer son = new System.Media.SoundPlayer(bahceBuyukSon);
-                    //son.Play();
                 }
                 else if ((String)carteCourante.Tag == "4")
                 {
@@ -329,14 +256,11 @@ namespace Grand_ou_petit_8
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            image.Image = Properties.Resources.dosCarte;
+                            chargementResource("dosCarteGrande.png", image);
                         }
                     }
                     //lecture du son lié à la carte
                     chargementSon("Le Grand Pont.wav", son);
-                    //System.IO.Stream pontGrandSon = Properties.Resources.pontGrandSon;
-                    //System.Media.SoundPlayer son = new System.Media.SoundPlayer(pontGrandSon);
-                    //son.Play();
                 }
                 else if ((String)carteCourante.Tag == "5")
                 {
@@ -346,14 +270,11 @@ namespace Grand_ou_petit_8
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            image.Image = Properties.Resources.dosCarte;
+                            chargementResource("dosCarteGrande.png", image);
                         }
                     }
                     //lecture du son lié à la carte
                     chargementSon("Buyuk Yatak.wav", son);
-                    //System.IO.Stream yatakBuyukSon = Properties.Resources.yatakBuyukSon;
-                    //System.Media.SoundPlayer son = new System.Media.SoundPlayer(yatakBuyukSon);
-                    //son.Play();
                 }
                 else if ((String)carteCourante.Tag == "6")
                 {
@@ -363,14 +284,11 @@ namespace Grand_ou_petit_8
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            image.Image = Properties.Resources.dosCarte;
+                            chargementResource("dosCarteGrande.png", image);
                         }
                     }
                     //lecture du son lié à la carte
                     chargementSon("Buyuk Masa.wav", son);
-                    //System.IO.Stream masaBuyukSon = Properties.Resources.masaBuyukSon;
-                    //System.Media.SoundPlayer son = new System.Media.SoundPlayer(masaBuyukSon);
-                    //son.Play();
                 }
                 else if ((String)carteCourante.Tag == "7")
                 {
@@ -380,14 +298,11 @@ namespace Grand_ou_petit_8
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            image.Image = Properties.Resources.dosCarte;
+                            chargementResource("dosCarteGrande.png", image);
                         }
                     }
                     //lecture du son lié à la carte
                     chargementSon("La Grande Chaise.wav", son);
-                    //System.IO.Stream chaiseGrandeSon = Properties.Resources.chaiseGrandeSon;
-                    //System.Media.SoundPlayer son = new System.Media.SoundPlayer(chaiseGrandeSon);
-                    //son.Play();
                 }
                 else if ((String)carteCourante.Tag == "8")
                 {
@@ -397,14 +312,11 @@ namespace Grand_ou_petit_8
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            image.Image = Properties.Resources.dosCarte;
+                            chargementResource("dosCarteGrande.png", image);
                         }
                     }
                     //lecture du son lié à la carte
                     chargementSon("La Grande Foret.wav", son);
-                    //System.IO.Stream foretGrandeSon = Properties.Resources.foretGrandeSon;
-                    //System.Media.SoundPlayer son = new System.Media.SoundPlayer(foretGrandeSon);
-                    //son.Play();
                 }
             }
         }
@@ -608,6 +520,8 @@ namespace Grand_ou_petit_8
                 }
 
                 MessageBox.Show("Tu as fini le 2ème niveau !", "Bravo !");
+                this.Enabled = false;
+                chargementPartie();
             }
         }
 
@@ -622,7 +536,7 @@ namespace Grand_ou_petit_8
             {
                 if (petiteImage.Tag != image.Tag)
                 {
-                    petiteImage.Image = Properties.Resources.dosCarte;
+                    chargementResource("dosCarteGrande.png", petiteImage);
                 }
             }
 
@@ -637,9 +551,6 @@ namespace Grand_ou_petit_8
 
                 //lecture du son lié à la carte
                 chargementSon("Kucuk Sato.wav", son);
-                //System.IO.Stream satoKucukSon = Properties.Resources.satoKucukSon;
-                //System.Media.SoundPlayer son = new System.Media.SoundPlayer(satoKucukSon);
-                //son.Play();
             }
             else if ((String)image.Tag == "2" & carteRetournee == true)
             {
@@ -652,9 +563,6 @@ namespace Grand_ou_petit_8
 
                 //lecture du son lié à la carte
                 chargementSon("Le Petite Boite.wav", son);
-                //System.IO.Stream boitePetiteSon = Properties.Resources.boitePetiteSon;
-                //System.Media.SoundPlayer son = new System.Media.SoundPlayer(boitePetiteSon);
-                //son.Play();
             }
             else if ((String)image.Tag == "3" & carteRetournee == true)
             {
@@ -667,9 +575,6 @@ namespace Grand_ou_petit_8
 
                 //lecture du son lié à la carte
                 chargementSon("Kucuk Bahce.wav", son);
-                //System.IO.Stream bahceKucukSon = Properties.Resources.bahceKucukSon;
-                //System.Media.SoundPlayer son = new System.Media.SoundPlayer(bahceKucukSon);
-                //son.Play();
             }
             else if ((String)image.Tag == "4" & carteRetournee == true)
             {
@@ -682,9 +587,6 @@ namespace Grand_ou_petit_8
 
                 //lecture du son lié à la carte
                 chargementSon("Le Petit Pont.wav", son);
-                //System.IO.Stream pontPetitSon = Properties.Resources.pontPetitSon;
-                //System.Media.SoundPlayer son = new System.Media.SoundPlayer(pontPetitSon);
-                //son.Play();
             }
             else if ((String)image.Tag == "5" & carteRetournee == true)
             {
@@ -697,9 +599,6 @@ namespace Grand_ou_petit_8
 
                 //lecture du son lié à la carte
                 chargementSon("Kucuk Yatak.wav", son);
-                //System.IO.Stream yatakKucukSon = Properties.Resources.yatakKucukSon;
-                //System.Media.SoundPlayer son = new System.Media.SoundPlayer(yatakKucukSon);
-                //son.Play();
             }
             else if ((String)image.Tag == "6" & carteRetournee == true)
             {
@@ -712,9 +611,6 @@ namespace Grand_ou_petit_8
 
                 //lecture du son lié à la carte
                 chargementSon("Kucuk Masa.wav", son);
-                //System.IO.Stream masaKucukSon = Properties.Resources.masaKucukSon;
-                //System.Media.SoundPlayer son = new System.Media.SoundPlayer(masaKucukSon);
-                //son.Play();
             }
             else if ((String)image.Tag == "7" & carteRetournee == true)
             {
@@ -727,9 +623,6 @@ namespace Grand_ou_petit_8
 
                 //lecture du son lié à la carte
                 chargementSon("La Petite Chaise.wav", son);
-                //System.IO.Stream chaisePetiteSon = Properties.Resources.chaisePetiteSon;
-                //System.Media.SoundPlayer son = new System.Media.SoundPlayer(chaisePetiteSon);
-                //son.Play();
             }
             else if ((String)image.Tag == "8" & carteRetournee == true)
             {
@@ -742,14 +635,13 @@ namespace Grand_ou_petit_8
 
                 //lecture du son lié à la carte
                 chargementSon("La Petite Foret.wav", son);
-
-                //System.IO.Stream foretPetiteSon = Properties.Resources.foretPetiteSon;
-                //System.Media.SoundPlayer son = new System.Media.SoundPlayer(foretPetiteSon);
-                //son.Play();
+                
             }
 
             petiteImageRecup = image.Image;
             conteneurCarteAPlacer.DoDragDrop("x", DragDropEffects.Move);
+
+            
         }
 
         private void Rejouer_Click(object sender, EventArgs e)

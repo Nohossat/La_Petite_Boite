@@ -452,7 +452,7 @@
             // GrandOuPetit8
             // 
             this.ClientSize = new System.Drawing.Size(1200, 600);
-            this.Location = new System.Drawing.Point(70, 50);
+            this.Location = new System.Drawing.Point(30, 50);
             this.Controls.Add(this.Score);
             this.Controls.Add(this.label);
             this.Controls.Add(this.conteneurPetiteCarte);

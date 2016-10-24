@@ -215,9 +215,6 @@ namespace Grand_ou_Petit
             PictureBox image = (PictureBox)sender;
             image.Image = petiteImageRecup;
             destinationCarte = (String)image.Tag;
-            Console.Write("haut / " + premiereCarteSelectionnee);
-            Console.Write("milieu / " + destinationCarte);
-            Console.Write("bas / " + deuxiemeCarteSelectionnee);
 
             if (premiereCarteSelectionnee == deuxiemeCarteSelectionnee & premiereCarteSelectionnee == destinationCarte)
             {
@@ -315,8 +312,6 @@ namespace Grand_ou_Petit
                 System.IO.Stream pouet = Properties.Resources.pouet;
                 System.Media.SoundPlayer son = new System.Media.SoundPlayer(pouet);
                 son.Play();
-
-                MessageBox.Show("Ré-essayez !", "Dommage !");
 
                 image.Image = null;
             }

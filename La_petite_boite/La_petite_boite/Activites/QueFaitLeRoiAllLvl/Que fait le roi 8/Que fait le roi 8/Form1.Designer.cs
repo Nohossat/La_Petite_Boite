@@ -450,7 +450,7 @@
             // queFaitLeRoi8Panel
             // 
             this.ClientSize = new System.Drawing.Size(1100, 600);
-            this.Location = new System.Drawing.Point(50, 100);
+            this.Location = new System.Drawing.Point(50, 50);
             this.Controls.Add(this.Score);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.conteneurBouton);

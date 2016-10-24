@@ -113,6 +113,7 @@ namespace La_petite_boite
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.DoubleBuffered = true;
             generationElements();
         }
 
@@ -185,10 +186,10 @@ namespace La_petite_boite
 
             //tabBord
 
-            tabBord.Width = 50;
-            tabBord.Height = 200;
-            tabBord.Top = 520;
-            tabBord.Left = 1300;
+            tabBord.Width = 200;
+            tabBord.Height = 100;
+            tabBord.Top = 670;
+            tabBord.Left = 1170;
             tabBord.BackColor = Color.Transparent;
 
             //on ajoute les boutons au tableau de bord
@@ -197,14 +198,14 @@ namespace La_petite_boite
             tabBord.Controls.Add(quitterMiniJeu);
             tabBord.Controls.Add(guide);
 
-            sauvegarde.Top = 0;
+            sauvegarde.Top = 8;
             sauvegarde.Left = 0;
 
-            quitterMiniJeu.Top = 70;
-            quitterMiniJeu.Left = 0;
+            quitterMiniJeu.Top = 8;
+            quitterMiniJeu.Left = 80;
 
-            guide.Top = 140;
-            guide.Left = 0;
+            guide.Top = 0;
+            guide.Left = 140;
 
             //conteneurEtoile
 
@@ -263,7 +264,7 @@ namespace La_petite_boite
             }
 
             //guide
-            chargementImage("guide.png", guide);
+            chargementImage("question.png", guide);
             guide.Width = 50;
             guide.Height = 50;
             guide.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -577,6 +578,16 @@ namespace La_petite_boite
             MessageRoi.ForeColor = Color.Silver;
             MessageRoi.Font = new Font(MessageRoi.Font.FontFamily, 13);
             MessageRoi.Text = "est-ce que tu as vraiment recolter toutes les etoiles?";
+
+            //titre pour le mini jeu
+
+            titreJeu.Width = 300;
+            titreJeu.Height = 30;
+            titreJeu.ForeColor = Color.White;
+            titreJeu.BackColor = Color.Transparent;
+            titreJeu.Top = 120;
+            titreJeu.Left = 600;
+            titreJeu.Font = new Font(titreJeu.Font.FontFamily, 16);
 
             //elements de la carte
 
@@ -1297,13 +1308,7 @@ namespace La_petite_boite
         {
             
             titreJeu.Text = "Niveau 1 : " + nomJeu;
-            titreJeu.Width = 300;
-            titreJeu.Height = 30;
-            titreJeu.ForeColor = Color.White;
-            titreJeu.BackColor = Color.Transparent;
-            titreJeu.Top = 120;
-            titreJeu.Left = 550;
-            titreJeu.Font = new Font(titreJeu.Font.FontFamily,16);
+            
 
             //on ajoute le minijeu
             miniJeu.Controls.Add(p);

@@ -33,7 +33,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1349, 533);
+            this.ClientSize = new System.Drawing.Size(1400, 730);
             this.Controls.Add(new GrandOuPetit12Panel());
             this.Name = "Form1";
             this.Text = "Form1";
@@ -183,7 +183,7 @@
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox34);
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox35);
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox36);
-            this.conteneurPetiteCarte.Location = new System.Drawing.Point(63, 360);
+            this.conteneurPetiteCarte.Location = new System.Drawing.Point(0, 360);
             this.conteneurPetiteCarte.Name = "conteneurPetiteCarte";
             this.conteneurPetiteCarte.Size = new System.Drawing.Size(1275, 138);
             this.conteneurPetiteCarte.TabIndex = 15;
@@ -322,7 +322,7 @@
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox30);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox31);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox32);
-            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(63, 185);
+            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(0, 185);
             this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
             this.conteneurCarteAPlacer.Size = new System.Drawing.Size(1275, 144);
             this.conteneurCarteAPlacer.TabIndex = 14;
@@ -483,7 +483,7 @@
             this.conteneurGrandeCarte.Controls.Add(this.pictureBox2);
             this.conteneurGrandeCarte.Controls.Add(this.pictureBox5);
             this.conteneurGrandeCarte.Controls.Add(this.pictureBox1);
-            this.conteneurGrandeCarte.Location = new System.Drawing.Point(63, 9);
+            this.conteneurGrandeCarte.Location = new System.Drawing.Point(0, 9);
             this.conteneurGrandeCarte.Name = "conteneurGrandeCarte";
             this.conteneurGrandeCarte.Size = new System.Drawing.Size(1275, 142);
             this.conteneurGrandeCarte.TabIndex = 12;
@@ -611,7 +611,8 @@
 
             // PANEL
             // 
-            this.ClientSize = new System.Drawing.Size(1349, 533);
+            this.ClientSize = new System.Drawing.Size(1349, 700);
+            this.Location = new System.Drawing.Point(20, 100);
             this.Controls.Add(this.Score);
             this.Controls.Add(this.label);
             this.Controls.Add(this.conteneurPetiteCarte);

@@ -647,8 +647,10 @@ namespace Grand_ou_petit_12
                 {
                     imageGrande.Enabled = false;
                 }
-
+               
                 MessageBox.Show("Tu as fini le 2ème niveau !", "Bravo !");
+                this.Enabled = false;
+                chargementPartie();
             }
         }
 

@@ -370,6 +370,7 @@
     <EmbeddedResource Include="Resources\Jeu\villageIconeGris.png" />
     <EmbeddedResource Include="Resources\miniJeu\carte1.png" />
     <EmbeddedResource Include="Resources\Jeu\accueil.png" />
+    <EmbeddedResource Include="Resources\Jeu\question.png" />
     <Content Include="Resources\miniJeu\carte2.png" />
     <Content Include="Resources\miniJeu\chaise1.png" />
     <Content Include="Resources\miniJeu\chaise2.png" />

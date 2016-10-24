@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
+            
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1268, 661);
+            this.ClientSize = new System.Drawing.Size(1400, 730);
+            this.Controls.Add(new GrandOuPetit12Panel());
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
-
+            this.PerformLayout();
         }
 
         #endregion
 
+      
     }
 
     partial class GrandOuPetit12Panel
     {
-
         /// <summary>
-        /// Variable nécessaire au concepteur.
-        /// </summary>
+     /// Variable nécessaire au concepteur.
+     /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
@@ -66,7 +66,8 @@
             base.Dispose(disposing);
         }
 
-        public void initialize()
+
+        private void initialize()
         {
             this.Score = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
@@ -96,6 +97,7 @@
             this.pictureBox30 = new System.Windows.Forms.PictureBox();
             this.pictureBox31 = new System.Windows.Forms.PictureBox();
             this.pictureBox32 = new System.Windows.Forms.PictureBox();
+            this.Rejouer = new System.Windows.Forms.Button();
             this.conteneurGrandeCarte = new System.Windows.Forms.Panel();
             this.pictureBox28 = new System.Windows.Forms.PictureBox();
             this.pictureBox27 = new System.Windows.Forms.PictureBox();
@@ -153,7 +155,7 @@
             // Score
             // 
             this.Score.AutoSize = true;
-            this.Score.Location = new System.Drawing.Point(47, 570);
+            this.Score.Location = new System.Drawing.Point(41, 44);
             this.Score.Name = "Score";
             this.Score.Size = new System.Drawing.Size(0, 13);
             this.Score.TabIndex = 17;
@@ -161,11 +163,11 @@
             // label
             // 
             this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(0, 570);
+            this.label.Location = new System.Drawing.Point(0, 12);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(41, 13);
             this.label.TabIndex = 16;
-            this.label.Text = "Score";
+            this.label.Text = "Score :";
             // 
             // conteneurPetiteCarte
             // 
@@ -183,12 +185,12 @@
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox36);
             this.conteneurPetiteCarte.Location = new System.Drawing.Point(0, 360);
             this.conteneurPetiteCarte.Name = "conteneurPetiteCarte";
-            this.conteneurPetiteCarte.Size = new System.Drawing.Size(1350, 142);
+            this.conteneurPetiteCarte.Size = new System.Drawing.Size(1275, 138);
             this.conteneurPetiteCarte.TabIndex = 15;
             // 
             // pictureBox17
             // 
-            this.pictureBox17.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox17.Location = new System.Drawing.Point(1170, 4);
             this.pictureBox17.Name = "pictureBox17";
             this.pictureBox17.Size = new System.Drawing.Size(100, 130);
             this.pictureBox17.TabIndex = 31;
@@ -298,14 +300,14 @@
             // 
             // pictureBox36
             // 
-            this.pictureBox36.Location = new System.Drawing.Point(1170, 4);
+            this.pictureBox36.Location = new System.Drawing.Point(4, 4);
             this.pictureBox36.Name = "pictureBox36";
             this.pictureBox36.Size = new System.Drawing.Size(100, 130);
             this.pictureBox36.TabIndex = 20;
             this.pictureBox36.TabStop = false;
             this.pictureBox36.Tag = "12";
             this.pictureBox36.MouseDown += new System.Windows.Forms.MouseEventHandler(this.receveurImage_MouseDown);
-
+            // 
             // conteneurCarteAPlacer
             // 
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox9);
@@ -322,11 +324,11 @@
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox32);
             this.conteneurCarteAPlacer.Location = new System.Drawing.Point(0, 185);
             this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
-            this.conteneurCarteAPlacer.Size = new System.Drawing.Size(1350, 142);
+            this.conteneurCarteAPlacer.Size = new System.Drawing.Size(1275, 144);
             this.conteneurCarteAPlacer.TabIndex = 14;
             // 
             // pictureBox9
-
+            // 
             this.pictureBox9.Location = new System.Drawing.Point(1170, 7);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(100, 130);
@@ -335,7 +337,7 @@
             this.pictureBox9.Tag = "12";
             this.pictureBox9.DragDrop += new System.Windows.Forms.DragEventHandler(this.petiteImage_DragDrop);
             this.pictureBox9.DragEnter += new System.Windows.Forms.DragEventHandler(this.petiteImage_DragEnter);
-
+            // 
             // pictureBox10
             // 
             this.pictureBox10.Location = new System.Drawing.Point(1064, 7);
@@ -443,8 +445,8 @@
             this.pictureBox31.TabIndex = 24;
             this.pictureBox31.TabStop = false;
             this.pictureBox31.Tag = "5";
-            this.pictureBox30.DragDrop += new System.Windows.Forms.DragEventHandler(this.petiteImage_DragDrop);
-            this.pictureBox30.DragEnter += new System.Windows.Forms.DragEventHandler(this.petiteImage_DragEnter);
+            this.pictureBox31.DragDrop += new System.Windows.Forms.DragEventHandler(this.petiteImage_DragDrop);
+            this.pictureBox31.DragEnter += new System.Windows.Forms.DragEventHandler(this.petiteImage_DragEnter);
             // 
             // pictureBox32
             // 
@@ -459,6 +461,13 @@
             // 
             // Rejouer
             // 
+            this.Rejouer.Location = new System.Drawing.Point(3, 155);
+            this.Rejouer.Name = "Rejouer";
+            this.Rejouer.Size = new System.Drawing.Size(73, 23);
+            this.Rejouer.TabIndex = 13;
+            this.Rejouer.Text = "Rejouer ?";
+            this.Rejouer.UseVisualStyleBackColor = true;
+            this.Rejouer.Click += new System.EventHandler(this.Rejouer_Click);
             // 
             // conteneurGrandeCarte
             // 
@@ -476,11 +485,11 @@
             this.conteneurGrandeCarte.Controls.Add(this.pictureBox1);
             this.conteneurGrandeCarte.Location = new System.Drawing.Point(0, 9);
             this.conteneurGrandeCarte.Name = "conteneurGrandeCarte";
-            this.conteneurGrandeCarte.Size = new System.Drawing.Size(1350, 142);
+            this.conteneurGrandeCarte.Size = new System.Drawing.Size(1275, 142);
             this.conteneurGrandeCarte.TabIndex = 12;
             // 
             // pictureBox28
-
+            // 
             this.pictureBox28.Location = new System.Drawing.Point(1169, 3);
             this.pictureBox28.Name = "pictureBox28";
             this.pictureBox28.Size = new System.Drawing.Size(100, 130);
@@ -488,7 +497,7 @@
             this.pictureBox28.TabStop = false;
             this.pictureBox28.Tag = "12";
             this.pictureBox28.Click += new System.EventHandler(this.cliquerPremiereLigne);
-
+            // 
             // pictureBox27
             // 
             this.pictureBox27.Location = new System.Drawing.Point(1063, 3);
@@ -568,7 +577,6 @@
             this.pictureBox6.TabStop = false;
             this.pictureBox6.Tag = "6";
             this.pictureBox6.Click += new System.EventHandler(this.cliquerPremiereLigne);
-
             // 
             // pictureBox2
             // 
@@ -579,7 +587,6 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Tag = "2";
             this.pictureBox2.Click += new System.EventHandler(this.cliquerPremiereLigne);
-
             // 
             // pictureBox5
             // 
@@ -590,7 +597,6 @@
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Tag = "5";
             this.pictureBox5.Click += new System.EventHandler(this.cliquerPremiereLigne);
-
             // 
             // pictureBox1
             // 
@@ -602,17 +608,21 @@
             this.pictureBox1.Tag = "1";
             this.pictureBox1.Click += new System.EventHandler(this.cliquerPremiereLigne);
             // 
-            // Form1
+
+            // PANEL
             // 
-            this.ClientSize = new System.Drawing.Size(1400, 700);
-            this.Location = new System.Drawing.Point(10, 100);
+            this.ClientSize = new System.Drawing.Size(1349, 700);
+            this.Location = new System.Drawing.Point(20, 100);
             this.Controls.Add(this.Score);
             this.Controls.Add(this.label);
             this.Controls.Add(this.conteneurPetiteCarte);
             this.Controls.Add(this.conteneurCarteAPlacer);
+            this.Controls.Add(this.Rejouer);
             this.Controls.Add(this.conteneurGrandeCarte);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "GrandOuPetit12";
+            this.Text = "GrandOuPetit12";
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.petiteImage_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.petiteImage_DragEnter);
             this.conteneurPetiteCarte.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();

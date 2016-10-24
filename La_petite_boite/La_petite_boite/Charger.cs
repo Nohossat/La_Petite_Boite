@@ -128,7 +128,7 @@ namespace La_petite_boite
             retour.FlatAppearance.MouseDownBackColor = System.Drawing.Color.AliceBlue;
             retour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             retour.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            retour.ForeColor = Color.Black;
+            retour.ForeColor = Color.White;
             retour.BackColor = Color.Transparent;
             retour.Click += new EventHandler(retourButton);
 
@@ -142,7 +142,7 @@ namespace La_petite_boite
             charger.FlatAppearance.MouseDownBackColor = System.Drawing.Color.AliceBlue;
             charger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             charger.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            charger.ForeColor = Color.Black;
+            charger.ForeColor = Color.White;
             charger.BackColor = Color.Transparent;
             charger.Click += new EventHandler(chargerMethod);
 

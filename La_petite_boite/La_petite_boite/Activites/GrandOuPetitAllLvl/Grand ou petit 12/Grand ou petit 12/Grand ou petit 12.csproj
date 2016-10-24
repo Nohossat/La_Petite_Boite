@@ -57,18 +57,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -86,30 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pouet.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\jardin2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\jardin4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\coffre2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\coffre4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chaise2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chaise4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\dosCarteGrande.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\doudou2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\doudou4.png" />
@@ -133,6 +109,24 @@
     <None Include="Resources\foret4.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\jardin2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jardin4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lit4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pont2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pont4.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\roi2.png" />
   </ItemGroup>
   <ItemGroup>
@@ -145,10 +139,10 @@
     <None Include="Resources\table4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pont2.png" />
+    <None Include="Resources\chaise2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pont4.png" />
+    <None Include="Resources\chaise4.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\chateau2.png" />
@@ -157,61 +151,43 @@
     <None Include="Resources\chateau4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\lit2.png" />
+    <None Include="Resources\coffre2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\lit4.png" />
+    <None Include="Resources\coffre4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\applaudissement1.wav" />
+    <None Include="Resources\dosCarteGrande.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Buyuk Bahce.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Kucuk Bahce.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\La Grande Boite.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Le Petite Boite.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\La Grande Chaise.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\La Petite Chaise.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Buyuk Doudou.wav" />
+    <None Include="Resources\doudou2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Kucuk Doudou.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Le Grand Escalier.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Le Petit Escalier.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\La Grande Foret.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\La Petite Foret.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Buyuk Kral.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Kucuk Kral.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Buyuk Masa.wav" />
+    <None Include="Resources\Kucuk Masa.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Kucuk Masa.wav" />
+    <None Include="Resources\Kucuk Sato.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kucuk Yatak.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\La Grande Boite.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\La Grande Chaise.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\La Grande École.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\La Petite Chaise.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Le Grand Pont.wav" />
@@ -220,25 +196,43 @@
     <None Include="Resources\Le Petit Pont.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pouet1.wav" />
+    <None Include="Resources\Le Petite Boite.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buyuk Bahce.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buyuk Doudou.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buyuk Kral.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buyuk Masa.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Buyuk Sato.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Kucuk Sato.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Buyuk Yatak.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Kucuk Yatak.wav" />
+    <None Include="Resources\Kucuk Bahce.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\La Grande ecole.wav" />
+    <None Include="Resources\Le Petit Escalier.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Le Petite ecole.wav" />
+    <None Include="Resources\Le Petite École.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\La Grande Foret.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\La Petite Foret.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Le Grand Escalier.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -7,21 +7,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Reflection;
 
 namespace Grand_ou_petit_8
 {
     public partial class GrandOuPetit8 : Form
     {
-       
+
         public GrandOuPetit8()
         {
             InitializeComponent();
         }
-        
+
     }
 
-    public partial class GrandOuPetit8Panel : Panel 
-   {
+    public partial class GrandOuPetit8Panel : Panel
+    {
+        Assembly _assembly;
+        Stream resourceStream;
+        System.Media.SoundPlayer son = new System.Media.SoundPlayer();
+        Random localisationGrandeCarte = new Random();
+        Random localisationCarteAPlacer = new Random();
+        Random localisationPetiteCarte = new Random();
+        List<Point> coordonneesGrandeCarte = new List<Point>(); //liste des localisations des PictureBox
+        List<Point> coordonneesCarteAPlacer = new List<Point>(); //liste des localisations des PictureBox
+        List<Point> coordonneesPetiteCarte = new List<Point>(); //liste des localisations des PictureBox
+        Image petiteImageRecup;
+        Boolean carteRetournee;
+        Boolean carteDejaSelectionnee;
+        String premiereCarteSelectionnee;
+        String deuxiemeCarteSelectionnee;
+        String destinationCarte;
         private System.Windows.Forms.Panel conteneurPetiteCarte;
         private System.Windows.Forms.PictureBox pictureBox21;
         private System.Windows.Forms.PictureBox pictureBox20;
@@ -41,6 +58,7 @@ namespace Grand_ou_petit_8
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Button Rejouer;
         private System.Windows.Forms.Panel conteneurGrandeCarte;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -52,20 +70,6 @@ namespace Grand_ou_petit_8
         private System.Windows.Forms.PictureBox pictureBox23;
         private System.Windows.Forms.PictureBox pictureBox22;
 
-        Random localisationGrandeCarte = new Random();
-        Random localisationCarteAPlacer = new Random();
-        Random localisationPetiteCarte = new Random(); 
-        List<Point> coordonneesGrandeCarte = new List<Point>(); //liste des localisations des PictureBox
-        List<Point> coordonneesCarteAPlacer = new List<Point>(); //liste des localisations des PictureBox
-        List<Point> coordonneesPetiteCarte = new List<Point>(); //liste des localisations des PictureBox
-
-        Image petiteImageRecup;
-        Boolean carteRetournee;
-        Boolean cartePetiteDejaSelectionnee;
-        String premiereCarteSelectionnee;
-        String deuxiemeCarteSelectionnee;
-        String destinationCarte;
-
         public GrandOuPetit8Panel()
         {
             initialize();
@@ -74,17 +78,14 @@ namespace Grand_ou_petit_8
 
         private void chargementPartie()
         {
-            this.Enabled = true;
             Score.Text = "0"; //initialisation du score à zéro
-            Score.Visible = false;
-            label.Visible = false;
             carteRetournee = false;
-            cartePetiteDejaSelectionnee = false;
+            carteDejaSelectionnee = false;
             premiereCarteSelectionnee = "";
             deuxiemeCarteSelectionnee = "";
             destinationCarte = "";
             petiteImageRecup = null;
-
+            int compteur = 0;
             //récupérer les localisations des grandes cartes
             foreach (PictureBox image in conteneurGrandeCarte.Controls)
             {
@@ -92,16 +93,7 @@ namespace Grand_ou_petit_8
                 coordonneesGrandeCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
             }
 
-            //mélange des cartes
-            foreach (PictureBox image in conteneurGrandeCarte.Controls)
-            {
-                int next = localisationGrandeCarte.Next(coordonneesGrandeCarte.Count);
-                Point p = coordonneesGrandeCarte[next];
-                image.Location = p;
-                coordonneesGrandeCarte.Remove(p);
-            }
-
-            //récupérer les localisations des emplacements de cartes
+            //récupérer les localisations des emplacements
             foreach (PictureBox image in conteneurCarteAPlacer.Controls)
             {
                 image.Enabled = true;
@@ -111,21 +103,26 @@ namespace Grand_ou_petit_8
                 coordonneesCarteAPlacer.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
             }
 
-            //mélange des cartes
-            foreach (PictureBox image in conteneurCarteAPlacer.Controls)
-            {
-                int next = localisationCarteAPlacer.Next(coordonneesCarteAPlacer.Count);
-                Point p = coordonneesCarteAPlacer[next];
-                image.Location = p;
-                coordonneesCarteAPlacer.Remove(p);
-            }
-
             //récupérer les localisations des petites cartes
             foreach (PictureBox image in conteneurPetiteCarte.Controls)
             {
                 image.Enabled = true;
                 image.Visible = true;
                 coordonneesPetiteCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
+            }
+
+            //mélange des cartes / grandes cartes et emplacements doivent etre les unes en dessous des autres
+            foreach (PictureBox image in conteneurGrandeCarte.Controls)
+            {
+
+                int next = localisationGrandeCarte.Next(coordonneesGrandeCarte.Count);
+                Point pGrandeCarte = coordonneesGrandeCarte[next];
+                Point pEmplacement = coordonneesCarteAPlacer[next];
+                image.Location = pGrandeCarte;
+                conteneurCarteAPlacer.Controls[compteur].Location = pEmplacement;
+                coordonneesGrandeCarte.Remove(pGrandeCarte);
+                coordonneesCarteAPlacer.Remove(pEmplacement);
+                compteur++;
             }
 
             //mélange des cartes
@@ -140,156 +137,188 @@ namespace Grand_ou_petit_8
             //le dos des cartes est affiché
             foreach (PictureBox image in conteneurGrandeCarte.Controls)
             {
-                image.Image = Properties.Resources.dosCarte;
+                chargementResource("dosCarteGrande.png",image);
             }
 
             foreach (PictureBox image in conteneurPetiteCarte.Controls)
             {
-                image.Image = Properties.Resources.dosCarte;
+                chargementResource("dosCarteGrande.png", image);
+            }
+        }
+
+        private void chargementResource(String res, PictureBox p)
+        {
+            try
+            {
+                _assembly = Assembly.GetExecutingAssembly();
+                resourceStream = _assembly.GetManifestResourceStream("Grand_ou_petit_8.Resources." + res);
+            }
+            catch
+            {
+                MessageBox.Show("Error accessing resources!");
+            }
+
+            try
+            {
+                p.Image = new Bitmap(resourceStream);
+            }
+            catch
+            {
+                MessageBox.Show("Error creating image!");
+            }
+        }
+
+        private void chargementSon(String res, System.Media.SoundPlayer son)
+        {
+            try
+            {
+                _assembly = Assembly.GetExecutingAssembly();
+                resourceStream = _assembly.GetManifestResourceStream("Grand_ou_petit_8.Resources." + res);
+            }
+            catch
+            {
+                MessageBox.Show("Error accessing resources!");
+            }
+
+            try
+            {
+                son = new System.Media.SoundPlayer(resourceStream);
+                son.Play();
+            }
+            catch
+            {
+                MessageBox.Show("Error creating image!");
             }
         }
 
         private void cliquerPremiereLigne(object sender, EventArgs e)
         {
-            if (cartePetiteDejaSelectionnee == false)
+            if (carteDejaSelectionnee == false)
             {
                 PictureBox carteCourante = (PictureBox)sender;
                 premiereCarteSelectionnee = (String)carteCourante.Tag;
                 carteRetournee = true;
-                Console.Write((String)carteCourante.Tag);
+
                 //attribution des mots pour chaque paires selon le tag 
                 if ((String)carteCourante.Tag == "1")
                 {
-                    carteCourante.Image = Properties.Resources.satoBuyuk;
+                    //carteCourante.Image = Properties.Resources.satoBuyuk;
+                    chargementResource("chateau1.png", carteCourante);
 
                     foreach (PictureBox image in conteneurGrandeCarte.Controls)
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            image.Image = Properties.Resources.dosCarte;
+                            chargementResource("dosCarteGrande.png", image);
                         }
                     }
 
                     //lecture du son lié à la carte
-                    System.IO.Stream satoBuyukSon = Properties.Resources.satoBuyukSon;
-                    System.Media.SoundPlayer son = new System.Media.SoundPlayer(satoBuyukSon);
-                    son.Play();
+                    chargementSon("Buyuk Sato.wav", son);
                 }
                 else if ((String)carteCourante.Tag == "2")
                 {
-                    carteCourante.Image = Properties.Resources.boiteGrande;
+                    //carteCourante.Image = Properties.Resources.boiteGrande;
+                    chargementResource("coffre1.png", carteCourante);
 
                     foreach (PictureBox image in conteneurGrandeCarte.Controls)
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            image.Image = Properties.Resources.dosCarte;
+                            chargementResource("dosCarteGrande.png", image);
                         }
                     }
 
                     //lecture du son lié à la carte
-                    System.IO.Stream boiteGrandeSon = Properties.Resources.boiteGrandeSon;
-                    System.Media.SoundPlayer son = new System.Media.SoundPlayer(boiteGrandeSon);
-                    son.Play();
+                    chargementSon("La Grande Boite.wav", son);
                 }
                 else if ((String)carteCourante.Tag == "3")
                 {
-                    carteCourante.Image = Properties.Resources.bahceBuyuk;
+                    //carteCourante.Image = Properties.Resources.bahceBuyuk;
+                    chargementResource("jardin1.png", carteCourante);
 
                     foreach (PictureBox image in conteneurGrandeCarte.Controls)
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            image.Image = Properties.Resources.dosCarte;
+                            chargementResource("dosCarteGrande.png", image);
                         }
                     }
 
                     //lecture du son lié à la carte
-                    System.IO.Stream bahceBuyukSon = Properties.Resources.bahceBuyukSon;
-                    System.Media.SoundPlayer son = new System.Media.SoundPlayer(bahceBuyukSon);
-                    son.Play();
+                    chargementSon("Buyuk Bahce.wav", son);
                 }
                 else if ((String)carteCourante.Tag == "4")
                 {
-                    carteCourante.Image = Properties.Resources.pontGrand;
-
+                    //carteCourante.Image = Properties.Resources.pontGrand;
+                    chargementResource("pont1.png", carteCourante);
                     foreach (PictureBox image in conteneurGrandeCarte.Controls)
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            image.Image = Properties.Resources.dosCarte;
+                            chargementResource("dosCarteGrande.png", image);
                         }
                     }
                     //lecture du son lié à la carte
-                    System.IO.Stream pontGrandSon = Properties.Resources.pontGrandSon;
-                    System.Media.SoundPlayer son = new System.Media.SoundPlayer(pontGrandSon);
-                    son.Play();
+                    chargementSon("Le Grand Pont.wav", son);
                 }
                 else if ((String)carteCourante.Tag == "5")
                 {
-                    carteCourante.Image = Properties.Resources.yatakBuyuk;
-
+                    //carteCourante.Image = Properties.Resources.yatakBuyuk;
+                    chargementResource("lit1.png", carteCourante);
                     foreach (PictureBox image in conteneurGrandeCarte.Controls)
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            image.Image = Properties.Resources.dosCarte;
+                            chargementResource("dosCarteGrande.png", image);
                         }
                     }
                     //lecture du son lié à la carte
-                    System.IO.Stream yatakBuyukSon = Properties.Resources.yatakBuyukSon;
-                    System.Media.SoundPlayer son = new System.Media.SoundPlayer(yatakBuyukSon);
-                    son.Play();
+                    chargementSon("Buyuk Yatak.wav", son);
                 }
                 else if ((String)carteCourante.Tag == "6")
                 {
-                    carteCourante.Image = Properties.Resources.masaBuyuk;
-
+                    //carteCourante.Image = Properties.Resources.masaBuyuk;
+                    chargementResource("table1.png", carteCourante);
                     foreach (PictureBox image in conteneurGrandeCarte.Controls)
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            image.Image = Properties.Resources.dosCarte;
+                            chargementResource("dosCarteGrande.png", image);
                         }
                     }
                     //lecture du son lié à la carte
-                    System.IO.Stream masaBuyukSon = Properties.Resources.masaBuyukSon;
-                    System.Media.SoundPlayer son = new System.Media.SoundPlayer(masaBuyukSon);
-                    son.Play();
+                    chargementSon("Buyuk Masa.wav", son);
                 }
                 else if ((String)carteCourante.Tag == "7")
                 {
-                    carteCourante.Image = Properties.Resources.chaiseGrande;
-
+                    //carteCourante.Image = Properties.Resources.chaiseGrande;
+                    chargementResource("chaise1.png", carteCourante);
                     foreach (PictureBox image in conteneurGrandeCarte.Controls)
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            image.Image = Properties.Resources.dosCarte;
+                            chargementResource("dosCarteGrande.png", image);
                         }
                     }
                     //lecture du son lié à la carte
-                    System.IO.Stream chaiseGrandeSon = Properties.Resources.chaiseGrandeSon;
-                    System.Media.SoundPlayer son = new System.Media.SoundPlayer(chaiseGrandeSon);
-                    son.Play();
+                    chargementSon("La Grande Chaise.wav", son);
                 }
                 else if ((String)carteCourante.Tag == "8")
                 {
-                    carteCourante.Image = Properties.Resources.foretGrande;
-
+                    //carteCourante.Image = Properties.Resources.foretGrande;
+                    chargementResource("foret1.png", carteCourante);
                     foreach (PictureBox image in conteneurGrandeCarte.Controls)
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            image.Image = Properties.Resources.dosCarte;
+                            chargementResource("dosCarteGrande.png", image);
                         }
                     }
                     //lecture du son lié à la carte
-                    System.IO.Stream foretGrandeSon = Properties.Resources.foretGrandeSon;
-                    System.Media.SoundPlayer son = new System.Media.SoundPlayer(foretGrandeSon);
-                    son.Play();
+                    chargementSon("La Grande Foret.wav", son);
                 }
-            }    
+            }
         }
 
         private void petiteImage_DragEnter(object sender, DragEventArgs e)
@@ -299,26 +328,19 @@ namespace Grand_ou_petit_8
 
         private void petiteImage_DragDrop(object sender, DragEventArgs e)
         {
-
             PictureBox image = (PictureBox)sender;
             image.Image = petiteImageRecup;
             destinationCarte = (String)image.Tag;
-            Console.Write("haut / " + premiereCarteSelectionnee);
-            Console.Write("milieu / " + destinationCarte);
-            Console.Write("bas / " + deuxiemeCarteSelectionnee);
-            Console.Write(petiteImageRecup);
-            
+
             if (premiereCarteSelectionnee == deuxiemeCarteSelectionnee & premiereCarteSelectionnee == destinationCarte)
             {
                 Score.Text = Convert.ToString(Convert.ToInt32(Score.Text) + 1);
-                cartePetiteDejaSelectionnee = false;
-                carteRetournee = false;
+                carteDejaSelectionnee = false;
 
                 System.IO.Stream applaudissement = Properties.Resources.applaudissement;
                 System.Media.SoundPlayer son = new System.Media.SoundPlayer(applaudissement);
                 son.Play();
 
-                //une fois qu'on a trouve la paire, on cache la petite carte et on desactive le clic sur la grande carte
                 if (premiereCarteSelectionnee == "1")
                 {
                     foreach (PictureBox imagePetite in conteneurPetiteCarte.Controls)
@@ -486,6 +508,7 @@ namespace Grand_ou_petit_8
                 System.Media.SoundPlayer son = new System.Media.SoundPlayer(pouet);
                 son.Play();
 
+
                 image.Image = null;
             }
 
@@ -496,140 +519,138 @@ namespace Grand_ou_petit_8
                     imageGrande.Enabled = false;
                 }
 
-                MessageBox.Show("Tu as fini le 1er niveau !", "Bravo !");
+                MessageBox.Show("Tu as fini le 2ème niveau !", "Bravo !");
                 this.Enabled = false;
                 chargementPartie();
             }
         }
 
         private void receveurImage_MouseDown(object sender, MouseEventArgs e)
-        {      
-            if (carteRetournee == true)
+        {
+            PictureBox image = (PictureBox)sender;
+            deuxiemeCarteSelectionnee = (String)image.Tag;
+            carteDejaSelectionnee = true;
+
+
+            foreach (PictureBox petiteImage in conteneurPetiteCarte.Controls)
             {
-                PictureBox image = (PictureBox)sender;
-                deuxiemeCarteSelectionnee = (String)image.Tag;
-                cartePetiteDejaSelectionnee = true;
-                Console.Write("tag" + deuxiemeCarteSelectionnee);
-
-                if (carteRetournee == true)
+                if (petiteImage.Tag != image.Tag)
                 {
-                    foreach (PictureBox petiteImage in conteneurPetiteCarte.Controls)
-                    {
-                        if (petiteImage.Tag != image.Tag)
-                        {
-                            petiteImage.Image = Properties.Resources.dosCarte;
-                        }
-                    }
-
-                    if (deuxiemeCarteSelectionnee == "1")
-                    {
-                        image.Image = Properties.Resources.satoKucuk;
-                        foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
-                        {
-                            petiteImage.AllowDrop = true;
-                        }
-
-                        //lecture du son lié à la carte
-                        System.IO.Stream satoKucukSon = Properties.Resources.satoKucukSon;
-                        System.Media.SoundPlayer son = new System.Media.SoundPlayer(satoKucukSon);
-                        son.Play();
-                    }
-                    else if (deuxiemeCarteSelectionnee == "2")
-                    {
-                        image.Image = Properties.Resources.boitePetite;
-                        foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
-                        {
-                            petiteImage.AllowDrop = true;
-                        }
-
-                        //lecture du son lié à la carte
-                        System.IO.Stream boitePetiteSon = Properties.Resources.boitePetiteSon;
-                        System.Media.SoundPlayer son = new System.Media.SoundPlayer(boitePetiteSon);
-                        son.Play();
-                    }
-                    else if (deuxiemeCarteSelectionnee == "3")
-                    {
-                        image.Image = Properties.Resources.bahceKucuk;
-                        foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
-                        {
-                            petiteImage.AllowDrop = true;
-                        }
-
-                        //lecture du son lié à la carte
-                        System.IO.Stream bahceKucukSon = Properties.Resources.bahceKucukSon;
-                        System.Media.SoundPlayer son = new System.Media.SoundPlayer(bahceKucukSon);
-                        son.Play();
-                    }
-                    else if (deuxiemeCarteSelectionnee == "4")
-                    {
-                        image.Image = Properties.Resources.pontPetit;
-                        foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
-                        {
-                            petiteImage.AllowDrop = true;
-                        }
-
-                        //lecture du son lié à la carte
-                        System.IO.Stream pontPetitSon = Properties.Resources.pontPetitSon;
-                        System.Media.SoundPlayer son = new System.Media.SoundPlayer(pontPetitSon);
-                        son.Play();
-                    }
-                    else if (deuxiemeCarteSelectionnee == "5")
-                    {
-                        image.Image = Properties.Resources.yatakKucuk;
-                        foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
-                        {
-                            petiteImage.AllowDrop = true;
-                        }
-
-                        //lecture du son lié à la carte
-                        System.IO.Stream yatakKucukSon = Properties.Resources.yatakKucukSon;
-                        System.Media.SoundPlayer son = new System.Media.SoundPlayer(yatakKucukSon);
-                        son.Play();
-                    }
-                    else if (deuxiemeCarteSelectionnee == "6")
-                    {
-                        image.Image = Properties.Resources.masaKucuk;
-                        foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
-                        {
-                            petiteImage.AllowDrop = true;
-                        }
-
-                        //lecture du son lié à la carte
-                        System.IO.Stream masaKucukSon = Properties.Resources.masaKucukSon;
-                        System.Media.SoundPlayer son = new System.Media.SoundPlayer(masaKucukSon);
-                        son.Play();
-                    }
-                    else if (deuxiemeCarteSelectionnee == "7")
-                    {
-                        image.Image = Properties.Resources.chaisePetite;
-                        foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
-                        {
-                            petiteImage.AllowDrop = true;
-                        }
-
-                        //lecture du son lié à la carte
-                        System.IO.Stream chaisePetiteSon = Properties.Resources.chaisePetiteSon;
-                        System.Media.SoundPlayer son = new System.Media.SoundPlayer(chaisePetiteSon);
-                        son.Play();
-                    }
-                    else if (deuxiemeCarteSelectionnee == "8")
-                    {
-                        image.Image = Properties.Resources.foretPetite;
-                        foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
-                        {
-                            petiteImage.AllowDrop = true;
-                        }
-
-                        //lecture du son lié à la carte
-                        System.IO.Stream foretPetiteSon = Properties.Resources.foretPetiteSon;
-                        System.Media.SoundPlayer son = new System.Media.SoundPlayer(foretPetiteSon);
-                        son.Play();
-                    }
-                    petiteImageRecup = image.Image;
-                    conteneurCarteAPlacer.DoDragDrop("x", DragDropEffects.Move);
+                    chargementResource("dosCarteGrande.png", petiteImage);
                 }
             }
+
+            if ((String)image.Tag == "1" & carteRetournee == true)
+            {
+                //image.Image = Properties.Resources.satoKucuk;
+                chargementResource("chateau3.png", image);
+                foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
+                {
+                    petiteImage.AllowDrop = true;
+                }
+
+                //lecture du son lié à la carte
+                chargementSon("Kucuk Sato.wav", son);
+            }
+            else if ((String)image.Tag == "2" & carteRetournee == true)
+            {
+                //image.Image = Properties.Resources.boitePetite;
+                chargementResource("coffre3.png", image);
+                foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
+                {
+                    petiteImage.AllowDrop = true;
+                }
+
+                //lecture du son lié à la carte
+                chargementSon("Le Petite Boite.wav", son);
+            }
+            else if ((String)image.Tag == "3" & carteRetournee == true)
+            {
+                //image.Image = Properties.Resources.bahceKucuk;
+                chargementResource("jardin3.png", image);
+                foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
+                {
+                    petiteImage.AllowDrop = true;
+                }
+
+                //lecture du son lié à la carte
+                chargementSon("Kucuk Bahce.wav", son);
+            }
+            else if ((String)image.Tag == "4" & carteRetournee == true)
+            {
+                //image.Image = Properties.Resources.pontPetit;
+                chargementResource("pont3.png", image);
+                foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
+                {
+                    petiteImage.AllowDrop = true;
+                }
+
+                //lecture du son lié à la carte
+                chargementSon("Le Petit Pont.wav", son);
+            }
+            else if ((String)image.Tag == "5" & carteRetournee == true)
+            {
+                //image.Image = Properties.Resources.yatakKucuk;
+                chargementResource("lit3.png", image);
+                foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
+                {
+                    petiteImage.AllowDrop = true;
+                }
+
+                //lecture du son lié à la carte
+                chargementSon("Kucuk Yatak.wav", son);
+            }
+            else if ((String)image.Tag == "6" & carteRetournee == true)
+            {
+                //image.Image = Properties.Resources.masaKucuk;
+                chargementResource("table3.png", image);
+                foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
+                {
+                    petiteImage.AllowDrop = true;
+                }
+
+                //lecture du son lié à la carte
+                chargementSon("Kucuk Masa.wav", son);
+            }
+            else if ((String)image.Tag == "7" & carteRetournee == true)
+            {
+                //image.Image = Properties.Resources.chaisePetite;
+                chargementResource("chaise3.png", image);
+                foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
+                {
+                    petiteImage.AllowDrop = true;
+                }
+
+                //lecture du son lié à la carte
+                chargementSon("La Petite Chaise.wav", son);
+            }
+            else if ((String)image.Tag == "8" & carteRetournee == true)
+            {
+                //image.Image = Properties.Resources.foretPetite;
+                chargementResource("foret3.png", image);
+                foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
+                {
+                    petiteImage.AllowDrop = true;
+                }
+
+                //lecture du son lié à la carte
+                chargementSon("La Petite Foret.wav", son);
+                
+            }
+
+            petiteImageRecup = image.Image;
+            conteneurCarteAPlacer.DoDragDrop("x", DragDropEffects.Move);
+
+            
         }
-        
+
+        private void Rejouer_Click(object sender, EventArgs e)
+        {
+            chargementPartie();
+        }
+
+
     }
- }
+
+
+}

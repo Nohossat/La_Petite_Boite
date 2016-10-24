@@ -12,10 +12,13 @@ namespace Grand_ou_petit_12
 {
     public partial class Form1 : Form
     {
+        
+
         public Form1()
         {
             InitializeComponent();
         }
+        
     }
 
     public partial class GrandOuPetit12Panel : Panel
@@ -24,6 +27,7 @@ namespace Grand_ou_petit_12
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Panel conteneurPetiteCarte;
         private System.Windows.Forms.Panel conteneurCarteAPlacer;
+        private System.Windows.Forms.Button Rejouer;
         private System.Windows.Forms.Panel conteneurGrandeCarte;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox7;
@@ -61,10 +65,9 @@ namespace Grand_ou_petit_12
         private System.Windows.Forms.PictureBox pictureBox27;
         private System.Windows.Forms.PictureBox pictureBox26;
         private System.Windows.Forms.PictureBox pictureBox25;
-
         Random localisationGrandeCarte = new Random();
         Random localisationCarteAPlacer = new Random();
-        Random localisationPetiteCarte = new Random(); 
+        Random localisationPetiteCarte = new Random();
         List<Point> coordonneesGrandeCarte = new List<Point>(); //liste des localisations des PictureBox
         List<Point> coordonneesCarteAPlacer = new List<Point>(); //liste des localisations des PictureBox
         List<Point> coordonneesPetiteCarte = new List<Point>(); //liste des localisations des PictureBox
@@ -84,7 +87,7 @@ namespace Grand_ou_petit_12
 
         private void chargementPartie()
         {
-            this.Enabled = true;
+            Rejouer.Visible = false;
             Score.Visible = false;
             label.Visible = false;
             Score.Text = "0"; //initialisation du score à zéro
@@ -347,23 +350,23 @@ namespace Grand_ou_petit_12
                     System.Media.SoundPlayer son = new System.Media.SoundPlayer(ecoleGrandeSon);
                     son.Play();
                 }
-                //    else if ((String)carteCourante.Tag == "12")
-                //{
-                //    carteCourante.Image = Properties.Resources.doudouBuyuk;
+                else if ((String)carteCourante.Tag == "12")
+                {
+                    carteCourante.Image = Properties.Resources.doudouBuyuk;
 
-                //    foreach (PictureBox image in conteneurGrandeCarte.Controls)
-                //    {
-                //        if (image.Tag != carteCourante.Tag & image.Enabled != false)
-                //        {
-                //            image.Image = Properties.Resources.dosCarte;
-                //        }
-                //    }
-                //    //lecture du son lié à la carte
-                //    System.IO.Stream doudouBuyukSon = Properties.Resources.doudouBuyukSon;
-                //    System.Media.SoundPlayer son = new System.Media.SoundPlayer(doudouBuyukSon);
-                //    son.Play();
-                //}
-            }    
+                    foreach (PictureBox image in conteneurGrandeCarte.Controls)
+                    {
+                        if (image.Tag != carteCourante.Tag & image.Enabled != false)
+                        {
+                            image.Image = Properties.Resources.dosCarte;
+                        }
+                    }
+                    //lecture du son lié à la carte
+                    System.IO.Stream doudouBuyukSon = Properties.Resources.doudouBuyukSon;
+                    System.Media.SoundPlayer son = new System.Media.SoundPlayer(doudouBuyukSon);
+                    son.Play();
+                }
+            }
         }
 
         private void petiteImage_DragEnter(object sender, DragEventArgs e)
@@ -607,26 +610,26 @@ namespace Grand_ou_petit_12
 
                     image.Enabled = false;
                 }
-                //else if (premiereCarteSelectionnee == "12")
-                //{
-                //    foreach (PictureBox imagePetite in conteneurPetiteCarte.Controls)
-                //    {
-                //        if ((String)imagePetite.Tag == "12")
-                //        {
-                //            imagePetite.Hide();
-                //        }
-                //    }
+                else if (premiereCarteSelectionnee == "12")
+                {
+                    foreach (PictureBox imagePetite in conteneurPetiteCarte.Controls)
+                    {
+                        if ((String)imagePetite.Tag == "12")
+                        {
+                            imagePetite.Hide();
+                        }
+                    }
 
-                //    foreach (PictureBox imageGrande in conteneurGrandeCarte.Controls)
-                //    {
-                //        if ((String)imageGrande.Tag == "12")
-                //        {
-                //            imageGrande.Enabled = false;
-                //        }
-                //    }
+                    foreach (PictureBox imageGrande in conteneurGrandeCarte.Controls)
+                    {
+                        if ((String)imageGrande.Tag == "12")
+                        {
+                            imageGrande.Enabled = false;
+                        }
+                    }
 
-                //    image.Enabled = false;
-                //}
+                    image.Enabled = false;
+                }
             }
             else
             {
@@ -638,13 +641,13 @@ namespace Grand_ou_petit_12
                 image.Image = null;
             }
 
-            if (Score.Text == "11")
+            if (Score.Text == "12")
             {
                 foreach (PictureBox imageGrande in conteneurGrandeCarte.Controls)
                 {
                     imageGrande.Enabled = false;
                 }
-
+               
                 MessageBox.Show("Tu as fini le 2ème niveau !", "Bravo !");
                 this.Enabled = false;
                 chargementPartie();
@@ -652,7 +655,7 @@ namespace Grand_ou_petit_12
         }
 
         private void receveurImage_MouseDown(object sender, MouseEventArgs e)
-        {    
+        {
             if (carteRetournee == true)
             {
                 PictureBox image = (PictureBox)sender;
@@ -812,24 +815,28 @@ namespace Grand_ou_petit_12
                         System.Media.SoundPlayer son = new System.Media.SoundPlayer(ecolePetiteSon);
                         son.Play();
                     }
-                    //else if ((String)image.Tag == "12")
-                    //{
-                    //    image.Image = Properties.Resources.doudouKucuk;
-                    //    foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
-                    //    {
-                    //        petiteImage.AllowDrop = true;
-                    //    }
+                    else if ((String)image.Tag == "12")
+                    {
+                        image.Image = Properties.Resources.doudouKucuk;
+                        foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
+                        {
+                            petiteImage.AllowDrop = true;
+                        }
 
-                    //    //lecture du son lié à la carte
-                    //    System.IO.Stream doudouKucukSon = Properties.Resources.doudouKucukSon;
-                    //    System.Media.SoundPlayer son = new System.Media.SoundPlayer(doudouKucukSon);
-                    //    son.Play();
-                    //}
+                        //lecture du son lié à la carte
+                        System.IO.Stream doudouKucukSon = Properties.Resources.doudouKucukSon;
+                        System.Media.SoundPlayer son = new System.Media.SoundPlayer(doudouKucukSon);
+                        son.Play();
+                    }
                     petiteImageRecup = image.Image;
                     conteneurCarteAPlacer.DoDragDrop("x", DragDropEffects.Move);
                 }
             }
         }
 
+        private void Rejouer_Click(object sender, EventArgs e)
+        {
+            chargementPartie();
+        }
     }
 }

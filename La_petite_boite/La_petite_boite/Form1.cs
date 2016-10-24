@@ -59,9 +59,9 @@ namespace La_petite_boite
         Button No;
         ComboBox listeDossierSauvegarde = new ComboBox();
         Lieu Village = new Lieu(512, -28, 448, 270, "villageIconeGris.png", new Point(140, 520), "Memory");
-        Lieu Chateau = new Lieu(98, 1034, 300, 420, "chateauMapGris.png", new Point(1130, 380), "Chateau");
+        Lieu Chateau = new Lieu(98, 1042, 300, 402, "chateauMap1Gris.png", new Point(1130, 380), "Chateau");
         Lieu Cabane = new Lieu(447, 811, 140, 146, "cabaneIconeGris.png", new Point(830, 520), "Chasse aux mots");
-        Lieu Tronc = new Lieu(104, 620, 177, 196, "troncIconeGris.png", new Point(650, 190), "Grand Ou Petit");
+        Lieu Tronc = new Lieu(104, 620, 177, 196, "troncIconeGris.png", new Point(650, 186), "Grand Ou Petit");
         Lieu Montagne = new Lieu(-2, -2, 378, 215, "montagneMapGris.png", new Point(140, 156), "Que fait le Roi?");
         Lieu arrivee = new Lieu();
         Label menuPrincipal = new Label();
@@ -113,7 +113,10 @@ namespace La_petite_boite
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.DoubleBuffered = true;
             generationElements();
+
+            
         }
 
         private void generationElements()
@@ -185,10 +188,10 @@ namespace La_petite_boite
 
             //tabBord
 
-            tabBord.Width = 50;
-            tabBord.Height = 200;
-            tabBord.Top = 520;
-            tabBord.Left = 1300;
+            tabBord.Width = 200;
+            tabBord.Height = 100;
+            tabBord.Top = 670;
+            tabBord.Left = 1170;
             tabBord.BackColor = Color.Transparent;
 
             //on ajoute les boutons au tableau de bord
@@ -197,14 +200,14 @@ namespace La_petite_boite
             tabBord.Controls.Add(quitterMiniJeu);
             tabBord.Controls.Add(guide);
 
-            sauvegarde.Top = 0;
+            sauvegarde.Top = 8;
             sauvegarde.Left = 0;
 
-            quitterMiniJeu.Top = 70;
-            quitterMiniJeu.Left = 0;
+            quitterMiniJeu.Top = 8;
+            quitterMiniJeu.Left = 80;
 
-            guide.Top = 140;
-            guide.Left = 0;
+            guide.Top = 0;
+            guide.Left = 140;
 
             //conteneurEtoile
 
@@ -263,7 +266,7 @@ namespace La_petite_boite
             }
 
             //guide
-            chargementImage("guide.png", guide);
+            chargementImage("question.png", guide);
             guide.Width = 50;
             guide.Height = 50;
             guide.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -473,7 +476,7 @@ namespace La_petite_boite
 
             //-------------------------------CHAMPS------------------------------//
 
-            //menu principal
+            //rincipal
 
             menuPrincipal.Text = "Menu Principal";
             menuPrincipal.Font = new Font(menuPrincipal.Font.FontFamily, 25);
@@ -482,7 +485,7 @@ namespace La_petite_boite
             menuPrincipal.Width = 300;
             menuPrincipal.Height = 70;
             menuPrincipal.BackColor = Color.Transparent;
-            menuPrincipal.ForeColor = Color.Black;
+            menuPrincipal.ForeColor = Color.MidnightBlue;
 
             //dossier de sauvegarde
 
@@ -559,8 +562,8 @@ namespace La_petite_boite
 
             //texte pour le diaporama
 
-            textePresentationJeu.Width = 300;
-            textePresentationJeu.Height = 400;
+            textePresentationJeu.Width = 700;
+            textePresentationJeu.Height = 300;
             textePresentationJeu.Top = 100;
             textePresentationJeu.Left = 50;
             textePresentationJeu.Font = new Font(textePresentationJeu.Font.FontFamily, 13);
@@ -577,6 +580,16 @@ namespace La_petite_boite
             MessageRoi.ForeColor = Color.Silver;
             MessageRoi.Font = new Font(MessageRoi.Font.FontFamily, 13);
             MessageRoi.Text = "est-ce que tu as vraiment recolter toutes les etoiles?";
+
+            //titre pour le mini jeu
+
+            titreJeu.Width = 300;
+            titreJeu.Height = 30;
+            titreJeu.ForeColor = Color.White;
+            titreJeu.BackColor = Color.Transparent;
+            titreJeu.Top = 120;
+            titreJeu.Left = 600;
+            titreJeu.Font = new Font(titreJeu.Font.FontFamily, 16);
 
             //elements de la carte
 
@@ -971,7 +984,7 @@ namespace La_petite_boite
             //il manque la planche avec le roi
             //on affiche le diaporama
             this.Controls.Remove(accueil);
-            textePresentationJeu.Text = "Bienvenu à toi "+ chevalier.nomJoueur() + " , je suis le magicien, et je serai ton guide tout au long de ton périple. Bon courage!";
+            textePresentationJeu.Text = "Bienvenue à toi "+ chevalier.nomJoueur() + " , je suis le magicien Kazan, et je serai ton guide tout au long de ton périple. Bon courage! Avant ce panneau, il manque la genese du jeu";
             this.Controls.Remove(nouveauJoueur);
             this.Controls.Remove(chargerJoueur);
 
@@ -1248,7 +1261,7 @@ namespace La_petite_boite
             }
             else if (P.Name.Equals("Chateau"))
             {
-                chargementImage("chateauMapGris.png",P);
+                chargementImage("chateauMap1Gris.png",P);
             }
             else if (P.Name.Equals("Chasse aux mots"))
             {
@@ -1273,7 +1286,7 @@ namespace La_petite_boite
             }
             else if (P.Name.Equals("Chateau"))
             {
-                chargementImage("chateauMap.png",P);
+                chargementImage("chateauMap1.png",P);
             }
             else if (P.Name.Equals("Chasse aux mots"))
             {
@@ -1297,13 +1310,7 @@ namespace La_petite_boite
         {
             
             titreJeu.Text = "Niveau 1 : " + nomJeu;
-            titreJeu.Width = 300;
-            titreJeu.Height = 30;
-            titreJeu.ForeColor = Color.White;
-            titreJeu.BackColor = Color.Transparent;
-            titreJeu.Top = 120;
-            titreJeu.Left = 550;
-            titreJeu.Font = new Font(titreJeu.Font.FontFamily,16);
+            
 
             //on ajoute le minijeu
             miniJeu.Controls.Add(p);
@@ -1425,6 +1432,9 @@ namespace La_petite_boite
         {
 
             //on mettra tout le contenu de CarteJeu
+            typeof(Panel).InvokeMember("DoubleBuffered",
+            BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
+            null, CarteJeu, new object[] { true });
 
             this.Controls.Add(CarteJeu);
 
@@ -1656,7 +1666,6 @@ namespace La_petite_boite
             CourRoi.Controls.Add(MessageRoi);
             CourRoi.Controls.Add(Yes);
             CourRoi.Controls.Add(No);
-            CourRoi.Controls.Add(GrosCoffre);
             CourRoi.Controls.Add(tabBord);
             this.Controls.Add(CourRoi);
             

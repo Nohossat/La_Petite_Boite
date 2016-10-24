@@ -46,10 +46,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Activites\ChasseAuxMotsAllLvl\chasseAuxMots8Cartes\chassesAuxMots8Cartes\bin\Debug\chassesAuxMots8Cartes.exe</HintPath>
     </Reference>
-    <Reference Include="Grand ou petit 12, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\GrandOuPetitAllLvl\Grand ou petit 12\Grand ou petit 12\bin\Debug\Grand ou petit 12.exe</HintPath>
-    </Reference>
     <Reference Include="Grand ou petit 8, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Activites\GrandOuPetitAllLvl\Grand ou petit 8\Grand ou petit 8\bin\Debug\Grand ou petit 8.exe</HintPath>
@@ -436,7 +432,12 @@
     <Content Include="Resources\miniJeu\table3.png" />
     <Content Include="Resources\miniJeu\table4.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="Activites\GrandOuPetitAllLvl\Grand ou petit 12\Grand ou petit 12\Grand ou petit 12.csproj">
+      <Project>{eb730318-1db9-4333-a179-a7c953fcbb60}</Project>
+      <Name>Grand ou petit 12</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

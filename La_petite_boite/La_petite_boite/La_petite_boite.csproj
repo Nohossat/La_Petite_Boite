@@ -98,6 +98,7 @@
     <Compile Include="Charger.Designer.cs">
       <DependentUpon>Charger.cs</DependentUpon>
     </Compile>
+    <Compile Include="recompense.cs" />
     <Compile Include="Etoile.cs">
       <SubType>Component</SubType>
     </Compile>

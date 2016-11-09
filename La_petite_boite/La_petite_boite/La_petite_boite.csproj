@@ -79,6 +79,7 @@
       <HintPath>Activites\QueFaitLeRoiAllLvl\Que fait le Roi\Que fait le Roi\bin\Debug\Que fait le Roi.exe</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -97,7 +98,6 @@
     <Compile Include="Charger.Designer.cs">
       <DependentUpon>Charger.cs</DependentUpon>
     </Compile>
-    <Compile Include="recompense.cs" />
     <Compile Include="Etoile.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -121,6 +121,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="recompense1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="recompense1.Designer.cs">
+      <DependentUpon>recompense1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Charger.resx">
       <DependentUpon>Charger.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +141,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -307,12 +314,16 @@
     <None Include="bin\Debug\Joueurs.txt" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="recompense1.resx">
+      <DependentUpon>recompense1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Joueurs.txt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\dossiers_sauvegarde.txt" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Jeu\revelationcoffre.png" />
     <EmbeddedResource Include="Resources\Jeu\accueil.jpg" />
     <EmbeddedResource Include="Resources\Jeu\biche.png" />
     <EmbeddedResource Include="Resources\Jeu\cabaneIcone.png" />
@@ -374,6 +385,8 @@
     <EmbeddedResource Include="Resources\Jeu\question.png" />
     <EmbeddedResource Include="Resources\Jeu\chateauMap1.png" />
     <EmbeddedResource Include="Resources\Jeu\chateauMap1Gris.png" />
+    <EmbeddedResource Include="Resources\Jeu\diapoMag.png" />
+    <EmbeddedResource Include="Resources\Jeu\diapoTrone1.png" />
     <Content Include="Resources\miniJeu\carte2.png" />
     <Content Include="Resources\miniJeu\chaise1.png" />
     <Content Include="Resources\miniJeu\chaise2.png" />

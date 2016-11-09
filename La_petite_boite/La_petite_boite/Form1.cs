@@ -13,11 +13,12 @@ using Chasse_aux_mots;
 using Grand_ou_Petit;
 using Que_fait_le_Roi;
 using System.Reflection;
+using System.Configuration;
 
 //reste a faire:  design,
 
 namespace La_petite_boite
-    //il faut regler bug affichage images, ajouter les recompenses et diapo roi. il y a un bug sur deux mini jeux, facilement reglables je pense
+    //il faut regler bug affichage images, ajouter les recompenses et diapo roi.
 {
    
     public partial class Form1 : Form
@@ -83,7 +84,7 @@ namespace La_petite_boite
         Panel tabBord = new Panel();
         Panel miniJeu = new Panel();
         Panel CourRoi;
-        Panel Recompense = new Panel();
+        Panel Recompense = new recompense();
         PictureBox imgChevalier = new PictureBox();
         PictureBox imagePersonnage1 = new PictureBox();
         PictureBox imagePersonnage2 = new PictureBox();
@@ -93,10 +94,6 @@ namespace La_petite_boite
         PictureBox coffre = new PictureBox();
         PictureBox sauvegarde = new PictureBox();
         PictureBox quitterMiniJeu = new PictureBox();
-        PictureBox GrosCoffre;
-        PictureBox recompense1;
-        PictureBox recompense2;
-        PictureBox recompense3;
         PictureBox[] listeAvatars;
         String sauvegardeImgAvatar = null;
         
@@ -115,8 +112,6 @@ namespace La_petite_boite
         {
             this.DoubleBuffered = true;
             generationElements();
-
-            
         }
 
         private void generationElements()
@@ -141,7 +136,7 @@ namespace La_petite_boite
 
 
             //diaporamaHistoire
-            chargementImage("presentationJeu.png", diaporamaHistoire);
+            chargementImage("diapoTrone1.png", diaporamaHistoire);
             diaporamaHistoire.Location = new System.Drawing.Point(-6, -2);
             diaporamaHistoire.Width = 1400;
             diaporamaHistoire.Height = 722;
@@ -156,7 +151,7 @@ namespace La_petite_boite
 
             //Cour du roi
             CourRoi = new Panel();
-            chargementImage("presentationJeu.png", CourRoi);
+            chargementImage("diapoTrone1.png", CourRoi);
             CourRoi.Width = 1400;
             CourRoi.Height = 722;
             CourRoi.Location = new Point(-6, -2);
@@ -280,14 +275,7 @@ namespace La_petite_boite
             coffre.Left = 1250;
             coffre.SizeMode = PictureBoxSizeMode.StretchImage;
             coffre.BackColor = Color.Transparent;
-
-            //gros coffre pour la fin du jeu
-            GrosCoffre = new PictureBox();
-            chargementImage("coffre.png", GrosCoffre);
-            GrosCoffre.Location = new Point(800, 300);
-            GrosCoffre.Size = new Size(300, 300);
-            GrosCoffre.SizeMode = PictureBoxSizeMode.StretchImage;
-            GrosCoffre.BackColor = Color.Transparent;
+            
 
             //sauvegarde
             chargementImage("disquette.png", sauvegarde);
@@ -306,41 +294,7 @@ namespace La_petite_boite
             quitterMiniJeu.SizeMode = PictureBoxSizeMode.StretchImage;
             quitterMiniJeu.BackColor = Color.Transparent;
             quitterMiniJeu.Click += new EventHandler(retourTabBord);
-
-            //recompenses
-            recompense1 = new PictureBox();
-            chargementImage("cabaneIcone.png", recompense1);
-            recompense1.Name = "";
-            recompense1.BackColor = Color.Transparent;
-            recompense1.Width = 100;
-            recompense1.Height = 100;
-            recompense1.Location = new Point(100, 100);
-            recompense1.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            //recompense1.Click
-            recompense2 = new PictureBox();
-            chargementImage("chateauIcone.png", recompense2);
-            recompense2.Name = "";
-            recompense2.BackColor = Color.Transparent;
-            recompense2.Width = 100;
-            recompense2.Height = 100;
-            recompense1.Location = new Point(300, 100);
-            recompense2.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            //recompense2.Click
-            recompense3 = new PictureBox();
-            chargementImage("etoileGrise.png", recompense3);
-            recompense3.Name = "";
-            recompense3.BackColor = Color.Transparent;
-            recompense3.Width = 100;
-            recompense3.Height = 100;
-            recompense1.Location = new Point(600, 100);
-            recompense3.SizeMode = PictureBoxSizeMode.StretchImage;
-
-
-            //recompense3.Click
-
-
+            
             //fichiers : ici il faut un test au cas ou la lecture de fichiers ne se fait pas
 
             //---------------------------------FICHIERS-------------------------------------//
@@ -420,8 +374,8 @@ namespace La_petite_boite
             AfficherCarte.Text = "Commencer le Jeu";
             AfficherCarte.Height = 70;
             AfficherCarte.Width = 200;
-            AfficherCarte.Top = 600;
-            AfficherCarte.Left = 100;
+            AfficherCarte.Top = 630;
+            AfficherCarte.Left = 1110;
             AfficherCarte.FlatAppearance.BorderSize = 0;
             AfficherCarte.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             AfficherCarte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -429,6 +383,20 @@ namespace La_petite_boite
             AfficherCarte.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             AfficherCarte.BackColor = Color.Transparent;
             AfficherCarte.Click += new EventHandler(afficherCarte);
+
+            //afficherCarte
+            suivant.Text = "Suivant";
+            suivant.Height = 70;
+            suivant.Width = 200;
+            suivant.Top = 630;
+            suivant.Left = 1110;
+            suivant.FlatAppearance.BorderSize = 0;
+            suivant.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            suivant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            suivant.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            suivant.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            suivant.BackColor = Color.Transparent;
+            suivant.Click += new EventHandler(afficherDiapoSuivant);
 
             //quitter
             quitter.Text = "Quitter";
@@ -449,7 +417,7 @@ namespace La_petite_boite
             Yes = new Button();
             Yes.Text = "Oui";
             Yes.Name = "Oui";
-            Yes.Location = new Point(250, 650);
+            Yes.Location = new Point(250, 600);
             Yes.Width = 250;
             Yes.Height = 60;
             Yes.FlatAppearance.BorderSize = 0;
@@ -463,7 +431,7 @@ namespace La_petite_boite
             No = new Button();
             No.Text = "Non";
             No.Name = "Non";
-            No.Location = new Point(600, 650);
+            No.Location = new Point(600, 600);
             No.Width = 250;
             No.Height = 60;
             No.FlatAppearance.BorderSize = 0;
@@ -562,11 +530,11 @@ namespace La_petite_boite
 
             //texte pour le diaporama
 
-            textePresentationJeu.Width = 700;
+            textePresentationJeu.Width = 900;
             textePresentationJeu.Height = 300;
-            textePresentationJeu.Top = 100;
-            textePresentationJeu.Left = 50;
-            textePresentationJeu.Font = new Font(textePresentationJeu.Font.FontFamily, 13);
+            textePresentationJeu.Top = 450;
+            textePresentationJeu.Left = 210;
+            textePresentationJeu.Font = new Font(textePresentationJeu.Font.FontFamily, 17);
             textePresentationJeu.ForeColor = Color.White;
             textePresentationJeu.BackColor = Color.Transparent;
             textePresentationJeu.TextAlign = ContentAlignment.MiddleCenter;
@@ -626,7 +594,7 @@ namespace La_petite_boite
             listeLieux[3] = Montagne;
             listeLieux[4] = Chateau;
         }
-
+        
         private void chargementImage (String res, Panel pan)
         {
             //access resource
@@ -982,18 +950,34 @@ namespace La_petite_boite
         private void afficherDiaporama()
         {
             //il manque la planche avec le roi
+
+            //on affiche la planche avec le roi puis la planche avec le magicien...le bouton suivant doit clignoter
+            //lors du diaporama on a le texte et une voix off qui explique l-histoire
+
+            //on affiche la salle du trone
+
+
             //on affiche le diaporama
             this.Controls.Remove(accueil);
-            textePresentationJeu.Text = "Bienvenue à toi "+ chevalier.nomJoueur() + " , je suis le magicien Kazan, et je serai ton guide tout au long de ton périple. Bon courage! Avant ce panneau, il manque la genese du jeu";
+            textePresentationJeu.Text = "Bienvenue à toi "+ chevalier.nomJoueur() + " , je suis le roi Kazan, ici il faut expliquer le besoin du roi";
             this.Controls.Remove(nouveauJoueur);
             this.Controls.Remove(chargerJoueur);
 
             //on affiche le bouton afficherCarte
             diaporamaHistoire.Controls.Add(textePresentationJeu);
-            diaporamaHistoire.Controls.Add(AfficherCarte);
+            diaporamaHistoire.Controls.Add(suivant);
 
             this.Controls.Add(diaporamaHistoire);
             
+        }
+
+        private void afficherDiapoSuivant(object sender, EventArgs e)
+        {
+            diaporamaHistoire.Controls.Remove(suivant);
+            textePresentationJeu.Text = "Bienvenue à toi " + chevalier.nomJoueur() + " , je suis le magicien Kazan, et je serai ton guide tout au long de ton périple. Bon courage!";
+            chargementImage("diapoMag.png", diaporamaHistoire);
+            Refresh();
+            diaporamaHistoire.Controls.Add(AfficherCarte);
         }
 
         private void afficherCarte(object sender, EventArgs e)
@@ -1314,8 +1298,7 @@ namespace La_petite_boite
 
             //on ajoute le minijeu
             miniJeu.Controls.Add(p);
-
-            Console.Write(miniJeu.Controls[0].ToString());
+            
             if (chevalier.epreuvesJoueur().Contains(miniJeu.Controls[0]))
             {
                 p.EnabledChanged += new EventHandler(finMiniJeu);
@@ -1466,8 +1449,11 @@ namespace La_petite_boite
             imgChevalier.Left = chevalier.positionJoueur().getPosition().X;
             imgChevalier.Top = chevalier.positionJoueur().getPosition().Y;
 
+            ajoutEtoiles();
             //on affiche les elements du jeu
             chargementImage("mapReference.png", CarteJeu);
+            CarteJeu.Controls.Add(ConteneurEtoile);
+            CarteJeu.Controls.Add(coffre);
             CarteJeu.Controls.Add(imgChevalier);
             CarteJeu.Controls.Add(Village);
             CarteJeu.Controls.Add(Montagne);
@@ -1662,8 +1648,8 @@ namespace La_petite_boite
         public void devoileCoffre ()
         {
             this.Controls.Remove(CarteJeu);
-
-            CourRoi.Controls.Add(MessageRoi);
+            textePresentationJeu.Text = "As-tu reuni l-ensemble des etoiles ?";
+            CourRoi.Controls.Add(textePresentationJeu);
             CourRoi.Controls.Add(Yes);
             CourRoi.Controls.Add(No);
             CourRoi.Controls.Add(tabBord);
@@ -1690,13 +1676,13 @@ namespace La_petite_boite
             this.Controls.Remove(CourRoi);
             this.Controls.Add(Recompense);
 
-            Recompense.Width = 1400;
-            Recompense.Height = 722;
-            Recompense.Location = new Point(0, 0);
-            Recompense.BackColor = Color.AliceBlue;
-            Recompense.Controls.Add(recompense1);
-            Recompense.Controls.Add(recompense2);
-            Recompense.Controls.Add(recompense2);
+            //Recompense.Width = 1400;
+            //Recompense.Height = 722;
+            //Recompense.Location = new Point(0, 0);
+            //Recompense.BackColor = Color.AliceBlue;
+            //Recompense.Controls.Add(recompense1);
+            //Recompense.Controls.Add(recompense2);
+            //Recompense.Controls.Add(recompense2);
 
             //sur cette page, on a trois picturebox avec les liens vers les recompenses (video, coloriages, etc
         }

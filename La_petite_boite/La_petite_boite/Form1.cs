@@ -13,6 +13,7 @@ using Chasse_aux_mots;
 using Grand_ou_Petit;
 using Que_fait_le_Roi;
 using System.Reflection;
+using System.Configuration;
 
 //reste a faire:  design,
 

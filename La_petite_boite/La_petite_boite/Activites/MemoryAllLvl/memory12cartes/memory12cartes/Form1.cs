@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace memory12cartes
 {
     public partial class Memory12 : Form
     {
-        
         public Memory12()
         {
             InitializeComponent();

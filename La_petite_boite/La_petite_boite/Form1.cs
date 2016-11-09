@@ -1365,6 +1365,9 @@ namespace La_petite_boite
                 Jeu.Controls.Add(titreJeu);
                 Jeu.Controls.Add(miniJeu);
                 this.Controls.Add(Jeu);
+
+            var tuto = new tutoMemory();
+            tuto.ShowDialog();
         }
 
         private void LanceMiniJeu(object sender, EventArgs e)
@@ -1413,7 +1416,7 @@ namespace La_petite_boite
 
         private void Carte ()
         {
-
+            Refresh();
             //on mettra tout le contenu de CarteJeu
             typeof(Panel).InvokeMember("DoubleBuffered",
             BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,

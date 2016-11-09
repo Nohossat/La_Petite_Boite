@@ -28,24 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            
             // 
             // Memory8
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 441);
-            
-            this.Controls.Add(new MemoryPanel());
+            this.ClientSize = new System.Drawing.Size(978, 575);
             this.Name = "Memory8";
             this.Text = "Jeu Memory";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

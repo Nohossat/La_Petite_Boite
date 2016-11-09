@@ -127,6 +127,12 @@
     <Compile Include="recompense1.Designer.cs">
       <DependentUpon>recompense1.cs</DependentUpon>
     </Compile>
+    <Compile Include="tutoChasseAuxMots.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tutoChasseAuxMots.Designer.cs">
+      <DependentUpon>tutoChasseAuxMots.cs</DependentUpon>
+    </Compile>
     <Compile Include="tutoMemory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tutoChasseAuxMots.resx">
+      <DependentUpon>tutoChasseAuxMots.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tutoMemory.resx">
       <DependentUpon>tutoMemory.cs</DependentUpon>
@@ -471,6 +480,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\miniJeu\UnDoudou.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\miniJeu\Bahce.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

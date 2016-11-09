@@ -12,56 +12,51 @@ using System.IO;
 
 namespace La_petite_boite
 {
-    public partial class tutoMemory : Form
+    public partial class tutoChasseAuxMots : Form
     {
         Assembly _assembly = Assembly.GetExecutingAssembly();
         Stream _imageStream;
         Stream _sonStream;
+        private Panel conteneurCarte;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
+        private Button Ecouter;
+
         Random localisation = new Random(); //
         List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
-        private Panel conteneurCarte;
-        private PictureBox doubleCarte2;
-        private PictureBox carte2;
-        private PictureBox doubleCarte1;
-        private PictureBox carte1;
-        int compteur = 0;
-        System.Media.SoundPlayer sound;
+        List<String> sounds = new List<String>();
+        String carteACliquerTag;
+        String imageCliqueTag;
+        int demarrage;
+        Boolean son1DejaTrouve;
+        Boolean son2DejaTrouve;
 
-        public tutoMemory()
+        System.Media.SoundPlayer son;
+
+        int compteur = 0;
+        public tutoChasseAuxMots()
         {
             InitializeComponent();
-            chargementPartie();
+            ChasseAuxMots_Load();
             timer1.Enabled = true;
         }
 
-        public void chargementPartie()
+        private void ChasseAuxMots_Load()
         {
-            
             this.Enabled = true;
-            //récupérer les localisations des cartes
-            foreach (PictureBox image in conteneurCarte.Controls)
-            {
-                image.Enabled = true;
-                coordonneesCartes.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
-            }
+            Ecouter.Enabled = true;
+            demarrage = 0;
+            carteACliquerTag = "";
+            imageCliqueTag = "";
+            son1DejaTrouve = false;
+            son2DejaTrouve = false;
 
-            //mélange des cartes
-            foreach (PictureBox image in conteneurCarte.Controls)
-            {
-                int next = localisation.Next(coordonneesCartes.Count);
-                Point p = coordonneesCartes[next];
-                image.Location = p;
-                coordonneesCartes.Remove(p);
-            }
-
-            //le dos des cartes est affiché
-            foreach (PictureBox image in conteneurCarte.Controls)
-            {
-                chargementImage("carte1.png", image);
-                
-            }
+            chargementImage("doudou1.png", pictureBox1);
+            chargementImage("jardin1.png", pictureBox2);
+            sounds.Add("UnDoudou.wav");
+            sounds.Add("Bahce.wav");
         }
-
+        
         public void chargementImage(String res, PictureBox p)
         {
             //access resource
@@ -115,18 +110,14 @@ namespace La_petite_boite
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
             if (compteur < 2)
             {
-                chargementImage("doudou1.png", (PictureBox)conteneurCarte.Controls[compteur]);
-                chargementSon("UnDoudou.wav", sound);
+                chargementSon(sounds.ElementAt(compteur), son);
+                chargementImage("carte1.png", (PictureBox)conteneurCarte.Controls[compteur]);
+                chargementSon("applaudissements.wav", son);
                 compteur++;
             }
-            else
-            {
-                timer1.Enabled = false;
-                chargementSon("applaudissements.wav", sound);
-            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

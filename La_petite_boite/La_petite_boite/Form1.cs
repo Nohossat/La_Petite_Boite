@@ -48,6 +48,7 @@ namespace La_petite_boite
         public static Label titreJeu = new Label();
         public static Lieu positionInitiale = new Lieu();
         public static String lieuTemporaire;
+        public Form tuto;
         Button nouvellePartie = new Button();
         Button chargerPartie = new Button();
         Button commencer = new Button();
@@ -1365,8 +1366,7 @@ namespace La_petite_boite
                 Jeu.Controls.Add(titreJeu);
                 Jeu.Controls.Add(miniJeu);
                 this.Controls.Add(Jeu);
-
-            var tuto = new tutoMemory();
+            
             tuto.ShowDialog();
         }
 
@@ -1383,23 +1383,27 @@ namespace La_petite_boite
             {
                 //la chasse aux mots se deroule dans la montagne
                 chargementImage("montagne.png", Jeu);
+                tuto = new tutoChasseAuxMots();
                 IndiceJeu = 1;
             }
             else if (l.Name == "Grand Ou Petit")
             {
                 //grand ou petit se deroule dans une clairiere
                 chargementImage("clairiere.png", Jeu);
+                tuto = new tutoChasseAuxMots();
                 IndiceJeu = 2;
             }
             else if (l.Name == "Que fait le Roi?")
             {
                 //que fait le roi se deroule a cote de la riviere
                 chargementImage("riviere.png", Jeu);
+                tuto = new tutoChasseAuxMots();
                 IndiceJeu = 3;
             }
             else if (l.Name == "Memory")
             {
                 chargementImage("village.png", Jeu);
+                tuto = new tutoMemory();
                 IndiceJeu = 0;
             }
             else

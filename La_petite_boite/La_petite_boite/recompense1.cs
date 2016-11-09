@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Reflection;
+using System.Configuration;
+using System.Diagnostics;
 
 namespace La_petite_boite
 {
-    class récompense
+    public partial class recompense1 : Form
     {
-        public partial class Form1 : Form
+        public recompense1()
         {
-            public Form1()
-            {
-                InitializeComponent();
-            }
+            InitializeComponent();
         }
+    }
 
         public partial class recompense : Panel
         {
@@ -44,4 +50,4 @@ namespace La_petite_boite
             }
         }
     }
-}
+

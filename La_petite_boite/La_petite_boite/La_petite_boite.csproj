@@ -133,6 +133,12 @@
     <Compile Include="tutoChasseAuxMots.Designer.cs">
       <DependentUpon>tutoChasseAuxMots.cs</DependentUpon>
     </Compile>
+    <Compile Include="tutoGrandOuPetit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tutoGrandOuPetit.Designer.cs">
+      <DependentUpon>tutoGrandOuPetit.cs</DependentUpon>
+    </Compile>
     <Compile Include="tutoMemory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="tutoChasseAuxMots.resx">
       <DependentUpon>tutoChasseAuxMots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tutoGrandOuPetit.resx">
+      <DependentUpon>tutoGrandOuPetit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tutoMemory.resx">
       <DependentUpon>tutoMemory.cs</DependentUpon>
@@ -498,6 +507,10 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\miniJeu\kralOkulaGirer.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\miniJeu\LaGrandeBoite.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\LeGrandChateau.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1390,7 +1390,7 @@ namespace La_petite_boite
             {
                 //grand ou petit se deroule dans une clairiere
                 chargementImage("clairiere.png", Jeu);
-                tuto = new tutoChasseAuxMots();
+                tuto = new tutoGrandOuPetit();
                 IndiceJeu = 2;
             }
             else if (l.Name == "Que fait le Roi?")

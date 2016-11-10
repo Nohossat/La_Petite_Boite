@@ -418,7 +418,7 @@ namespace La_petite_boite
             Yes = new Button();
             Yes.Text = "Oui";
             Yes.Name = "Oui";
-            Yes.Location = new Point(250, 600);
+            Yes.Location = new Point(250, 700);
             Yes.Width = 250;
             Yes.Height = 60;
             Yes.FlatAppearance.BorderSize = 0;
@@ -432,7 +432,7 @@ namespace La_petite_boite
             No = new Button();
             No.Text = "Non";
             No.Name = "Non";
-            No.Location = new Point(600, 600);
+            No.Location = new Point(600, 700);
             No.Width = 250;
             No.Height = 60;
             No.FlatAppearance.BorderSize = 0;

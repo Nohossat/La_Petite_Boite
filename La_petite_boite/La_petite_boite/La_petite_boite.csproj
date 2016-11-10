@@ -139,6 +139,12 @@
     <Compile Include="tutoMemory.Designer.cs">
       <DependentUpon>tutoMemory.cs</DependentUpon>
     </Compile>
+    <Compile Include="tutoQueFaitLeRoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tutoQueFaitLeRoi.Designer.cs">
+      <DependentUpon>tutoQueFaitLeRoi.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Charger.resx">
       <DependentUpon>Charger.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="tutoMemory.resx">
       <DependentUpon>tutoMemory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tutoQueFaitLeRoi.resx">
+      <DependentUpon>tutoQueFaitLeRoi.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -483,6 +492,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\miniJeu\Bahce.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\miniJeu\leRoiRentreAuChateau.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\miniJeu\kralOkulaGirer.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

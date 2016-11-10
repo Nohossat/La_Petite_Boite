@@ -1397,7 +1397,7 @@ namespace La_petite_boite
             {
                 //que fait le roi se deroule a cote de la riviere
                 chargementImage("riviere.png", Jeu);
-                tuto = new tutoChasseAuxMots();
+                tuto = new tutoQueFaitLeRoi();
                 IndiceJeu = 3;
             }
             else if (l.Name == "Memory")

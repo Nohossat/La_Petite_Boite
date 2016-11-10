@@ -31,6 +31,7 @@ namespace La_petite_boite
         {
             InitializeComponent();
             chargementPartie();
+            button1.Enabled = false;
             timer1.Enabled = true;
         }
 
@@ -115,7 +116,6 @@ namespace La_petite_boite
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
             if (compteur < 2)
             {
                 chargementImage("doudou1.png", (PictureBox)conteneurCarte.Controls[compteur]);
@@ -126,6 +126,7 @@ namespace La_petite_boite
             {
                 timer1.Enabled = false;
                 chargementSon("applaudissements.wav", sound);
+                button1.Enabled = true;
             }
         }
 

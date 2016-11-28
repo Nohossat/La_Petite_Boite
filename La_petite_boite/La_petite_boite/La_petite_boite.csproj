@@ -127,6 +127,12 @@
     <Compile Include="recompense1.Designer.cs">
       <DependentUpon>recompense1.cs</DependentUpon>
     </Compile>
+    <Compile Include="SpecialButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SpecialLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="tutoChasseAuxMots.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Resources\Jeu\maturafont.TTF" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -511,6 +518,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\miniJeu\LaGrandeBoite.wav" />
     <EmbeddedResource Include="Resources\miniJeu\LeGrandChateau.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Jeu\chevalier1gris.png" />
+    <EmbeddedResource Include="Resources\Jeu\chevalier2gris.png" />
+    <EmbeddedResource Include="Resources\Jeu\chevalier3gris.png" />
+    <EmbeddedResource Include="Resources\Jeu\chevalier4gris.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -14,6 +14,8 @@ using Grand_ou_Petit;
 using Que_fait_le_Roi;
 using System.Reflection;
 using System.Configuration;
+using System.Runtime.InteropServices;
+using System.Drawing.Text;
 
 //reste a faire:  design,
 
@@ -25,6 +27,7 @@ namespace La_petite_boite
     {
         Assembly _assembly = Assembly.GetExecutingAssembly();
         Stream _imageStream;
+        Stream fontStream;
         //creation des objets et variables globales
         public static Boolean chargementReussi = false;
         public static int age;
@@ -48,25 +51,28 @@ namespace La_petite_boite
         public static Label titreJeu = new Label();
         public static Lieu positionInitiale = new Lieu();
         public static String lieuTemporaire;
+        public static PrivateFontCollection privateFontCollection;
         public Form tuto;
-        Button nouvellePartie = new Button();
-        Button chargerPartie = new Button();
+        SpecialButton nouvellePartie = new SpecialButton();
+        SpecialButton chargerPartie = new SpecialButton();
+        SpecialButton quitter = new SpecialButton();
         Button commencer = new Button();
         Button retour = new Button();
-        Button quitter = new Button();
         Button AfficherCarte = new Button();
         Button suivant = new Button();
         Button precedent = new Button();
         Button Yes;
         Button No;
         ComboBox listeDossierSauvegarde = new ComboBox();
+        int compteurClickAvatar = 0;
         Lieu Village = new Lieu(512, -28, 448, 270, "villageIconeGris.png", new Point(140, 520), "Memory");
         Lieu Chateau = new Lieu(98, 1042, 300, 402, "chateauMap1Gris.png", new Point(1130, 380), "Chateau");
         Lieu Cabane = new Lieu(447, 811, 140, 146, "cabaneIconeGris.png", new Point(830, 520), "Chasse aux mots");
         Lieu Tronc = new Lieu(104, 620, 177, 196, "troncIconeGris.png", new Point(650, 186), "Grand Ou Petit");
         Lieu Montagne = new Lieu(-2, -2, 378, 215, "montagneMapGris.png", new Point(140, 156), "Que fait le Roi?");
         Lieu arrivee = new Lieu();
-        Label menuPrincipal = new Label();
+        SpecialLabel menuPrincipal = new SpecialLabel();
+        SpecialLabel Titre = new SpecialLabel();
         Label prenomLabel = new Label();
         Label ageLabel = new Label();
         Label dossierSauvegarde = new Label();
@@ -97,7 +103,6 @@ namespace La_petite_boite
         PictureBox quitterMiniJeu = new PictureBox();
         PictureBox[] listeAvatars;
         String sauvegardeImgAvatar = null;
-        
         String jeuEnCours = "";
         String message ="";
         TextBox prenomField = new TextBox();
@@ -112,6 +117,45 @@ namespace La_petite_boite
         private void Form1_Load(object sender, EventArgs e)
         {
             this.DoubleBuffered = true;
+
+            //EMBED FONTS
+
+            // specify embedded resource name
+            string resource = "La_petite_boite.Resources.Jeu.maturafont.TTF";
+
+            //access resource
+            try
+            {
+                // receive resource stream
+                fontStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource);
+                Console.WriteLine("Chargement reussi");
+
+                // create an unsafe memory block for the font data
+                IntPtr data = Marshal.AllocCoTaskMem((int)fontStream.Length);
+
+                // create a buffer to read in to
+                byte[] fontdata = new byte[fontStream.Length];
+
+                // read the font data from the resource
+                fontStream.Read(fontdata, 0, (int)fontStream.Length);
+
+                // copy the bytes to the unsafe memory block
+                Marshal.Copy(fontdata, 0, data, (int)fontStream.Length);
+
+                // pass the font to the font collection
+                privateFontCollection = new PrivateFontCollection();
+                privateFontCollection.AddMemoryFont(data, (int)fontStream.Length);
+
+                // close the resource stream
+                fontStream.Close();
+
+                // free up the unsafe memory
+                Marshal.FreeCoTaskMem(data);
+            }
+            catch (ArgumentException t)
+            {
+                Console.WriteLine("Error accessing fontfile!" + t);
+            }
             generationElements();
         }
 
@@ -166,18 +210,18 @@ namespace La_petite_boite
             Jeu.BorderStyle = BorderStyle.FixedSingle;
 
             //--------------------MINI PANELS-------------------------------//
-
+            
             //mini-panel choix avatar
-            choixAvatar.Width = 900;
-            choixAvatar.Height = 200;
-            choixAvatar.Top = 40;
-            choixAvatar.Left = 250;
+            choixAvatar.Width = 700;
+            choixAvatar.Height = 150;
+            choixAvatar.Location = new Point(350, 165);
+            choixAvatar.Anchor = AnchorStyles.None;
             choixAvatar.BackColor = Color.Transparent;
 
             //mini panel saisie informations personnelles
             saisirInfos.Width = 500;
             saisirInfos.Height = 200;
-            saisirInfos.Top = 300;
+            saisirInfos.Top = 340;
             saisirInfos.Left = 450;
             saisirInfos.BackColor = Color.Transparent;
             saisirInfos.BorderStyle = BorderStyle.FixedSingle;
@@ -233,19 +277,19 @@ namespace La_petite_boite
             //avatars
             chargementImage("chevalier1.png", imagePersonnage1);
             imagePersonnage1.Name = "chevalier1.png";
-            imagePersonnage1.Left = 100;
+            imagePersonnage1.Left = 0;
 
             chargementImage("chevalier2.png", imagePersonnage2);
             imagePersonnage2.Name = "chevalier2.png";
-            imagePersonnage2.Left = 300;
+            imagePersonnage2.Left = 200;
 
             chargementImage("chevalier3.png", imagePersonnage3);
             imagePersonnage3.Name = "chevalier3.png";
-            imagePersonnage3.Left = 500;
+            imagePersonnage3.Left = 400;
 
             chargementImage("chevalier4.png", imagePersonnage4);
             imagePersonnage4.Name = "chevalier4.png";
-            imagePersonnage4.Left = 700;
+            imagePersonnage4.Left = 600;
 
             listeAvatars = new PictureBox[] { imagePersonnage1, imagePersonnage2, imagePersonnage3, imagePersonnage4 };
             //on ajoute les images au panel choixAvatar
@@ -256,7 +300,7 @@ namespace La_petite_boite
                 choixAvatar.Controls.Add(listeAvatars[i]);
                 listeAvatars[i].SizeMode = PictureBoxSizeMode.StretchImage;
                 listeAvatars[i].BackColor = Color.Transparent;
-                listeAvatars[i].Top = 50;
+                listeAvatars[i].Top = 0;
                 listeAvatars[i].Width = 100;
                 listeAvatars[i].Height = 130;
             }
@@ -276,7 +320,7 @@ namespace La_petite_boite
             coffre.Left = 1250;
             coffre.SizeMode = PictureBoxSizeMode.StretchImage;
             coffre.BackColor = Color.Transparent;
-            
+
 
             //sauvegarde
             chargementImage("disquette.png", sauvegarde);
@@ -295,51 +339,38 @@ namespace La_petite_boite
             quitterMiniJeu.SizeMode = PictureBoxSizeMode.StretchImage;
             quitterMiniJeu.BackColor = Color.Transparent;
             quitterMiniJeu.Click += new EventHandler(retourTabBord);
-            
+
             //fichiers : ici il faut un test au cas ou la lecture de fichiers ne se fait pas
 
             //---------------------------------FICHIERS-------------------------------------//
 
             //on lit le fichier Joueurs et on cree une nouvelle instance Joueur avec les donnees trouvees
-            
-            chargementTexte("La_petite_boite.Resources.Joueurs.txt",joueursFichier);
+
+            chargementTexte("La_petite_boite.Resources.Joueurs.txt", joueursFichier);
 
             //on lit le fichier Sauvegarde et on le met dans un tableau
-            
+
             chargementTexte("La_petite_boite.Resources.dossiers_sauvegarde.txt", listeSauvegarde);
 
             //--------------------------------BOUTONS----------------------------------------//
 
             //nouvelle partie
-            nouvellePartie.Text = "Nouvelle partie";
-            nouvellePartie.Width = 250;
-            nouvellePartie.Height = 60;
-            nouvellePartie.Top = 200;
-            nouvellePartie.Left = 550;
-            nouvellePartie.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            nouvellePartie.FlatAppearance.BorderSize = 0;
-            nouvellePartie.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            nouvellePartie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            nouvellePartie.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nouvellePartie.ForeColor = Color.Black;
-            nouvellePartie.BackColor = Color.Transparent;
+            nouvellePartie.Text = "Nouvelle Partie";
+            nouvellePartie.Top = 250;
             nouvellePartie.Click += new EventHandler(nouvelle_partie_button);
+            nouvellePartie.Font = new Font(privateFontCollection.Families[0], 40);
 
             //chargerPartie
-            chargerPartie.Text = "Charger partie";
-            chargerPartie.Font = new Font(chargerPartie.Font.FontFamily, 15);
-            chargerPartie.Width = 250;
-            chargerPartie.Height = 60;
-            chargerPartie.Top = 300;
-            chargerPartie.Left = 550;
-            chargerPartie.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            chargerPartie.FlatAppearance.BorderSize = 0;
-            chargerPartie.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            chargerPartie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            chargerPartie.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chargerPartie.ForeColor = Color.Black;
-            chargerPartie.BackColor = Color.Transparent;
+            chargerPartie.Text = "Charger Partie";
+            chargerPartie.Top = 350;
             chargerPartie.Click += new EventHandler(charger_partie_button);
+            chargerPartie.Font = new Font(privateFontCollection.Families[0], 40);
+
+            //quitter
+            quitter.Text = "Quitter";
+            quitter.Top = 600;
+            quitter.Click += new EventHandler(quitterPartie);
+            quitter.Font = new Font(privateFontCollection.Families[0], 40);
 
             //commencer
             commencer.Text = "Commencer";
@@ -398,27 +429,11 @@ namespace La_petite_boite
             suivant.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             suivant.BackColor = Color.Transparent;
             suivant.Click += new EventHandler(afficherDiapoSuivant);
-
-            //quitter
-            quitter.Text = "Quitter";
-            quitter.Font = new Font(quitter.Font.FontFamily, 15);
-            quitter.Top = 400;
-            quitter.Left = 550;
-            quitter.Width = 250;
-            quitter.Height = 60;
-            quitter.FlatAppearance.BorderSize = 0;
-            quitter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            quitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            quitter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            quitter.ForeColor = Color.Black;
-            quitter.BackColor = Color.Transparent;
-            quitter.Click += new EventHandler(quitterPartie);
-
-
+            
             Yes = new Button();
             Yes.Text = "Oui";
             Yes.Name = "Oui";
-            Yes.Location = new Point(250, 600);
+            Yes.Location = new Point(250, 700);
             Yes.Width = 250;
             Yes.Height = 60;
             Yes.FlatAppearance.BorderSize = 0;
@@ -432,7 +447,7 @@ namespace La_petite_boite
             No = new Button();
             No.Text = "Non";
             No.Name = "Non";
-            No.Location = new Point(600, 600);
+            No.Location = new Point(600, 700);
             No.Width = 250;
             No.Height = 60;
             No.FlatAppearance.BorderSize = 0;
@@ -445,16 +460,36 @@ namespace La_petite_boite
 
             //-------------------------------CHAMPS------------------------------//
 
-            //rincipal
+            //menu principal
 
-            menuPrincipal.Text = "Menu Principal";
-            menuPrincipal.Font = new Font(menuPrincipal.Font.FontFamily, 25);
-            menuPrincipal.Top = 90;
-            menuPrincipal.Left = 550;
-            menuPrincipal.Width = 300;
-            menuPrincipal.Height = 70;
+            menuPrincipal.Text = "Menu Principal"; 
+            menuPrincipal.Top = 10;
+            menuPrincipal.Left = 0;
+            menuPrincipal.Width = 1400;
+            menuPrincipal.Height = 200;
+            menuPrincipal.Font = new Font(privateFontCollection.Families[0], 70);
+            menuPrincipal.ForeColor = ColorTranslator.FromHtml("#18518c");
             menuPrincipal.BackColor = Color.Transparent;
-            menuPrincipal.ForeColor = Color.MidnightBlue;
+            menuPrincipal.UseCompatibleTextRendering = true;
+            menuPrincipal.AutoSize = false;
+            menuPrincipal.TextAlign = ContentAlignment.MiddleCenter;
+            menuPrincipal.Dock = DockStyle.None;
+            menuPrincipal.TextRenderingHint = TextRenderingHint.AntiAlias;
+
+
+            //Titre pour le panneau nouveau personnage
+            Titre.Text = "Choix du chevalier";
+            Titre.Top = 45;
+            Titre.Width = 1400;
+            Titre.Height = 100;
+            Titre.Font = new Font(privateFontCollection.Families[0], 60);
+            Titre.ForeColor = ColorTranslator.FromHtml("#6d5622");
+            Titre.BackColor = Color.Transparent;
+            Titre.UseCompatibleTextRendering = true;
+            Titre.AutoSize = false;
+            Titre.TextAlign = ContentAlignment.MiddleCenter;
+            Titre.Dock = DockStyle.None;
+            Titre.TextRenderingHint = TextRenderingHint.AntiAlias;
 
             //dossier de sauvegarde
 
@@ -491,16 +526,16 @@ namespace La_petite_boite
             prenomLabel.Text = "Prenom";
             prenomLabel.ForeColor = Color.White;
             prenomLabel.Font = new Font(prenomLabel.Font.FontFamily, 14);
-            prenomLabel.Width = 150;
+            prenomLabel.Width = 90;
             prenomLabel.Height = 25;
             prenomLabel.Top = 30;
             prenomLabel.Left = 30;
 
             prenomField.Font = new Font(prenomField.Font.FontFamily, 14);
-            prenomField.Width = 150;
+            prenomField.Width = 190;
             prenomField.Height = 25;
             prenomField.Top = 30;
-            prenomField.Left = 170;
+            prenomField.Left = 140;
             prenomField.Text = null;
 
             //affichePrenomJoueur
@@ -516,17 +551,16 @@ namespace La_petite_boite
             ageLabel.Text = "Age";
             ageLabel.ForeColor = Color.White;
             ageLabel.Font = new Font(ageLabel.Font.FontFamily, 14);
-            ageLabel.Width = 150;
+            ageLabel.Width = 90;
             ageLabel.Height = 25;
             ageLabel.Top = 70;
             ageLabel.Left = 30;
-
-
-            ageField.Width = 150;
+            
+            ageField.Width = 190;
             ageField.Font = new Font(ageField.Font.FontFamily, 14);
             ageField.Height = 25;
             ageField.Top = 70;
-            ageField.Left = 170;
+            ageField.Left = 140;
             ageField.Text = null;
 
             //texte pour le diaporama
@@ -595,7 +629,7 @@ namespace La_petite_boite
             listeLieux[3] = Montagne;
             listeLieux[4] = Chateau;
         }
-        
+
         private void chargementImage (String res, Panel pan)
         {
             //access resource
@@ -746,15 +780,6 @@ namespace La_petite_boite
 
         private void nouvelle_partie_button(object sender, EventArgs e)
         {
-            Label Titre = new Label();
-            Titre.Text = "Choix du chevalier";
-            Titre.Top = 5;
-            Titre.Left = 300;
-            Titre.Width = 300;
-            Titre.Height = 70;
-            Titre.Font = new Font(prenomField.Font.FontFamily, 25);
-            Titre.ForeColor = Color.ForestGreen;
-            Titre.BackColor = Color.Transparent;
             //on cache l/accueil
             this.Controls.Remove(accueil);
 
@@ -762,7 +787,7 @@ namespace La_petite_boite
             this.Controls.Add(nouveauJoueur);
 
             //on ajoute choixAvatar et saisirInfos au panneau nouveauJoueur
-            choixAvatar.Controls.Add(Titre);
+            nouveauJoueur.Controls.Add(Titre);
             nouveauJoueur.Controls.Add(choixAvatar);
             nouveauJoueur.Controls.Add(saisirInfos);
             
@@ -777,7 +802,6 @@ namespace La_petite_boite
             //on ajoute les boutons commencer et retour au panneau nouveauJoueur
             nouveauJoueur.Controls.Add(commencer);
             nouveauJoueur.Controls.Add(retour);
-            
         }
 
         private DialogResult afficheMessageBox(String titre, String message)
@@ -795,20 +819,34 @@ namespace La_petite_boite
 
         private void clickAvatar(object sender, EventArgs e)
         {
+            
             //on recupere l-objet 
             PictureBox ImgTemporaire = (PictureBox)sender;
-            //on recupere l-image de l-avatar
+
+            if (compteurClickAvatar != 0)
+            {
+                //on remet les couleurs de l-image selectionnee
+                chargementImage(ImgTemporaire.Name, ImgTemporaire);
+            }
+            
+            String nomImageGrise = "";
+
+            //on sauvegarde le nom de l-avatar
             sauvegardeImgAvatar = ImgTemporaire.Name;
 
+            //on change les images des autres avatars
             for (int i = 0; i < listeAvatars.Length; i++)
             {
-                //listeAvatars[i].BorderStyle = BorderStyle.None;
-                listeAvatars[i].BackColor = Color.Transparent;
+                //si ce n-est pas l-avatar
+                if (listeAvatars[i].Name.Equals(sauvegardeImgAvatar) == false)
+                {
+                    //on grise l-image
+                    nomImageGrise = listeAvatars[i].Name.Substring(0,10);
+                    nomImageGrise = nomImageGrise + "gris.png";
+                    chargementImage(nomImageGrise, listeAvatars[i]);
+                }
             }
-
-            //on change le contour de l-image selectionne
-            //ImgTemporaire.BorderStyle = BorderStyle.FixedSingle;
-            ImgTemporaire.BackColor = Color.White;
+            compteurClickAvatar++;
         }
 
         private void charger_partie_button(object sender, EventArgs e)

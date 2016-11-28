@@ -87,7 +87,6 @@ namespace La_petite_boite
             }
         }
         
-
         public void chargementImage(String res, PictureBox p)
         {
             //access resource

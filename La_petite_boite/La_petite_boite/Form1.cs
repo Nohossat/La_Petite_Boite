@@ -27,7 +27,7 @@ namespace La_petite_boite
     {
         Assembly _assembly = Assembly.GetExecutingAssembly();
         Stream _imageStream;
-        Stream fontStream;
+
         //creation des objets et variables globales
         public static Boolean chargementReussi = false;
         public static int age;
@@ -43,6 +43,7 @@ namespace La_petite_boite
         public static List <String> listeSauvegarde = new List<string>();
         public static Panel chargerJoueur = new Panel();
         public static Panel ConteneurEtoile = new Panel();
+        public static Panel conteneurEtoilesCoffre = new Panel();
         public static String dossier = "";
         public static String nom;
         public static String avatar;
@@ -56,11 +57,12 @@ namespace La_petite_boite
         SpecialButton nouvellePartie = new SpecialButton();
         SpecialButton chargerPartie = new SpecialButton();
         SpecialButton quitter = new SpecialButton();
-        Button commencer = new Button();
-        Button retour = new Button();
-        Button AfficherCarte = new Button();
-        Button suivant = new Button();
-        Button precedent = new Button();
+        ControlButton commencer = new ControlButton();
+        ControlButton retour = new ControlButton();
+        LittleButton pret = new LittleButton(600);
+        LittleButton suivant = new LittleButton(600);
+        LittleButton precedent = new LittleButton(600);
+        LittleButton AfficherCarte = new LittleButton(600);
         Button Yes;
         Button No;
         ComboBox listeDossierSauvegarde = new ComboBox();
@@ -117,45 +119,8 @@ namespace La_petite_boite
         private void Form1_Load(object sender, EventArgs e)
         {
             this.DoubleBuffered = true;
-
             //EMBED FONTS
-
-            // specify embedded resource name
-            string resource = "La_petite_boite.Resources.Jeu.maturafont.TTF";
-
-            //access resource
-            try
-            {
-                // receive resource stream
-                fontStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource);
-                Console.WriteLine("Chargement reussi");
-
-                // create an unsafe memory block for the font data
-                IntPtr data = Marshal.AllocCoTaskMem((int)fontStream.Length);
-
-                // create a buffer to read in to
-                byte[] fontdata = new byte[fontStream.Length];
-
-                // read the font data from the resource
-                fontStream.Read(fontdata, 0, (int)fontStream.Length);
-
-                // copy the bytes to the unsafe memory block
-                Marshal.Copy(fontdata, 0, data, (int)fontStream.Length);
-
-                // pass the font to the font collection
-                privateFontCollection = new PrivateFontCollection();
-                privateFontCollection.AddMemoryFont(data, (int)fontStream.Length);
-
-                // close the resource stream
-                fontStream.Close();
-
-                // free up the unsafe memory
-                Marshal.FreeCoTaskMem(data);
-            }
-            catch (ArgumentException t)
-            {
-                Console.WriteLine("Error accessing fontfile!" + t);
-            }
+            chargementFont();
             generationElements();
         }
 
@@ -169,30 +134,30 @@ namespace La_petite_boite
 
             //accueil
             chargementImage("accueil.png", accueil);
-            accueil.Location = new System.Drawing.Point(-6, -2);
+            accueil.Location = new Point(-6, -2);
             accueil.Width = 1400;
-            accueil.Height = 722;
+            accueil.Height = 770;
 
             //ecran nouveau joueur
             chargementImage("menu.png", nouveauJoueur);
             nouveauJoueur.Width = 1400;
-            nouveauJoueur.Height = 722;
-            nouveauJoueur.Location = new System.Drawing.Point(-6, -2);
+            nouveauJoueur.Height = 770;
+            nouveauJoueur.Location = new Point(-6, -2);
 
 
             //diaporamaHistoire
             chargementImage("diapoTrone1.png", diaporamaHistoire);
-            diaporamaHistoire.Location = new System.Drawing.Point(-6, -2);
+            diaporamaHistoire.Location = new Point(-6, -2);
             diaporamaHistoire.Width = 1400;
-            diaporamaHistoire.Height = 722;
+            diaporamaHistoire.Height = 770;
 
 
             //carteJeu
             chargementImage("mapReference.png", CarteJeu);
             CarteJeu.Name = "Carte";
-            CarteJeu.Location = new System.Drawing.Point(-6, -2);
+            CarteJeu.Location = new Point(-6, -2);
             CarteJeu.Width = 1400;
-            CarteJeu.Height = 722;
+            CarteJeu.Height = 770;
 
             //Cour du roi
             CourRoi = new Panel();
@@ -203,9 +168,9 @@ namespace La_petite_boite
 
 
             //ecran mini-jeu
-            Jeu.Location = new System.Drawing.Point(-6, -2);
+            Jeu.Location = new Point(-6, -2);
             Jeu.Width = 1400;
-            Jeu.Height = 722;
+            Jeu.Height = 770;
             Jeu.Name = "Jeu";
             Jeu.BorderStyle = BorderStyle.FixedSingle;
 
@@ -220,7 +185,7 @@ namespace La_petite_boite
 
             //mini panel saisie informations personnelles
             saisirInfos.Width = 500;
-            saisirInfos.Height = 200;
+            saisirInfos.Height = 250;
             saisirInfos.Top = 340;
             saisirInfos.Left = 450;
             saisirInfos.BackColor = Color.Transparent;
@@ -230,8 +195,8 @@ namespace La_petite_boite
 
             tabBord.Width = 200;
             tabBord.Height = 100;
-            tabBord.Top = 670;
-            tabBord.Left = 1170;
+            tabBord.Top = 680;
+            tabBord.Left = 1190;
             tabBord.BackColor = Color.Transparent;
 
             //on ajoute les boutons au tableau de bord
@@ -249,11 +214,19 @@ namespace La_petite_boite
             guide.Top = 0;
             guide.Left = 140;
 
+            //conteneurEtoilesCoffre
+
+            conteneurEtoilesCoffre.Top = -5;
+            conteneurEtoilesCoffre.Left = 390;
+            conteneurEtoilesCoffre.Width = 1000;
+            conteneurEtoilesCoffre.Height = 100;
+            conteneurEtoilesCoffre.BackColor = Color.Transparent;
+
             //conteneurEtoile
 
-            ConteneurEtoile.Top = 20;
-            ConteneurEtoile.Left = 370;
-            ConteneurEtoile.Width = 880;
+            ConteneurEtoile.Top = 5;
+            ConteneurEtoile.Left = 20;
+            ConteneurEtoile.Width = 860;
             ConteneurEtoile.Height = 100;
             ConteneurEtoile.BackColor = Color.Transparent;
 
@@ -316,8 +289,8 @@ namespace La_petite_boite
             chargementImage("coffre.png", coffre);
             coffre.Width = 100;
             coffre.Height = 90;
-            coffre.Top = 20;
-            coffre.Left = 1250;
+            coffre.Top = 5;
+            coffre.Left = 890;
             coffre.SizeMode = PictureBoxSizeMode.StretchImage;
             coffre.BackColor = Color.Transparent;
 
@@ -339,8 +312,7 @@ namespace La_petite_boite
             quitterMiniJeu.SizeMode = PictureBoxSizeMode.StretchImage;
             quitterMiniJeu.BackColor = Color.Transparent;
             quitterMiniJeu.Click += new EventHandler(retourTabBord);
-
-            //fichiers : ici il faut un test au cas ou la lecture de fichiers ne se fait pas
+            
 
             //---------------------------------FICHIERS-------------------------------------//
 
@@ -374,62 +346,50 @@ namespace La_petite_boite
 
             //commencer
             commencer.Text = "Commencer";
-            commencer.Top = 600;
             commencer.Left = 525;
-            commencer.Width = 150;
-            commencer.Height = 70;
-            commencer.FlatAppearance.BorderSize = 0;
-            commencer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            commencer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            commencer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            commencer.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            commencer.Font = new Font(commencer.Font.FontFamily, 15);
-            commencer.BackColor = Color.Transparent;
+            commencer.Font = new Font(Form1.privateFontCollection.Families[0], 20);
             commencer.Click += new EventHandler(commencer_button);
 
             //retour
             retour.Text = "Retour";
-            retour.Top = 600;
             retour.Left = 725;
-            retour.Width = 150;
-            retour.Height = 70;
-            retour.FlatAppearance.BorderSize = 0;
-            retour.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            retour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            retour.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            retour.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            retour.BackColor = Color.Transparent;
+            retour.Font = new Font(Form1.privateFontCollection.Families[0], 20);
             retour.Click += new EventHandler(retourButton);
+            
+       
+            //Pret button
+            pret.Text = "Pret";
+            pret.Left = 600;
+            pret.Height = 90;
+            pret.Width = 200;
+            pret.Font = new Font(privateFontCollection.Families[0], 40);
+            pret.Click += new EventHandler(ReadyButton);
 
+            //suivant
+            suivant.Text = "Suivant";
+            suivant.Height = 90;
+            suivant.Width = 250;
+            suivant.Left = 800;
+            suivant.Font = new Font(privateFontCollection.Families[0], 30);
+            suivant.Click += new EventHandler(afficherDiapoSuivant);
+
+            //precedent
+            precedent.Text = "Precedent";
+            precedent.Height = 90;
+            precedent.Width = 300;
+            precedent.Left = 350;
+            precedent.Font = new Font(privateFontCollection.Families[0], 30);
+            precedent.Click += new EventHandler(afficherDiapoPrecedente);
 
             //afficherCarte
             AfficherCarte.Text = "Commencer le Jeu";
-            AfficherCarte.Height = 70;
-            AfficherCarte.Width = 200;
-            AfficherCarte.Top = 630;
-            AfficherCarte.Left = 1110;
-            AfficherCarte.FlatAppearance.BorderSize = 0;
-            AfficherCarte.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            AfficherCarte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            AfficherCarte.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            AfficherCarte.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            AfficherCarte.BackColor = Color.Transparent;
+            AfficherCarte.Height = 90;
+            AfficherCarte.Width = 400;
+            AfficherCarte.Left = 800;
+            AfficherCarte.Font = new Font(privateFontCollection.Families[0], 30);
             AfficherCarte.Click += new EventHandler(afficherCarte);
 
-            //afficherCarte
-            suivant.Text = "Suivant";
-            suivant.Height = 70;
-            suivant.Width = 200;
-            suivant.Top = 630;
-            suivant.Left = 1110;
-            suivant.FlatAppearance.BorderSize = 0;
-            suivant.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            suivant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            suivant.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            suivant.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            suivant.BackColor = Color.Transparent;
-            suivant.Click += new EventHandler(afficherDiapoSuivant);
-            
+
             Yes = new Button();
             Yes.Text = "Oui";
             Yes.Name = "Oui";
@@ -470,11 +430,6 @@ namespace La_petite_boite
             menuPrincipal.Font = new Font(privateFontCollection.Families[0], 70);
             menuPrincipal.ForeColor = ColorTranslator.FromHtml("#18518c");
             menuPrincipal.BackColor = Color.Transparent;
-            menuPrincipal.UseCompatibleTextRendering = true;
-            menuPrincipal.AutoSize = false;
-            menuPrincipal.TextAlign = ContentAlignment.MiddleCenter;
-            menuPrincipal.Dock = DockStyle.None;
-            menuPrincipal.TextRenderingHint = TextRenderingHint.AntiAlias;
 
 
             //Titre pour le panneau nouveau personnage
@@ -485,11 +440,6 @@ namespace La_petite_boite
             Titre.Font = new Font(privateFontCollection.Families[0], 60);
             Titre.ForeColor = ColorTranslator.FromHtml("#6d5622");
             Titre.BackColor = Color.Transparent;
-            Titre.UseCompatibleTextRendering = true;
-            Titre.AutoSize = false;
-            Titre.TextAlign = ContentAlignment.MiddleCenter;
-            Titre.Dock = DockStyle.None;
-            Titre.TextRenderingHint = TextRenderingHint.AntiAlias;
 
             //dossier de sauvegarde
 
@@ -497,14 +447,14 @@ namespace La_petite_boite
             dossierSauvegarde.ForeColor = Color.White;
             dossierSauvegarde.Font = new Font(dossierSauvegarde.Font.FontFamily, 14);
             dossierSauvegarde.Top = 140;
-            dossierSauvegarde.Left = 30;
+            dossierSauvegarde.Left = 150;
             dossierSauvegarde.Width = 220;
             dossierSauvegarde.Height = 25;
 
             //combobox dossier sauvegarde
-            listeDossierSauvegarde.Top = 140;
-            listeDossierSauvegarde.Left = 251;
-            listeDossierSauvegarde.Width = 200;
+            listeDossierSauvegarde.Top = 180;
+            listeDossierSauvegarde.Left = 125;
+            listeDossierSauvegarde.Width = 250;
             listeDossierSauvegarde.Height = 25;
             listeDossierSauvegarde.Font = new Font(listeDossierSauvegarde.Font.FontFamily, 14);
             listeDossierSauvegarde.SelectedIndexChanged += new EventHandler(afficherJoueursPossibles);
@@ -526,7 +476,7 @@ namespace La_petite_boite
             prenomLabel.Text = "Prenom";
             prenomLabel.ForeColor = Color.White;
             prenomLabel.Font = new Font(prenomLabel.Font.FontFamily, 14);
-            prenomLabel.Width = 90;
+            prenomLabel.Width = 100;
             prenomLabel.Height = 25;
             prenomLabel.Top = 30;
             prenomLabel.Left = 30;
@@ -535,7 +485,7 @@ namespace La_petite_boite
             prenomField.Width = 190;
             prenomField.Height = 25;
             prenomField.Top = 30;
-            prenomField.Left = 140;
+            prenomField.Left = 150;
             prenomField.Text = null;
 
             //affichePrenomJoueur
@@ -551,7 +501,7 @@ namespace La_petite_boite
             ageLabel.Text = "Age";
             ageLabel.ForeColor = Color.White;
             ageLabel.Font = new Font(ageLabel.Font.FontFamily, 14);
-            ageLabel.Width = 90;
+            ageLabel.Width = 100;
             ageLabel.Height = 25;
             ageLabel.Top = 70;
             ageLabel.Left = 30;
@@ -560,19 +510,19 @@ namespace La_petite_boite
             ageField.Font = new Font(ageField.Font.FontFamily, 14);
             ageField.Height = 25;
             ageField.Top = 70;
-            ageField.Left = 140;
+            ageField.Left = 150;
             ageField.Text = null;
 
             //texte pour le diaporama
 
-            textePresentationJeu.Width = 900;
-            textePresentationJeu.Height = 300;
-            textePresentationJeu.Top = 450;
+            textePresentationJeu.Width = 950;
+            textePresentationJeu.Height = 80;
+            textePresentationJeu.Top = 540;
             textePresentationJeu.Left = 210;
-            textePresentationJeu.Font = new Font(textePresentationJeu.Font.FontFamily, 17);
-            textePresentationJeu.ForeColor = Color.White;
+            textePresentationJeu.Font = new Font("Segoe UI Symbol", 17, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            textePresentationJeu.ForeColor = ColorTranslator.FromHtml("#f2f2f2");
             textePresentationJeu.BackColor = Color.Transparent;
-            textePresentationJeu.TextAlign = ContentAlignment.MiddleCenter;
+            textePresentationJeu.TextAlign = ContentAlignment.TopLeft;
 
 
             MessageRoi = new Label();
@@ -629,6 +579,48 @@ namespace La_petite_boite
             listeLieux[3] = Montagne;
             listeLieux[4] = Chateau;
         }
+        
+        public void chargementFont()
+        {
+            Stream fontStream;
+
+            // specify embedded resource name
+            string resource = "La_petite_boite.Resources.Jeu.maturafont.TTF";
+
+            //access resource
+            try
+            {
+                // receive resource stream
+                fontStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource);
+                Console.WriteLine("Chargement reussi");
+
+                // create an unsafe memory block for the font data
+                IntPtr data = Marshal.AllocCoTaskMem((int)fontStream.Length);
+
+                // create a buffer to read in to
+                byte[] fontdata = new byte[fontStream.Length];
+
+                // read the font data from the resource
+                fontStream.Read(fontdata, 0, (int)fontStream.Length);
+
+                // copy the bytes to the unsafe memory block
+                Marshal.Copy(fontdata, 0, data, (int)fontStream.Length);
+
+                // pass the font to the font collection
+                privateFontCollection = new PrivateFontCollection();
+                privateFontCollection.AddMemoryFont(data, (int)fontStream.Length);
+
+                // close the resource stream
+                fontStream.Close();
+
+                // free up the unsafe memory
+                Marshal.FreeCoTaskMem(data);
+            }
+            catch (ArgumentException t)
+            {
+                Console.WriteLine("Error accessing fontfile!" + t);
+            }
+        }
 
         private void chargementImage (String res, Panel pan)
         {
@@ -637,7 +629,7 @@ namespace La_petite_boite
             {
                 _assembly = Assembly.GetExecutingAssembly();
                 _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.Jeu." + res);
-                Console.WriteLine(res);
+                pan.Name = res;
             }
             catch (ArgumentException e)
             {
@@ -662,7 +654,7 @@ namespace La_petite_boite
             {
                 _assembly = Assembly.GetExecutingAssembly();
                 _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.Jeu." + res);
-                Console.WriteLine(res);
+                p.Name = res;
             }
             catch
             {
@@ -988,26 +980,46 @@ namespace La_petite_boite
 
         private void afficherDiaporama()
         {
-            //il manque la planche avec le roi
 
             //on affiche la planche avec le roi puis la planche avec le magicien...le bouton suivant doit clignoter
             //lors du diaporama on a le texte et une voix off qui explique l-histoire
-
-            //on affiche la salle du trone
-
-
-            //on affiche le diaporama
+            
             this.Controls.Remove(accueil);
-            textePresentationJeu.Text = "Bienvenue à toi "+ chevalier.nomJoueur() + " , je suis le roi Kazan, ici il faut expliquer le besoin du roi";
             this.Controls.Remove(nouveauJoueur);
             this.Controls.Remove(chargerJoueur);
-
-            //on affiche le bouton afficherCarte
+            textePresentationJeu.Text = "Bienvenue à toi "+ chevalier.nomJoueur() + " , je suis le roi Kazan. Es-tu pret pour la mission que j'ai a te confier?";
+            diaporamaHistoire.Controls.Add(pret);
             diaporamaHistoire.Controls.Add(textePresentationJeu);
-            diaporamaHistoire.Controls.Add(suivant);
-
             this.Controls.Add(diaporamaHistoire);
             
+        }
+
+        private void ReadyButton(object sender, EventArgs e)
+        {
+            textePresentationJeu.Text = "Avant de commencer, rends visite au magicien. Il te donnera de precieux conseils pour la suite de l'aventure";
+            diaporamaHistoire.Controls.Remove(pret);
+            diaporamaHistoire.Controls.Add(precedent);
+            diaporamaHistoire.Controls.Add(suivant);
+        }
+
+        private void afficherDiapoPrecedente(object sender, EventArgs e)
+        {
+            //on retourne a l-ecran du roi
+            if (diaporamaHistoire.Name.Equals("diapoMag.png") == true)
+            {
+                chargementImage("diapoTrone1.png", diaporamaHistoire);
+                textePresentationJeu.Text = "Avant de commencer, rends visite au magicien. Il te donnera de precieux conseils pour la suite de l'aventure";
+                diaporamaHistoire.Controls.Add(precedent);
+                diaporamaHistoire.Controls.Add(suivant);
+                diaporamaHistoire.Controls.Remove(AfficherCarte);
+            }
+            else
+            {
+                textePresentationJeu.Text = "Bienvenue à toi " + chevalier.nomJoueur() + " , je suis le roi Kazan. Es-tu pret pour la mission que j'ai a te confier?";
+                diaporamaHistoire.Controls.Remove(suivant);
+                diaporamaHistoire.Controls.Remove(precedent);
+                diaporamaHistoire.Controls.Add(pret);
+            }
         }
 
         private void afficherDiapoSuivant(object sender, EventArgs e)
@@ -1015,10 +1027,9 @@ namespace La_petite_boite
             diaporamaHistoire.Controls.Remove(suivant);
             textePresentationJeu.Text = "Bienvenue à toi " + chevalier.nomJoueur() + " , je suis le magicien Kazan, et je serai ton guide tout au long de ton périple. Bon courage!";
             chargementImage("diapoMag.png", diaporamaHistoire);
-            Refresh();
             diaporamaHistoire.Controls.Add(AfficherCarte);
         }
-
+        
         private void afficherCarte(object sender, EventArgs e)
         {
             Control control = (Control)sender;
@@ -1496,15 +1507,17 @@ namespace La_petite_boite
 
             ajoutEtoiles();
             //on affiche les elements du jeu
-            chargementImage("mapReference.png", CarteJeu);
-            CarteJeu.Controls.Add(ConteneurEtoile);
-            CarteJeu.Controls.Add(coffre);
+            conteneurEtoilesCoffre.Controls.Add(ConteneurEtoile);
+            conteneurEtoilesCoffre.Controls.Add(coffre);
+
+            chargementImage("mapDebut2.png", CarteJeu);
+            CarteJeu.Controls.Add(conteneurEtoilesCoffre);
             CarteJeu.Controls.Add(imgChevalier);
-            CarteJeu.Controls.Add(Village);
+            /*CarteJeu.Controls.Add(Village);
             CarteJeu.Controls.Add(Montagne);
             CarteJeu.Controls.Add(Tronc);
             CarteJeu.Controls.Add(Cabane);
-            CarteJeu.Controls.Add(Chateau);
+            CarteJeu.Controls.Add(Chateau);*/
             CarteJeu.Controls.Add(tabBord);
         }
 

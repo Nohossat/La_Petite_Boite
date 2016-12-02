@@ -53,9 +53,10 @@
             // 
             this.chargement.BackColor = System.Drawing.Color.Transparent;
             this.chargement.Controls.Add(this.progressBar1);
+            this.chargement.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chargement.Location = new System.Drawing.Point(-6, -2);
             this.chargement.Name = "chargement";
-            this.chargement.Size = new System.Drawing.Size(1400, 722);
+            this.chargement.Size = new System.Drawing.Size(1400, 770);
             this.chargement.TabIndex = 2;
             // 
             // timer2

@@ -9,17 +9,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Text;
+using System.Runtime.InteropServices;
 
 namespace La_petite_boite
 {
     public partial class Charger : Form
     {
-        Label Selection = new Label();
-        Button charger = new Button();
-        Button retour = new Button();
+        SpecialLabel Selection = new SpecialLabel();
+        SpecialLabel annonce = new SpecialLabel();
+        LittleButton charger = new LittleButton(450);
+        LittleButton retour = new LittleButton(450);
         ComboBox listeDossierSauvegarde = new ComboBox();
         ListBox joueursPossibles = new ListBox();
-        Label annonce = new Label();
         Panel chargerJoueur = new Panel();
         Boolean trouve = false;
         Assembly _assembly;
@@ -56,7 +58,7 @@ namespace La_petite_boite
                 Console.WriteLine("Cant create image!");
             }
         }
-
+        
         private void Charger_Load(object sender, EventArgs e)
         {
             //design
@@ -65,8 +67,9 @@ namespace La_petite_boite
 
             //charger une partie
             chargementImage("accueil.jpg",chargerJoueur);
-            chargerJoueur.Width = 689;
+            chargerJoueur.Width = 640;
             chargerJoueur.Height = 558;
+            chargerJoueur.Left = 0;
             chargerJoueur.BackgroundImage = new Bitmap(_imageStream);
             chargerJoueur.BorderStyle = BorderStyle.FixedSingle;
 
@@ -74,17 +77,17 @@ namespace La_petite_boite
 
             Selection.Text = "Selectionne un dossier de sauvegarde";
             Selection.Top = 50;
-            Selection.Left = 160;
-            Selection.Width = 400;
+            Selection.Left = 0;
+            Selection.Width = 640;
             Selection.Height = 40;
             Selection.ForeColor = Color.White;
             Selection.BackColor = Color.Transparent;
-            Selection.Font = new Font(Selection.Font.FontFamily, 15);
-
-           
+            Selection.Font = new Font(Form1.privateFontCollection.Families[0], 20);
+            
+            
             //liste de dossiers de sauvegarde
 
-            listeDossierSauvegarde.Font = new Font(Selection.Font.FontFamily, 14);
+            listeDossierSauvegarde.Font = new Font("Segoe UI Symbol", 13, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             listeDossierSauvegarde.Width = 200;
             listeDossierSauvegarde.Height = 35;
             listeDossierSauvegarde.Top = 100;
@@ -101,49 +104,34 @@ namespace La_petite_boite
             //annonce
 
             annonce.Text = ""; 
-            annonce.Font = new Font(annonce.Font.FontFamily, 14);
+            annonce.Font = new Font(Form1.privateFontCollection.Families[0], 20);
             annonce.ForeColor = Color.White;
             annonce.BackColor = Color.Transparent;
-            annonce.Width = 400;
+            annonce.Width = 640;
             annonce.Height = 35;
             annonce.Top = 150;
-            annonce.Left = 170;
+            annonce.Left = 0;
 
-            //joueurs Possibles
+            //liste joueurs Possibles
 
             joueursPossibles.Top = 200;
             joueursPossibles.Width = 200;
             joueursPossibles.Left = 220;
             joueursPossibles.Height = 200;
-            joueursPossibles.Font = new Font(Selection.Font.FontFamily, 14);
+            joueursPossibles.Font = new System.Drawing.Font("Segoe UI Symbol", 13, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
+            //BUTTONS
 
             //retour
             retour.Text = "Retour";
-            retour.Top = 450;
             retour.Left = 350;
-            retour.Width = 150;
-            retour.Height = 35;
-            retour.FlatAppearance.BorderSize = 0;
-            retour.FlatAppearance.MouseDownBackColor = System.Drawing.Color.AliceBlue;
-            retour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            retour.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            retour.ForeColor = Color.White;
-            retour.BackColor = Color.Transparent;
+            retour.Font = new Font(Form1.privateFontCollection.Families[0], 20);
             retour.Click += new EventHandler(retourButton);
 
             //charger
             charger.Text = "Charger";
-            charger.Top = 450;
             charger.Left = 150;
-            charger.Width = 150;
-            charger.Height = 35;
-            charger.FlatAppearance.BorderSize = 0;
-            charger.FlatAppearance.MouseDownBackColor = System.Drawing.Color.AliceBlue;
-            charger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            charger.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            charger.ForeColor = Color.White;
-            charger.BackColor = Color.Transparent;
+            charger.Font = new Font(Form1.privateFontCollection.Families[0], 20);
             charger.Click += new EventHandler(chargerMethod);
 
             

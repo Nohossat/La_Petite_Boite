@@ -21,6 +21,8 @@ namespace La_petite_boite
             this.UseCompatibleTextRendering = true;
             this.TextRenderingHint = TextRenderingHint.AntiAlias;
             this.FlatAppearance.BorderSize = 0;
+            this.TabStop = false;
+            this.FlatAppearance.BorderColor = Color.FromArgb(0,255,255,255);
             this.FlatAppearance.MouseDownBackColor = Color.Transparent;
             this.FlatAppearance.MouseOverBackColor = Color.Transparent;
             this.FlatStyle = FlatStyle.Flat;
@@ -29,7 +31,6 @@ namespace La_petite_boite
         }
         
         private TextRenderingHint _textRenderingHint = TextRenderingHint.SystemDefault;
-        
 
         public TextRenderingHint TextRenderingHint
         {

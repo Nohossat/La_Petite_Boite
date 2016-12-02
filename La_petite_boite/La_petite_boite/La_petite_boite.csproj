@@ -98,6 +98,12 @@
     <Compile Include="Charger.Designer.cs">
       <DependentUpon>Charger.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomButton1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Etoile.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -428,8 +434,6 @@
     <EmbeddedResource Include="Resources\Jeu\question.png" />
     <EmbeddedResource Include="Resources\Jeu\chateauMap1.png" />
     <EmbeddedResource Include="Resources\Jeu\chateauMap1Gris.png" />
-    <EmbeddedResource Include="Resources\Jeu\diapoMag.png" />
-    <EmbeddedResource Include="Resources\Jeu\diapoTrone1.png" />
     <EmbeddedResource Include="Resources\miniJeu\carte2.png" />
     <EmbeddedResource Include="Resources\miniJeu\chaise1.png" />
     <EmbeddedResource Include="Resources\miniJeu\chaise2.png" />
@@ -524,6 +528,15 @@
     <EmbeddedResource Include="Resources\Jeu\chevalier2gris.png" />
     <EmbeddedResource Include="Resources\Jeu\chevalier3gris.png" />
     <EmbeddedResource Include="Resources\Jeu\chevalier4gris.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Jeu\diapoTrone1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Jeu\diapoMag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Jeu\mapDebut2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

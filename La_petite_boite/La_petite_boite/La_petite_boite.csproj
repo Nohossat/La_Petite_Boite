@@ -405,7 +405,6 @@
     <EmbeddedResource Include="Resources\Jeu\etoileJaune.png" />
     <EmbeddedResource Include="Resources\Jeu\exit.png" />
     <EmbeddedResource Include="Resources\Jeu\guide.png" />
-    <EmbeddedResource Include="Resources\Jeu\guide_roi.png" />
     <EmbeddedResource Include="Resources\Jeu\magicien.png" />
     <EmbeddedResource Include="Resources\Jeu\map.png" />
     <EmbeddedResource Include="Resources\Jeu\mapCabane.png" />
@@ -561,6 +560,9 @@
     <EmbeddedResource Include="Resources\Jeu\montagneFin.png" />
     <EmbeddedResource Include="Resources\Jeu\troncFin.png" />
     <EmbeddedResource Include="Resources\Jeu\villageFin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Jeu\souris.cur" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

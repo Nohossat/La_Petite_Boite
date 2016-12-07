@@ -59,7 +59,6 @@ namespace Grand_ou_petit_8
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Button Rejouer;
         private System.Windows.Forms.Panel conteneurGrandeCarte;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;

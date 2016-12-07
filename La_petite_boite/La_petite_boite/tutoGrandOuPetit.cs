@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
+using System.Media;
 
 namespace La_petite_boite
 {
@@ -36,7 +33,6 @@ namespace La_petite_boite
         Assembly _assembly = Assembly.GetExecutingAssembly();
         Stream _imageStream;
         Stream _sonStream;
-        System.Media.SoundPlayer sound;
 
         int compteur = 0;
         int seconds = 0;
@@ -44,6 +40,8 @@ namespace La_petite_boite
         public tutoGrandOuPetit()
         {
             InitializeComponent();
+            Cursor myCursor = new Cursor("../../Resources/Jeu/souris.cur");
+            this.Cursor = myCursor;
             chargementPartie();
             timer1.Enabled = true;
         }
@@ -112,7 +110,7 @@ namespace La_petite_boite
             }
         }
 
-        public void chargementSon(String res, System.Media.SoundPlayer son)
+        public void chargementSon(String res, SoundPlayer son)
         {
             //access resource
             try
@@ -140,6 +138,7 @@ namespace La_petite_boite
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            SoundPlayer sound = new SoundPlayer();
             if (compteur < 2)
             {
                 //lecture d-une carte de la premiere ligne + son

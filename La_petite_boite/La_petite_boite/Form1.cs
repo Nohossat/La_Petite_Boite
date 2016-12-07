@@ -716,6 +716,9 @@ namespace La_petite_boite
         
         private void timer1_Tick(object sender, EventArgs e)
         {
+            //Cursor myCursor = new Cursor("../../Resources/Jeu/souris.cur");
+            //this.Cursor = myCursor;
+
             if (progressBar1.Value < 100)
             {
                 progressBar1.Value += 2;
@@ -728,7 +731,7 @@ namespace La_petite_boite
                 this.Update();
                 //on affiche l-accueil
                 this.Controls.Add(accueil);
-
+                
                 //on affiche les boutons a l-ecran accueil
                 accueil.Controls.Add(menuPrincipal);
                 accueil.Controls.Add(nouvellePartie);
@@ -1291,17 +1294,6 @@ namespace La_petite_boite
 
         private void quitterPartie (object sender, EventArgs e)
         {
-            //derniere sauvegarde possible
-            if (sauvegardeFlag == false)
-            {
-                DialogResult res = MessageBox.Show("Des donnees n'ont pas ete enregistrees.Souhaites/tu les sauvegarder?", "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.None);
-
-                if (res == DialogResult.Yes)
-                {
-                    sauvegardePartie();
-                }
-            }
-
             //enregistrement en dur des donnees
             enregistrementFichier("La_petite_boite.Resources.Joueurs.txt");
 

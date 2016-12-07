@@ -63,6 +63,9 @@ namespace La_petite_boite
         {
             //design
 
+            Cursor myCursor = new Cursor("../../Resources/Jeu/souris.cur");
+            this.Cursor = myCursor;
+
             //panel chargerJoueur
 
             //charger une partie

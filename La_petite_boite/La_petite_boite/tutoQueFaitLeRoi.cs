@@ -9,20 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
+using System.Media;
 
 namespace La_petite_boite
 {
     public partial class tutoQueFaitLeRoi : Form
     {
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel conteneurCarte;
-        private System.Windows.Forms.Panel conteneurBouton;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Panel conteneurCarteAPlacer;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private Button button1;
+        private Button button2;
+        private Panel conteneurCarte;
+        private Panel conteneurBouton;
+        private PictureBox pictureBox6;
+        private PictureBox pictureBox5;
+        private Panel conteneurCarteAPlacer;
 
         Random localisationBouton = new Random();
         Random localisationCarte = new Random();
@@ -35,12 +36,13 @@ namespace La_petite_boite
         Assembly _assembly = Assembly.GetExecutingAssembly();
         Stream _imageStream;
         Stream _sonStream;
-        System.Media.SoundPlayer sound;
         int compteur = 0;
 
         public tutoQueFaitLeRoi()
         {
             InitializeComponent();
+            Cursor myCursor = new Cursor("../../Resources/Jeu/souris.cur");
+            this.Cursor = myCursor;
             QueFaitLeRoi_Load();
             timer1.Enabled = true;
             button3.Enabled = false;
@@ -140,6 +142,7 @@ namespace La_petite_boite
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            SoundPlayer sound = new SoundPlayer();
             if (compteur < 2)
             {
                 conteneurBouton.Controls[compteur].Focus();

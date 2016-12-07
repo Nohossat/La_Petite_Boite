@@ -9,28 +9,32 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
+using System.Media;
 
 namespace La_petite_boite
 {
     public partial class tutoMemory : Form
     {
-        Assembly _assembly = Assembly.GetExecutingAssembly();
-        Stream _imageStream;
-        Stream _sonStream;
-        Random localisation = new Random(); //
-        List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
+        
         private Panel conteneurCarte;
         private PictureBox doubleCarte2;
         private PictureBox carte2;
         private PictureBox doubleCarte1;
         private PictureBox carte1;
+        Assembly _assembly = Assembly.GetExecutingAssembly();
+        Stream _imageStream;
+        Stream _sonStream;
+        Random localisation = new Random(); //
+        List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
         int compteur = 0;
-        System.Media.SoundPlayer sound;
+        
 
         public tutoMemory()
         {
             InitializeComponent();
             chargementPartie();
+            Cursor myCursor = new Cursor("../../Resources/Jeu/souris.cur");
+            this.Cursor = myCursor;
             button1.Enabled = false;
             timer1.Enabled = true;
         }
@@ -88,7 +92,7 @@ namespace La_petite_boite
             }
         }
 
-        public void chargementSon(String res, System.Media.SoundPlayer son)
+        public void chargementSon(String res, SoundPlayer son)
         {
             //access resource
             try
@@ -105,7 +109,7 @@ namespace La_petite_boite
             //play sound
             try
             {
-                son = new System.Media.SoundPlayer(_sonStream);
+                son = new SoundPlayer(_sonStream);
                 son.Play();
             }
             catch (Exception e)
@@ -116,6 +120,8 @@ namespace La_petite_boite
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            SoundPlayer sound = new SoundPlayer();
+
             if (compteur < 2)
             {
                 chargementImage("doudou1.png", (PictureBox)conteneurCarte.Controls[compteur]);

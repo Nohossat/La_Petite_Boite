@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
+using System.Media;
 
 namespace La_petite_boite
 {
@@ -25,18 +26,15 @@ namespace La_petite_boite
         Random localisation = new Random(); //
         List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
         List<String> sounds = new List<String>();
-        String carteACliquerTag;
-        String imageCliqueTag;
-        int demarrage;
-        Boolean son1DejaTrouve;
-        Boolean son2DejaTrouve;
-
-        System.Media.SoundPlayer son;
+        SoundPlayer son = new SoundPlayer();
 
         int compteur = 0;
+
         public tutoChasseAuxMots()
         {
             InitializeComponent();
+            Cursor myCursor = new Cursor("../../Resources/Jeu/souris.cur");
+            this.Cursor = myCursor;
             ChasseAuxMots_Load();
             timer1.Enabled = true;
         }
@@ -45,11 +43,6 @@ namespace La_petite_boite
         {
             this.Enabled = true;
             Ecouter.Enabled = true;
-            demarrage = 0;
-            carteACliquerTag = "";
-            imageCliqueTag = "";
-            son1DejaTrouve = false;
-            son2DejaTrouve = false;
 
             chargementImage("doudou1.png", pictureBox1);
             chargementImage("jardin1.png", pictureBox2);

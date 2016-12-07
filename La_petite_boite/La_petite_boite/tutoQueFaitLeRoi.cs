@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Reflection;
-using System.IO;
 using System.Media;
 
 namespace La_petite_boite
@@ -33,9 +27,6 @@ namespace La_petite_boite
         List<Point> coordonneesCarteAPlacer = new List<Point>();
         List<String> audio = new List<String>();
         List<String> images = new List<String>();
-        Assembly _assembly = Assembly.GetExecutingAssembly();
-        Stream _imageStream;
-        Stream _sonStream;
         int compteur = 0;
 
         public tutoQueFaitLeRoi()
@@ -61,8 +52,8 @@ namespace La_petite_boite
             button2.Tag = "2";
             button2.Text = "Kral okula girer.";
 
-            chargementImage("chateau1.png", pictureBox1);
-            chargementImage("ecole1.png", pictureBox2);
+            Program.petiteBoite.chargementImage("chateau1.png", "miniJeu", pictureBox1);
+            Program.petiteBoite.chargementImage("ecole1.png", "miniJeu", pictureBox2);
 
             foreach (PictureBox image in conteneurCarteAPlacer.Controls)
             {
@@ -88,57 +79,6 @@ namespace La_petite_boite
             }
             
         }
-        
-        public void chargementImage(String res, PictureBox p)
-        {
-            //access resource
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.miniJeu." + res);
-                Console.WriteLine(res);
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //display image
-            try
-            {
-                p.Image = new Bitmap(_imageStream);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Cant create image for picturebox!" + e);
-            }
-        }
-
-        public void chargementSon(String res, System.Media.SoundPlayer son)
-        {
-            //access resource
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _sonStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.miniJeu." + res);
-                Console.WriteLine(res);
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //play sound
-            try
-            {
-                son = new System.Media.SoundPlayer(_sonStream);
-                son.Play();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Cant play the sound" + e);
-            }
-        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -146,10 +86,10 @@ namespace La_petite_boite
             if (compteur < 2)
             {
                 conteneurBouton.Controls[compteur].Focus();
-                chargementSon(audio.ElementAt(compteur), sound);
-                chargementImage(images.ElementAt(compteur), (PictureBox)conteneurCarteAPlacer.Controls[compteur]);
+                Program.petiteBoite.chargementSon(audio.ElementAt(compteur), "miniJeu", sound);
+                Program.petiteBoite.chargementImage(images.ElementAt(compteur), "miniJeu", (PictureBox)conteneurCarteAPlacer.Controls[compteur]);
                 conteneurCarte.Controls[compteur].Hide();
-                chargementSon("applaudissements.wav", sound);
+                Program.petiteBoite.chargementSon("applaudissements.wav", "miniJeu", sound);
                 compteur++;
             }
             else

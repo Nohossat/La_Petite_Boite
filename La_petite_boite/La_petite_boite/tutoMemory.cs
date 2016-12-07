@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
@@ -21,9 +16,6 @@ namespace La_petite_boite
         private PictureBox carte2;
         private PictureBox doubleCarte1;
         private PictureBox carte1;
-        Assembly _assembly = Assembly.GetExecutingAssembly();
-        Stream _imageStream;
-        Stream _sonStream;
         Random localisation = new Random(); //
         List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
         int compteur = 0;
@@ -62,76 +54,25 @@ namespace La_petite_boite
             //le dos des cartes est affiché
             foreach (PictureBox image in conteneurCarte.Controls)
             {
-                chargementImage("carte1.png", image);
+                Program.petiteBoite.chargementImage("carte1.png", "miniJeu", image);
                 
             }
         }
-
-        public void chargementImage(String res, PictureBox p)
-        {
-            //access resource
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.miniJeu." + res);
-                Console.WriteLine(res);
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //display image
-            try
-            {
-                p.Image = new Bitmap(_imageStream);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Cant create image for picturebox!" + e);
-            }
-        }
-
-        public void chargementSon(String res, SoundPlayer son)
-        {
-            //access resource
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _sonStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.miniJeu." + res);
-                Console.WriteLine(res);
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //play sound
-            try
-            {
-                son = new SoundPlayer(_sonStream);
-                son.Play();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Cant play the sound" + e);
-            }
-        }
-
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
             SoundPlayer sound = new SoundPlayer();
 
             if (compteur < 2)
             {
-                chargementImage("doudou1.png", (PictureBox)conteneurCarte.Controls[compteur]);
-                chargementSon("UnDoudou.wav", sound);
+                Program.petiteBoite.chargementImage("doudou1.png", "miniJeu", (PictureBox)conteneurCarte.Controls[compteur]);
+                Program.petiteBoite.chargementSon("UnDoudou.wav", "miniJeu", sound);
                 compteur++;
             }
             else
             {
                 timer1.Enabled = false;
-                chargementSon("applaudissements.wav", sound);
+                Program.petiteBoite.chargementSon("applaudissements.wav", "miniJeu", sound);
                 button1.Enabled = true;
             }
         }

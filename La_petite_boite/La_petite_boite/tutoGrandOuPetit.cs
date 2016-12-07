@@ -60,7 +60,7 @@ namespace La_petite_boite
             //récupérer les localisations des grandes cartes
             foreach (PictureBox image in conteneurGrandeCarte.Controls)
             {
-                chargementImage("carte1.png", image);
+                Program.petiteBoite.chargementImage("carte1.png", "miniJeu", image);
                 image.Enabled = true;
                 coordonneesGrandeCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
             }
@@ -80,7 +80,7 @@ namespace La_petite_boite
             {
                 image.Enabled = true;
                 image.Visible = true;
-                chargementImage("carte1.png", image);
+                Program.petiteBoite.chargementImage("carte1.png", "miniJeu", image);
                 coordonneesPetiteCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
             }
         }
@@ -142,31 +142,31 @@ namespace La_petite_boite
             if (compteur < 2)
             {
                 //lecture d-une carte de la premiere ligne + son
-                chargementImage(images.ElementAt(compteur), (PictureBox) conteneurGrandeCarte.Controls[compteur]);
-                chargementSon(audio.ElementAt(compteur), sound);
+                Program.petiteBoite.chargementImage(images.ElementAt(compteur), "miniJeu", (PictureBox) conteneurGrandeCarte.Controls[compteur]);
+                Program.petiteBoite.chargementSon(audio.ElementAt(compteur), "miniJeu", sound);
 
                 if (compteur == 0)
                 {
                     //lecture de la premiere carte de la ligne du bas
                     //timer2.Enabled = true;
-                    chargementImage(images.ElementAt(2), (PictureBox)conteneurPetiteCarte.Controls[compteur]);
+                    Program.petiteBoite.chargementImage(images.ElementAt(2), "miniJeu", (PictureBox)conteneurPetiteCarte.Controls[compteur]);
                     //timer2.Enabled = true;
                     //on retourne la carte
-                    chargementImage("carte1.png", (PictureBox)conteneurPetiteCarte.Controls[compteur]);
+                    Program.petiteBoite.chargementImage("carte1.png", "miniJeu", (PictureBox)conteneurPetiteCarte.Controls[compteur]);
                     //timer2.Enabled = true;
                     //lecture de la deuxieme carte
-                    chargementImage(images.ElementAt(3), (PictureBox)conteneurPetiteCarte.Controls[1]);
+                    Program.petiteBoite.chargementImage(images.ElementAt(3), "miniJeu", (PictureBox)conteneurPetiteCarte.Controls[1]);
                     //timer2.Enabled = true;
                     //on retourne la carte
-                    chargementImage("carte1.png", (PictureBox)conteneurPetiteCarte.Controls[1]);
+                    Program.petiteBoite.chargementImage("carte1.png", "miniJeu", (PictureBox)conteneurPetiteCarte.Controls[1]);
                 }
 
                 //timer2.Enabled = true;
-                chargementImage(images.ElementAt(compteur+2), (PictureBox) conteneurPetiteCarte.Controls[compteur]);
+                Program.petiteBoite.chargementImage(images.ElementAt(compteur+2), "miniJeu", (PictureBox) conteneurPetiteCarte.Controls[compteur]);
                 //timer2.Enabled = true;
                 conteneurPetiteCarte.Controls[compteur].Hide();
                 //timer2.Enabled = true;
-                chargementImage(images.ElementAt(compteur+2), (PictureBox) conteneurCarteAPlacer.Controls[compteur]);
+                Program.petiteBoite.chargementImage(images.ElementAt(compteur+2), "miniJeu", (PictureBox) conteneurCarteAPlacer.Controls[compteur]);
                 compteur++;
             }
             else

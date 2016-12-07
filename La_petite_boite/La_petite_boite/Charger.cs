@@ -24,39 +24,11 @@ namespace La_petite_boite
         ListBox joueursPossibles = new ListBox();
         Panel chargerJoueur = new Panel();
         Boolean trouve = false;
-        Assembly _assembly;
-        Stream _imageStream;
 
         public Charger()
         {
             InitializeComponent();
             
-        }
-
-        private void chargementImage(String res, Panel pan)
-        {
-            //accessing resources
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.Jeu." + res);
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //creating image
-
-            try
-            {
-                pan.BackgroundImage = new Bitmap(_imageStream);
-                Console.Write("Cest cree");
-            }
-            catch
-            {
-                Console.WriteLine("Cant create image!");
-            }
         }
         
         private void Charger_Load(object sender, EventArgs e)
@@ -69,11 +41,10 @@ namespace La_petite_boite
             //panel chargerJoueur
 
             //charger une partie
-            chargementImage("accueil.jpg",chargerJoueur);
+            Program.petiteBoite.chargementImage("accueil.jpg", "Jeu", chargerJoueur);
             chargerJoueur.Width = 640;
             chargerJoueur.Height = 558;
             chargerJoueur.Left = 0;
-            chargerJoueur.BackgroundImage = new Bitmap(_imageStream);
             chargerJoueur.BorderStyle = BorderStyle.FixedSingle;
 
             //label Selection
@@ -90,7 +61,7 @@ namespace La_petite_boite
             
             //liste de dossiers de sauvegarde
 
-            listeDossierSauvegarde.Font = new Font("Segoe UI Symbol", 13, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            listeDossierSauvegarde.Font = new Font("Segoe UI Symbol", 13, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             listeDossierSauvegarde.Width = 200;
             listeDossierSauvegarde.Height = 35;
             listeDossierSauvegarde.Top = 100;

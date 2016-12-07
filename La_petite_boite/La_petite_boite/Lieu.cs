@@ -10,15 +10,15 @@ using System.Windows.Forms;
 
 namespace La_petite_boite
 {
-    public class Lieu : System.Windows.Forms.Panel
+    public class Lieu : Panel
     {
         Point position;
-        Assembly _assembly;
-        Stream _imageStream;
         String imgDebut;
         String imgFin;
         String imgSurvol;
         String map;
+        Assembly _assembly = Assembly.GetExecutingAssembly();
+        Stream _imageStream;
 
         public Lieu (int Top, int Left, int Width, int Height, String imageDebut, String imageSurvol, String imageFin, String map, Point p, String nom)
         {
@@ -37,7 +37,7 @@ namespace La_petite_boite
             chargementImage(imageDebut);
         }
 
-        public Lieu ()
+        public Lieu()
         {
 
         }
@@ -67,7 +67,7 @@ namespace La_petite_boite
 
             this.Update();
         }
-
+        
         public void chargementDebutImage()
         {
             chargementImage(imgDebut);
@@ -83,10 +83,8 @@ namespace La_petite_boite
             chargementImage(imgFin);
         }
 
-        public void chargementMap(Panel p)
+        /*public void chargementMap(Panel p)
         {
-            chargementImage(map);
-
             //accessing image
             try
             {
@@ -110,9 +108,9 @@ namespace La_petite_boite
             }
 
             this.Update();
-        }
+        }*/
 
-        public Point getPosition ()
+        public Point getPosition()
         {
             return this.position;
         }

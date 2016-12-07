@@ -1,29 +1,22 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace La_petite_boite
 {
     
     class Etoile : System.Windows.Forms.PictureBox
     {
-        Stream _imageStream;
-        Assembly _assembly;
-
         public Etoile (int L, int choix)
         {
             if (choix == 1)
             {
-                chargementImage("etoileJaune.png");
+                Program.petiteBoite.chargementImage("etoileJaune.png", "Jeu", this);
             }
             else
             {
-                chargementImage("etoileGrise.png");
+                Program.petiteBoite.chargementImage("etoileGrise.png", "Jeu", this);
             }
             this.Width = 50;
             this.Height = 50;
@@ -37,11 +30,11 @@ namespace La_petite_boite
         {
             if (choix == 1)
             {
-                chargementImage("etoileJaune.png");
+                Program.petiteBoite.chargementImage("etoileJaune.png", "Jeu", this);
             }
             else
             {
-                chargementImage("etoileGrise.png");
+                Program.petiteBoite.chargementImage("etoileGrise.png", "Jeu", this);
             }
             this.Width = 50;
             this.Height = 50;
@@ -53,7 +46,7 @@ namespace La_petite_boite
 
         public Etoile (Point p, String nom)
         {
-            chargementImage("etoileGrise.png");
+            Program.petiteBoite.chargementImage("etoileGrise.png", "Jeu", this);
             this.Name = nom;
             this.Width = 50;
             this.Height = 50;
@@ -61,31 +54,6 @@ namespace La_petite_boite
             this.BackColor = Color.Transparent;
             this.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
         }
-
-        private void chargementImage(String res)
-        {
-            //accessing image
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.Jeu." + res);
-                Console.WriteLine(res);
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //display image
-            try
-            {
-                this.Image = new Bitmap(_imageStream);
-            }
-            catch
-            {
-                Console.WriteLine("cant create image etoile!");
-            }
-        }
-
+        
     }
 }

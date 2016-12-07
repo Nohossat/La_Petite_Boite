@@ -21,8 +21,8 @@ namespace La_petite_boite
         {
             //on sauvegarde dans le fichier dossiers_Sauvegarde
 
-            System.IO.File.AppendAllText("dossiers_sauvegarde.txt", Environment.NewLine);
-            System.IO.File.AppendAllText("dossiers_sauvegarde.txt",nouveauNom.Text);
+            System.IO.File.AppendAllText("../../Resources/dossiers_sauvegarde.txt", Environment.NewLine);
+            System.IO.File.AppendAllText("../../Resources/dossiers_sauvegarde.txt", nouveauNom.Text);
 
             //on enregistre la valeur saisie dans une variable globale
             Form1.dossier = nouveauNom.Text;

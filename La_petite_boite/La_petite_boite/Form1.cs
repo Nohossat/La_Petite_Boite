@@ -26,32 +26,38 @@ namespace La_petite_boite
 
         //creation des objets et variables globales
         public static Boolean chargementReussi = false;
+        public bool sauvegardeFlag = false;
         public static int age;
         public static int top;
         public static int left;
         public static int score = 0;
+        public int IndiceJeu = 0;
+        public int choixFinMiniJeu=0;
         public static int[] epreuvesEmportees = new int[4];
         public Joueur chevalier;
         public static Label obj = new Label();
-        public static String resultatJeu;
+        public static Label titreJeu = new Label();
         public static Panel objectif = new Panel();
-        public static List <String> joueursFichier = new List<string>();
-        public static List <String> listeSauvegarde = new List<string>();
         public static Panel chargerJoueur = new Panel();
         public static Panel ConteneurEtoile = new Panel();
         public static Panel conteneurEtoilesCoffre = new Panel();
+        public Panel Jeu = new Panel();
+        public Panel miniJeu = new Panel();
+        public Panel CarteJeu = new Panel();
         public static String dossier = "";
         public static String nom;
         public static String avatar;
         public static String dos;
-        public int IndiceJeu = 0;
-        public List<Jeu.Jeu> epreuvesO;
-        public static Label titreJeu = new Label();
-        public static Lieu positionInitiale = new Lieu();
         public static String lieuTemporaire;
+        public static String resultatJeu;
+        public static List<String> joueursFichier = new List<string>();
+        public static List<String> listeSauvegarde = new List<string>();
+        public List<Jeu.Jeu> epreuvesO;
+        public static Lieu positionInitiale = new Lieu();
         public static PrivateFontCollection privateFontCollection;
         public Form tuto;
 
+        //private variables
         SpecialButton nouvellePartie = new SpecialButton();
         SpecialButton chargerPartie = new SpecialButton();
         SpecialButton quitter = new SpecialButton();
@@ -86,10 +92,7 @@ namespace La_petite_boite
         Panel choixAvatar = new Panel();
         Panel saisirInfos = new Panel();
         Panel diaporamaHistoire = new Panel();
-        Panel CarteJeu = new Panel();
-        Panel Jeu = new Panel();
         Panel tabBord = new Panel();
-        Panel miniJeu = new Panel();
         Panel CourRoi;
         Panel Recompense = new recompense();
         PictureBox imgChevalier = new PictureBox();
@@ -967,8 +970,9 @@ namespace La_petite_boite
                     int[] epreuves = { 0, 0, 0, 0 };
                     //apres toutes les verifications, on peut enregistrer le nouveau joueur
                     String enregistrementJoueur = prenomField.Text.ToLower() + "-" + ageJoueur + "-" + sauvegardeImgAvatar + "-" + Montagne.Name + "-" + etoile + "-" + dossier + "-" + epreuves[0] + "-" + epreuves[1] + "-" + epreuves[2] + "-" + epreuves[3];
-                    System.IO.File.AppendAllText("Joueurs.txt", Environment.NewLine);
-                    System.IO.File.AppendAllText("Joueurs.txt", enregistrementJoueur);
+                    
+                    //on l-enreigistre d-abord dans la liste joueursFichier, la fonction quitter va enregistrer les donnees en dur
+                    joueursFichier.Add(enregistrementJoueur);
 
                     //il faut creer une nouvelle instance de joueur
                     
@@ -1267,6 +1271,7 @@ namespace La_petite_boite
             {
                 if (joueursFichier.ElementAt(i).Contains(chevalier.nomJoueur()) && enregistrer == false)
                 {
+                    //on met a jour les donnees
                     joueursFichier[i] = enregistrementJoueur;
                     enregistrer = true;
                 }
@@ -1286,9 +1291,18 @@ namespace La_petite_boite
 
         private void quitterPartie (object sender, EventArgs e)
         {
-            //enregistrement en dur des donnees
-            //System.IO.File.WriteAllLines("Joueurs.txt", joueursFichier);
+            //derniere sauvegarde possible
+            if (sauvegardeFlag == false)
+            {
+                DialogResult res = MessageBox.Show("Des donnees n'ont pas ete enregistrees.Souhaites/tu les sauvegarder?", "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.None);
 
+                if (res == DialogResult.Yes)
+                {
+                    sauvegardePartie();
+                }
+            }
+
+            //enregistrement en dur des donnees
             enregistrementFichier("La_petite_boite.Resources.Joueurs.txt");
 
             //on quitte le jeu
@@ -1547,13 +1561,29 @@ namespace La_petite_boite
                 //remove le mouseEnter et le mouseSortie
                 listeLieux[IndiceJeu].MouseEnter -= changementImageLieu;
                 listeLieux[IndiceJeu].MouseLeave -= changementImageLieuOrigine;
-
-                MessageBox.Show("Vous avez termine cette quete", "Quete terminee", MessageBoxButtons.OK, MessageBoxIcon.None);
-
+                
                 //on peut proposer au joueur de rejouer ou de revenir a la carte
 
                 var Popup = new PopUp();
                 Popup.ShowDialog();
+
+                if (Program.petiteBoite.choixFinMiniJeu == 1)
+                {
+                    //on revient a la carte
+                    miniJeu.Controls.Clear();
+                    this.Controls.Remove(Jeu);
+                    Carte();
+                }
+                else if (Program.petiteBoite.choixFinMiniJeu == 2)
+                {
+                    //on joue au premier niveau
+                    epreuvesO.ElementAt(IndiceJeu).chargementPartie();
+                }
+                else if (Program.petiteBoite.choixFinMiniJeu == 3)
+                {
+                    //on joue au deuxieme niveau
+                    chevalier.epreuvesFacultatives().ElementAt(IndiceJeu).chargementPartie();
+                }
             }
         }
 

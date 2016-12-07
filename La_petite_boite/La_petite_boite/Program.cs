@@ -6,17 +6,20 @@ using System.Windows.Forms;
 
 namespace La_petite_boite
 {
-    static class Program
+    public static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        public static Form1 petiteBoite;
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            petiteBoite = new Form1();
+            Application.Run(petiteBoite);
         }
+        
     }
 }

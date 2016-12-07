@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Jeu;
 
 namespace chasseAuxMots12Cartes
 {
@@ -18,7 +19,7 @@ namespace chasseAuxMots12Cartes
         }
     }
 
-    public partial class ChasseAuxMots12Panel : Panel
+    public partial class ChasseAuxMots12Panel : Jeu.Jeu
     {
         Random localisation = new Random(); //
         List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
@@ -57,10 +58,10 @@ namespace chasseAuxMots12Cartes
         public ChasseAuxMots12Panel()
         {
             initialize();
-            ChasseAuxMots_Load();
+            chargementPartie();
         }
 
-        private void ChasseAuxMots_Load()
+        private new void chargementPartie()
         {
             this.Enabled = true;
             Score.Text = "0";
@@ -281,7 +282,6 @@ namespace chasseAuxMots12Cartes
                     MessageBox.Show("Bien joué, tu as fini la partie !", "Bravo !", MessageBoxButtons.OK);
                     Ecouter.Enabled = false;
                     this.Enabled = false;
-                    ChasseAuxMots_Load();
                 }                
             }
             else if (demarrage == 1)

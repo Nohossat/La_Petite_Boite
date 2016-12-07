@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Jeu;
 
 namespace Chasse_aux_mots
 {
@@ -18,7 +19,7 @@ namespace Chasse_aux_mots
         }
     }
 
-    public partial class ChasseAuxMotsPanel : Panel
+    public partial class ChasseAuxMotsPanel : Jeu.Jeu
     {
         private Panel conteneurCarte;
         private PictureBox pictureBox4;
@@ -43,10 +44,10 @@ namespace Chasse_aux_mots
         public ChasseAuxMotsPanel()
         {
             initialize();
-            ChasseAuxMots_Load();
+            chargementPartie();
         }
 
-        private void ChasseAuxMots_Load()
+        private new void chargementPartie()
         {
             this.Enabled = true;
             Score.Text = "0";
@@ -160,7 +161,6 @@ namespace Chasse_aux_mots
                     MessageBox.Show("Bien joué, tu as fini la partie !", "Bravo !");
                     Ecouter.Enabled = false;
                     this.Enabled = false;
-                    ChasseAuxMots_Load();
                 }                
             }
             else if (demarrage == 1)

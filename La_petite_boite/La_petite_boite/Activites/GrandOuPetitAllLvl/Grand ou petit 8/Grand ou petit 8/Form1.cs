@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
+using Jeu;
 
 namespace Grand_ou_petit_8
 {
@@ -22,7 +23,7 @@ namespace Grand_ou_petit_8
 
     }
 
-    public partial class GrandOuPetit8Panel : Panel
+    public partial class GrandOuPetit8Panel : Jeu.Jeu
     {
         Assembly _assembly;
         Stream resourceStream;
@@ -76,7 +77,7 @@ namespace Grand_ou_petit_8
             chargementPartie();
         }
 
-        private void chargementPartie()
+        public new void chargementPartie()
         {
             Score.Text = "0"; //initialisation du score à zéro
             carteRetournee = false;
@@ -521,7 +522,6 @@ namespace Grand_ou_petit_8
 
                 MessageBox.Show("Tu as fini le 2ème niveau !", "Bravo !");
                 this.Enabled = false;
-                chargementPartie();
             }
         }
 
@@ -648,7 +648,6 @@ namespace Grand_ou_petit_8
         {
             chargementPartie();
         }
-
 
     }
 

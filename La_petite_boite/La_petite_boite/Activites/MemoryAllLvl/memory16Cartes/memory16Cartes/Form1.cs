@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Jeu;
 
 namespace memory16Cartes
 {
@@ -18,7 +19,7 @@ namespace memory16Cartes
         }
     }
 
-    public partial class Memory16Panel : Panel
+    public partial class Memory16Panel : Jeu.Jeu
     {
         Random localisation = new Random(); //
         List<Point> coordonnesCartes = new List<Point>(); //liste des localisations des PictureBox
@@ -53,7 +54,7 @@ namespace memory16Cartes
             chargementPartie();
         }
         
-        private void chargementPartie()
+        private new void chargementPartie()
         {
             Score.Text = "0"; //initialisation du score à zéro
             Score.Visible = false;
@@ -239,7 +240,6 @@ namespace memory16Cartes
             {
                 MessageBox.Show("Super ! Vous avez fini la partie !","BRAVO !!!");
                 this.Enabled = false;
-                chargementPartie();
             }
         }
         

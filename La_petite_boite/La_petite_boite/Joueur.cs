@@ -10,6 +10,7 @@ using chasseAuxMots12Cartes;
 using Que_fait_le_Roi;
 using Que_fait_le_roi_8;
 using Que_fait_le_roi_12;
+using Jeu;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -17,7 +18,7 @@ using System.Windows.Forms;
 
 namespace La_petite_boite
 {
-    internal class Joueur : System.Windows.Forms.Panel
+    public class Joueur : Panel
     {
         String nom;
         int age;
@@ -26,8 +27,8 @@ namespace La_petite_boite
         int ScoreEtoile;
         String dossierSauvegarde;
         int niveau;
-        List<Panel> jeuxObligatoires = new List<Panel>();
-        List<Panel> jeuxFacultatifs = new List<Panel>();
+        List<Jeu.Jeu> jeuxObligatoires = new List<Jeu.Jeu>();
+        List<Jeu.Jeu> jeuxFacultatifs = new List<Jeu.Jeu>();
         int[] epreuvesGagnees = new int[4];
 
 
@@ -88,8 +89,7 @@ namespace La_petite_boite
         {
             return this.avatar;
         }
-
-
+        
         public Lieu positionJoueur()
         {
             return this.position;
@@ -110,12 +110,12 @@ namespace La_petite_boite
             return this.niveau;
         }
 
-        public List<Panel> epreuvesJoueur()
+        public List<Jeu.Jeu> epreuvesJoueur()
         {
             return this.jeuxObligatoires;
         }
 
-        public List<Panel> epreuvesFacultatives()
+        public List<Jeu.Jeu> epreuvesFacultatives()
         {
             return this.jeuxFacultatifs;
         }

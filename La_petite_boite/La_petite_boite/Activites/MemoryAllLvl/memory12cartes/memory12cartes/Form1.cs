@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using Jeu;
 
 namespace memory12cartes
 {
@@ -19,7 +20,7 @@ namespace memory12cartes
         }
     }
 
-    public partial class Memory12Panel : Panel
+    public partial class Memory12Panel : Jeu.Jeu
     {
         Random localisation = new Random(); //
         List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
@@ -47,7 +48,7 @@ namespace memory12cartes
             chargementPartie();
         }
         
-        private void chargementPartie()
+        private new void chargementPartie()
         {
             Score.Text = "0"; //initialisation du score à zéro
             Score.Visible = false;
@@ -204,7 +205,6 @@ namespace memory12cartes
             {
                 MessageBox.Show("Super ! Vous avez fini la partie !","BRAVO !!!");
                 this.Enabled = false;
-                chargementPartie();
             }
         }
         

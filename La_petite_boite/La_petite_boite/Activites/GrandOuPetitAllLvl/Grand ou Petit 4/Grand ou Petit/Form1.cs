@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Jeu;
 
 namespace Grand_ou_Petit
 {
@@ -18,7 +19,7 @@ namespace Grand_ou_Petit
         }
     }
 
-    public partial class GrandOuPetit : Panel
+    public partial class GrandOuPetit : Jeu.Jeu
     {
         private System.Windows.Forms.Panel conteneurGrandeCarte;
         private System.Windows.Forms.PictureBox pictureBox4;
@@ -58,7 +59,7 @@ namespace Grand_ou_Petit
             chargementPartie();
         }
 
-        private void chargementPartie()
+        private new void chargementPartie()
         {
             this.Enabled = true;
             Score.Text = "0"; //initialisation du score à zéro
@@ -325,7 +326,6 @@ namespace Grand_ou_Petit
 
                 MessageBox.Show("Tu as fini le 1er niveau !", "Bravo !");
                 this.Enabled = false;
-                chargementPartie();
             }
         }
 

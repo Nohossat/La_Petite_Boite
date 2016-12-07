@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Jeu;
 
 namespace Grand_ou_petit_12
 {
@@ -19,7 +20,7 @@ namespace Grand_ou_petit_12
         
     }
 
-    public partial class GrandOuPetit12Panel : Panel
+    public partial class GrandOuPetit12Panel : Jeu.Jeu
     {
         private System.Windows.Forms.Label Score;
         private System.Windows.Forms.Label label;
@@ -83,7 +84,7 @@ namespace Grand_ou_petit_12
             chargementPartie();
         }
 
-        private void chargementPartie()
+        private new void chargementPartie()
         {
             Rejouer.Visible = false;
             Score.Visible = false;
@@ -648,7 +649,6 @@ namespace Grand_ou_petit_12
                
                 MessageBox.Show("Tu as fini le 2ème niveau !", "Bravo !");
                 this.Enabled = false;
-                chargementPartie();
             }
         }
 

@@ -7,9 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Jeu;
 
 namespace Que_fait_le_roi_12
 {
+
     public partial class Form1 : Form
     {
         
@@ -20,7 +22,7 @@ namespace Que_fait_le_roi_12
         
     }
 
-    public partial class QueFaitLeRoi12Panel : Panel
+    public partial class QueFaitLeRoi12Panel : Jeu.Jeu
     {
         private System.Windows.Forms.Label Score;
         private System.Windows.Forms.Label label1;
@@ -80,10 +82,10 @@ namespace Que_fait_le_roi_12
         public QueFaitLeRoi12Panel()
         {
             initialize();
-            QueFaitLeRoi_Load();
+            chargementPartie();
         }
 
-        private void QueFaitLeRoi_Load()
+        private new void chargementPartie()
         {
             this.Enabled = true;
             Score.Visible = false;
@@ -442,7 +444,6 @@ namespace Que_fait_le_roi_12
 
                 MessageBox.Show("Tu as fini le 1er niveau !", "Bravo !");
                 this.Enabled = false;
-                QueFaitLeRoi_Load();
             }
         }
 

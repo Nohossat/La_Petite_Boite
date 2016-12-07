@@ -39,9 +39,9 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(371, 537);
+            this.progressBar1.Location = new System.Drawing.Point(379, 520);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(632, 5);
+            this.progressBar1.Size = new System.Drawing.Size(617, 5);
             this.progressBar1.TabIndex = 1;
             // 
             // timer1

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Jeu;
 
 namespace chassesAuxMots8Cartes
 {
@@ -19,7 +20,7 @@ namespace chassesAuxMots8Cartes
         
     }
 
-    public partial class ChasseAuxMots8Panel : Panel
+    public partial class ChasseAuxMots8Panel : Jeu.Jeu
     {
         private System.Windows.Forms.Label Score;
         private System.Windows.Forms.Label Resultat;
@@ -52,10 +53,10 @@ namespace chassesAuxMots8Cartes
         public ChasseAuxMots8Panel()
         {
             initialize();
-            ChasseAuxMots_Load();
+            chargementPartie();
         }
 
-        private void ChasseAuxMots_Load()
+        private new void chargementPartie()
         {
             Score.Text = "0";
             Ecouter.Enabled = true;
@@ -220,7 +221,6 @@ namespace chassesAuxMots8Cartes
                     MessageBox.Show("Bien joué, tu as fini la partie !", "Bravo !");
                     Ecouter.Enabled = false;
                     this.Enabled = false;
-                    ChasseAuxMots_Load();
                 }                
             }
             else if (demarrage == 1)

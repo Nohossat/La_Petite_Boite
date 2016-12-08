@@ -32,7 +32,6 @@ namespace Chasse_aux_mots
 
         Random localisation = new Random(); //
         List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
-
         String carteACliquerTag;
         String imageCliqueTag;
         int demarrage;

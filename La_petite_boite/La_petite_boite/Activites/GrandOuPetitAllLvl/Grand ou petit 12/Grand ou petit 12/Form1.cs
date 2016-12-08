@@ -26,7 +26,6 @@ namespace Grand_ou_petit_12
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Panel conteneurPetiteCarte;
         private System.Windows.Forms.Panel conteneurCarteAPlacer;
-        private System.Windows.Forms.Button Rejouer;
         private System.Windows.Forms.Panel conteneurGrandeCarte;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox7;
@@ -86,7 +85,6 @@ namespace Grand_ou_petit_12
 
         private new void chargementPartie()
         {
-            Rejouer.Visible = false;
             Score.Visible = false;
             label.Visible = false;
             Score.Text = "0"; //initialisation du score à zéro
@@ -831,10 +829,6 @@ namespace Grand_ou_petit_12
                 }
             }
         }
-
-        private void Rejouer_Click(object sender, EventArgs e)
-        {
-            chargementPartie();
-        }
+        
     }
 }

@@ -92,9 +92,6 @@
     <None Include="Resources\jardin1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dosCarteGrande.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\doudou1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +141,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\La Table.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\dosCarte.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

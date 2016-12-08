@@ -83,9 +83,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dosCarte.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\applaudissement.wav" />
   </ItemGroup>
   <ItemGroup>
@@ -161,9 +158,6 @@
     <None Include="Resources\coffre4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dosCarteGrande.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\doudou2.png" />
   </ItemGroup>
   <ItemGroup>
@@ -237,6 +231,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Le Grand Escalier.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\dosCarte.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

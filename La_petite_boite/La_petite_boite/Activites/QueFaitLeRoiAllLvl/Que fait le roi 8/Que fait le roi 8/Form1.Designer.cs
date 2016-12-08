@@ -1,4 +1,6 @@
-﻿namespace Que_fait_le_roi_8
+﻿using System.Windows.Forms;
+
+namespace Que_fait_le_roi_8
 {
     partial class queFaitLeRoi8
     {
@@ -212,6 +214,7 @@
             this.pictureBox15.Location = new System.Drawing.Point(955, 5);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox15.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox15.TabIndex = 7;
             this.pictureBox15.TabStop = false;
             this.pictureBox15.Tag = "8";
@@ -223,6 +226,7 @@
             this.pictureBox11.Location = new System.Drawing.Point(819, 5);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox11.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox11.TabIndex = 6;
             this.pictureBox11.TabStop = false;
             this.pictureBox11.Tag = "7";
@@ -234,6 +238,7 @@
             this.pictureBox10.Location = new System.Drawing.Point(683, 5);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox10.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox10.TabIndex = 5;
             this.pictureBox10.TabStop = false;
             this.pictureBox10.Tag = "6";
@@ -245,6 +250,7 @@
             this.pictureBox9.Location = new System.Drawing.Point(547, 5);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox9.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox9.TabIndex = 4;
             this.pictureBox9.TabStop = false;
             this.pictureBox9.Tag = "5";
@@ -256,6 +262,7 @@
             this.pictureBox5.Location = new System.Drawing.Point(3, 5);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Tag = "1";
@@ -267,6 +274,7 @@
             this.pictureBox6.Location = new System.Drawing.Point(139, 5);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 1;
             this.pictureBox6.TabStop = false;
             this.pictureBox6.Tag = "2";
@@ -278,6 +286,7 @@
             this.pictureBox7.Location = new System.Drawing.Point(275, 5);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 2;
             this.pictureBox7.TabStop = false;
             this.pictureBox7.Tag = "3";
@@ -289,6 +298,7 @@
             this.pictureBox8.Location = new System.Drawing.Point(411, 5);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox8.TabIndex = 3;
             this.pictureBox8.TabStop = false;
             this.pictureBox8.Tag = "4";
@@ -317,6 +327,7 @@
             this.pictureBox16.Location = new System.Drawing.Point(955, 3);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox16.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox16.TabIndex = 7;
             this.pictureBox16.TabStop = false;
             this.pictureBox16.Tag = "8";
@@ -329,6 +340,7 @@
             this.pictureBox14.Location = new System.Drawing.Point(819, 3);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox14.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox14.TabIndex = 6;
             this.pictureBox14.TabStop = false;
             this.pictureBox14.Tag = "7";
@@ -341,6 +353,7 @@
             this.pictureBox13.Location = new System.Drawing.Point(683, 3);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox13.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox13.TabIndex = 5;
             this.pictureBox13.TabStop = false;
             this.pictureBox13.Tag = "6";
@@ -353,6 +366,7 @@
             this.pictureBox12.Location = new System.Drawing.Point(547, 3);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox12.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox12.TabIndex = 4;
             this.pictureBox12.TabStop = false;
             this.pictureBox12.Tag = "5";
@@ -365,6 +379,7 @@
             this.pictureBox4.Location = new System.Drawing.Point(411, 3);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Tag = "4";
@@ -376,6 +391,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Tag = "1";
@@ -387,6 +403,7 @@
             this.pictureBox2.Location = new System.Drawing.Point(139, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Tag = "2";
@@ -398,6 +415,7 @@
             this.pictureBox3.Location = new System.Drawing.Point(275, 3);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Tag = "3";

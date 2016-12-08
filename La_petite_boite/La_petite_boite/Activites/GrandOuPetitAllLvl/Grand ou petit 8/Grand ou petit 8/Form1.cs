@@ -137,12 +137,12 @@ namespace Grand_ou_petit_8
             //le dos des cartes est affiché
             foreach (PictureBox image in conteneurGrandeCarte.Controls)
             {
-                chargementResource("dosCarteGrande.png",image);
+                image.Image = Properties.Resources.dosCarte;
             }
 
             foreach (PictureBox image in conteneurPetiteCarte.Controls)
             {
-                chargementResource("dosCarteGrande.png", image);
+                image.Image = Properties.Resources.dosCarte;
             }
         }
 
@@ -209,7 +209,7 @@ namespace Grand_ou_petit_8
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            chargementResource("dosCarteGrande.png", image);
+                            image.Image = Properties.Resources.dosCarte;
                         }
                     }
 
@@ -225,7 +225,7 @@ namespace Grand_ou_petit_8
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            chargementResource("dosCarteGrande.png", image);
+                            image.Image = Properties.Resources.dosCarte;
                         }
                     }
 
@@ -241,7 +241,7 @@ namespace Grand_ou_petit_8
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            chargementResource("dosCarteGrande.png", image);
+                            image.Image = Properties.Resources.dosCarte;
                         }
                     }
 
@@ -256,7 +256,7 @@ namespace Grand_ou_petit_8
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            chargementResource("dosCarteGrande.png", image);
+                            image.Image = Properties.Resources.dosCarte;
                         }
                     }
                     //lecture du son lié à la carte
@@ -270,7 +270,7 @@ namespace Grand_ou_petit_8
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            chargementResource("dosCarteGrande.png", image);
+                            image.Image = Properties.Resources.dosCarte;
                         }
                     }
                     //lecture du son lié à la carte
@@ -284,7 +284,7 @@ namespace Grand_ou_petit_8
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            chargementResource("dosCarteGrande.png", image);
+                            image.Image = Properties.Resources.dosCarte;
                         }
                     }
                     //lecture du son lié à la carte
@@ -298,7 +298,7 @@ namespace Grand_ou_petit_8
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            chargementResource("dosCarteGrande.png", image);
+                            image.Image = Properties.Resources.dosCarte;
                         }
                     }
                     //lecture du son lié à la carte
@@ -312,7 +312,7 @@ namespace Grand_ou_petit_8
                     {
                         if (image.Tag != carteCourante.Tag & image.Enabled != false)
                         {
-                            chargementResource("dosCarteGrande.png", image);
+                            image.Image = Properties.Resources.dosCarte;
                         }
                     }
                     //lecture du son lié à la carte
@@ -535,7 +535,7 @@ namespace Grand_ou_petit_8
             {
                 if (petiteImage.Tag != image.Tag)
                 {
-                    chargementResource("dosCarteGrande.png", petiteImage);
+                    petiteImage.Image = Properties.Resources.dosCarte;
                 }
             }
 
@@ -639,16 +639,9 @@ namespace Grand_ou_petit_8
 
             petiteImageRecup = image.Image;
             conteneurCarteAPlacer.DoDragDrop("x", DragDropEffects.Move);
-
             
         }
-
-        private void Rejouer_Click(object sender, EventArgs e)
-        {
-            chargementPartie();
-        }
-
+        
     }
-
-
+    
 }

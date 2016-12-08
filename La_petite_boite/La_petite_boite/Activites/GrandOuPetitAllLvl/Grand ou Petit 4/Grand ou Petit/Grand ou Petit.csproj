@@ -83,58 +83,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\dosCarte.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chateauGrand.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\coffreGrand.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\jardinGrand.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pontGrand.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\roiGrand.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\coffrePetit.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\jardinPetit.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pontPetit.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\roiPetit.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\chateauPetit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pouet.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Kucuk Bahce.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Kucuk Kopru.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Kucuk Kutu.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Kucuk Sato.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Buyuk Bahce.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Buyuk Kopru.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Buyuk Kutu.wav" />
@@ -143,19 +95,7 @@
     <None Include="Resources\Buyuk Sato.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Le Grand Chateau.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Le Petit Chateau.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\applaudissement.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\La Grande Boite.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Le Petite Boite.wav" />
+    <EmbeddedResource Include="Resources\applaudissement1.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\chateau1.png" />
@@ -168,9 +108,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\coffre3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\dosCarteGrande.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\jardin1.png" />
@@ -189,9 +126,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\roi3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\applaudissement1.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Buyuk Bahce1.wav" />
@@ -219,6 +153,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pouet1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\dosCarte.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

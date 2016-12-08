@@ -1,4 +1,6 @@
-﻿namespace Chasse_aux_mots
+﻿using System.Windows.Forms;
+
+namespace Chasse_aux_mots
 {
     partial class ChasseAuxMots
     {
@@ -100,6 +102,7 @@
             this.pictureBox4.Location = new System.Drawing.Point(463, 17);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Tag = "4";
@@ -110,6 +113,7 @@
             this.pictureBox3.Location = new System.Drawing.Point(313, 17);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Tag = "3";
@@ -120,6 +124,7 @@
             this.pictureBox2.Location = new System.Drawing.Point(163, 17);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Tag = "2";
@@ -130,6 +135,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(16, 17);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Tag = "1";

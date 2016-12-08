@@ -1,4 +1,6 @@
-﻿namespace memory12cartes
+﻿using System.Windows.Forms;
+
+namespace memory12cartes
 {
     partial class Memory12
     {
@@ -123,6 +125,7 @@
             this.carte5.Location = new System.Drawing.Point(3, 335);
             this.carte5.Name = "carte5";
             this.carte5.Size = new System.Drawing.Size(130, 160);
+            this.carte5.SizeMode = PictureBoxSizeMode.StretchImage;
             this.carte5.TabIndex = 14;
             this.carte5.TabStop = false;
             this.carte5.Tag = "5";
@@ -133,6 +136,7 @@
             this.carte3.Location = new System.Drawing.Point(3, 169);
             this.carte3.Name = "carte3";
             this.carte3.Size = new System.Drawing.Size(130, 160);
+            this.carte3.SizeMode = PictureBoxSizeMode.StretchImage;
             this.carte3.TabIndex = 13;
             this.carte3.TabStop = false;
             this.carte3.Tag = "3";
@@ -143,6 +147,7 @@
             this.carte1.Location = new System.Drawing.Point(3, 3);
             this.carte1.Name = "carte1";
             this.carte1.Size = new System.Drawing.Size(130, 160);
+            this.carte1.SizeMode = PictureBoxSizeMode.StretchImage;
             this.carte1.TabIndex = 12;
             this.carte1.TabStop = false;
             this.carte1.Tag = "1";
@@ -153,6 +158,7 @@
             this.carte4Double.Location = new System.Drawing.Point(411, 169);
             this.carte4Double.Name = "carte4Double";
             this.carte4Double.Size = new System.Drawing.Size(130, 160);
+            this.carte4Double.SizeMode = PictureBoxSizeMode.StretchImage;
             this.carte4Double.TabIndex = 10;
             this.carte4Double.TabStop = false;
             this.carte4Double.Tag = "4";
@@ -163,6 +169,7 @@
             this.carte4.Location = new System.Drawing.Point(275, 169);
             this.carte4.Name = "carte4";
             this.carte4.Size = new System.Drawing.Size(130, 160);
+            this.carte4.SizeMode = PictureBoxSizeMode.StretchImage;
             this.carte4.TabIndex = 9;
             this.carte4.TabStop = false;
             this.carte4.Tag = "4";
@@ -173,6 +180,7 @@
             this.carte3Double.Location = new System.Drawing.Point(139, 169);
             this.carte3Double.Name = "carte3Double";
             this.carte3Double.Size = new System.Drawing.Size(130, 160);
+            this.carte3Double.SizeMode = PictureBoxSizeMode.StretchImage;
             this.carte3Double.TabIndex = 8;
             this.carte3Double.TabStop = false;
             this.carte3Double.Tag = "3";
@@ -183,6 +191,7 @@
             this.carte6.Location = new System.Drawing.Point(275, 335);
             this.carte6.Name = "carte6";
             this.carte6.Size = new System.Drawing.Size(130, 160);
+            this.carte6.SizeMode = PictureBoxSizeMode.StretchImage;
             this.carte6.TabIndex = 7;
             this.carte6.TabStop = false;
             this.carte6.Tag = "6";
@@ -193,6 +202,7 @@
             this.carte6Double.Location = new System.Drawing.Point(411, 335);
             this.carte6Double.Name = "carte6Double";
             this.carte6Double.Size = new System.Drawing.Size(130, 160);
+            this.carte6Double.SizeMode = PictureBoxSizeMode.StretchImage;
             this.carte6Double.TabIndex = 6;
             this.carte6Double.TabStop = false;
             this.carte6Double.Tag = "6";
@@ -203,6 +213,7 @@
             this.carte2Double.Location = new System.Drawing.Point(411, 3);
             this.carte2Double.Name = "carte2Double";
             this.carte2Double.Size = new System.Drawing.Size(130, 160);
+            this.carte2Double.SizeMode = PictureBoxSizeMode.StretchImage;
             this.carte2Double.TabIndex = 4;
             this.carte2Double.TabStop = false;
             this.carte2Double.Tag = "2";
@@ -213,6 +224,7 @@
             this.carte2.Location = new System.Drawing.Point(275, 3);
             this.carte2.Name = "carte2";
             this.carte2.Size = new System.Drawing.Size(130, 160);
+            this.carte2.SizeMode = PictureBoxSizeMode.StretchImage;
             this.carte2.TabIndex = 3;
             this.carte2.TabStop = false;
             this.carte2.Tag = "2";
@@ -223,6 +235,7 @@
             this.carte1Double.Location = new System.Drawing.Point(139, 3);
             this.carte1Double.Name = "carte1Double";
             this.carte1Double.Size = new System.Drawing.Size(130, 160);
+            this.carte1Double.SizeMode = PictureBoxSizeMode.StretchImage;
             this.carte1Double.TabIndex = 2;
             this.carte1Double.TabStop = false;
             this.carte1Double.Tag = "1";
@@ -233,6 +246,7 @@
             this.carte5Double.Location = new System.Drawing.Point(139, 335);
             this.carte5Double.Name = "carte5Double";
             this.carte5Double.Size = new System.Drawing.Size(130, 160);
+            this.carte5Double.SizeMode = PictureBoxSizeMode.StretchImage;
             this.carte5Double.TabIndex = 1;
             this.carte5Double.TabStop = false;
             this.carte5Double.Tag = "5";

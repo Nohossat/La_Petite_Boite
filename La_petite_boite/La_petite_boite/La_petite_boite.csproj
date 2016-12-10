@@ -56,7 +56,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Activites\GrandOuPetitAllLvl\Grand ou Petit 4\Grand ou Petit\bin\Debug\Grand ou Petit.exe</HintPath>
     </Reference>
-    <Reference Include="Jeu">
+    <Reference Include="Jeu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>Activites\Jeu\bin\Debug\Jeu.exe</HintPath>
     </Reference>
     <Reference Include="memory12cartes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -82,6 +83,10 @@
     <Reference Include="Que fait le Roi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Activites\QueFaitLeRoiAllLvl\Que fait le Roi\Que fait le Roi\bin\Debug\Que fait le Roi.exe</HintPath>
+    </Reference>
+    <Reference Include="Ressources, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Ressources\bin\Debug\Ressources.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -444,7 +449,6 @@
     <EmbeddedResource Include="Resources\miniJeu\coffre2.png" />
     <EmbeddedResource Include="Resources\miniJeu\coffre3.png" />
     <EmbeddedResource Include="Resources\miniJeu\coffre4.png" />
-    <EmbeddedResource Include="Resources\miniJeu\dosCarte.png" />
     <EmbeddedResource Include="Resources\miniJeu\doudou1.png" />
     <EmbeddedResource Include="Resources\miniJeu\doudou2.png" />
     <EmbeddedResource Include="Resources\miniJeu\doudou3.png" />
@@ -495,14 +499,13 @@
     <EmbeddedResource Include="Resources\miniJeu\table4.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\miniJeu\applaudissements.wav" />
     <EmbeddedResource Include="Resources\miniJeu\pouet.wav" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\miniJeu\UnDoudou.wav" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\miniJeu\Bahce.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\jardinTurc.wav" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\miniJeu\leRoiRentreAuChateau.wav" />
@@ -563,6 +566,15 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Jeu\souris.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\miniJeu\applaudissement.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\doudouTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\chateauTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiFR.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\miniJeu\dosCarte.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

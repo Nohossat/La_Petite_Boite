@@ -22,7 +22,7 @@ namespace Chasse_aux_mots.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Chasse_aux_mots.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Chasse_aux_mots.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace Chasse_aux_mots.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Chasse_aux_mots.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream applaudissement {
+        public static System.IO.UnmanagedMemoryStream applaudissement {
             get {
                 return ResourceManager.GetStream("applaudissement", resourceCulture);
             }
@@ -72,9 +72,19 @@ namespace Chasse_aux_mots.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bahce {
+        public static System.Drawing.Bitmap chaise1 {
             get {
-                object obj = ResourceManager.GetObject("bahce", resourceCulture);
+                object obj = ResourceManager.GetObject("chaise1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap chateau1 {
+            get {
+                object obj = ResourceManager.GetObject("chateau1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -82,16 +92,26 @@ namespace Chasse_aux_mots.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream bahceSon {
+        public static System.IO.UnmanagedMemoryStream chateauTurc {
             get {
-                return ResourceManager.GetStream("bahceSon", resourceCulture);
+                return ResourceManager.GetStream("chateauTurc", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap dosCarte {
+        public static System.Drawing.Bitmap coffre1 {
+            get {
+                object obj = ResourceManager.GetObject("coffre1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap dosCarte {
             get {
                 object obj = ResourceManager.GetObject("dosCarte", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -101,9 +121,9 @@ namespace Chasse_aux_mots.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap doudou {
+        public static System.Drawing.Bitmap doudou1 {
             get {
-                object obj = ResourceManager.GetObject("doudou", resourceCulture);
+                object obj = ResourceManager.GetObject("doudou1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -111,16 +131,85 @@ namespace Chasse_aux_mots.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream doudouSon {
+        public static System.IO.UnmanagedMemoryStream doudouTurc {
             get {
-                return ResourceManager.GetStream("doudouSon", resourceCulture);
+                return ResourceManager.GetStream("doudouTurc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ecole1 {
+            get {
+                object obj = ResourceManager.GetObject("ecole1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap escalier1 {
+            get {
+                object obj = ResourceManager.GetObject("escalier1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap foret1 {
+            get {
+                object obj = ResourceManager.GetObject("foret1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap jardin1 {
+            get {
+                object obj = ResourceManager.GetObject("jardin1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream pouet {
+        public static System.IO.UnmanagedMemoryStream jardinTurc {
+            get {
+                return ResourceManager.GetStream("jardinTurc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap lit1 {
+            get {
+                object obj = ResourceManager.GetObject("lit1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap pont1 {
+            get {
+                object obj = ResourceManager.GetObject("pont1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream pouet {
             get {
                 return ResourceManager.GetStream("pouet", resourceCulture);
             }
@@ -129,9 +218,9 @@ namespace Chasse_aux_mots.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap roi {
+        public static System.Drawing.Bitmap roi1 {
             get {
-                object obj = ResourceManager.GetObject("roi", resourceCulture);
+                object obj = ResourceManager.GetObject("roi1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -139,28 +228,19 @@ namespace Chasse_aux_mots.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream roiSon {
+        public static System.IO.UnmanagedMemoryStream roiFR {
             get {
-                return ResourceManager.GetStream("roiSon", resourceCulture);
+                return ResourceManager.GetStream("roiFR", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sato {
+        public static System.Drawing.Bitmap table1 {
             get {
-                object obj = ResourceManager.GetObject("sato", resourceCulture);
+                object obj = ResourceManager.GetObject("table1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream satoSon {
-            get {
-                return ResourceManager.GetStream("satoSon", resourceCulture);
             }
         }
     }

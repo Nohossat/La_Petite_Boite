@@ -40,8 +40,6 @@ namespace La_petite_boite
         public tutoGrandOuPetit()
         {
             InitializeComponent();
-            Cursor myCursor = new Cursor("../../Resources/Jeu/souris.cur");
-            this.Cursor = myCursor;
             chargementPartie();
             timer1.Enabled = true;
         }

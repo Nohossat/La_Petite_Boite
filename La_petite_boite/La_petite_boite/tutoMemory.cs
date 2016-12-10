@@ -25,8 +25,6 @@ namespace La_petite_boite
         {
             InitializeComponent();
             chargementPartie();
-            Cursor myCursor = new Cursor("../../Resources/Jeu/souris.cur");
-            this.Cursor = myCursor;
             button1.Enabled = false;
             timer1.Enabled = true;
         }

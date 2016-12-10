@@ -1,6 +1,6 @@
 ﻿namespace Jeu
 {
-    partial class Form1
+    partial class Generics
     {
         /// <summary>
         /// Required designer variable.

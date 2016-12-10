@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Drawing.Text;
 using System.Media;
+using Jeu;
 
 //reste a faire:  design,
 

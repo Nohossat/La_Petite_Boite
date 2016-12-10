@@ -32,8 +32,6 @@ namespace La_petite_boite
         public tutoQueFaitLeRoi()
         {
             InitializeComponent();
-            Cursor myCursor = new Cursor("../../Resources/Jeu/souris.cur");
-            this.Cursor = myCursor;
             QueFaitLeRoi_Load();
             timer1.Enabled = true;
             button3.Enabled = false;

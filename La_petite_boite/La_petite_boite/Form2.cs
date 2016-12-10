@@ -15,8 +15,6 @@ namespace La_petite_boite
         public Form2()
         {
             InitializeComponent();
-            Cursor myCursor = new Cursor("../../Resources/Jeu/souris.cur");
-            this.Cursor = myCursor;
         }
 
         private void enregistrer(object sender, EventArgs e)

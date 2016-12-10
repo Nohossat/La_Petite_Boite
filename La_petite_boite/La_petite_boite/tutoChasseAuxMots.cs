@@ -34,8 +34,6 @@ namespace La_petite_boite
         {
             this.Enabled = true;
             Ecouter.Enabled = true;
-            Cursor myCursor = new Cursor("../../Resources/Jeu/souris.cur");
-            this.Cursor = myCursor;
             Program.petiteBoite.chargementImage("doudou1.png", "miniJeu", pictureBox1);
             Program.petiteBoite.chargementImage("jardin1.png", "miniJeu", pictureBox2);
             sounds.Add("UnDoudou.wav");

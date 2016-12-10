@@ -107,6 +107,39 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\table1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\applaudissement.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bahce.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bahceSon.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bir Doudou.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bir Sato.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chateauTurc.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doudouTurc.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jardinTurc.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pouet.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pouet1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\roiFR.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

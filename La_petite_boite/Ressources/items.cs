@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,6 +71,53 @@ namespace Ressources
             }
         }
 
+        public static Stream doudouTurc
+        {
+            get
+            {
+                return Properties.Resources.doudouTurc;
+            }
+        }
+
+        public static Stream jardinTurc
+        {
+            get
+            {
+                return Properties.Resources.jardinTurc;
+            }
+        }
+
+        public static Stream chateauTurc
+        {
+            get
+            {
+                return Properties.Resources.chateauTurc;
+            }
+        }
+
+        public static Stream roiFR
+        {
+            get
+            {
+                return Properties.Resources.roiFR;
+            }
+        }
+
+        public static Stream applaudissement
+        {
+            get
+            {
+                return Properties.Resources.applaudissement;
+            }
+        }
+
+        public static Stream pouet
+        {
+            get
+            {
+                return Properties.Resources.pouet;
+            }
+        }
 
     }
 }

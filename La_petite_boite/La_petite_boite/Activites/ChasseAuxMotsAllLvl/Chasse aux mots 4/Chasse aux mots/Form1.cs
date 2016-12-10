@@ -123,25 +123,25 @@ namespace Chasse_aux_mots
 
             switch (choixSon)
             {
-                case 1: Stream doudouSon = Properties.Resources.doudouTurc;
+                case 1: Stream doudouSon = items.doudouTurc;
                     SoundPlayer son1 = new SoundPlayer(doudouSon);
                     son1.Play();
                     carteACliquerTag = "1";
                     break;
 
-                case 2: Stream bahceSon = Properties.Resources.jardinTurc;
+                case 2: Stream bahceSon = items.jardinTurc;
                     SoundPlayer son2 = new SoundPlayer(bahceSon);
                     son2.Play();
                     carteACliquerTag = "2";
                     break;
 
-                case 3: Stream satoSon = Properties.Resources.chateauTurc;
+                case 3: Stream satoSon = items.chateauTurc;
                     SoundPlayer son3 = new SoundPlayer(satoSon);
                     son3.Play();
                     carteACliquerTag = "3";
                     break;
 
-                case 4: Stream roiSon = Properties.Resources.roiFR;
+                case 4: Stream roiSon = items.roiFR;
                     SoundPlayer son4 = new SoundPlayer(roiSon);
                     son4.Play();
                     carteACliquerTag = "4";
@@ -156,7 +156,7 @@ namespace Chasse_aux_mots
 
             if (imageCliqueTag == carteACliquerTag)
             {
-                Stream applaudissement = Properties.Resources.applaudissement;
+                Stream applaudissement = items.applaudissement;
                 SoundPlayer son = new SoundPlayer(applaudissement);
                 son.Play();
 
@@ -193,7 +193,7 @@ namespace Chasse_aux_mots
             }
             else if (demarrage == 1)
             {
-                Stream pouet = Properties.Resources.pouet;
+                Stream pouet = items.pouet;
                 SoundPlayer son = new SoundPlayer(pouet);
                 son.Play();
             }

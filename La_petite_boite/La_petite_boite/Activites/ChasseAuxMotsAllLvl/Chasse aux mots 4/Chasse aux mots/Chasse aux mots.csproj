@@ -52,6 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="chasseMots.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,18 +68,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -87,106 +90,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\bahceSon.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\doudouSon.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\roiSon.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\satoSon.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Doudou.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Jardin.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Pont.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Roi.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Jardin11.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Doudou11.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Roi11.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Bahce.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Bir Doudou.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\pouet1.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Bir Sato.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\chaise1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\chateau1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\doudou1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\foret1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\jardin1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\lit1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\roi1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\table1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\coffre1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\ecole1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\escalier1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\pont1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\applaudissement.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\chateauTurc.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\doudouTurc.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\jardinTurc.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\roiFR.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\pouet.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\dosCarte.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

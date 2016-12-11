@@ -69,9 +69,6 @@
     <EmbeddedResource Include="Resources\dosCarte.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Doudou.png" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\doudou1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -84,22 +81,13 @@
     <EmbeddedResource Include="Resources\foret1.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Jardin.png" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\jardin1.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\lit1.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Pont.png" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\pont1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Roi.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\roi1.png" />
@@ -108,37 +96,66 @@
     <EmbeddedResource Include="Resources\table1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\applaudissement.wav" />
+    <EmbeddedResource Include="Resources\applaudissement.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Bahce.wav" />
+    <EmbeddedResource Include="Resources\chateauTurc.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bahceSon.wav" />
+    <EmbeddedResource Include="Resources\doudouTurc.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Bir Doudou.wav" />
+    <EmbeddedResource Include="Resources\jardinTurc.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Bir Sato.wav" />
+    <EmbeddedResource Include="Resources\pouet.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\chateauTurc.wav" />
+    <EmbeddedResource Include="Resources\roiFR.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\doudouTurc.wav" />
+    <EmbeddedResource Include="Resources\tableFR.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\jardinTurc.wav" />
+    <EmbeddedResource Include="Resources\foretTurc.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pouet.wav" />
+    <EmbeddedResource Include="Resources\chaiseTurc.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pouet1.wav" />
+    <EmbeddedResource Include="Resources\doudouFR.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\roiFR.wav" />
+    <EmbeddedResource Include="Resources\litFR.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\coffreFR.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pontFR.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ecoleFR.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\tableTurc.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\escalierTurc.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pijama.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\roiTurc.wav" />
+    <EmbeddedResource Include="Resources\chaiseFR.wav" />
+    <EmbeddedResource Include="Resources\foretFR.wav" />
+    <EmbeddedResource Include="Resources\chateauFR.wav" />
+    <EmbeddedResource Include="Resources\ecoleTurc.wav" />
+    <EmbeddedResource Include="Resources\litTurc.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\jardinFR.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -130,9 +130,6 @@
   <data name="dosCarte" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dosCarte.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Doudou" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Doudou.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="doudou1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\doudou1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -145,23 +142,14 @@
   <data name="foret1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\foret1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Jardin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Jardin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="jardin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\jardin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lit1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Pont" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pont.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="pont1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pont1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Roi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Roi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="roi1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\roi1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -171,18 +159,6 @@
   </data>
   <data name="applaudissement" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\applaudissement.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Bahce" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bahce.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="bahceSon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bahceSon.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Bir_Doudou" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bir Doudou.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Bir_Sato" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bir Sato.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="chateauTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chateauTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -196,10 +172,61 @@
   <data name="pouet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pouet.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="pouet1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pouet1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="roiFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\roiFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chaiseTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chaiseTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="doudouFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\doudouFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="foretTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\foretTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="litFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\litFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tableFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chaiseFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chaiseFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chateauFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chateauFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="coffreFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coffreFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ecoleFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ecoleFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ecoleTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ecoleTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="escalierTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\escalierTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="foretFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\foretFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="jardinFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\jardinFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="litTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\litTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pijama" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pijama.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pontFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pontFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\roiTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tableTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

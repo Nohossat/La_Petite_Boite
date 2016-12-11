@@ -5,8 +5,6 @@ using memory8Cartes;
 using memory12cartes;
 using memory16Cartes;
 using Chasse_aux_mots;
-using chassesAuxMots8Cartes;
-using chasseAuxMots12Cartes;
 using Que_fait_le_Roi;
 using Que_fait_le_roi_8;
 using Que_fait_le_roi_12;

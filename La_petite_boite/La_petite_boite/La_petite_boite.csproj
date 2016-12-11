@@ -37,14 +37,6 @@
     <Reference Include="Chasse aux mots">
       <HintPath>Activites\ChasseAuxMotsAllLvl\Chasse aux mots 4\Chasse aux mots\bin\Debug\Chasse aux mots.exe</HintPath>
     </Reference>
-    <Reference Include="chasseAuxMots12Cartes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\ChasseAuxMotsAllLvl\chasseAuxMots12Cartes\chasseAuxMots12Cartes\bin\Debug\chasseAuxMots12Cartes.exe</HintPath>
-    </Reference>
-    <Reference Include="chassesAuxMots8Cartes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\ChasseAuxMotsAllLvl\chasseAuxMots8Cartes\chassesAuxMots8Cartes\bin\Debug\chassesAuxMots8Cartes.exe</HintPath>
-    </Reference>
     <Reference Include="Grand ou petit 12">
       <HintPath>Activites\GrandOuPetitAllLvl\Grand ou petit 12\Grand ou petit 12\bin\Debug\Grand ou petit 12.exe</HintPath>
     </Reference>

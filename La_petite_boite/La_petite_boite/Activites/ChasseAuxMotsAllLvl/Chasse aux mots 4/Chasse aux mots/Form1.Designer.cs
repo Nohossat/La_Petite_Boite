@@ -213,7 +213,7 @@ namespace Chasse_aux_mots
         
     }
 
-    /*partial class ChasseAuxMots8Panel
+    partial class ChasseAuxMots8Panel
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -236,8 +236,6 @@ namespace Chasse_aux_mots
 
         public void initializeChasseAuxMots8()
         {
-            this.Score = new System.Windows.Forms.Label();
-            this.Resultat = new System.Windows.Forms.Label();
             this.Ecouter = new System.Windows.Forms.Button();
             this.conteneurCarte = new System.Windows.Forms.Panel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -260,26 +258,6 @@ namespace Chasse_aux_mots
             this.SuspendLayout();
             // 
             // Rejouer
-            // 
-            // 
-            // Score
-            // 
-            this.Score.AutoSize = true;
-            this.Score.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Score.Location = new System.Drawing.Point(98, 159);
-            this.Score.Name = "Score";
-            this.Score.Size = new System.Drawing.Size(0, 24);
-            this.Score.TabIndex = 8;
-            // 
-            // Resultat
-            // 
-            this.Resultat.AutoSize = true;
-            this.Resultat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Resultat.Location = new System.Drawing.Point(8, 159);
-            this.Resultat.Name = "Resultat";
-            this.Resultat.Size = new System.Drawing.Size(75, 24);
-            this.Resultat.TabIndex = 7;
-            this.Resultat.Text = "Score : ";
             // 
             // Ecouter
             // 
@@ -306,7 +284,7 @@ namespace Chasse_aux_mots
             this.conteneurCarte.Controls.Add(this.pictureBox3);
             this.conteneurCarte.Controls.Add(this.pictureBox2);
             this.conteneurCarte.Controls.Add(this.pictureBox1);
-            this.conteneurCarte.Location = new System.Drawing.Point(138, 35);
+            this.conteneurCarte.Location = new System.Drawing.Point(0, 0);
             this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(610, 371);
             this.conteneurCarte.TabIndex = 5;
@@ -405,10 +383,8 @@ namespace Chasse_aux_mots
             // ChasseAuxMots8Panel
             // 
             this.ClientSize = new System.Drawing.Size(1000, 600);
-            this.Location = new System.Drawing.Point(60, 100);
+            this.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.Controls.Add(this.Score);
-            this.Controls.Add(this.Resultat);
             this.Controls.Add(this.Ecouter);
             this.Controls.Add(this.conteneurCarte);
             this.Name = "ChasseAuxMots8";
@@ -450,8 +426,6 @@ namespace Chasse_aux_mots
 
         public void initialize()
         {
-            this.Score = new System.Windows.Forms.Label();
-            this.Resultat = new System.Windows.Forms.Label();
             this.Ecouter = new System.Windows.Forms.Button();
             this.conteneurCarte = new System.Windows.Forms.Panel();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
@@ -481,27 +455,7 @@ namespace Chasse_aux_mots
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // Rejouer
-            // 
-            // 
-            // Score
-            // 
-            this.Score.AutoSize = true;
-            this.Score.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Score.Location = new System.Drawing.Point(123, 247);
-            this.Score.Name = "Score";
-            this.Score.Size = new System.Drawing.Size(0, 24);
-            this.Score.TabIndex = 13;
-            // 
-            // Resultat
-            // 
-            this.Resultat.AutoSize = true;
-            this.Resultat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Resultat.Location = new System.Drawing.Point(35, 247);
-            this.Resultat.Name = "Resultat";
-            this.Resultat.Size = new System.Drawing.Size(75, 24);
-            this.Resultat.TabIndex = 12;
-            this.Resultat.Text = "Score";
+            //
             // 
             // Ecouter
             // 
@@ -532,7 +486,7 @@ namespace Chasse_aux_mots
             this.conteneurCarte.Controls.Add(this.pictureBox3);
             this.conteneurCarte.Controls.Add(this.pictureBox2);
             this.conteneurCarte.Controls.Add(this.pictureBox1);
-            this.conteneurCarte.Location = new System.Drawing.Point(156, 12);
+            this.conteneurCarte.Location = new System.Drawing.Point(0, 0);
             this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(610, 550);
             this.conteneurCarte.TabIndex = 10;
@@ -564,6 +518,7 @@ namespace Chasse_aux_mots
             this.pictureBox10.Location = new System.Drawing.Point(163, 372);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox10.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureBox10.TabIndex = 9;
             this.pictureBox10.TabStop = false;
             this.pictureBox10.Tag = "10";
@@ -671,9 +626,7 @@ namespace Chasse_aux_mots
             // ChasseAuxMots12Panel
             // 
             this.ClientSize = new System.Drawing.Size(999, 650);
-            this.Location = new System.Drawing.Point(150, 70);
-            this.Controls.Add(this.Score);
-            this.Controls.Add(this.Resultat);
+            this.Location = new System.Drawing.Point(0, 0);
             this.Controls.Add(this.Ecouter);
             this.Controls.Add(this.conteneurCarte);
             this.Name = "Form1";
@@ -694,6 +647,6 @@ namespace Chasse_aux_mots
             this.ResumeLayout(false);
             this.PerformLayout();
         }
-    }*/
+    }
 }
 

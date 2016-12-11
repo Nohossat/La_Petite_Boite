@@ -18,8 +18,6 @@ namespace Jeu
 
     public partial class Jeu : Panel
     {
-        Assembly _assembly = Assembly.GetExecutingAssembly();
-        Stream _sonStream;
 
         public Jeu()
         {
@@ -31,30 +29,13 @@ namespace Jeu
 
         }
 
-        public void chargementSon(String res, String dossier, SoundPlayer son)
+        public void JouerSon(Stream stream)
         {
-            //access resource
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _sonStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources" + dossier + "." + res);
-                Console.WriteLine(res);
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //play sound
-            try
-            {
-                son = new SoundPlayer(_sonStream);
-                son.Play();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Cant play the sound" + e);
-            }
+            stream.Position = 0;
+            SoundPlayer son = new SoundPlayer(stream);
+            son.Play();
+            son.Dispose();
         }
+
     }
 }

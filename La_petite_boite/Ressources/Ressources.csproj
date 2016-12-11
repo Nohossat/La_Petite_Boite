@@ -157,6 +157,23 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\jardinFR.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\pijama1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\roiTraverseLeJardinTurc.wav" />
+    <EmbeddedResource Include="Resources\roiMonteEscalierTurc.wav" />
+    <EmbeddedResource Include="Resources\roiTraverseLaForetTurc.wav" />
+    <EmbeddedResource Include="Resources\roiMonteChaiseTurc.wav" />
+    <EmbeddedResource Include="Resources\roiRentreAuChateauTurc.wav" />
+    <EmbeddedResource Include="Resources\roiRentreALecoleFR.wav" />
+    <EmbeddedResource Include="Resources\roiGrimpeSurLeLitFR.wav" />
+    <EmbeddedResource Include="Resources\roiTraverseLeJardinFR.wav" />
+    <EmbeddedResource Include="Resources\questCeQuilYADansCetteBoiteFR.wav" />
+    <EmbeddedResource Include="Resources\roiVaALecoleTurc.wav" />
+    <EmbeddedResource Include="Resources\roiRentreAuChateauFR.wav" />
+    <EmbeddedResource Include="Resources\roiTraverseLaForetFR.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

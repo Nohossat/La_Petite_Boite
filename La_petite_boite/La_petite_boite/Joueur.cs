@@ -2,8 +2,6 @@
 using Grand_ou_petit_8;
 using Grand_ou_petit_12;
 using memory8Cartes;
-using memory12cartes;
-using memory16Cartes;
 using Chasse_aux_mots;
 using Que_fait_le_Roi;
 using Que_fait_le_roi_8;
@@ -11,7 +9,6 @@ using Que_fait_le_roi_12;
 using Jeu;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace La_petite_boite

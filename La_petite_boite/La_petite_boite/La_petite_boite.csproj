@@ -34,8 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Chasse aux mots">
-      <HintPath>Activites\ChasseAuxMotsAllLvl\Chasse aux mots 4\Chasse aux mots\bin\Debug\Chasse aux mots.exe</HintPath>
+    <Reference Include="Chasse aux mots, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Activites\Chasse aux mots\Chasse aux mots\bin\Debug\Chasse aux mots.exe</HintPath>
     </Reference>
     <Reference Include="Grand ou petit 12">
       <HintPath>Activites\GrandOuPetitAllLvl\Grand ou petit 12\Grand ou petit 12\bin\Debug\Grand ou petit 12.exe</HintPath>
@@ -52,17 +53,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Activites\Jeu\bin\Debug\Jeu.exe</HintPath>
     </Reference>
-    <Reference Include="memory12cartes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\MemoryAllLvl\memory12cartes\memory12cartes\bin\Debug\memory12cartes.exe</HintPath>
-    </Reference>
-    <Reference Include="memory16Cartes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\MemoryAllLvl\memory16Cartes\memory16Cartes\bin\Debug\memory16Cartes.exe</HintPath>
-    </Reference>
     <Reference Include="memory8Cartes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\MemoryAllLvl\memory8Cartes\memory8Cartes\bin\Debug\memory8Cartes.exe</HintPath>
+      <HintPath>Activites\Memory\memory8Cartes\bin\Debug\memory8Cartes.exe</HintPath>
     </Reference>
     <Reference Include="Que fait le roi 12, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

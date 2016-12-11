@@ -105,6 +105,14 @@ namespace Ressources
             }
         }
 
+        public static Bitmap pijama1
+        {
+            get
+            {
+                return Properties.Resources.pijama1;
+            }
+        }
+
         public static Bitmap roi1
         {
             get
@@ -300,7 +308,103 @@ namespace Ressources
                 return Properties.Resources.roiTurc;
             }
         }
-        
+
+        public static Stream roiGrimpeLitFR
+        {
+            get
+            {
+                return Properties.Resources.roiGrimpeSurLeLitFR;
+            }
+        }
+
+        public static Stream roiMonteChaiseTurc
+        {
+            get
+            {
+                return Properties.Resources.roiMonteChaiseTurc;
+            }
+        }
+
+        public static Stream roiMonteEscalierTurc
+        {
+            get
+            {
+                return Properties.Resources.roiMonteEscalierTurc;
+            }
+        }
+
+        public static Stream roiRentreAuChateauFR
+        {
+            get
+            {
+                return Properties.Resources.roiRentreAuChateauFR;
+            }
+        }
+
+        public static Stream roiRentreAuChateauTurc
+        {
+            get
+            {
+                return Properties.Resources.roiRentreAuChateauTurc;
+            }
+        }
+
+        public static Stream roiTraverseLaForetFR
+        {
+            get
+            {
+                return Properties.Resources.roiTraverseLaForetFR;
+            }
+        }
+
+        public static Stream roiTraverseLaForetTurc
+        {
+            get
+            {
+                return Properties.Resources.roiTraverseLaForetTurc;
+            }
+        }
+
+        public static Stream roiTraverseLeJardinTurc
+        {
+            get
+            {
+                return Properties.Resources.roiTraverseLeJardinTurc;
+            }
+        }
+
+        public static Stream roiTraverseLeJardinFR
+        {
+            get
+            {
+                return Properties.Resources.roiTraverseLeJardinFR;
+            }
+        }
+
+        public static Stream roiVaALecoleTurc
+        {
+            get
+            {
+                return Properties.Resources.roiVaALecoleTurc;
+            }
+        }
+
+        public static Stream roiVaALecoleFR
+        {
+            get
+            {
+                return Properties.Resources.roiRentreALecoleFR;
+            }
+        }
+
+        public static Stream questionBoite
+        {
+            get
+            {
+                return Properties.Resources.questCeQuilYADansCetteBoiteFR;
+            }
+        }
+
         public static Stream tableFR
         {
             get

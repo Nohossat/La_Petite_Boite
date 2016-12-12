@@ -48,20 +48,13 @@ namespace Chasse_aux_mots
 
     public partial class ChasseAuxMotsPanel : chasseMots
     {
-        int score = 0;
-        int index;
-        Panel conteneurCarte;
+        
         PictureBox pictureBox4;
         PictureBox pictureBox3;
         PictureBox pictureBox2;
         PictureBox pictureBox1;
-        Button Ecouter;
-        String carteACliquerTag;
-        String imageCliqueTag;
-        Random localisation = new Random(); 
-        List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
         Boolean[] trouves = new Boolean[4];
-        List<Stream> sons = new List<Stream>();
+        
 
         public ChasseAuxMotsPanel()
         {
@@ -132,34 +125,13 @@ namespace Chasse_aux_mots
             PictureBox image = (PictureBox) sender;
             imageCliqueTag = (String) image.Tag;
 
-            if (imageCliqueTag == carteACliquerTag)
-            {
-                JouerSon(items.applaudissement);
-                AffichageDosCarte(image, ref trouves[index]);
-                image.Enabled = false;
-                score++;
-
-                if (score == 4)
-                {
-                    MessageBox.Show("Bien joué, tu as fini la partie !", "Bravo !");
-                    Ecouter.Enabled = false;
-                    this.Enabled = false;
-                }                
-            }
-            else
-            {
-                JouerSon(items.pouet);
-            }
+            reponse(4, image, ref trouves[index]);
         }
         
     }
 
     public partial class ChasseAuxMots8Panel : chasseMots
     {
-        int score = 0;
-        int index;
-        Button Ecouter;
-        Panel conteneurCarte;
         PictureBox pictureBox8;
         PictureBox pictureBox7;
         PictureBox pictureBox6;
@@ -168,12 +140,7 @@ namespace Chasse_aux_mots
         PictureBox pictureBox3;
         PictureBox pictureBox2;
         PictureBox pictureBox1;
-        Random localisation = new Random();
-        List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
-        String carteACliquerTag;
-        String imageCliqueTag;
         Boolean[] trouves = new Boolean[8];
-        List<Stream> sons = new List<Stream>();
 
         public ChasseAuxMots8Panel()
         {
@@ -250,38 +217,14 @@ namespace Chasse_aux_mots
             PictureBox image = (PictureBox)sender;
             imageCliqueTag = (String)image.Tag;
 
-            if (imageCliqueTag == carteACliquerTag)
-            {
-                JouerSon(items.applaudissement);
-                AffichageDosCarte(image, ref trouves[index]);
-                image.Enabled = false;
-                score++;
-                
-                if (score == 8)
-                {
-                    MessageBox.Show("Bien joué, tu as fini la partie !", "Bravo !");
-                    Ecouter.Enabled = false;
-                    this.Enabled = false;
-                }
-            }
-            else
-            {
-                JouerSon(items.pouet);
-            }
+            reponse(8, image, ref trouves[index]);
+            
         }
         
     }
 
     public partial class ChasseAuxMots12Panel : chasseMots
     {
-        int score = 0;
-        int index;
-        Random localisation = new Random(); 
-        List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
-        String carteACliquerTag;
-        String imageCliqueTag;
-        private System.Windows.Forms.Button Ecouter;
-        private System.Windows.Forms.Panel conteneurCarte;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.PictureBox pictureBox10;
@@ -295,7 +238,6 @@ namespace Chasse_aux_mots
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         Boolean[] trouves = new Boolean[12];
-        List<Stream> sons = new List<Stream>();
 
         public ChasseAuxMots12Panel()
         {
@@ -381,25 +323,8 @@ namespace Chasse_aux_mots
         {
             PictureBox image = (PictureBox)sender;
             imageCliqueTag = (String)image.Tag;
-            
-            if (imageCliqueTag == carteACliquerTag)
-            {
-                JouerSon(items.applaudissement);
-                AffichageDosCarte(image, ref trouves[index]);
-                image.Enabled = false;
-                score++;
 
-                if (score == 12)
-                {
-                    MessageBox.Show("Bien joué, tu as fini la partie !", "Bravo !", MessageBoxButtons.OK);
-                    Ecouter.Enabled = false;
-                    this.Enabled = false;
-                }
-            }
-            else 
-            {
-                JouerSon(items.pouet);
-            }
+            reponse(12, image, ref trouves[index]);
         }
     }
 }

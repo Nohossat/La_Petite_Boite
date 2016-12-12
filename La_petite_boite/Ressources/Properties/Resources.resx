@@ -256,11 +256,47 @@
   <data name="escalierFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\escalierFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="grandChateauFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grandChateauFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandChateauTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grandChateauTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandCoffreFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grandeBoiteFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandCoffreTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grandCoffreTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandJardinTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grandJardinTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandPontTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grandPontTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="pause1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pause1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pauseFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pauseFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitChateauFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\petitChateauFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitChateauTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\petitChateauTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitCoffreFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\petiteBoiteFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitCoffreTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\petitCoffreTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitJardinTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\petitJardinTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitPontTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\petitPontTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="questionBoiteFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\questionBoiteFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

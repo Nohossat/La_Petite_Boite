@@ -197,6 +197,22 @@ namespace Ressources
             }
         }
 
+        public static Stream grandChateauFR
+        {
+            get
+            {
+                return Properties.Resources.grandChateauFR;
+            }
+        }
+
+        public static Stream petitChateauFR
+        {
+            get
+            {
+                return Properties.Resources.petitChateauFR;
+            }
+        }
+
         public static Stream coffreFR
         {
             get
@@ -210,6 +226,30 @@ namespace Ressources
             get
             {
                 return Properties.Resources.coffreTurc;
+            }
+        }
+
+        public static Stream grandCoffreTurc
+        {
+            get
+            {
+                return Properties.Resources.grandCoffreTurc;
+            }
+        }
+
+        public static Stream grandCoffreFR
+        {
+            get
+            {
+                return Properties.Resources.grandCoffreFR;
+            }
+        }
+
+        public static Stream petitCoffreFR
+        {
+            get
+            {
+                return Properties.Resources.petitCoffreFR;
             }
         }
 
@@ -277,6 +317,22 @@ namespace Ressources
             }
         }
 
+        public static Stream grandJardinTurc
+        {
+            get
+            {
+                return Properties.Resources.grandJardinTurc;
+            }
+        }
+
+        public static Stream petitJardinTurc
+        {
+            get
+            {
+                return Properties.Resources.petitJardinTurc;
+            }
+        }
+
         public static Stream foretTurc
         {
             get
@@ -330,6 +386,22 @@ namespace Ressources
             get
             {
                 return Properties.Resources.pontFR;
+            }
+        }
+
+        public static Stream grandPontTurc
+        {
+            get
+            {
+                return Properties.Resources.grandPontTurc;
+            }
+        }
+
+        public static Stream petitPontTurc
+        {
+            get
+            {
+                return Properties.Resources.petitPontTurc;
             }
         }
 

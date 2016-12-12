@@ -179,6 +179,18 @@
     <EmbeddedResource Include="Resources\pause1.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\grandJardinTurc.wav" />
+    <EmbeddedResource Include="Resources\grandPontTurc.wav" />
+    <EmbeddedResource Include="Resources\grandCoffreTurc.wav" />
+    <EmbeddedResource Include="Resources\grandChateauTurc.wav" />
+    <EmbeddedResource Include="Resources\petitJardinTurc.wav" />
+    <EmbeddedResource Include="Resources\petitPontTurc.wav" />
+    <EmbeddedResource Include="Resources\petitCoffreTurc.wav" />
+    <EmbeddedResource Include="Resources\petitChateauTurc.wav" />
+    <EmbeddedResource Include="Resources\grandeBoiteFR.wav" />
+    <EmbeddedResource Include="Resources\grandChateauFR.wav" />
+    <EmbeddedResource Include="Resources\petitChateauFR.wav" />
+    <EmbeddedResource Include="Resources\petiteBoiteFR.wav" />
     <EmbeddedResource Include="Resources\bainTurc.wav" />
     <EmbeddedResource Include="Resources\questionBoiteTurc.wav" />
     <EmbeddedResource Include="Resources\roiPrendBainTurc.wav" />

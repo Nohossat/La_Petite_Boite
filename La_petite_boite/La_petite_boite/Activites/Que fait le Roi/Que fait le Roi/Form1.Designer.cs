@@ -578,14 +578,14 @@ namespace Que_fait_le_Roi
             // 
             // conteneurCarte
             // 
-            this.conteneurCarte.Controls.Add(this.pictureBox16);
-            this.conteneurCarte.Controls.Add(this.pictureBox14);
-            this.conteneurCarte.Controls.Add(this.pictureBox13);
-            this.conteneurCarte.Controls.Add(this.pictureBox12);
-            this.conteneurCarte.Controls.Add(this.pictureBox4);
             this.conteneurCarte.Controls.Add(this.pictureBox1);
             this.conteneurCarte.Controls.Add(this.pictureBox2);
             this.conteneurCarte.Controls.Add(this.pictureBox3);
+            this.conteneurCarte.Controls.Add(this.pictureBox4);
+            this.conteneurCarte.Controls.Add(this.pictureBox12);
+            this.conteneurCarte.Controls.Add(this.pictureBox13);
+            this.conteneurCarte.Controls.Add(this.pictureBox14);
+            this.conteneurCarte.Controls.Add(this.pictureBox16);
             this.conteneurCarte.Location = new System.Drawing.Point(1, 302);
             this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(1090, 167);
@@ -651,16 +651,16 @@ namespace Que_fait_le_Roi
             this.pictureBox4.Tag = "4";
             this.pictureBox4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.receveurImage_MouseDown);
             // 
-            // pictureBox1
+            // pictureBox3
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 160);
-            this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Tag = "1";
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.receveurImage_MouseDown);
+            this.pictureBox3.Location = new System.Drawing.Point(275, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Tag = "3";
+            this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.receveurImage_MouseDown);
             // 
             // pictureBox2
             // 
@@ -673,16 +673,16 @@ namespace Que_fait_le_Roi
             this.pictureBox2.Tag = "2";
             this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.receveurImage_MouseDown);
             // 
-            // pictureBox3
+            // pictureBox1
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(275, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(130, 160);
-            this.pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Tag = "3";
-            this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.receveurImage_MouseDown);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(130, 160);
+            this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Tag = "1";
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.receveurImage_MouseDown);
             // 
             // button5
             // 
@@ -761,7 +761,7 @@ namespace Que_fait_le_Roi
         }
     }
 
-    /*partial class QueFaitLeRoi12Panel
+    partial class QueFaitLeRoi12Panel
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -783,8 +783,6 @@ namespace Que_fait_le_Roi
 
         public void initialize()
         {
-            this.Score = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.conteneurCarteAPlacer = new System.Windows.Forms.Panel();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.pictureBox19 = new System.Windows.Forms.PictureBox();
@@ -852,25 +850,6 @@ namespace Que_fait_le_Roi
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.conteneurBouton.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Score
-            // 
-            this.Score.AutoSize = true;
-            this.Score.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Score.Location = new System.Drawing.Point(133, 451);
-            this.Score.Name = "Score";
-            this.Score.Size = new System.Drawing.Size(0, 20);
-            this.Score.TabIndex = 24;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(64, 451);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 20);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Score :";
             // 
             // conteneurCarteAPlacer
             // 
@@ -1037,18 +1016,18 @@ namespace Que_fait_le_Roi
             // 
             // conteneurCarte
             // 
-            this.conteneurCarte.Controls.Add(this.pictureBox21);
-            this.conteneurCarte.Controls.Add(this.pictureBox22);
-            this.conteneurCarte.Controls.Add(this.pictureBox23);
-            this.conteneurCarte.Controls.Add(this.pictureBox24);
-            this.conteneurCarte.Controls.Add(this.pictureBox16);
-            this.conteneurCarte.Controls.Add(this.pictureBox14);
-            this.conteneurCarte.Controls.Add(this.pictureBox13);
-            this.conteneurCarte.Controls.Add(this.pictureBox12);
-            this.conteneurCarte.Controls.Add(this.pictureBox4);
             this.conteneurCarte.Controls.Add(this.pictureBox1);
             this.conteneurCarte.Controls.Add(this.pictureBox2);
             this.conteneurCarte.Controls.Add(this.pictureBox3);
+            this.conteneurCarte.Controls.Add(this.pictureBox4);
+            this.conteneurCarte.Controls.Add(this.pictureBox12);
+            this.conteneurCarte.Controls.Add(this.pictureBox13);
+            this.conteneurCarte.Controls.Add(this.pictureBox14);
+            this.conteneurCarte.Controls.Add(this.pictureBox16);
+            this.conteneurCarte.Controls.Add(this.pictureBox24);
+            this.conteneurCarte.Controls.Add(this.pictureBox23);
+            this.conteneurCarte.Controls.Add(this.pictureBox22);
+            this.conteneurCarte.Controls.Add(this.pictureBox21);
             this.conteneurCarte.Location = new System.Drawing.Point(2, 255);
             this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(1274, 139);
@@ -1057,7 +1036,6 @@ namespace Que_fait_le_Roi
             //// pictureBox21
             // 
             this.pictureBox21.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureBox21.Image = global::Que_fait_le_roi_12.Properties.Resources.pauseGrand;
             this.pictureBox21.Location = new System.Drawing.Point(1136, 3);
             this.pictureBox21.Name = "pictureBox21";
             this.pictureBox21.Size = new System.Drawing.Size(100, 130);
@@ -1070,7 +1048,6 @@ namespace Que_fait_le_Roi
             // pictureBox22
             // 
             this.pictureBox22.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureBox22.Image = global::Que_fait_le_roi_12.Properties.Resources.pijamaGrand;
             this.pictureBox22.Location = new System.Drawing.Point(1033, 3);
             this.pictureBox22.Name = "pictureBox22";
             this.pictureBox22.Size = new System.Drawing.Size(100, 130);
@@ -1083,7 +1060,6 @@ namespace Que_fait_le_Roi
             // pictureBox23
             // 
             this.pictureBox23.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureBox23.Image = global::Que_fait_le_roi_12.Properties.Resources.tableGrande;
             this.pictureBox23.Location = new System.Drawing.Point(930, 3);
             this.pictureBox23.Name = "pictureBox23";
             this.pictureBox23.Size = new System.Drawing.Size(100, 130);
@@ -1096,7 +1072,6 @@ namespace Que_fait_le_Roi
             // pictureBox24
             // 
             this.pictureBox24.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureBox24.Image = global::Que_fait_le_roi_12.Properties.Resources.bainGrand;
             this.pictureBox24.Location = new System.Drawing.Point(827, 3);
             this.pictureBox24.Name = "pictureBox24";
             this.pictureBox24.Size = new System.Drawing.Size(100, 130);
@@ -1109,7 +1084,6 @@ namespace Que_fait_le_Roi
             // pictureBox16
             // 
             this.pictureBox16.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureBox16.Image = global::Que_fait_le_roi_12.Properties.Resources.coffre2;
             this.pictureBox16.Location = new System.Drawing.Point(724, 3);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(100, 130);
@@ -1122,7 +1096,6 @@ namespace Que_fait_le_Roi
             // pictureBox14
             // 
             this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureBox14.Image = global::Que_fait_le_roi_12.Properties.Resources.chaise2;
             this.pictureBox14.Location = new System.Drawing.Point(621, 3);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(100, 130);
@@ -1135,7 +1108,6 @@ namespace Que_fait_le_Roi
             // pictureBox13
             // 
             this.pictureBox13.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureBox13.Image = global::Que_fait_le_roi_12.Properties.Resources.litGrand;
             this.pictureBox13.Location = new System.Drawing.Point(518, 3);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(100, 130);
@@ -1148,7 +1120,6 @@ namespace Que_fait_le_Roi
             // pictureBox12
             // 
             this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureBox12.Image = global::Que_fait_le_roi_12.Properties.Resources.escalierGrand;
             this.pictureBox12.Location = new System.Drawing.Point(415, 3);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(100, 130);
@@ -1161,7 +1132,6 @@ namespace Que_fait_le_Roi
             // pictureBox4
             // 
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureBox4.Image = global::Que_fait_le_roi_12.Properties.Resources.jardinGrand;
             this.pictureBox4.Location = new System.Drawing.Point(312, 3);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(100, 130);
@@ -1171,21 +1141,19 @@ namespace Que_fait_le_Roi
             this.pictureBox4.Tag = "4";
             this.pictureBox4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.receveurImage_MouseDown);
             // 
-            // pictureBox1
+            // pictureBox3
             // 
-            this.pictureBox1.Image = global::Que_fait_le_roi_12.Properties.Resources.chateau2;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 130);
-            this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Tag = "1";
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.receveurImage_MouseDown);
+            this.pictureBox3.Location = new System.Drawing.Point(209, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 130);
+            this.pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Tag = "3";
+            this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.receveurImage_MouseDown);
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Que_fait_le_roi_12.Properties.Resources.ecoleGrande;
             this.pictureBox2.Location = new System.Drawing.Point(106, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 130);
@@ -1195,17 +1163,17 @@ namespace Que_fait_le_Roi
             this.pictureBox2.Tag = "2";
             this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.receveurImage_MouseDown);
             // 
-            // pictureBox3
+            
+            // pictureBox1
             // 
-            this.pictureBox3.Image = global::Que_fait_le_roi_12.Properties.Resources.foretGrande;
-            this.pictureBox3.Location = new System.Drawing.Point(209, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 130);
-            this.pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Tag = "3";
-            this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.receveurImage_MouseDown);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 130);
+            this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Tag = "1";
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.receveurImage_MouseDown);
             // 
             // conteneurBouton
             // 
@@ -1361,10 +1329,8 @@ namespace Que_fait_le_Roi
             // Que fait le roi 12
             // 
             this.ClientSize = new System.Drawing.Size(1300, 600);
-            this.Location = new System.Drawing.Point(5, 100);
+            this.Location = new System.Drawing.Point(0, 0);
             this.Controls.Add(this.conteneurBouton);
-            this.Controls.Add(this.Score);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.conteneurCarteAPlacer);
             this.Controls.Add(this.conteneurCarte);
             this.Name = "Que fait le roi ?";
@@ -1400,6 +1366,6 @@ namespace Que_fait_le_Roi
             this.PerformLayout();
         }
 
-    }*/
+    }
 }
 

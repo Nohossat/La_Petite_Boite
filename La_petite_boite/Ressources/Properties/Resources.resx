@@ -244,23 +244,65 @@
   <data name="applaudissement" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\applaudissement.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="questCeQuilYADansCetteBoiteFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\questCeQuilYADansCetteBoiteFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="bain1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bain1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="roiGrimpeSurLeLitFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\roiGrimpeSurLeLitFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="bainTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bainTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="coffreTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coffreTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="escalierFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\escalierFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pause1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pause1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pauseFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pauseFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="questionBoiteFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\questionBoiteFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="questionBoiteTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\questionBoiteTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiMetPijamaTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\roiMetPijamaTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiMonteChaiseFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\roiMonteChaiseFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="roiMonteChaiseTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\roiMonteChaiseTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="roiMonteEscalierFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\roiMonteEscalierFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="roiMonteEscalierTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\roiMonteEscalierTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiMonteLitFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\roiMonteLitFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiMonteLitTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\roiMonteLitTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiPrendBainTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\roiPrendBainTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiPrendPauseFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\roiPrendPauseFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="roiRentreALecoleFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\roiRentreALecoleFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="roiRentreAuChateauTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\roiRentreAuChateauTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiSInstalleTableFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\roiSInstalleTableFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="roiTraverseLaForetTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\roiTraverseLaForetTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

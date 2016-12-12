@@ -25,6 +25,14 @@ namespace Ressources
             }
         }
 
+        public static Bitmap bain1
+        {
+            get
+            {
+                return Properties.Resources.bain1;
+            }
+        }
+
         public static Bitmap chaise1
         {
             get
@@ -105,6 +113,14 @@ namespace Ressources
             }
         }
 
+        public static Bitmap pause1
+        {
+            get
+            {
+                return Properties.Resources.pause1;
+            }
+        }
+
         public static Bitmap pijama1
         {
             get
@@ -138,6 +154,14 @@ namespace Ressources
             get
             {
                 return Properties.Resources.applaudissement;
+            }
+        }
+
+        public static Stream bainTurc
+        {
+            get
+            {
+                return Properties.Resources.bainTurc;
             }
         }
 
@@ -181,6 +205,14 @@ namespace Ressources
             }
         }
 
+        public static Stream coffreTurc
+        {
+            get
+            {
+                return Properties.Resources.coffreTurc;
+            }
+        }
+
         public static Stream doudouTurc
         {
             get
@@ -218,6 +250,14 @@ namespace Ressources
             get
             {
                 return Properties.Resources.escalierTurc;
+            }
+        }
+
+        public static Stream escalierFR
+        {
+            get
+            {
+                return Properties.Resources.escalierFR;
             }
         }
 
@@ -269,6 +309,14 @@ namespace Ressources
             }
         }
 
+        public static Stream pauseFR
+        {
+            get
+            {
+                return Properties.Resources.pauseFR;
+            }
+        }
+
         public static Stream pouet
         {
             get
@@ -293,6 +341,22 @@ namespace Ressources
             }
         }
 
+        public static Stream questionBoiteFR
+        {
+            get
+            {
+                return Properties.Resources.questionBoiteFR;
+            }
+        }
+
+        public static Stream questionBoiteTurc
+        {
+            get
+            {
+                return Properties.Resources.questionBoiteTurc;
+            }
+        }
+
         public static Stream roiFR
         {
             get
@@ -309,11 +373,11 @@ namespace Ressources
             }
         }
 
-        public static Stream roiGrimpeLitFR
+        public static Stream roiMetPijamaTurc
         {
             get
             {
-                return Properties.Resources.roiGrimpeSurLeLitFR;
+                return Properties.Resources.roiMetPijamaTurc;
             }
         }
 
@@ -325,11 +389,59 @@ namespace Ressources
             }
         }
 
+        public static Stream roiMonteChaiseFR
+        {
+            get
+            {
+                return Properties.Resources.roiMonteChaiseFR;
+            }
+        }
+
         public static Stream roiMonteEscalierTurc
         {
             get
             {
                 return Properties.Resources.roiMonteEscalierTurc;
+            }
+        }
+
+        public static Stream roiMonteEscalierFR
+        {
+            get
+            {
+                return Properties.Resources.roiMonteEscalierFR;
+            }
+        }
+
+        public static Stream roiMonteLitFR
+        {
+            get
+            {
+                return Properties.Resources.roiMonteLitFR;
+            }
+        }
+
+        public static Stream roiMonteLitTurc
+        {
+            get
+            {
+                return Properties.Resources.roiMonteLitTurc;
+            }
+        }
+
+        public static Stream roiPrendBainTurc
+        {
+            get
+            {
+                return Properties.Resources.roiPrendBainTurc;
+            }
+        }
+
+        public static Stream roiPrendPauseFR
+        {
+            get
+            {
+                return Properties.Resources.roiPrendPauseFR;
             }
         }
 
@@ -346,6 +458,14 @@ namespace Ressources
             get
             {
                 return Properties.Resources.roiRentreAuChateauTurc;
+            }
+        }
+
+        public static Stream roiSInstalleTableFR
+        {
+            get
+            {
+                return Properties.Resources.roiSInstalleTableFR;
             }
         }
 
@@ -394,14 +514,6 @@ namespace Ressources
             get
             {
                 return Properties.Resources.roiRentreALecoleFR;
-            }
-        }
-
-        public static Stream questionBoite
-        {
-            get
-            {
-                return Properties.Resources.questCeQuilYADansCetteBoiteFR;
             }
         }
 

@@ -72,6 +72,25 @@ namespace Ressources.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap bain1 {
+            get {
+                object obj = ResourceManager.GetObject("bain1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream bainTurc {
+            get {
+                return ResourceManager.GetStream("bainTurc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap chaise1 {
             get {
                 object obj = ResourceManager.GetObject("chaise1", resourceCulture);
@@ -141,6 +160,15 @@ namespace Ressources.Properties {
         public static System.IO.UnmanagedMemoryStream coffreFR {
             get {
                 return ResourceManager.GetStream("coffreFR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream coffreTurc {
+            get {
+                return ResourceManager.GetStream("coffreTurc", resourceCulture);
             }
         }
         
@@ -217,6 +245,15 @@ namespace Ressources.Properties {
             get {
                 object obj = ResourceManager.GetObject("escalier1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream escalierFR {
+            get {
+                return ResourceManager.GetStream("escalierFR", resourceCulture);
             }
         }
         
@@ -314,6 +351,25 @@ namespace Ressources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap pause1 {
+            get {
+                object obj = ResourceManager.GetObject("pause1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream pauseFR {
+            get {
+                return ResourceManager.GetStream("pauseFR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         public static System.IO.UnmanagedMemoryStream pijama {
@@ -363,9 +419,18 @@ namespace Ressources.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream questCeQuilYADansCetteBoiteFR {
+        public static System.IO.UnmanagedMemoryStream questionBoiteFR {
             get {
-                return ResourceManager.GetStream("questCeQuilYADansCetteBoiteFR", resourceCulture);
+                return ResourceManager.GetStream("questionBoiteFR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream questionBoiteTurc {
+            get {
+                return ResourceManager.GetStream("questionBoiteTurc", resourceCulture);
             }
         }
         
@@ -391,9 +456,18 @@ namespace Ressources.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        public static System.IO.UnmanagedMemoryStream roiGrimpeSurLeLitFR {
+        public static System.IO.UnmanagedMemoryStream roiMetPijamaTurc {
             get {
-                return ResourceManager.GetStream("roiGrimpeSurLeLitFR", resourceCulture);
+                return ResourceManager.GetStream("roiMetPijamaTurc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream roiMonteChaiseFR {
+            get {
+                return ResourceManager.GetStream("roiMonteChaiseFR", resourceCulture);
             }
         }
         
@@ -409,9 +483,54 @@ namespace Ressources.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        public static System.IO.UnmanagedMemoryStream roiMonteEscalierFR {
+            get {
+                return ResourceManager.GetStream("roiMonteEscalierFR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         public static System.IO.UnmanagedMemoryStream roiMonteEscalierTurc {
             get {
                 return ResourceManager.GetStream("roiMonteEscalierTurc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream roiMonteLitFR {
+            get {
+                return ResourceManager.GetStream("roiMonteLitFR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream roiMonteLitTurc {
+            get {
+                return ResourceManager.GetStream("roiMonteLitTurc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream roiPrendBainTurc {
+            get {
+                return ResourceManager.GetStream("roiPrendBainTurc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream roiPrendPauseFR {
+            get {
+                return ResourceManager.GetStream("roiPrendPauseFR", resourceCulture);
             }
         }
         
@@ -439,6 +558,15 @@ namespace Ressources.Properties {
         public static System.IO.UnmanagedMemoryStream roiRentreAuChateauTurc {
             get {
                 return ResourceManager.GetStream("roiRentreAuChateauTurc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream roiSInstalleTableFR {
+            get {
+                return ResourceManager.GetStream("roiSInstalleTableFR", resourceCulture);
             }
         }
         

@@ -167,12 +167,30 @@
     <EmbeddedResource Include="Resources\roiMonteChaiseTurc.wav" />
     <EmbeddedResource Include="Resources\roiRentreAuChateauTurc.wav" />
     <EmbeddedResource Include="Resources\roiRentreALecoleFR.wav" />
-    <EmbeddedResource Include="Resources\roiGrimpeSurLeLitFR.wav" />
+    <EmbeddedResource Include="Resources\roiMonteLitFR.wav" />
     <EmbeddedResource Include="Resources\roiTraverseLeJardinFR.wav" />
-    <EmbeddedResource Include="Resources\questCeQuilYADansCetteBoiteFR.wav" />
+    <EmbeddedResource Include="Resources\questionBoiteFR.wav" />
     <EmbeddedResource Include="Resources\roiVaALecoleTurc.wav" />
     <EmbeddedResource Include="Resources\roiRentreAuChateauFR.wav" />
     <EmbeddedResource Include="Resources\roiTraverseLaForetFR.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\bain1.png" />
+    <EmbeddedResource Include="Resources\pause1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\bainTurc.wav" />
+    <EmbeddedResource Include="Resources\questionBoiteTurc.wav" />
+    <EmbeddedResource Include="Resources\roiPrendBainTurc.wav" />
+    <EmbeddedResource Include="Resources\roiMetPijamaTurc.wav" />
+    <EmbeddedResource Include="Resources\roiMonteLitTurc.wav" />
+    <EmbeddedResource Include="Resources\coffreTurc.wav" />
+    <EmbeddedResource Include="Resources\escalierFR.wav" />
+    <EmbeddedResource Include="Resources\roiPrendPauseFR.wav" />
+    <EmbeddedResource Include="Resources\roiMonteChaiseFR.wav" />
+    <EmbeddedResource Include="Resources\roiMonteEscalierFR.wav" />
+    <EmbeddedResource Include="Resources\roiSInstalleTableFR.wav" />
+    <Content Include="Resources\pauseFR.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -57,17 +57,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Activites\Memory\memory8Cartes\bin\Debug\memory8Cartes.exe</HintPath>
     </Reference>
-    <Reference Include="Que fait le roi 12, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\QueFaitLeRoiAllLvl\Que fait le roi 12\Que fait le roi 12\bin\Debug\Que fait le roi 12.exe</HintPath>
-    </Reference>
-    <Reference Include="Que fait le roi 8, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\QueFaitLeRoiAllLvl\Que fait le roi 8\Que fait le roi 8\bin\Debug\Que fait le roi 8.exe</HintPath>
-    </Reference>
     <Reference Include="Que fait le Roi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\QueFaitLeRoiAllLvl\Que fait le Roi\Que fait le Roi\bin\Debug\Que fait le Roi.exe</HintPath>
+      <HintPath>Activites\Que fait le Roi\Que fait le Roi\bin\Debug\Que fait le Roi.exe</HintPath>
     </Reference>
     <Reference Include="Ressources, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

@@ -28,7 +28,6 @@ namespace Que_fait_le_Roi
         public String receveurTag;
         public Boolean sonBoutonEcoute;
         public List<Stream> sons = new List<Stream>();
-        public List<PictureBox> img = new List<PictureBox>();
 
 
         public QueFaitLeRoiClass ()
@@ -70,6 +69,8 @@ namespace Que_fait_le_Roi
             {
                 image.Visible = true;
                 image.Enabled = true;
+                image.SizeMode = PictureBoxSizeMode.StretchImage;
+
                 coordonneesCarte.Add(image.Location);
             }
 

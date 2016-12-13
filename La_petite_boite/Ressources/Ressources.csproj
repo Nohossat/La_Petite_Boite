@@ -202,6 +202,24 @@
     <EmbeddedResource Include="Resources\roiMonteChaiseFR.wav" />
     <EmbeddedResource Include="Resources\roiMonteEscalierFR.wav" />
     <EmbeddedResource Include="Resources\roiSInstalleTableFR.wav" />
+    <EmbeddedResource Include="Resources\grandDoudouTurc.wav" />
+    <EmbeddedResource Include="Resources\grandRoiTurc.wav" />
+    <EmbeddedResource Include="Resources\grandTableTurc.wav" />
+    <EmbeddedResource Include="Resources\grandLitTurc.wav" />
+    <EmbeddedResource Include="Resources\petiteTableTurc.wav" />
+    <EmbeddedResource Include="Resources\petitLitTurc.wav" />
+    <EmbeddedResource Include="Resources\grandeChaiseFR.wav" />
+    <EmbeddedResource Include="Resources\grandeForetFR.wav" />
+    <EmbeddedResource Include="Resources\petiteChaiseFR.wav" />
+    <EmbeddedResource Include="Resources\petiteForetFR.wav" />
+    <EmbeddedResource Include="Resources\grandPontFR.wav" />
+    <EmbeddedResource Include="Resources\petitPontFR.wav" />
+    <EmbeddedResource Include="Resources\petitDoudouTurc.wav" />
+    <EmbeddedResource Include="Resources\petitRoiTurc.wav" />
+    <EmbeddedResource Include="Resources\grandeEcoleFR.wav" />
+    <EmbeddedResource Include="Resources\grandEscalierFR.wav" />
+    <EmbeddedResource Include="Resources\petitEscalierFR.wav" />
+    <EmbeddedResource Include="Resources\petitEcoleFR.wav" />
     <Content Include="Resources\pauseFR.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

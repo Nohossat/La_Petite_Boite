@@ -346,4 +346,58 @@
   <data name="roiTraverseLeJardinFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\roiTraverseLeJardinFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="grandDoudouTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grandDoudouTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandeChaiseFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grandeChaiseFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandeEcoleFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grandeEcoleFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandeForetFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grandeForetFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandEscalierFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grandEscalierFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandLitTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grandLitTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandPontFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grandPontFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandRoiTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grandRoiTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandTableTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grandTableTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitDoudouTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\petitDoudouTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petiteChaiseFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\petiteChaiseFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitEcoleFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\petitEcoleFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petiteForetFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\petiteForetFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitEscalierFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\petitEscalierFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petiteTableTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\petiteTableTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitLitTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\petitLitTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitPontFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\petitPontFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitRoiTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\petitRoiTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

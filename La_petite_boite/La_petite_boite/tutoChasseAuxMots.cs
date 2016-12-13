@@ -6,19 +6,20 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
 using System.Media;
+using Ressources;
 
 namespace La_petite_boite
 {
     public partial class tutoChasseAuxMots : Form
     {
-        private Panel conteneurCarte;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox1;
-        private Button Ecouter;
+        public Panel conteneurCarte;
+        public PictureBox pictureBox2;
+        public PictureBox pictureBox1;
+        public Button Ecouter;
 
         Random localisation = new Random(); //
         List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
-        List<String> sounds = new List<String>();
+        List<Stream> sounds = new List<Stream>();
         SoundPlayer son = new SoundPlayer();
 
         int compteur = 0;
@@ -34,19 +35,20 @@ namespace La_petite_boite
         {
             this.Enabled = true;
             Ecouter.Enabled = true;
-            Program.petiteBoite.chargementImage("doudou1.png", "miniJeu", pictureBox1);
-            Program.petiteBoite.chargementImage("jardin1.png", "miniJeu", pictureBox2);
-            sounds.Add("UnDoudou.wav");
-            sounds.Add("Bahce.wav");
+            pictureBox1.Image = items.doudou1;
+            pictureBox2.Image = items.jardin1;
+
+            sounds.Add(items.doudouFR);
+            sounds.Add(items.jardinTurc);
         }
         
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (compteur < 2)
             {
-                Program.petiteBoite.chargementSon(sounds.ElementAt(compteur), "miniJeu", son);
-                Program.petiteBoite.chargementImage("carte1.png", "miniJeu", (PictureBox)conteneurCarte.Controls[compteur]);
-                Program.petiteBoite.chargementSon("applaudissements.wav", "miniJeu", son);
+                Program.petiteBoite.JouerSon(sounds.ElementAt(compteur));
+                conteneurCarte.Controls.OfType<PictureBox>().ElementAt(compteur).Image = items.dosCarte;
+                Program.petiteBoite.JouerSon(items.applaudissement);
                 compteur++;
             }
             

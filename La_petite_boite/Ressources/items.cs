@@ -181,6 +181,22 @@ namespace Ressources
             }
         }
 
+        public static Stream grandeChaiseFR
+        {
+            get
+            {
+                return Properties.Resources.grandeChaiseFR;
+            }
+        }
+
+        public static Stream petiteChaiseFR
+        {
+            get
+            {
+                return Properties.Resources.petiteChaiseFR;
+            }
+        }
+
         public static Stream chateauTurc
         {
             get
@@ -210,6 +226,22 @@ namespace Ressources
             get
             {
                 return Properties.Resources.petitChateauFR;
+            }
+        }
+
+        public static Stream grandChateauTurc
+        {
+            get
+            {
+                return Properties.Resources.grandChateauTurc;
+            }
+        }
+
+        public static Stream petitChateauTurc
+        {
+            get
+            {
+                return Properties.Resources.petitChateauTurc;
             }
         }
 
@@ -269,6 +301,22 @@ namespace Ressources
             }
         }
 
+        public static Stream grandDoudouTurc
+        {
+            get
+            {
+                return Properties.Resources.grandDoudouTurc;
+            }
+        }
+
+        public static Stream petitDoudouTurc
+        {
+            get
+            {
+                return Properties.Resources.petitDoudouTurc;
+            }
+        }
+
         public static Stream ecoleFR
         {
             get
@@ -285,6 +333,22 @@ namespace Ressources
             }
         }
 
+        public static Stream grandEcoleFR
+        {
+            get
+            {
+                return Properties.Resources.grandeEcoleFR;
+            }
+        }
+
+        public static Stream petitEcoleFR
+        {
+            get
+            {
+                return Properties.Resources.petitEcoleFR;
+            }
+        }
+
         public static Stream escalierTurc
         {
             get
@@ -298,6 +362,22 @@ namespace Ressources
             get
             {
                 return Properties.Resources.escalierFR;
+            }
+        }
+
+        public static Stream grandEscalierFR
+        {
+            get
+            {
+                return Properties.Resources.grandEscalierFR;
+            }
+        }
+
+        public static Stream petitEscalierFR
+        {
+            get
+            {
+                return Properties.Resources.petitEscalierFR;
             }
         }
 
@@ -349,6 +429,22 @@ namespace Ressources
             }
         }
 
+        public static Stream grandeForetFR
+        {
+            get
+            {
+                return Properties.Resources.grandeForetFR;
+            }
+        }
+
+        public static Stream petiteForetFR
+        {
+            get
+            {
+                return Properties.Resources.petiteForetFR;
+            }
+        }
+
         public static Stream litFR
         {
             get
@@ -362,6 +458,22 @@ namespace Ressources
             get
             {
                 return Properties.Resources.litTurc;
+            }
+        }
+
+        public static Stream grandLitTurc
+        {
+            get
+            {
+                return Properties.Resources.grandLitTurc;
+            }
+        }
+
+        public static Stream petitLitTurc
+        {
+            get
+            {
+                return Properties.Resources.petitLitTurc;
             }
         }
 
@@ -405,6 +517,22 @@ namespace Ressources
             }
         }
 
+        public static Stream grandPontFR
+        {
+            get
+            {
+                return Properties.Resources.grandPontFR;
+            }
+        }
+
+        public static Stream petitPontFR
+        {
+            get
+            {
+                return Properties.Resources.petitPontFR;
+            }
+        }
+
         public static Stream pijama
         {
             get
@@ -442,6 +570,22 @@ namespace Ressources
             get
             {
                 return Properties.Resources.roiTurc;
+            }
+        }
+
+        public static Stream grandRoiTurc
+        {
+            get
+            {
+                return Properties.Resources.grandRoiTurc;
+            }
+        }
+
+        public static Stream petitRoiTurc
+        {
+            get
+            {
+                return Properties.Resources.petitRoiTurc;
             }
         }
 
@@ -604,6 +748,22 @@ namespace Ressources
                 return Properties.Resources.tableTurc;
             }
         }
-        
+
+        public static Stream grandTableTurc
+        {
+            get
+            {
+                return Properties.Resources.grandTableTurc;
+            }
+        }
+
+        public static Stream petitTableTurc
+        {
+            get
+            {
+                return Properties.Resources.petiteTableTurc;
+            }
+        }
+
     }
 }

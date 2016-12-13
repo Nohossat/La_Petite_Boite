@@ -1,6 +1,4 @@
 ﻿using Grand_ou_Petit;
-using Grand_ou_petit_8;
-using Grand_ou_petit_12;
 using memory8Cartes;
 using Chasse_aux_mots;
 using Que_fait_le_Roi;

@@ -5,17 +5,19 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
 using System.Media;
+using Ressources;
+using System.Linq;
 
 namespace La_petite_boite
 {
     public partial class tutoMemory : Form
     {
         
-        private Panel conteneurCarte;
-        private PictureBox doubleCarte2;
-        private PictureBox carte2;
-        private PictureBox doubleCarte1;
-        private PictureBox carte1;
+        public Panel conteneurCarte;
+        public PictureBox doubleCarte2;
+        public PictureBox carte2;
+        public PictureBox doubleCarte1;
+        public PictureBox carte1;
         Random localisation = new Random(); //
         List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
         int compteur = 0;
@@ -52,8 +54,7 @@ namespace La_petite_boite
             //le dos des cartes est affiché
             foreach (PictureBox image in conteneurCarte.Controls)
             {
-                Program.petiteBoite.chargementImage("carte1.png", "miniJeu", image);
-                
+                image.Image = items.dosCarte;
             }
         }
         
@@ -63,14 +64,14 @@ namespace La_petite_boite
 
             if (compteur < 2)
             {
-                Program.petiteBoite.chargementImage("doudou1.png", "miniJeu", (PictureBox)conteneurCarte.Controls[compteur]);
-                Program.petiteBoite.chargementSon("UnDoudou.wav", "miniJeu", sound);
+                conteneurCarte.Controls.OfType<PictureBox>().ElementAt(compteur).Image = items.doudou1;
+                Program.petiteBoite.JouerSon(items.doudouFR);
                 compteur++;
             }
             else
             {
                 timer1.Enabled = false;
-                Program.petiteBoite.chargementSon("applaudissements.wav", "miniJeu", sound);
+                Program.petiteBoite.JouerSon(items.applaudissement);
                 button1.Enabled = true;
             }
         }

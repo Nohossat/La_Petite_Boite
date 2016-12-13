@@ -117,38 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="applaudissement" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\applaudissements2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="bahce" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\jardin11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bahceSon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bahce2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="dosCarte" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dosCarte.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="doudou" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\doudou31.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="doudouSon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Un Doudou.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="pouet" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pouet2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="roi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\roi31.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="roiSon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Le Roi2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="sato" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\chateau31.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="satoSon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bir Sato.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
 </root>

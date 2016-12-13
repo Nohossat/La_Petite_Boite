@@ -4,6 +4,8 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Media;
+using Ressources;
+using System.IO;
 
 namespace La_petite_boite
 {
@@ -25,8 +27,8 @@ namespace La_petite_boite
         List<Point> coordonneesCarte = new List<Point>();
         List<Point> coordonneesBouton = new List<Point>();
         List<Point> coordonneesCarteAPlacer = new List<Point>();
-        List<String> audio = new List<String>();
-        List<String> images = new List<String>();
+        List<Stream> audio = new List<Stream>();
+        List<Bitmap> images = new List<Bitmap>();
         int compteur = 0;
 
         public tutoQueFaitLeRoi()
@@ -39,10 +41,10 @@ namespace La_petite_boite
 
         private void QueFaitLeRoi_Load()
         {
-            audio.Add("leRoiRentreAuChateau.wav");
-            audio.Add("kralOkulaGirer.wav");
-            images.Add("chateau1.png");
-            images.Add("ecole1.png");
+            audio.Add(items.roiRentreAuChateauFR);
+            audio.Add(items.roiVaALecoleTurc);
+            images.Add(items.chateau1);
+            images.Add(items.ecole1);
             this.Enabled = true;
 
             button1.Tag = "1";
@@ -50,8 +52,8 @@ namespace La_petite_boite
             button2.Tag = "2";
             button2.Text = "Kral okula girer.";
 
-            Program.petiteBoite.chargementImage("chateau1.png", "miniJeu", pictureBox1);
-            Program.petiteBoite.chargementImage("ecole1.png", "miniJeu", pictureBox2);
+            pictureBox1.Image = items.chateau1;
+            pictureBox2.Image = items.ecole1;
 
             foreach (PictureBox image in conteneurCarteAPlacer.Controls)
             {
@@ -84,10 +86,10 @@ namespace La_petite_boite
             if (compteur < 2)
             {
                 conteneurBouton.Controls[compteur].Focus();
-                Program.petiteBoite.chargementSon(audio.ElementAt(compteur), "miniJeu", sound);
-                Program.petiteBoite.chargementImage(images.ElementAt(compteur), "miniJeu", (PictureBox)conteneurCarteAPlacer.Controls[compteur]);
+                Program.petiteBoite.JouerSon(audio.ElementAt(compteur));
+                conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(compteur).Image = images.ElementAt(compteur);
                 conteneurCarte.Controls[compteur].Hide();
-                Program.petiteBoite.chargementSon("applaudissements.wav", "miniJeu", sound);
+                Program.petiteBoite.JouerSon(items.applaudissement);
                 compteur++;
             }
             else

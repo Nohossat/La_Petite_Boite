@@ -108,8 +108,8 @@ namespace memory8Cartes
                         }
                     }
 
-                    ImageEnAttente1.Image = Properties.Resources.dosCarte;
-                    ImageEnAttente2.Image = Properties.Resources.dosCarte;
+                    ImageEnAttente1.Image = items.dosCarte;
+                    ImageEnAttente2.Image = items.dosCarte;
                     ImageEnAttente1 = null;
                     ImageEnAttente2 = null;
                 }

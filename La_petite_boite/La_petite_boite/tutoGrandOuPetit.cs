@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
 using System.Media;
+using Ressources;
 
 namespace La_petite_boite
 {
@@ -27,8 +28,8 @@ namespace La_petite_boite
         List<Point> coordonneesGrandeCarte = new List<Point>(); //liste des localisations des PictureBox
         List<Point> coordonneesCarteAPlacer = new List<Point>(); //liste des localisations des PictureBox
         List<Point> coordonneesPetiteCarte = new List<Point>(); //liste des localisations des PictureBox
-        List<String> audio = new List<String>();
-        List<String> images = new List<String>();
+        List<Stream> audio = new List<Stream>();
+        List<Bitmap> images = new List<Bitmap>();
 
         Assembly _assembly = Assembly.GetExecutingAssembly();
         Stream _imageStream;
@@ -46,19 +47,19 @@ namespace La_petite_boite
 
         private void chargementPartie()
         {
-            audio.Add("LeGrandChateau.wav");
-            audio.Add("LaGrandeBoite.wav");
-            images.Add("chateau1.png");
-            images.Add("coffre1.png");
-            images.Add("chateau3.png");
-            images.Add("coffre3.png");
+            audio.Add(items.grandChateauFR);
+            audio.Add(items.grandCoffreFR);
+            images.Add(items.chateau1);
+            images.Add(items.coffre1);
+            images.Add(items.chateau1);
+            images.Add(items.coffre1);
             this.Enabled = true;
             button1.Enabled = false;
 
             //récupérer les localisations des grandes cartes
             foreach (PictureBox image in conteneurGrandeCarte.Controls)
             {
-                Program.petiteBoite.chargementImage("carte1.png", "miniJeu", image);
+                image.Image = items.dosCarte;
                 image.Enabled = true;
                 coordonneesGrandeCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
             }
@@ -78,61 +79,11 @@ namespace La_petite_boite
             {
                 image.Enabled = true;
                 image.Visible = true;
-                Program.petiteBoite.chargementImage("carte1.png", "miniJeu", image);
+                image.Image = items.dosCarte;
                 coordonneesPetiteCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
             }
         }
         
-        public void chargementImage(String res, PictureBox p)
-        {
-            //access resource
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.miniJeu." + res);
-                Console.WriteLine(res);
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //display image
-            try
-            {
-                p.Image = new Bitmap(_imageStream);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Cant create image for picturebox!" + e);
-            }
-        }
-
-        public void chargementSon(String res, SoundPlayer son)
-        {
-            //access resource
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _sonStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.miniJeu." + res);
-                Console.WriteLine(res);
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //play sound
-            try
-            {
-                son = new System.Media.SoundPlayer(_sonStream);
-                son.Play();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Cant play the sound" + e);
-            }
-        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -140,31 +91,31 @@ namespace La_petite_boite
             if (compteur < 2)
             {
                 //lecture d-une carte de la premiere ligne + son
-                Program.petiteBoite.chargementImage(images.ElementAt(compteur), "miniJeu", (PictureBox) conteneurGrandeCarte.Controls[compteur]);
-                Program.petiteBoite.chargementSon(audio.ElementAt(compteur), "miniJeu", sound);
+                conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(compteur).Image = images.ElementAt(compteur);
+                Program.petiteBoite.JouerSon(audio.ElementAt(compteur));
 
                 if (compteur == 0)
                 {
                     //lecture de la premiere carte de la ligne du bas
                     //timer2.Enabled = true;
-                    Program.petiteBoite.chargementImage(images.ElementAt(2), "miniJeu", (PictureBox)conteneurPetiteCarte.Controls[compteur]);
+                    conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(compteur).Image = images.ElementAt(2);
                     //timer2.Enabled = true;
                     //on retourne la carte
-                    Program.petiteBoite.chargementImage("carte1.png", "miniJeu", (PictureBox)conteneurPetiteCarte.Controls[compteur]);
+                    conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(compteur).Image = items.dosCarte;
                     //timer2.Enabled = true;
                     //lecture de la deuxieme carte
-                    Program.petiteBoite.chargementImage(images.ElementAt(3), "miniJeu", (PictureBox)conteneurPetiteCarte.Controls[1]);
+                    conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(1).Image = images.ElementAt(3);
                     //timer2.Enabled = true;
                     //on retourne la carte
-                    Program.petiteBoite.chargementImage("carte1.png", "miniJeu", (PictureBox)conteneurPetiteCarte.Controls[1]);
+                    conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(1).Image = items.dosCarte;
                 }
 
                 //timer2.Enabled = true;
-                Program.petiteBoite.chargementImage(images.ElementAt(compteur+2), "miniJeu", (PictureBox) conteneurPetiteCarte.Controls[compteur]);
+                conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(compteur).Image = images.ElementAt(compteur+2);
                 //timer2.Enabled = true;
                 conteneurPetiteCarte.Controls[compteur].Hide();
                 //timer2.Enabled = true;
-                Program.petiteBoite.chargementImage(images.ElementAt(compteur+2), "miniJeu", (PictureBox) conteneurCarteAPlacer.Controls[compteur]);
+                conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(compteur).Image = images.ElementAt(compteur + 2);
                 compteur++;
             }
             else

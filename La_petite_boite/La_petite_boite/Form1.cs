@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Drawing.Text;
 using System.Media;
 using Jeu;
+using Ressources;
 
 //reste a faire:  design,
 
@@ -623,6 +624,14 @@ namespace La_petite_boite
             {
                 Console.WriteLine("Error accessing fontfile!" + t);
             }
+        }
+
+        public void JouerSon(Stream stream)
+        {
+            stream.Position = 0;
+            SoundPlayer son = new SoundPlayer(stream);
+            son.Play();
+            son.Dispose();
         }
 
         public void chargementImage (String res, String dossier, Panel pan)

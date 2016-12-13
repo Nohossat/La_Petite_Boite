@@ -67,7 +67,8 @@ namespace Que_fait_le_Roi
         {
             initialize();
             chargementPartie();
-
+            score = 0;
+            finalScore = 4;
             button1.Tag = "1";
             button1.Text = "Le roi rentre au château.";
             button2.Tag = "2";
@@ -94,39 +95,6 @@ namespace Que_fait_le_Roi
             this.pictureBox2.Image = items.ecole1;
             this.pictureBox3.Image = items.foret1;
             this.pictureBox4.Image = items.jardin1;
-        }
-        
-        public void Ecouter(object sender, EventArgs e)
-        {
-            int index;
-            Button bouton = (Button)sender;
-            sonTag = (String)bouton.Tag;
-            sonBoutonEcoute = true;
-            index = Int32.Parse((String)bouton.Tag) - 1;
-            EcouterQueFaitLeRoi(sons[index]);
-        }
-
-        public void Image_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.All;
-        }
-
-        public void Image_DragDrop(object sender, DragEventArgs e)
-        {
-            int index = Int32.Parse(sonTag) - 1;
-            PictureBox image = (PictureBox)sender;
-            DragDropQueFaitLeRoi(image, (PictureBox)conteneurCarte.Controls[index], 4);
-            
-        }
-
-        private void receveurImage_MouseDown(object sender, MouseEventArgs e)
-        {
-            PictureBox image = (PictureBox)sender;
-            imageRecuperee = image.Image;
-            carteTag = (String)image.Tag;
-            int index = Int32.Parse(carteTag) + 3;
-            MouseDownQueFaitLeRoi(index);
-            conteneurCarteAPlacer.DoDragDrop("x", DragDropEffects.All);
         }
     }
 
@@ -162,7 +130,8 @@ namespace Que_fait_le_Roi
         {
             initialize();
             chargementPartie();
-
+            score = 0;
+            finalScore = 8;
             button1.Tag = "1";
             button1.Text = "Kral şatoya girer.";
             button2.Tag = "2";
@@ -211,41 +180,6 @@ namespace Que_fait_le_Roi
             this.pictureBox16.Image = items.coffre1;
         }
         
-        private void Ecouter(object sender, EventArgs e)
-        {
-            int index;
-            Button bouton = (Button)sender;
-            sonTag = (String)bouton.Tag;
-            sonBoutonEcoute = true;
-            index = Int32.Parse((String)bouton.Tag) - 1;
-            EcouterQueFaitLeRoi(sons[index]);
-        }
-
-        private void Image_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.All;
-        }
-
-        private void Image_DragDrop(object sender, DragEventArgs e)
-        {
-            int index = Int32.Parse(sonTag) - 1;
-            PictureBox image = (PictureBox)sender;
-            DragDropQueFaitLeRoi(image, (PictureBox)conteneurCarte.Controls[index], 8);
-            
-        }
-
-        private void receveurImage_MouseDown(object sender, MouseEventArgs e)
-        {
-            PictureBox image = (PictureBox)sender;
-            imageRecuperee = image.Image;
-            carteTag = (String)image.Tag;
-            Console.WriteLine(carteTag);
-            int index = Int32.Parse(carteTag) + 7;
-            Console.WriteLine(index);
-            MouseDownQueFaitLeRoi(index);
-            conteneurCarteAPlacer.DoDragDrop("x", DragDropEffects.All);
-        }
-
     }
 
    public partial class QueFaitLeRoi12Panel : QueFaitLeRoiClass
@@ -292,6 +226,8 @@ namespace Que_fait_le_Roi
         {
             initialize();
             chargementPartie();
+            score = 0;
+            finalScore = 12;
 
             button1.Tag = "1";
             button1.Text = "Le roi rentre au château.";
@@ -361,40 +297,6 @@ namespace Que_fait_le_Roi
             this.pictureBox21.Image = items.pause1;
         }
         
-        private void Ecouter(object sender, EventArgs e)
-        {
-            int index;
-            Button bouton = (Button)sender;
-            sonTag = (String)bouton.Tag;
-            sonBoutonEcoute = true;
-            index = Int32.Parse((String)bouton.Tag) - 1;
-            EcouterQueFaitLeRoi(sons[index]);
-            
-        }
-
-        private void Image_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.All;
-        }
-
-        private void Image_DragDrop(object sender, DragEventArgs e)
-        {
-            int index = Int32.Parse(sonTag) - 1;
-            PictureBox image = (PictureBox)sender;
-            DragDropQueFaitLeRoi(image, (PictureBox)conteneurCarte.Controls[index], 12);
-        }
-
-        private void receveurImage_MouseDown(object sender, MouseEventArgs e)
-        {
-
-            PictureBox image = (PictureBox)sender;
-            imageRecuperee = image.Image;
-            carteTag = (String)image.Tag;
-            Console.WriteLine(carteTag);
-            int index = Int32.Parse(carteTag) + 11;
-            Console.WriteLine(index);
-            MouseDownQueFaitLeRoi(index);
-            conteneurCarteAPlacer.DoDragDrop("x", DragDropEffects.All);
-        }   
+        
     }
 }

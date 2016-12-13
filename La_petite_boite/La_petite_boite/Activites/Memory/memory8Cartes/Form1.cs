@@ -52,11 +52,13 @@ namespace memory8Cartes
         PictureBox carte2;
         PictureBox doubleCarte1;
         PictureBox carte1;
+        
 
         public MemoryPanel()
         {
             initialize();
             this.chargementPartie();
+            finalScore = 4;
             sons.Add(items.doudouFR);
             sons.Add(items.chateauTurc);
             sons.Add(items.jardinTurc);
@@ -67,20 +69,6 @@ namespace memory8Cartes
             img.Add(items.jardin1);
             img.Add(items.roi1);
         }
-
-        public void jouer(object sender, EventArgs e)
-        {
-            int index;
-            PictureBox carteCourante = (PictureBox)sender;
-
-            index = Int32.Parse((String)carteCourante.Tag) - 1;
-
-            //attribution des mots pour chaque paires selon le tag 
-
-            chargementData(carteCourante, img[index], sons[index]);
-            controleCartes(carteCourante, 4);
-        }
-
     }
 
     public partial class Memory12Panel : Memory
@@ -102,6 +90,7 @@ namespace memory8Cartes
         {
             initialize();
             chargementPartie();
+            finalScore = 6;
             sons.Add(items.foretTurc);
             sons.Add(items.ecoleTurc);
             sons.Add(items.tableFR);
@@ -117,19 +106,6 @@ namespace memory8Cartes
             img.Add(items.chaise1);
         }
         
-        private void jouer(object sender, EventArgs e)
-        {
-            int index;
-            PictureBox carteCourante = (PictureBox)sender;
-
-            index = Int32.Parse((String)carteCourante.Tag) - 1;
-
-            //attribution des mots pour chaque paires selon le tag 
-
-            chargementData(carteCourante, img[index], sons[index]);
-            controleCartes(carteCourante, 6);
-            
-         }
      }
     
     public partial class Memory16Panel : Memory
@@ -158,7 +134,7 @@ namespace memory8Cartes
         {
             initialize();
             chargementPartie();
-
+            finalScore = 9;
             //chargement sons
             sons.Add(items.ecoleFR);
             sons.Add(items.coffreFR);
@@ -180,20 +156,6 @@ namespace memory8Cartes
             img.Add(items.foret1);
             img.Add(items.pijama1);
             img.Add(items.chateau1);
-        }
-        
-        private void jouer(object sender, EventArgs e)
-        {
-            int index;
-            PictureBox carteCourante = (PictureBox)sender;
-
-            index = Int32.Parse((String)carteCourante.Tag) - 1;
-
-            //attribution des mots pour chaque paires selon le tag 
-
-            chargementData(carteCourante, img[index], sons[index]);
-            controleCartes(carteCourante, 9);
-            
         }
     }
 }

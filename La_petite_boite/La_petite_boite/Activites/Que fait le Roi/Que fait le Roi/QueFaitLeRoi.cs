@@ -12,6 +12,7 @@ namespace Que_fait_le_Roi
 {
     public class QueFaitLeRoiClass : Jeu.Jeu
     {
+        public int finalScore;
         public int score;
         public Panel conteneurCarte;
         public Panel conteneurBouton;
@@ -43,7 +44,14 @@ namespace Que_fait_le_Roi
             receveurTag = "";
             sonBoutonEcoute = false;
             imageRecuperee = null;
-
+            int indexEmplacement = 0;
+            //on prepare les boutons
+            foreach (Button bouton in conteneurBouton.Controls)
+            {
+                bouton.Enabled = true;
+                coordonneesBouton.Add(bouton.Location);
+            }
+            
             //on prepare les emplacements 
 
             foreach (PictureBox image in conteneurCarteAPlacer.Controls)
@@ -55,15 +63,19 @@ namespace Que_fait_le_Roi
                 coordonneesCarteAPlacer.Add(image.Location);
             }
 
-            //on repere les coordonnees de chaque carte
-            foreach (PictureBox image in conteneurCarteAPlacer.Controls)
+            //on repere la localisation des boutons et des emplacements
+            foreach (Button bouton in conteneurBouton.Controls)
             {
-                int next = localisationCarteAPlacer.Next(coordonneesCarteAPlacer.Count);
-                Point p = coordonneesCarteAPlacer[next];
-                image.Location = p;
-                coordonneesCarteAPlacer.Remove(p);
+                int next = localisationBouton.Next(coordonneesBouton.Count);
+                Point p = coordonneesBouton[next];
+                Point pEmplacement = coordonneesCarteAPlacer[next];
+                bouton.Location = p;
+                conteneurCarteAPlacer.Controls[indexEmplacement].Location = pEmplacement;
+                coordonneesBouton.Remove(p);
+                coordonneesCarteAPlacer.Remove(pEmplacement);
+                indexEmplacement++;
             }
-
+            
             //on prepare les carte a placer
             foreach (PictureBox image in conteneurCarte.Controls)
             {
@@ -83,53 +95,53 @@ namespace Que_fait_le_Roi
                 coordonneesCarte.Remove(p);
             }
 
-            //on prepare les boutons
-            foreach (Button bouton in conteneurBouton.Controls)
-            {
-                bouton.Enabled = true;
-                coordonneesBouton.Add(bouton.Location);
-            }
-
-            //on repere la localisation des boutons
-            foreach (Button bouton in conteneurBouton.Controls)
-            {
-                int next = localisationBouton.Next(coordonneesBouton.Count);
-                Point p = coordonneesBouton[next];
-                bouton.Location = p;
-                coordonneesBouton.Remove(p);
-            }
+           
         }
-
-        public void EcouterQueFaitLeRoi(Stream str)
+        
+        public void Ecouter(object sender, EventArgs e)
         {
+            int index;
+            Button bouton = (Button)sender;
+            sonTag = (String)bouton.Tag;
+            sonBoutonEcoute = true;
+            index = Int32.Parse((String)bouton.Tag) - 1;
+
             foreach (PictureBox image in conteneurCarteAPlacer.Controls)
             {
                 image.AllowDrop = true;
             }
 
-            JouerSon(str);
+            JouerSon(sons[index]);
         }
 
-        public void DragDropQueFaitLeRoi(PictureBox sender, PictureBox pic, int score)
+        public void Image_DragEnter(object sender, DragEventArgs e)
         {
-            receveurTag = (String)sender.Tag;
+            e.Effect = DragDropEffects.All;
+        }
+
+        public void Image_DragDrop(object sender, DragEventArgs e)
+        {
+            int index = Int32.Parse(sonTag) - 1;
+            PictureBox image = (PictureBox)sender;
+
+            receveurTag = (String)image.Tag;
 
             if (carteTag == sonTag & receveurTag == sonTag)
             {
-                sender.Image = imageRecuperee;
+                image.Image = imageRecuperee;
                 sonBoutonEcoute = false;
                 JouerSon(items.applaudissement);
-                pic.Hide();
-                sender.Enabled = false;
-                score++;
+                conteneurCarte.Controls[index].Hide();
+                image.Enabled = false;
+                this.score++;
             }
             else
             {
                 JouerSon(items.pouet);
-                sender.Image = null;
+                image.Image = null;
             }
 
-            if (this.score == score)
+            if (this.score == finalScore)
             {
                 foreach (PictureBox imageCarte in conteneurCarte.Controls)
                 {
@@ -144,14 +156,21 @@ namespace Que_fait_le_Roi
                 MessageBox.Show("Tu as fini le 1er niveau !", "Bravo !");
                 this.Enabled = false;
             }
+
         }
 
-        public void MouseDownQueFaitLeRoi(int nbr)
+        public void receveurImage_MouseDown(object sender, MouseEventArgs e)
         {
+            PictureBox image = (PictureBox)sender;
+            imageRecuperee = image.Image;
+            carteTag = (String)image.Tag;
+            int index = Int32.Parse(carteTag) + finalScore - 1;
+
             if (sonBoutonEcoute == true)
             {
-                JouerSon(sons[nbr]);
+                JouerSon(sons[index]);
             }
+            conteneurCarteAPlacer.DoDragDrop("x", DragDropEffects.All);
         }
     }
 }

@@ -48,32 +48,18 @@ namespace Chasse_aux_mots
 
     public partial class ChasseAuxMotsPanel : chasseMots
     {
-        
         PictureBox pictureBox4;
         PictureBox pictureBox3;
         PictureBox pictureBox2;
         PictureBox pictureBox1;
-        Boolean[] trouves = new Boolean[4];
         
-
+        
         public ChasseAuxMotsPanel()
         {
             initializeChasseAuxMots4();
             chargementPartie();
-        }
-
-        private new void chargementPartie()
-        {
-            this.Enabled = true;
-            Ecouter.Enabled = true;
-            carteACliquerTag = "";
-            imageCliqueTag = "";
-            
-            pictureBox1.Image = items.doudou1;
-            pictureBox2.Image = items.jardin1;
-            pictureBox3.Image = items.chateau1;
-            pictureBox4.Image = items.roi1;
-
+            finalScore = 4;
+            trouves = new Boolean[4];
             //on reunit l-ensemble des flags dans un tableau
 
             for (int i = 0; i < trouves.Count(); i++)
@@ -81,30 +67,19 @@ namespace Chasse_aux_mots
                 trouves[i] = false;
             }
 
+            pictureBox1.Image = items.doudou1;
+            pictureBox2.Image = items.jardin1;
+            pictureBox3.Image = items.chateau1;
+            pictureBox4.Image = items.roi1;
+
             //on regroupe l-ensemble des audios dans un vecteur pour faciliter leur gestion
 
             sons.Add(items.doudouTurc);
             sons.Add(items.jardinTurc);
             sons.Add(items.chateauTurc);
             sons.Add(items.roiFR);
-            
-            //récupérer les localisations des cartes
-            foreach (PictureBox image in conteneurCarte.Controls)
-            {
-                image.Enabled = true;
-                coordonneesCartes.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
-            }
-
-            //mélange des cartes
-            foreach (PictureBox image in conteneurCarte.Controls)
-            {
-                int next = localisation.Next(coordonneesCartes.Count);
-                Point p = coordonneesCartes[next];
-                image.Location = p;
-                coordonneesCartes.Remove(p);
-            }
         }
-
+        
         private void Ecouter_Click(object sender, EventArgs e)
         {
             Random choix = new Random();
@@ -117,15 +92,6 @@ namespace Chasse_aux_mots
 
             index = choixSon - 1;
             JouerSon(sons[index], choixSon, ref carteACliquerTag);
-         
-        }
-
-        private void CliquerReponse(object sender, EventArgs e)
-        {
-            PictureBox image = (PictureBox) sender;
-            imageCliqueTag = (String) image.Tag;
-
-            reponse(4, image, ref trouves[index]);
         }
         
     }
@@ -140,23 +106,17 @@ namespace Chasse_aux_mots
         PictureBox pictureBox3;
         PictureBox pictureBox2;
         PictureBox pictureBox1;
-        Boolean[] trouves = new Boolean[8];
+        
 
         public ChasseAuxMots8Panel()
         {
             initializeChasseAuxMots8();
             chargementPartie();
-        }
-
-        private new void chargementPartie()
-        {
-            Ecouter.Enabled = true;
-            carteACliquerTag = "";
-            imageCliqueTag = "";
-
+            finalScore = 8;
+            trouves = new Boolean[8];
             //on reunit l-ensemble des flags dans un tableau
-            
-            for (int i=0; i< trouves.Count(); i++)
+
+            for (int i = 0; i < trouves.Count(); i++)
             {
                 trouves[i] = false;
             }
@@ -181,24 +141,8 @@ namespace Chasse_aux_mots
             sons.Add(items.tableFR);
             sons.Add(items.litFR);
             sons.Add(items.roiFR);
-
-            //récupérer les localisations des cartes
-            foreach (PictureBox image in conteneurCarte.Controls)
-            {
-                image.Enabled = true;
-                coordonneesCartes.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
-            }
-
-            //mélange des cartes
-            foreach (PictureBox image in conteneurCarte.Controls)
-            {
-                int next = localisation.Next(coordonneesCartes.Count);
-                Point p = coordonneesCartes[next];
-                image.Location = p;
-                coordonneesCartes.Remove(p);
-            }
         }
-
+        
         private void Ecouter_Click(object sender, EventArgs e)
         {
             Random choix = new Random();
@@ -210,15 +154,6 @@ namespace Chasse_aux_mots
 
             index = choixSon - 1;
             JouerSon(sons[index], choixSon, ref carteACliquerTag);
-        }
-
-        private void CliquerReponse(object sender, EventArgs e)
-        {
-            PictureBox image = (PictureBox)sender;
-            imageCliqueTag = (String)image.Tag;
-
-            reponse(8, image, ref trouves[index]);
-            
         }
         
     }
@@ -237,20 +172,14 @@ namespace Chasse_aux_mots
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        Boolean[] trouves = new Boolean[12];
+        
 
         public ChasseAuxMots12Panel()
         {
             initialize();
             chargementPartie();
-        }
-
-        private new void chargementPartie()
-        {
-            this.Enabled = true;
-            Ecouter.Enabled = true;
-            carteACliquerTag = "";
-            imageCliqueTag = "";
+            finalScore = 12;
+            trouves = new Boolean[12];
 
             pictureBox1.Image = items.doudou1;
             pictureBox2.Image = items.jardin1;
@@ -286,24 +215,8 @@ namespace Chasse_aux_mots
             sons.Add(items.coffreFR);
             sons.Add(items.escalierTurc);
             sons.Add(items.ecoleTurc);
-
-            //récupérer les localisations des cartes
-            foreach (PictureBox image in conteneurCarte.Controls)
-            {
-                image.Enabled = true;
-                coordonneesCartes.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
-            }
-
-            //mélange des cartes
-            foreach (PictureBox image in conteneurCarte.Controls)
-            {
-                int next = localisation.Next(coordonneesCartes.Count);
-                Point p = coordonneesCartes[next];
-                image.Location = p;
-                coordonneesCartes.Remove(p);
-            }
         }
-
+        
         private void Ecouter_Click(object sender, EventArgs e)
         {
             Random choix = new Random();
@@ -316,15 +229,6 @@ namespace Chasse_aux_mots
 
             index = choixSon - 1;
             JouerSon(sons[index], choixSon, ref carteACliquerTag);
-            
-        }
-
-        private void CliquerReponse(object sender, EventArgs e)
-        {
-            PictureBox image = (PictureBox)sender;
-            imageCliqueTag = (String)image.Tag;
-
-            reponse(12, image, ref trouves[index]);
         }
     }
 }

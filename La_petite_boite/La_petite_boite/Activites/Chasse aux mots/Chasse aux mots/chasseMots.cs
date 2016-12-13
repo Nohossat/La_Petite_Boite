@@ -14,6 +14,7 @@ namespace Chasse_aux_mots
     public class chasseMots : Jeu.Jeu
     {
         public int score = 0;
+        public int finalScore;
         public int index;
         public Panel conteneurCarte;
         public String carteACliquerTag;
@@ -22,15 +23,35 @@ namespace Chasse_aux_mots
         public List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
         public List<Stream> sons = new List<Stream>();
         public Button Ecouter;
+        public Boolean[] trouves;
 
         public chasseMots ()
         {
 
         }
 
-        private new void chargementPartie()
+        public new void chargementPartie()
         {
+            this.Enabled = true;
+            Ecouter.Enabled = true;
+            carteACliquerTag = "";
+            imageCliqueTag = "";
 
+            //récupérer les localisations des cartes
+            foreach (PictureBox image in conteneurCarte.Controls)
+            {
+                image.Enabled = true;
+                coordonneesCartes.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
+            }
+
+            //mélange des cartes
+            foreach (PictureBox image in conteneurCarte.Controls)
+            {
+                int next = localisation.Next(coordonneesCartes.Count);
+                Point p = coordonneesCartes[next];
+                image.Location = p;
+                coordonneesCartes.Remove(p);
+            }
         }
 
         public void AffichageDosCarte(PictureBox img, ref Boolean trouve)
@@ -55,9 +76,9 @@ namespace Chasse_aux_mots
                 JouerSon(items.applaudissement);
                 AffichageDosCarte(img, ref trouve);
                 img.Enabled = false;
-                score++;
+                this.score++;
 
-                if (this.score == score)
+                if (this.score == finalScore)
                 {
                     MessageBox.Show("Bien joué, tu as fini la partie !", "Bravo !");
                     Ecouter.Enabled = false;
@@ -69,6 +90,14 @@ namespace Chasse_aux_mots
                 JouerSon(items.pouet);
             }
         }
-        
+
+        public void CliquerReponse(object sender, EventArgs e)
+        {
+            PictureBox image = (PictureBox)sender;
+            imageCliqueTag = (String)image.Tag;
+
+            reponse(finalScore, image, ref trouves[index]);
+        }
+
     }
 }

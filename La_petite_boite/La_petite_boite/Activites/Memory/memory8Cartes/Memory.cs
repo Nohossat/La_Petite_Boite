@@ -12,7 +12,8 @@ namespace memory8Cartes
 {
     public class Memory : Jeu.Jeu
     {
-        public int score = 0;
+        public int score;
+        public int finalScore;
         public Random localisation = new Random(); //
         public List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
         public PictureBox ImageEnAttente1; //la première carte sélectionnée
@@ -50,20 +51,31 @@ namespace memory8Cartes
             pic.Image = img;
             JouerSon(str);
         }
+        
 
-        public void controleCartes (PictureBox pic, int score)
+        public void jouer(object sender, EventArgs e)
         {
+            int index;
+            PictureBox carteCourante = (PictureBox)sender;
+
+            index = Int32.Parse((String)carteCourante.Tag) - 1;
+
+            //attribution des mots pour chaque paires selon le tag 
+
+            chargementData(carteCourante, img[index], sons[index]);
+            //controleCartes(carteCourante, finalScore);
+
             DialogResult rep;
 
             //contrôles sur les cartes sélectionnées
             if (ImageEnAttente1 == null)
             {
-                ImageEnAttente1 = pic;
+                ImageEnAttente1 = carteCourante;
                 ImageEnAttente1.Enabled = false; //évite le fait de pouvoir cliquer 2 fois sur une carte       
             }
             else if (ImageEnAttente1 != null && ImageEnAttente2 == null)
             {
-                ImageEnAttente2 = pic;
+                ImageEnAttente2 = carteCourante;
                 ImageEnAttente1.Enabled = true;
             }
 
@@ -83,7 +95,7 @@ namespace memory8Cartes
                         ImageEnAttente1 = null;
                         ImageEnAttente2 = null;
 
-                        score++;
+                        this.score++;
                     }
                     else
                     {
@@ -116,7 +128,7 @@ namespace memory8Cartes
             }
 
 
-            if (this.score == score)
+            if (this.score == finalScore)
             {
                 MessageBox.Show("Super ! Vous avez fini la partie !", "BRAVO !!!");
                 this.Enabled = false;

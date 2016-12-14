@@ -32,8 +32,6 @@ namespace La_petite_boite
         List<Bitmap> images = new List<Bitmap>();
 
         Assembly _assembly = Assembly.GetExecutingAssembly();
-        Stream _imageStream;
-        Stream _sonStream;
 
         int compteur = 0;
         int seconds = 0;

@@ -69,7 +69,7 @@ namespace memory8Cartes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(978, 575);
+            this.ClientSize = new System.Drawing.Size(1274, 700);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -245,8 +245,9 @@ namespace memory8Cartes
             // 
             // MemoryPanel
             // 
-            this.ClientSize = new System.Drawing.Size(999, 528);
-            this.Location = new System.Drawing.Point(0, 0);
+            this.ClientSize = new System.Drawing.Size(700, 528);
+            this.Location = new System.Drawing.Point(330, 190);
+            this.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Controls.Add(this.conteneurCarte);
             this.Name = "Memory8";
             this.Text = "Jeu Memory";
@@ -466,8 +467,9 @@ namespace memory8Cartes
             // 
             // Memory12Panel
             // 
-            this.ClientSize = new System.Drawing.Size(999, 700);
+            this.ClientSize = new System.Drawing.Size(700, 528);
             this.Controls.Add(this.conteneurCarte);
+            this.Location = new System.Drawing.Point(350,190);
             this.Name = "Memory12";
             this.Text = "Form1";
             this.conteneurCarte.ResumeLayout(false);
@@ -486,7 +488,7 @@ namespace memory8Cartes
         }
     }
 
-    partial class Memory16Panel
+    partial class Memory18Panel
     {
 
         /// <summary>
@@ -772,11 +774,11 @@ namespace memory8Cartes
             this.carte1.Tag = "1";
             this.carte1.Click += new System.EventHandler(this.jouer);
             // 
-            // Memory16Panel
+            // Memory18Panel
             // 
-            this.ClientSize = new System.Drawing.Size(999, 528);
+            this.ClientSize = new System.Drawing.Size(890, 528);
             this.Controls.Add(this.conteneurCarte);
-            this.Location = new System.Drawing.Point(0, 0);
+            this.Location = new System.Drawing.Point(230, 190);
             this.Name = "Memory18";
             this.Text = "Memory18";
             this.conteneurCarte.ResumeLayout(false);

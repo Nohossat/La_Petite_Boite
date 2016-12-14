@@ -13,14 +13,12 @@ namespace La_petite_boite
     public class Lieu : Panel
     {
         Point position;
-        String imgDebut;
-        String imgFin;
-        String imgSurvol;
+        Bitmap imgDebut;
+        Bitmap imgFin;
+        Bitmap imgSurvol;
         String map;
-        Assembly _assembly = Assembly.GetExecutingAssembly();
-        Stream _imageStream;
 
-        public Lieu (int Top, int Left, int Width, int Height, String imageDebut, String imageSurvol, String imageFin, String map, Point p, String nom)
+        public Lieu (int Top, int Left, int Width, int Height, Bitmap imageDebut, Bitmap imageSurvol, Bitmap imageFin, String map, Point p, String nom)
         {
             this.Name = nom;
             this.Top = Top;
@@ -34,82 +32,29 @@ namespace La_petite_boite
             this.imgSurvol = imageSurvol;
             this.imgFin = imageFin;
             this.map = map;
-            chargementImage(imageDebut);
+            this.BackgroundImage = imageDebut;
         }
 
         public Lieu()
         {
 
         }
-
-        public void chargementImage(String res)
-        {
-            //accessing image
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.Jeu." + res);
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //display image
-            try
-            {
-                this.BackgroundImage = new Bitmap(_imageStream);
-            }
-            catch
-            {
-                Console.WriteLine("cant create image LIEU!");
-            }
-
-            this.Update();
-        }
         
         public void chargementDebutImage()
         {
-            chargementImage(imgDebut);
+            this.BackgroundImage = imgDebut;
         }
 
         public void chargementSurvolImage()
         {
-            chargementImage(imgSurvol);
+            this.BackgroundImage = imgSurvol;
         }
 
         public void chargementFinImage()
         {
-            chargementImage(imgFin);
+            this.BackgroundImage = imgFin;
         }
-
-        /*public void chargementMap(Panel p)
-        {
-            //accessing image
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.Jeu." + map);
-                p.Name = map;
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //display image
-            try
-            {
-                p.BackgroundImage = new Bitmap(_imageStream);
-            }
-            catch
-            {
-                Console.WriteLine("cant create image LIEU!");
-            }
-
-            this.Update();
-        }*/
-
+        
         public Point getPosition()
         {
             return this.position;

@@ -20,21 +20,24 @@ namespace La_petite_boite
     public partial class Form1 : Form
     {
         Assembly _assembly = Assembly.GetExecutingAssembly();
-        Stream _imageStream;
-        Stream _sonStream;
 
         //creation des objets et variables globales
         public static Boolean chargementReussi = false;
         public bool sauvegardeFlag = false;
+
         public static int age;
         public static int top;
         public static int left;
         public static int score = 0;
+        public static int avatar;
         public int IndiceJeu = 0;
         public int choixFinMiniJeu=0;
         public static int[] epreuvesEmportees = new int[4];
+
         public Joueur chevalier;
+
         public static Label obj = new Label();
+
         public static Label titreJeu = new Label();
         public static Panel objectif = new Panel();
         public static Panel chargerJoueur = new Panel();
@@ -43,50 +46,62 @@ namespace La_petite_boite
         public Panel Jeu = new Panel();
         public Panel miniJeu = new Panel();
         public Panel CarteJeu = new Panel();
+
         public static String dossier = "";
         public static String nom;
-        public static String avatar;
         public static String dos;
         public static String lieuTemporaire;
         public static String resultatJeu;
         public static List<String> joueursFichier = new List<string>();
         public static List<String> listeSauvegarde = new List<string>();
+
         public List<Jeu.Jeu> epreuvesO;
         public static Lieu positionInitiale = new Lieu();
         public static PrivateFontCollection privateFontCollection;
         public Form tuto;
 
         //private variables
+        int indexAvatar = -1;
+
         SpecialButton nouvellePartie = new SpecialButton();
         SpecialButton chargerPartie = new SpecialButton();
         SpecialButton quitter = new SpecialButton();
+
         ControlButton commencer = new ControlButton();
         ControlButton retour = new ControlButton();
+
         LittleButton pret = new LittleButton(600);
         LittleButton suivant = new LittleButton(600);
         LittleButton precedent = new LittleButton(600);
         LittleButton AfficherCarte = new LittleButton(600);
+
         Button Yes;
         Button No;
+
         ComboBox listeDossierSauvegarde = new ComboBox();
-        int compteurClickAvatar = 0;
-        Lieu Village = new Lieu(512, -28, 448, 270, "villagePrevious.png", "villageAfter.png", "villageFin.png", "mapVillage.png", new Point(140, 520), "Memory"); //MEMORY
-        Lieu Chateau = new Lieu(126, 1026, 327, 404, "chateauPrevious.png", "chateauAfter.png", "chateauFin.png", "mapChateau.png", new Point(1130, 380),"Chateau");//CHATEAU
-        Lieu Cabane = new Lieu(437, 775, 213, 192, "cabanePrevious.png", "cabaneAfter.png", "cabaneFin.png", "mapCabane.png", new Point(830, 520), "Chasse aux mots");//CHASSE AUX MOTS
-        Lieu Tronc = new Lieu(104, 620, 177, 196, "troncPrevious.png", "troncAfter.png", "troncFin.png", "mapTronc.png", new Point(650, 186), "Grand Ou Petit");//GRAND OU PETIT
-        Lieu Montagne = new Lieu(1, 1, 378, 196, "montagnePrevious.png", "montagneAfter.png", "montagneFin.png", "mapMontagne.png", new Point(140, 156),"Que fait le Roi?");//QUE FAIT LE ROI
+        
+        Lieu Village = new Lieu(512, -28, 448, 270, items.villagePrevious, items.villageAfter, items.villageFin, "mapVillage.png", new Point(140, 520), "Memory"); //MEMORY
+        Lieu Chateau = new Lieu(126, 1026, 327, 404, items.chateauPrevious, items.chateauAfter, items.chateauFin, "mapChateau.png", new Point(1130, 380),"Chateau");//CHATEAU
+        Lieu Cabane = new Lieu(437, 775, 213, 192, items.cabanePrevious, items.cabaneAfter, items.cabaneFin, "mapCabane.png", new Point(830, 520), "Chasse aux mots");//CHASSE AUX MOTS
+        Lieu Tronc = new Lieu(104, 620, 177, 196, items.troncPrevious, items.troncAfter, items.troncFin, "mapTronc.png", new Point(650, 186), "Grand Ou Petit");//GRAND OU PETIT
+        Lieu Montagne = new Lieu(1, 1, 378, 196, items.montagnePrevious, items.montagneAfter, items.montagneFin, "mapMontagne.png", new Point(140, 156),"Que fait le Roi?");//QUE FAIT LE ROI
         Lieu arrivee = new Lieu();
+
         SpecialLabel menuPrincipal = new SpecialLabel();
         SpecialLabel Titre = new SpecialLabel();
+        SpecialLabel textePresentationJeu = new SpecialLabel();
+
         Label prenomLabel = new Label();
         Label ageLabel = new Label();
         Label dossierSauvegarde = new Label();
         Label prenomJoueur = new Label();
-        SpecialLabel textePresentationJeu = new SpecialLabel();
         Label MessageRoi;
+
         ListBox joueursPossibles = new ListBox();
+
         Lieu[] listeLieux; 
         Lieu accueil = new Lieu();
+
         Panel nouveauJoueur = new Panel();
         Panel choixAvatar = new Panel();
         Panel saisirInfos = new Panel();
@@ -94,6 +109,7 @@ namespace La_petite_boite
         Panel tabBord = new Panel();
         Panel CourRoi;
         Panel Recompense = new recompense();
+
         PictureBox imgChevalier = new PictureBox();
         PictureBox imagePersonnage1 = new PictureBox();
         PictureBox imagePersonnage2 = new PictureBox();
@@ -103,14 +119,18 @@ namespace La_petite_boite
         PictureBox coffre = new PictureBox();
         PictureBox sauvegarde = new PictureBox();
         PictureBox quitterMiniJeu = new PictureBox();
-        PictureBox[] listeAvatars;
-        String sauvegardeImgAvatar = null;
+        List<PictureBox>listeAvatars = new List<PictureBox>();
+
+        List<Bitmap> imagesAvatars = new List<Bitmap>();
+        List<Bitmap> imagesAvatarsGris = new List<Bitmap>();
+
+        //String sauvegardeImgAvatar = null;
         String jeuEnCours = "";
         String message ="";
+
         TextBox prenomField = new TextBox();
         TextBox ageField = new TextBox();
         
-
         public Form1()
         {
             InitializeComponent();
@@ -120,39 +140,38 @@ namespace La_petite_boite
         {
             this.DoubleBuffered = true;
             //EMBED FONTS
-            chargementFont();
+            privateFontCollection = items.chargementFont();
             generationElements();
         }
 
         private void generationElements()
         {
             //---------------------PANELS------------------------//
-
-
+            
             //chargement
-            chargementImage("chargement.png", "Jeu", chargement);
+            chargement.BackgroundImage = items.chargement;
 
             //accueil
-            chargementImage("accueil.png", "Jeu", accueil);
+            accueil.BackgroundImage = items.accueil;
             accueil.Location = new Point(-6, -2);
             accueil.Width = 1400;
             accueil.Height = 770;
 
             //ecran nouveau joueur
-            chargementImage("menu.png", "Jeu", nouveauJoueur);
+            nouveauJoueur.BackgroundImage = items.menu;
             nouveauJoueur.Width = 1400;
             nouveauJoueur.Height = 770;
             nouveauJoueur.Location = new Point(-6, -2);
 
 
             //diaporamaHistoire
-            chargementImage("diapoTrone1.png", "Jeu", diaporamaHistoire);
+            diaporamaHistoire.BackgroundImage = items.diapoTrone;
             diaporamaHistoire.Location = new Point(-6, -2);
             diaporamaHistoire.Width = 1400;
             diaporamaHistoire.Height = 770;
             
             //carteJeu
-            chargementImage("mapDebut2.png", "Jeu", CarteJeu);
+            CarteJeu.BackgroundImage = items.map;
             CarteJeu.Name = "Carte";
             CarteJeu.Location = new Point(0, 0);
             CarteJeu.Width = 1400;
@@ -160,7 +179,7 @@ namespace La_petite_boite
 
             //Cour du roi
             CourRoi = new Panel();
-            chargementImage("diapoTrone1.png", "Jeu", CourRoi);
+            CourRoi.BackgroundImage = items.diapoTrone;
             CourRoi.Width = 1400;
             CourRoi.Height = 722;
             CourRoi.Location = new Point(-6, -2);
@@ -246,32 +265,32 @@ namespace La_petite_boite
             //------------------------IMAGES-------------------------------//
 
             //avatars
-            chargementImage("chevalier1.png", "Jeu", imagePersonnage1);
-            imagePersonnage1.Name = "chevalier1.png";
-            imagePersonnage1.Left = 0;
+            listeAvatars.Add(imagePersonnage1);
+            listeAvatars.Add(imagePersonnage2);
+            listeAvatars.Add(imagePersonnage3);
+            listeAvatars.Add(imagePersonnage4);
 
-            chargementImage("chevalier2.png", "Jeu", imagePersonnage2);
-            imagePersonnage2.Name = "chevalier2.png";
-            imagePersonnage2.Left = 200;
+            imagesAvatars.Add(items.chevalier1);
+            imagesAvatars.Add(items.chevalier2);
+            imagesAvatars.Add(items.chevalier3);
+            imagesAvatars.Add(items.chevalier4);
 
-            chargementImage("chevalier3.png", "Jeu", imagePersonnage3);
-            imagePersonnage3.Name = "chevalier3.png";
-            imagePersonnage3.Left = 400;
+            imagesAvatarsGris.Add(items.chevalier1gris);
+            imagesAvatarsGris.Add(items.chevalier2gris);
+            imagesAvatarsGris.Add(items.chevalier3gris);
+            imagesAvatarsGris.Add(items.chevalier4gris);
 
-            chargementImage("chevalier4.png", "Jeu", imagePersonnage4);
-            imagePersonnage4.Name = "chevalier4.png";
-            imagePersonnage4.Left = 600;
-
-            listeAvatars = new PictureBox[] { imagePersonnage1, imagePersonnage2, imagePersonnage3, imagePersonnage4 };
             //on ajoute les images au panel choixAvatar
 
-            for (int i = 0; i < listeAvatars.Length; i++)
+            for (int i = 0; i < listeAvatars.Count(); i++)
             {
                 listeAvatars[i].Click += new EventHandler(clickAvatar);
                 choixAvatar.Controls.Add(listeAvatars[i]);
+                listeAvatars[i].Image = imagesAvatars[i];
                 listeAvatars[i].SizeMode = PictureBoxSizeMode.StretchImage;
                 listeAvatars[i].BackColor = Color.Transparent;
                 listeAvatars[i].Top = 0;
+                listeAvatars[i].Left = i*200;
                 listeAvatars[i].Width = 100;
                 listeAvatars[i].Height = 130;
             }
@@ -283,14 +302,14 @@ namespace La_petite_boite
             imgChevalier.BackColor = Color.Transparent;
 
             //guide
-            chargementImage("question.png", "Jeu", guide);
+            guide.Image = items.aide;
             guide.Width = 50;
             guide.Height = 50;
             guide.SizeMode = PictureBoxSizeMode.StretchImage;
             guide.Click += new EventHandler(AfficheMessage);
 
             //coffre
-            chargementImage("coffre.png", "Jeu", coffre);
+            coffre.Image = items.coffre;
             coffre.Width = 100;
             coffre.Height = 90;
             coffre.Top = 5;
@@ -300,7 +319,7 @@ namespace La_petite_boite
 
 
             //sauvegarde
-            chargementImage("disquette.png", "Jeu", sauvegarde);
+            sauvegarde.Image = items.sauvegarde;
             sauvegarde.BackColor = Color.Green;
             sauvegarde.Width = 34;
             sauvegarde.Height = 34;
@@ -309,7 +328,7 @@ namespace La_petite_boite
             sauvegarde.Click += new EventHandler(sauvegardeButton);
 
             //quitterMiniJeu
-            chargementImage("exit.png", "Jeu", quitterMiniJeu);
+            quitterMiniJeu.Image = items.quitter;
             quitterMiniJeu.Name = "quitterMiniJeu";
             quitterMiniJeu.Width = 34;
             quitterMiniJeu.Height = 34;
@@ -322,11 +341,12 @@ namespace La_petite_boite
 
             //on lit le fichier Joueurs et on cree une nouvelle instance Joueur avec les donnees trouvees
 
-            chargementTexte("La_petite_boite.Resources.Joueurs.txt", joueursFichier);
-
+            //chargementTexte("La_petite_boite.Resources.Joueurs.txt", joueursFichier);
+            joueursFichier = items.chargementTexte("Joueurs.txt");
             //on lit le fichier Sauvegarde et on le met dans un tableau
+            listeSauvegarde = items.chargementTexte("dossiers_sauvegarde.txt");
 
-            chargementTexte("La_petite_boite.Resources.dossiers_sauvegarde.txt", listeSauvegarde);
+            //chargementTexte("La_petite_boite.Resources.dossiers_sauvegarde.txt", listeSauvegarde);
 
             //--------------------------------BOUTONS----------------------------------------//
 
@@ -584,106 +604,6 @@ namespace La_petite_boite
             listeLieux[4] = Chateau;
         }
         
-        public void chargementFont()
-        {
-            Stream fontStream;
-
-            // specify embedded resource name
-            string resource = "La_petite_boite.Resources.Jeu.maturafont.TTF";
-
-            //access resource
-            try
-            {
-                // receive resource stream
-                fontStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource);
-                Console.WriteLine("Chargement reussi");
-
-                // create an unsafe memory block for the font data
-                IntPtr data = Marshal.AllocCoTaskMem((int)fontStream.Length);
-
-                // create a buffer to read in to
-                byte[] fontdata = new byte[fontStream.Length];
-
-                // read the font data from the resource
-                fontStream.Read(fontdata, 0, (int)fontStream.Length);
-
-                // copy the bytes to the unsafe memory block
-                Marshal.Copy(fontdata, 0, data, (int)fontStream.Length);
-
-                // pass the font to the font collection
-                privateFontCollection = new PrivateFontCollection();
-                privateFontCollection.AddMemoryFont(data, (int)fontStream.Length);
-
-                // close the resource stream
-                fontStream.Close();
-
-                // free up the unsafe memory
-                Marshal.FreeCoTaskMem(data);
-            }
-            catch (ArgumentException t)
-            {
-                Console.WriteLine("Error accessing fontfile!" + t);
-            }
-        }
-
-        public void JouerSon(Stream stream)
-        {
-            stream.Position = 0;
-            SoundPlayer son = new SoundPlayer(stream);
-            son.Play();
-            son.Dispose();
-        }
-
-        public void chargementImage (String res, String dossier, Panel pan)
-        {
-            //access resource
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources." + dossier +"."+ res);
-                pan.Name = res;
-            }
-            catch (ArgumentException e)
-            {
-                Console.WriteLine("Error accessing resources!" + e);
-            }
-
-            //display image
-            try
-            {
-                pan.BackgroundImage = new Bitmap(_imageStream);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Can't create image!" + e);
-            }
-        }
-
-        public void chargementImage(String res, String dossier, PictureBox p)
-        {
-            //access resource
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources." + dossier + "." + res);
-                p.Name = res;
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //display image
-            try
-            {
-                p.Image = new Bitmap(_imageStream);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Cant create image for picturebox!" + e);
-            }
-        }
-
         public void chargementTexte (String nomFichier, List<String> tableauRes)
         {
             try
@@ -703,30 +623,12 @@ namespace La_petite_boite
             }
         }
 
-        public void chargementSon(String res, String dossier, SoundPlayer son)
+        public void JouerSon(Stream stream)
         {
-            //access resource
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _sonStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources" + dossier + "." + res);
-                Console.WriteLine(res);
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //play sound
-            try
-            {
-                son = new SoundPlayer(_sonStream);
-                son.Play();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Cant play the sound" + e);
-            }
+            stream.Position = 0;
+            SoundPlayer son = new SoundPlayer(stream);
+            son.Play();
+            son.Dispose();
         }
 
         private void enregistrementFichier (String fichier)
@@ -850,36 +752,25 @@ namespace La_petite_boite
             InputBox.ShowDialog();
         }
 
-        private void clickAvatar(object sender, EventArgs e)
+        public void clickAvatar(object sender, EventArgs e)
         {
-            
             //on recupere l-objet 
             PictureBox ImgTemporaire = (PictureBox)sender;
-
-            if (compteurClickAvatar != 0)
-            {
-                //on remet les couleurs de l-image selectionnee
-                chargementImage(ImgTemporaire.Name, "Jeu",ImgTemporaire);
-            }
             
-            String nomImageGrise = "";
-
-            //on sauvegarde le nom de l-avatar
-            sauvegardeImgAvatar = ImgTemporaire.Name;
-
+            //on remet les couleurs de l-image selectionnee
+            indexAvatar = listeAvatars.IndexOf(ImgTemporaire);
+            ImgTemporaire.Image = imagesAvatars[indexAvatar];
+            
+            
             //on change les images des autres avatars
-            for (int i = 0; i < listeAvatars.Length; i++)
+            for (int i = 0; i < listeAvatars.Count(); i++)
             {
-                //si ce n-est pas l-avatar
-                if (listeAvatars[i].Name.Equals(sauvegardeImgAvatar) == false)
+                //si ce n-est pas le perso choisi, on grise l-image
+                if (i != indexAvatar)
                 {
-                    //on grise l-image
-                    nomImageGrise = listeAvatars[i].Name.Substring(0,10);
-                    nomImageGrise = nomImageGrise + "gris.png";
-                    chargementImage(nomImageGrise, "Jeu",listeAvatars[i]);
+                    listeAvatars[i].Image = imagesAvatarsGris[i];
                 }
             }
-            compteurClickAvatar++;
         }
 
         private void charger_partie_button(object sender, EventArgs e)
@@ -923,7 +814,7 @@ namespace La_petite_boite
             }
 
             //traitement des informations manquantes
-            if (prenomField.Text == null || ageField.Text == null || sauvegardeImgAvatar == null || listeDossierSauvegarde.SelectedIndex == -1)
+            if (prenomField.Text == null || ageField.Text == null || indexAvatar == -1 || listeDossierSauvegarde.SelectedIndex == -1)
             {
                 List<String> valeursVides = new List<string>();
 
@@ -935,7 +826,7 @@ namespace La_petite_boite
                 {
                     valeursVides.Add("age");
                 }
-                if (sauvegardeImgAvatar == null)
+                if (indexAvatar == -1)
                 {
                     valeursVides.Add("avatar");
                 }
@@ -1005,14 +896,14 @@ namespace La_petite_boite
                 {
                     int[] epreuves = { 0, 0, 0, 0 };
                     //apres toutes les verifications, on peut enregistrer le nouveau joueur
-                    String enregistrementJoueur = prenomField.Text.ToLower() + "-" + ageJoueur + "-" + sauvegardeImgAvatar + "-" + Montagne.Name + "-" + etoile + "-" + dossier + "-" + epreuves[0] + "-" + epreuves[1] + "-" + epreuves[2] + "-" + epreuves[3];
+                    String enregistrementJoueur = prenomField.Text.ToLower() + "-" + ageJoueur + "-" + indexAvatar + "-" + Montagne.Name + "-" + etoile + "-" + dossier + "-" + epreuves[0] + "-" + epreuves[1] + "-" + epreuves[2] + "-" + epreuves[3];
                     
                     //on l-enreigistre d-abord dans la liste joueursFichier, la fonction quitter va enregistrer les donnees en dur
                     joueursFichier.Add(enregistrementJoueur);
 
                     //il faut creer une nouvelle instance de joueur
                     
-                    chevalier = new Joueur(prenomField.Text, ageJoueur, sauvegardeImgAvatar, Chateau, Int16.Parse(etoile), dossier, epreuves);
+                    chevalier = new Joueur(prenomField.Text, ageJoueur, indexAvatar, Chateau, Int16.Parse(etoile), dossier, epreuves);
                     
                     //on affiche le prelude
                     afficherDiaporama();
@@ -1049,7 +940,7 @@ namespace La_petite_boite
             //on retourne a l-ecran du roi
             if (diaporamaHistoire.Name.Equals("diapoMag.png") == true)
             {
-                chargementImage("diapoTrone1.png", "Jeu",diaporamaHistoire);
+                diaporamaHistoire.BackgroundImage = items.diapoTrone;
                 textePresentationJeu.Text = "Avant de commencer, rends visite au magicien. Il te donnera de precieux conseils pour la suite de l'aventure";
                 diaporamaHistoire.Controls.Add(precedent);
                 diaporamaHistoire.Controls.Add(suivant);
@@ -1057,6 +948,7 @@ namespace La_petite_boite
             }
             else
             {
+                diaporamaHistoire.BackgroundImage = items.diapoTrone;
                 textePresentationJeu.Text = "Bienvenue à toi " + chevalier.nomJoueur() + " , je suis le roi Kazan. Es-tu pret pour la mission que j'ai a te confier?";
                 diaporamaHistoire.Controls.Remove(suivant);
                 diaporamaHistoire.Controls.Remove(precedent);
@@ -1068,7 +960,7 @@ namespace La_petite_boite
         {
             diaporamaHistoire.Controls.Remove(suivant);
             textePresentationJeu.Text = "Bienvenue à toi " + chevalier.nomJoueur() + " , je suis le magicien Kazan, et je serai ton guide tout au long de ton périple. Bon courage!";
-            chargementImage("diapoMag.png", "Jeu",diaporamaHistoire);
+            diaporamaHistoire.BackgroundImage = items.diapoMag;
             diaporamaHistoire.Controls.Add(AfficherCarte);
         }
         
@@ -1083,18 +975,13 @@ namespace La_petite_boite
         public void Carte()
         {
             Refresh();
-            //on mettra tout le contenu de CarteJeu
-            typeof(Panel).InvokeMember("DoubleBuffered",
-            BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
-            null, CarteJeu, new object[] { true });
-
             this.Controls.Add(CarteJeu);
 
             //on initialise les elements de la carte : avatar, magicien, chateau, prochaine etoile,
 
             //pour afficher le decor il faut que l-image chevalier appartienne au label de depart
-
-            chargementImage(chevalier.avatarJoueur(), "Jeu",imgChevalier);
+            
+            imgChevalier.Image = imagesAvatars[chevalier.avatarJoueur()];
             
             //position  
             imgChevalier.Left = chevalier.positionJoueur().getPosition().X;
@@ -1105,8 +992,6 @@ namespace La_petite_boite
             //on affiche les elements du jeu
             conteneurEtoilesCoffre.Controls.Add(ConteneurEtoile);
             conteneurEtoilesCoffre.Controls.Add(coffre);
-
-            chargementImage("mapDebut2.png", "Jeu",CarteJeu);
             CarteJeu.Controls.Add(conteneurEtoilesCoffre);
             CarteJeu.Controls.Add(imgChevalier);
             CarteJeu.Controls.Add(Montagne);
@@ -1440,27 +1325,27 @@ namespace La_petite_boite
             if (l.Name == "Chasse aux mots")
             {
                 //la chasse aux mots se deroule dans la montagne
-                chargementImage("montagne.png", "Jeu",Jeu);
+                Jeu.BackgroundImage = items.montagne;
                 tuto = new tutoChasseAuxMots();
                 IndiceJeu = 1;
             }
             else if (l.Name == "Grand Ou Petit")
             {
                 //grand ou petit se deroule dans une clairiere
-                chargementImage("clairiere.png", "Jeu", Jeu);
+                Jeu.BackgroundImage = items.clairiere;
                 tuto = new tutoGrandOuPetit();
                 IndiceJeu = 2;
             }
             else if (l.Name == "Que fait le Roi?")
             {
                 //que fait le roi se deroule a cote de la riviere
-                chargementImage("riviere.png", "Jeu", Jeu);
+                Jeu.BackgroundImage = items.riviere;
                 tuto = new tutoQueFaitLeRoi();
                 IndiceJeu = 3;
             }
             else if (l.Name == "Memory")
             {
-                chargementImage("village.png", "Jeu", Jeu);
+                Jeu.BackgroundImage = items.village;
                 tuto = new tutoMemory();
                 IndiceJeu = 0;
             }

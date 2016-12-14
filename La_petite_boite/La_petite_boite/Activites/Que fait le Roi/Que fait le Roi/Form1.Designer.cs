@@ -67,7 +67,7 @@ namespace Que_fait_le_Roi
             // 
             // QueFaitLeRoi
             // 
-            this.ClientSize = new System.Drawing.Size(896, 532);
+            this.ClientSize = new System.Drawing.Size(1274, 700);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -311,8 +311,8 @@ namespace Que_fait_le_Roi
             this.pictureBox8.DragEnter += new System.Windows.Forms.DragEventHandler(this.Image_DragEnter);
             // 
             // QueFaitLeRoiPanel
-            this.ClientSize = new System.Drawing.Size(999, 600);
-            this.Location = new System.Drawing.Point(0, 0);
+            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Location = new System.Drawing.Point(230, 200);
             this.Controls.Add(this.conteneurBouton);
             this.Controls.Add(this.conteneurCarteAPlacer);
             this.Controls.Add(this.conteneurCarte);
@@ -731,7 +731,7 @@ namespace Que_fait_le_Roi
             // queFaitLeRoi8Panel
             // 
             this.ClientSize = new System.Drawing.Size(1100, 600);
-            this.Location = new System.Drawing.Point(0, 0);
+            this.Location = new System.Drawing.Point(100, 200);
             this.Controls.Add(this.conteneurBouton);
             this.Controls.Add(this.conteneurCarteAPlacer);
             this.Controls.Add(this.conteneurCarte);
@@ -1329,7 +1329,7 @@ namespace Que_fait_le_Roi
             // Que fait le roi 12
             // 
             this.ClientSize = new System.Drawing.Size(1300, 600);
-            this.Location = new System.Drawing.Point(0, 0);
+            this.Location = new System.Drawing.Point(10, 200);
             this.Controls.Add(this.conteneurBouton);
             this.Controls.Add(this.conteneurCarteAPlacer);
             this.Controls.Add(this.conteneurCarte);

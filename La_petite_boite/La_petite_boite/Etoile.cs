@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using System.Drawing;
+using Ressources;
 
 namespace La_petite_boite
 {
@@ -12,11 +13,11 @@ namespace La_petite_boite
         {
             if (choix == 1)
             {
-                Program.petiteBoite.chargementImage("etoileJaune.png", "Jeu", this);
+                this.Image = items.etoileJaune;
             }
             else
             {
-                Program.petiteBoite.chargementImage("etoileGrise.png", "Jeu", this);
+                this.Image = items.etoileGrise;
             }
             this.Width = 50;
             this.Height = 50;
@@ -30,11 +31,11 @@ namespace La_petite_boite
         {
             if (choix == 1)
             {
-                Program.petiteBoite.chargementImage("etoileJaune.png", "Jeu", this);
+                this.Image = items.etoileJaune;
             }
             else
             {
-                Program.petiteBoite.chargementImage("etoileGrise.png", "Jeu", this);
+                this.Image = items.etoileGrise;
             }
             this.Width = 50;
             this.Height = 50;
@@ -46,7 +47,7 @@ namespace La_petite_boite
 
         public Etoile (Point p, String nom)
         {
-            Program.petiteBoite.chargementImage("etoileGrise.png", "Jeu", this);
+            this.Image = items.etoileGrise;
             this.Name = nom;
             this.Width = 50;
             this.Height = 50;

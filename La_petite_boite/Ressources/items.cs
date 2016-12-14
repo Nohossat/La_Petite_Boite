@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,7 +18,395 @@ namespace Ressources
 
         }
 
-        //images
+        //font
+
+        public static PrivateFontCollection chargementFont()
+        {
+            Stream fontStream;
+           
+
+           // specify embedded resource name
+            string resource = "Ressources.Resources.Jeu.maturafont.TTF";
+
+            //access resource
+            try
+            {
+                // receive resource stream
+                fontStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource);
+                Console.WriteLine("Chargement reussi");
+
+                // create an unsafe memory block for the font data
+                IntPtr data = Marshal.AllocCoTaskMem((int)fontStream.Length);
+
+                // create a buffer to read in to
+                byte[] fontdata = new byte[fontStream.Length];
+
+                // read the font data from the resource
+                fontStream.Read(fontdata, 0, (int)fontStream.Length);
+
+                // copy the bytes to the unsafe memory block
+                Marshal.Copy(fontdata, 0, data, (int)fontStream.Length);
+
+                // pass the font to the font collection
+                PrivateFontCollection pfc = new PrivateFontCollection();
+                pfc.AddMemoryFont(data, (int)fontStream.Length);
+
+                // close the resource stream
+                fontStream.Close();
+
+                // free up the unsafe memory
+                Marshal.FreeCoTaskMem(data);
+
+                return pfc;
+            }
+            catch (ArgumentException t)
+            {
+                Console.WriteLine("Error accessing fontfile!" + t);
+
+                return null;
+            }
+        }
+
+        //chargementTexte
+
+        public static List<String> chargementTexte(String nomFichier)
+        {
+            List<String> tableauRes = new List<string>();
+
+            try
+            {
+                using (StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("Ressources.Resources." + nomFichier)))
+                {
+                    String line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        tableauRes.Add(line);
+                    }
+                }
+                return tableauRes;
+            }
+            catch (Exception e)
+            {
+                Console.Write("Le fichier n'a pas pu etre lu" + e);
+                return null;
+            }
+        }
+
+        //images JeuPPL
+
+        public static Bitmap chargement
+        {
+            get
+            {
+                return Properties.Resources.chargement;
+            }
+        }
+
+        public static Bitmap accueil
+        {
+            get
+            {
+                return Properties.Resources.accueil;
+            }
+        }
+
+        public static Bitmap menu
+        {
+            get
+            {
+                return Properties.Resources.menu;
+            }
+        }
+
+        public static Bitmap diapoTrone
+        {
+            get
+            {
+                return Properties.Resources.diapoTrone1;
+            }
+        }
+
+        public static Bitmap diapoMag
+        {
+            get
+            {
+                return Properties.Resources.diapoMag;
+            }
+        }
+
+        public static Bitmap map
+        {
+            get
+            {
+                return Properties.Resources.mapDebut2;
+            }
+        }
+
+        public static Bitmap chevalier1
+        {
+            get
+            {
+                return Properties.Resources.chevalier1;
+            }
+        }
+
+        public static Bitmap chevalier2
+        {
+            get
+            {
+                return Properties.Resources.chevalier2;
+            }
+        }
+
+        public static Bitmap chevalier3
+        {
+            get
+            {
+                return Properties.Resources.chevalier3;
+            }
+        }
+
+        public static Bitmap chevalier4
+        {
+            get
+            {
+                return Properties.Resources.chevalier4;
+            }
+        }
+
+        public static Bitmap chevalier1gris
+        {
+            get
+            {
+                return Properties.Resources.chevalier1gris;
+            }
+        }
+
+        public static Bitmap chevalier2gris
+        {
+            get
+            {
+                return Properties.Resources.chevalier2gris;
+            }
+        }
+
+        public static Bitmap chevalier3gris
+        {
+            get
+            {
+                return Properties.Resources.chevalier3gris;
+            }
+        }
+
+        public static Bitmap chevalier4gris
+        {
+            get
+            {
+                return Properties.Resources.chevalier4gris;
+            }
+        }
+
+        public static Bitmap etoileGrise
+        {
+            get
+            {
+                return Properties.Resources.etoileGrise;
+            }
+        }
+
+        public static Bitmap etoileJaune
+        {
+            get
+            {
+                return Properties.Resources.etoileJaune;
+            }
+        }
+
+        public static Bitmap coffre
+        {
+            get
+            {
+                return Properties.Resources.coffre;
+            }
+        }
+
+        public static Bitmap aide
+        {
+            get
+            {
+                return Properties.Resources.question;
+            }
+        }
+
+        public static Bitmap sauvegarde
+        {
+            get
+            {
+                return Properties.Resources.disquette;
+            }
+        }
+
+        public static Bitmap quitter
+        {
+            get
+            {
+                return Properties.Resources.exit;
+            }
+        }
+
+        public static Bitmap clairiere
+        {
+            get
+            {
+                return Properties.Resources.clairiere;
+            }
+        }
+
+        public static Bitmap montagne
+        {
+            get
+            {
+                return Properties.Resources.montagne;
+            }
+        }
+
+        public static Bitmap riviere
+        {
+            get
+            {
+                return Properties.Resources.riviere;
+            }
+        }
+
+        public static Bitmap village
+        {
+            get
+            {
+                return Properties.Resources.village;
+            }
+        }
+
+        public static Bitmap cabaneAfter
+        {
+            get
+            {
+                return Properties.Resources.cabaneAfter;
+            }
+        }
+
+        public static Bitmap cabaneFin
+        {
+            get
+            {
+                return Properties.Resources.cabaneFin;
+            }
+        }
+
+        public static Bitmap cabanePrevious
+        {
+            get
+            {
+                return Properties.Resources.cabanePrevious;
+            }
+        }
+
+        public static Bitmap chateauAfter
+        {
+            get
+            {
+                return Properties.Resources.chateauAfter;
+            }
+        }
+
+        public static Bitmap chateauFin
+        {
+            get
+            {
+                return Properties.Resources.chateauFin;
+            }
+        }
+
+        public static Bitmap chateauPrevious
+        {
+            get
+            {
+                return Properties.Resources.chateauPrevious;
+            }
+        }
+
+        public static Bitmap montagneAfter
+        {
+            get
+            {
+                return Properties.Resources.montagneAfter;
+            }
+        }
+
+        public static Bitmap montagneFin
+        {
+            get
+            {
+                return Properties.Resources.montagneFin;
+            }
+        }
+
+        public static Bitmap montagnePrevious
+        {
+            get
+            {
+                return Properties.Resources.montagnePrevious;
+            }
+        }
+
+        public static Bitmap troncAfter
+        {
+            get
+            {
+                return Properties.Resources.troncAfter;
+            }
+        }
+
+        public static Bitmap troncFin
+        {
+            get
+            {
+                return Properties.Resources.troncFin;
+            }
+        }
+
+        public static Bitmap troncPrevious
+        {
+            get
+            {
+                return Properties.Resources.troncPrevious;
+            }
+        }
+
+        public static Bitmap villageAfter
+        {
+            get
+            {
+                return Properties.Resources.villageAfter;
+            }
+        }
+
+        public static Bitmap villageFin
+        {
+            get
+            {
+                return Properties.Resources.villageFin;
+            }
+        }
+
+        public static Bitmap villagePrevious
+        {
+            get
+            {
+                return Properties.Resources.villagePrevious;
+            }
+        }
+
+        //images minijeu
 
         public static Bitmap dosCarte
         {
@@ -144,9 +535,7 @@ namespace Ressources
                 return Properties.Resources.table1;
             }
         }
-
         
-
         //audio
 
         public static Stream applaudissement
@@ -273,7 +662,7 @@ namespace Ressources
         {
             get
             {
-                return Properties.Resources.grandCoffreFR;
+                return Properties.Resources.grandeBoiteFR;
             }
         }
 
@@ -281,7 +670,7 @@ namespace Ressources
         {
             get
             {
-                return Properties.Resources.petitCoffreFR;
+                return Properties.Resources.petiteBoiteFR;
             }
         }
 

@@ -192,7 +192,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Resources\Jeu\maturafont.TTF" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -358,101 +357,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\dossiers_sauvegarde.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Jeu\revelationcoffre.png" />
-    <EmbeddedResource Include="Resources\Jeu\biche.png" />
-    <EmbeddedResource Include="Resources\Jeu\Chargement_LapetiteBoite.png" />
-    <EmbeddedResource Include="Resources\Jeu\chevalier1.png" />
-    <EmbeddedResource Include="Resources\Jeu\chevalier2.png" />
-    <EmbeddedResource Include="Resources\Jeu\chevalier3.png" />
-    <EmbeddedResource Include="Resources\Jeu\chevalier4.png" />
-    <EmbeddedResource Include="Resources\Jeu\chevre.png" />
-    <EmbeddedResource Include="Resources\Jeu\clairiere.png" />
-    <EmbeddedResource Include="Resources\Jeu\coffre.ico" />
-    <EmbeddedResource Include="Resources\Jeu\coffre.png" />
-    <EmbeddedResource Include="Resources\Jeu\coffreCanStockD.png" />
-    <EmbeddedResource Include="Resources\Jeu\coffreCanStockG.png" />
-    <EmbeddedResource Include="Resources\Jeu\disquette.png" />
-    <EmbeddedResource Include="Resources\Jeu\etoileGrise.png" />
-    <EmbeddedResource Include="Resources\Jeu\etoileJaune.png" />
-    <EmbeddedResource Include="Resources\Jeu\exit.png" />
-    <EmbeddedResource Include="Resources\Jeu\guide.png" />
-    <EmbeddedResource Include="Resources\Jeu\magicien.png" />
-    <EmbeddedResource Include="Resources\Jeu\map.png" />
-    <EmbeddedResource Include="Resources\Jeu\mapCabane.png" />
-    <EmbeddedResource Include="Resources\Jeu\mapChateau.png" />
-    <EmbeddedResource Include="Resources\Jeu\mapCsharp.png" />
-    <EmbeddedResource Include="Resources\Jeu\mapMontagne.png" />
-    <EmbeddedResource Include="Resources\Jeu\mapReference.png" />
-    <EmbeddedResource Include="Resources\Jeu\mapTronc.png" />
-    <EmbeddedResource Include="Resources\Jeu\mapVillage.png" />
-    <EmbeddedResource Include="Resources\Jeu\menu.png" />
-    <EmbeddedResource Include="Resources\Jeu\montagne.png" />
-    <EmbeddedResource Include="Resources\Jeu\plan.png" />
-    <EmbeddedResource Include="Resources\Jeu\planJeu.png" />
-    <EmbeddedResource Include="Resources\Jeu\presentationJeu.png" />
-    <EmbeddedResource Include="Resources\Jeu\riviere.png" />
-    <EmbeddedResource Include="Resources\Jeu\roi2.png" />
-    <EmbeddedResource Include="Resources\Jeu\roi3.png" />
-    <EmbeddedResource Include="Resources\Jeu\roi4.png" />
-    <EmbeddedResource Include="Resources\Jeu\sanglier.png" />
-    <EmbeddedResource Include="Resources\Jeu\sapin.png" />
-    <EmbeddedResource Include="Resources\Jeu\troncPrevious.png" />
-    <EmbeddedResource Include="Resources\Jeu\village.png" />
-    <EmbeddedResource Include="Resources\Jeu\villagePrevious.png" />
-    <EmbeddedResource Include="Resources\Jeu\accueil.png" />
-    <EmbeddedResource Include="Resources\Jeu\question.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Jeu\chevalier1gris.png" />
-    <EmbeddedResource Include="Resources\Jeu\chevalier2gris.png" />
-    <EmbeddedResource Include="Resources\Jeu\chevalier3gris.png" />
-    <EmbeddedResource Include="Resources\Jeu\chevalier4gris.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Jeu\diapoTrone1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Jeu\diapoMag.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Jeu\mapDebut2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Jeu\montagnePrevious.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Jeu\montagneAfter.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Jeu\chateauAfter.png" />
-    <EmbeddedResource Include="Resources\Jeu\chateauPrevious.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Jeu\villageAfter.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Jeu\troncAfter.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Jeu\cabaneAfter.png" />
-    <EmbeddedResource Include="Resources\Jeu\cabanePrevious.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Jeu\chargement.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Jeu\cabaneFin.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Jeu\chateauFin.png" />
-    <EmbeddedResource Include="Resources\Jeu\montagneFin.png" />
-    <EmbeddedResource Include="Resources\Jeu\troncFin.png" />
-    <EmbeddedResource Include="Resources\Jeu\villageFin.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Jeu\souris.cur" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

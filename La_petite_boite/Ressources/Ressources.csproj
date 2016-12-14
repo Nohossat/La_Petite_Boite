@@ -57,171 +57,223 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\chaise1.png" />
+    <EmbeddedResource Include="Resources\miniJeu\chaise1.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\chateau1.png" />
+    <EmbeddedResource Include="Resources\miniJeu\chateau1.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\coffre1.png" />
+    <EmbeddedResource Include="Resources\miniJeu\coffre1.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\dosCarte.png" />
+    <EmbeddedResource Include="Resources\miniJeu\dosCarte.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\doudou1.png" />
+    <EmbeddedResource Include="Resources\miniJeu\doudou1.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\ecole1.png" />
+    <EmbeddedResource Include="Resources\miniJeu\ecole1.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\escalier1.png" />
+    <EmbeddedResource Include="Resources\miniJeu\escalier1.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\foret1.png" />
+    <EmbeddedResource Include="Resources\miniJeu\foret1.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\jardin1.png" />
+    <EmbeddedResource Include="Resources\miniJeu\jardin1.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\lit1.png" />
+    <EmbeddedResource Include="Resources\miniJeu\lit1.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\pont1.png" />
+    <EmbeddedResource Include="Resources\miniJeu\pont1.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\roi1.png" />
+    <EmbeddedResource Include="Resources\miniJeu\roi1.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\table1.png" />
+    <EmbeddedResource Include="Resources\miniJeu\table1.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\applaudissement.wav" />
+    <EmbeddedResource Include="Resources\Jeu\applaudissement.wav" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\chateauTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\chateauTurc.wav" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\doudouTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\doudouTurc.wav" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\jardinTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\jardinTurc.wav" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\pouet.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\pouet.wav" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\roiFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiFR.wav" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\tableFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\tableFR.wav" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\foretTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\foretTurc.wav" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\chaiseTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\chaiseTurc.wav" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\doudouFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\doudouFR.wav" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\litFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\litFR.wav" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\coffreFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\coffreFR.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pontFR.wav" />
+    <EmbeddedResource Include="Resources\Jeu\maturafont.TTF" />
+    <None Include="Resources\miniJeu\pontFR.wav" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\ecoleFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\ecoleFR.wav" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\tableTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\tableTurc.wav" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\escalierTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\escalierTurc.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pijama.wav" />
+    <None Include="Resources\miniJeu\pijama.wav" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\roiTurc.wav" />
-    <EmbeddedResource Include="Resources\chaiseFR.wav" />
-    <EmbeddedResource Include="Resources\foretFR.wav" />
-    <EmbeddedResource Include="Resources\chateauFR.wav" />
-    <EmbeddedResource Include="Resources\ecoleTurc.wav" />
-    <EmbeddedResource Include="Resources\litTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\chaiseFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\foretFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\chateauFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\ecoleTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\litTurc.wav" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\jardinFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\jardinFR.wav" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\pijama1.png" />
+    <EmbeddedResource Include="Resources\miniJeu\pijama1.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\roiTraverseLeJardinTurc.wav" />
-    <EmbeddedResource Include="Resources\roiMonteEscalierTurc.wav" />
-    <EmbeddedResource Include="Resources\roiTraverseLaForetTurc.wav" />
-    <EmbeddedResource Include="Resources\roiMonteChaiseTurc.wav" />
-    <EmbeddedResource Include="Resources\roiRentreAuChateauTurc.wav" />
-    <EmbeddedResource Include="Resources\roiRentreALecoleFR.wav" />
-    <EmbeddedResource Include="Resources\roiMonteLitFR.wav" />
-    <EmbeddedResource Include="Resources\roiTraverseLeJardinFR.wav" />
-    <EmbeddedResource Include="Resources\questionBoiteFR.wav" />
-    <EmbeddedResource Include="Resources\roiVaALecoleTurc.wav" />
-    <EmbeddedResource Include="Resources\roiRentreAuChateauFR.wav" />
-    <EmbeddedResource Include="Resources\roiTraverseLaForetFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiTraverseLeJardinTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiMonteEscalierTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiTraverseLaForetTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiMonteChaiseTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiRentreAuChateauTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiRentreALecoleFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiMonteLitFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiTraverseLeJardinFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\questionBoiteFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiVaALecoleTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiRentreAuChateauFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiTraverseLaForetFR.wav" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\bain1.png" />
-    <EmbeddedResource Include="Resources\pause1.png" />
+    <EmbeddedResource Include="Resources\miniJeu\bain1.png" />
+    <EmbeddedResource Include="Resources\miniJeu\pause1.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\grandJardinTurc.wav" />
-    <EmbeddedResource Include="Resources\grandPontTurc.wav" />
-    <EmbeddedResource Include="Resources\grandCoffreTurc.wav" />
-    <EmbeddedResource Include="Resources\grandChateauTurc.wav" />
-    <EmbeddedResource Include="Resources\petitJardinTurc.wav" />
-    <EmbeddedResource Include="Resources\petitPontTurc.wav" />
-    <EmbeddedResource Include="Resources\petitCoffreTurc.wav" />
-    <EmbeddedResource Include="Resources\petitChateauTurc.wav" />
-    <EmbeddedResource Include="Resources\grandeBoiteFR.wav" />
-    <EmbeddedResource Include="Resources\grandChateauFR.wav" />
-    <EmbeddedResource Include="Resources\petitChateauFR.wav" />
-    <EmbeddedResource Include="Resources\petiteBoiteFR.wav" />
-    <EmbeddedResource Include="Resources\bainTurc.wav" />
-    <EmbeddedResource Include="Resources\questionBoiteTurc.wav" />
-    <EmbeddedResource Include="Resources\roiPrendBainTurc.wav" />
-    <EmbeddedResource Include="Resources\roiMetPijamaTurc.wav" />
-    <EmbeddedResource Include="Resources\roiMonteLitTurc.wav" />
-    <EmbeddedResource Include="Resources\coffreTurc.wav" />
-    <EmbeddedResource Include="Resources\escalierFR.wav" />
-    <EmbeddedResource Include="Resources\roiPrendPauseFR.wav" />
-    <EmbeddedResource Include="Resources\roiMonteChaiseFR.wav" />
-    <EmbeddedResource Include="Resources\roiMonteEscalierFR.wav" />
-    <EmbeddedResource Include="Resources\roiSInstalleTableFR.wav" />
-    <EmbeddedResource Include="Resources\grandDoudouTurc.wav" />
-    <EmbeddedResource Include="Resources\grandRoiTurc.wav" />
-    <EmbeddedResource Include="Resources\grandTableTurc.wav" />
-    <EmbeddedResource Include="Resources\grandLitTurc.wav" />
-    <EmbeddedResource Include="Resources\petiteTableTurc.wav" />
-    <EmbeddedResource Include="Resources\petitLitTurc.wav" />
-    <EmbeddedResource Include="Resources\grandeChaiseFR.wav" />
-    <EmbeddedResource Include="Resources\grandeForetFR.wav" />
-    <EmbeddedResource Include="Resources\petiteChaiseFR.wav" />
-    <EmbeddedResource Include="Resources\petiteForetFR.wav" />
-    <EmbeddedResource Include="Resources\grandPontFR.wav" />
-    <EmbeddedResource Include="Resources\petitPontFR.wav" />
-    <EmbeddedResource Include="Resources\petitDoudouTurc.wav" />
-    <EmbeddedResource Include="Resources\petitRoiTurc.wav" />
-    <EmbeddedResource Include="Resources\grandeEcoleFR.wav" />
-    <EmbeddedResource Include="Resources\grandEscalierFR.wav" />
-    <EmbeddedResource Include="Resources\petitEscalierFR.wav" />
-    <EmbeddedResource Include="Resources\petitEcoleFR.wav" />
-    <Content Include="Resources\pauseFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\grandJardinTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\grandPontTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\grandCoffreTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\grandChateauTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\petitJardinTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\petitPontTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\petitCoffreTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\petitChateauTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\grandeBoiteFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\grandChateauFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\petitChateauFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\petiteBoiteFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\bainTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\questionBoiteTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiPrendBainTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiMetPijamaTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiMonteLitTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\coffreTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\escalierFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiPrendPauseFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiMonteChaiseFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiMonteEscalierFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\roiSInstalleTableFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\grandDoudouTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\grandRoiTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\grandTableTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\grandLitTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\petiteTableTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\petitLitTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\grandeChaiseFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\grandeForetFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\petiteChaiseFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\petiteForetFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\grandPontFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\petitPontFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\petitDoudouTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\petitRoiTurc.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\grandeEcoleFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\grandEscalierFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\petitEscalierFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\petitEcoleFR.wav" />
+    <EmbeddedResource Include="Resources\Jeu\accueil.png" />
+    <EmbeddedResource Include="Resources\Jeu\biche.png" />
+    <EmbeddedResource Include="Resources\Jeu\cabaneAfter.png" />
+    <EmbeddedResource Include="Resources\Jeu\cabaneFin.png" />
+    <EmbeddedResource Include="Resources\Jeu\cabanePrevious.png" />
+    <EmbeddedResource Include="Resources\Jeu\chargement.png" />
+    <EmbeddedResource Include="Resources\Jeu\Chargement_LapetiteBoite.png" />
+    <EmbeddedResource Include="Resources\Jeu\chateauAfter.png" />
+    <EmbeddedResource Include="Resources\Jeu\chateauFin.png" />
+    <EmbeddedResource Include="Resources\Jeu\chateauPrevious.png" />
+    <EmbeddedResource Include="Resources\Jeu\chevalier1.png" />
+    <EmbeddedResource Include="Resources\Jeu\chevalier1gris.png" />
+    <EmbeddedResource Include="Resources\Jeu\chevalier2.png" />
+    <EmbeddedResource Include="Resources\Jeu\chevalier2gris.png" />
+    <EmbeddedResource Include="Resources\Jeu\chevalier3.png" />
+    <EmbeddedResource Include="Resources\Jeu\chevalier3gris.png" />
+    <EmbeddedResource Include="Resources\Jeu\chevalier4.png" />
+    <EmbeddedResource Include="Resources\Jeu\chevalier4gris.png" />
+    <EmbeddedResource Include="Resources\Jeu\clairiere.png" />
+    <EmbeddedResource Include="Resources\Jeu\coffre.ico" />
+    <EmbeddedResource Include="Resources\Jeu\coffre.png" />
+    <EmbeddedResource Include="Resources\Jeu\diapoMag.png" />
+    <EmbeddedResource Include="Resources\Jeu\diapoTrone1.png" />
+    <EmbeddedResource Include="Resources\Jeu\disquette.png" />
+    <EmbeddedResource Include="Resources\Jeu\etoileGrise.png" />
+    <EmbeddedResource Include="Resources\Jeu\etoileJaune.png" />
+    <EmbeddedResource Include="Resources\Jeu\exit.png" />
+    <EmbeddedResource Include="Resources\Jeu\guide.png" />
+    <EmbeddedResource Include="Resources\Jeu\magicien.png" />
+    <EmbeddedResource Include="Resources\Jeu\mapDebut2.png" />
+    <EmbeddedResource Include="Resources\Jeu\menu.png" />
+    <EmbeddedResource Include="Resources\Jeu\montagne.png" />
+    <EmbeddedResource Include="Resources\Jeu\montagneAfter.png" />
+    <EmbeddedResource Include="Resources\Jeu\montagneFin.png" />
+    <EmbeddedResource Include="Resources\Jeu\montagnePrevious.png" />
+    <EmbeddedResource Include="Resources\Jeu\question.png" />
+    <EmbeddedResource Include="Resources\Jeu\revelationcoffre.png" />
+    <EmbeddedResource Include="Resources\Jeu\riviere.png" />
+    <EmbeddedResource Include="Resources\Jeu\roi2.png" />
+    <EmbeddedResource Include="Resources\Jeu\roi3.png" />
+    <EmbeddedResource Include="Resources\Jeu\roi4.png" />
+    <EmbeddedResource Include="Resources\Jeu\troncAfter.png" />
+    <EmbeddedResource Include="Resources\Jeu\troncFin.png" />
+    <EmbeddedResource Include="Resources\Jeu\troncPrevious.png" />
+    <EmbeddedResource Include="Resources\Jeu\village.png" />
+    <EmbeddedResource Include="Resources\Jeu\villageAfter.png" />
+    <EmbeddedResource Include="Resources\Jeu\villageFin.png" />
+    <EmbeddedResource Include="Resources\Jeu\villagePrevious.png" />
+    <EmbeddedResource Include="Resources\Jeu\dossiers_sauvegarde.txt" />
+    <EmbeddedResource Include="Resources\Jeu\Joueurs.txt" />
+    <Content Include="Resources\miniJeu\pauseFR.wav" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

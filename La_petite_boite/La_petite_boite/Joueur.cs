@@ -6,6 +6,7 @@ using Jeu;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace La_petite_boite
 {
@@ -13,7 +14,7 @@ namespace La_petite_boite
     {
         String nom;
         int age;
-        String avatar;
+        int avatar; //index de l-avatar dans la liste Avatars
         Lieu position;
         int ScoreEtoile;
         String dossierSauvegarde;
@@ -24,7 +25,7 @@ namespace La_petite_boite
 
 
         //chargement d-une partie
-        public Joueur(String n, int a, String img, Lieu pos, int etoile, String dossier, int[] epreuves)
+        public Joueur(String n, int a, int img, Lieu pos, int etoile, String dossier, int[] epreuves)
         {
             this.nom = n;
             this.age = a;
@@ -57,7 +58,7 @@ namespace La_petite_boite
                 jeuxObligatoires.Add(new GrandOuPetit8Panel());
                 jeuxObligatoires.Add(new QueFaitLeRoi8Panel());
 
-                jeuxFacultatifs.Add(new Memory16Panel());
+                jeuxFacultatifs.Add(new Memory18Panel());
                 jeuxFacultatifs.Add(new ChasseAuxMots12Panel());
                 jeuxFacultatifs.Add(new GrandOuPetit12Panel());
                 jeuxFacultatifs.Add(new QueFaitLeRoi12Panel());
@@ -76,7 +77,7 @@ namespace La_petite_boite
             return this.nom;
         }
 
-        public String avatarJoueur()
+        public int avatarJoueur()
         {
             return this.avatar;
         }

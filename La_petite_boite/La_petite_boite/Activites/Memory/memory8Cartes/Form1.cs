@@ -38,7 +38,7 @@ namespace memory8Cartes
             this.Controls.Remove(this.button3);
             this.Controls.Remove(this.button2);
             this.Controls.Remove(this.button1);
-            this.Controls.Add(new Memory16Panel());
+            this.Controls.Add(new Memory18Panel());
         }
     }
 
@@ -108,7 +108,7 @@ namespace memory8Cartes
         
      }
     
-    public partial class Memory16Panel : Memory
+    public partial class Memory18Panel : Memory
     {
         private PictureBox carte9Double;
         private PictureBox carte9;
@@ -130,7 +130,7 @@ namespace memory8Cartes
         private PictureBox carte1;
         
 
-        public Memory16Panel()
+        public Memory18Panel()
         {
             initialize();
             chargementPartie();

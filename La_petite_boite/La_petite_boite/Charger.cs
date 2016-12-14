@@ -1,16 +1,8 @@
 ﻿using System;
-using System.IO;
-using System.Reflection;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing.Text;
-using System.Runtime.InteropServices;
+using Ressources;
 
 namespace La_petite_boite
 {
@@ -38,7 +30,7 @@ namespace La_petite_boite
             //panel chargerJoueur
 
             //charger une partie
-            Program.petiteBoite.chargementImage("accueil.jpg", "Jeu", chargerJoueur);
+            chargerJoueur.BackgroundImage = items.accueil;
             chargerJoueur.Width = 640;
             chargerJoueur.Height = 558;
             chargerJoueur.Left = 0;
@@ -199,7 +191,7 @@ namespace La_petite_boite
                         //on enregistre les donnees du joueur pour cr'eer l-instance dans la form1 
                         Form1.nom = splitjoueurFichier[0];
                         Form1.age = Convert.ToInt16(splitjoueurFichier[1]);
-                        Form1.avatar = splitjoueurFichier[2];
+                        Form1.avatar = Convert.ToInt16(splitjoueurFichier[2]);
                         Form1.lieuTemporaire = splitjoueurFichier[3];
                         Form1.score = Convert.ToInt16(splitjoueurFichier[4]);
                         Form1.dos = splitjoueurFichier[5];

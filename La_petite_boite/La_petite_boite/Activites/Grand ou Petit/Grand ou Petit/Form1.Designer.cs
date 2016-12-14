@@ -69,7 +69,7 @@ namespace Grand_ou_Petit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(739, 555);
+            this.ClientSize = new System.Drawing.Size(1274, 700);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -298,8 +298,8 @@ namespace Grand_ou_Petit
             // 
             // GrandOuPetitPanel
             // 
-            this.ClientSize = new System.Drawing.Size(1000, 650);
-            this.Location = new System.Drawing.Point(0, 0);
+            this.ClientSize = new System.Drawing.Size(800, 650);
+            this.Location = new System.Drawing.Point(200, 140);
             this.Controls.Add(this.conteneurPetiteCarte);
             this.Controls.Add(this.conteneurCarteAPlacer);
             this.Controls.Add(this.conteneurGrandeCarte);
@@ -699,7 +699,7 @@ namespace Grand_ou_Petit
             // GrandOuPetit8
             // 
             this.ClientSize = new System.Drawing.Size(1200, 600);
-            this.Location = new System.Drawing.Point(0, 0);
+            this.Location = new System.Drawing.Point(50, 140);
             this.Controls.Add(this.conteneurPetiteCarte);
             this.Controls.Add(this.conteneurCarteAPlacer);
             this.Controls.Add(this.conteneurGrandeCarte);
@@ -1272,8 +1272,8 @@ namespace Grand_ou_Petit
 
             // PANEL
             // 
-            this.ClientSize = new System.Drawing.Size(1349, 700);
-            this.Location = new System.Drawing.Point(0, 0);
+            this.ClientSize = new System.Drawing.Size(1300, 700);
+            this.Location = new System.Drawing.Point(0, 140);
             this.Controls.Add(this.conteneurPetiteCarte);
             this.Controls.Add(this.conteneurCarteAPlacer);
             this.Controls.Add(this.conteneurGrandeCarte);

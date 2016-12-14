@@ -75,9 +75,10 @@ namespace Ressources
 
             try
             {
-                using (StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("Ressources.Resources." + nomFichier)))
+                using (StreamReader reader = new StreamReader(@"C:\Users\Nohossat TRAORE\Desktop\La_Petite_Boite\La_petite_boite\Ressources\Resources\Jeu\" + nomFichier))
                 {
-                    String line;
+                    
+                     String line;
                     while ((line = reader.ReadLine()) != null)
                     {
                         tableauRes.Add(line);
@@ -93,6 +94,38 @@ namespace Ressources
         }
 
         //images JeuPPL
+
+        public static Bitmap mapCabane
+        {
+            get
+            {
+                return Properties.Resources.mapCabane;
+            }
+        }
+
+        public static Bitmap mapTronc
+        {
+            get
+            {
+                return Properties.Resources.mapTronc;
+            }
+        }
+
+        public static Bitmap mapMontagne
+        {
+            get
+            {
+                return Properties.Resources.mapMontagne;
+            }
+        }
+
+        public static Bitmap mapVillage
+        {
+            get
+            {
+                return Properties.Resources.mapVillage;
+            }
+        }
 
         public static Bitmap chargement
         {

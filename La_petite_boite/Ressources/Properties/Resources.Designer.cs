@@ -728,9 +728,49 @@ namespace Ressources.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap mapCabane {
+            get {
+                object obj = ResourceManager.GetObject("mapCabane", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap mapDebut2 {
             get {
                 object obj = ResourceManager.GetObject("mapDebut2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap mapMontagne {
+            get {
+                object obj = ResourceManager.GetObject("mapMontagne", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap mapTronc {
+            get {
+                object obj = ResourceManager.GetObject("mapTronc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap mapVillage {
+            get {
+                object obj = ResourceManager.GetObject("mapVillage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

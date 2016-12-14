@@ -62,6 +62,7 @@ namespace La_petite_boite
 
         //private variables
         int indexAvatar = -1;
+        int chargementCarte = 0;
 
         SpecialButton nouvellePartie = new SpecialButton();
         SpecialButton chargerPartie = new SpecialButton();
@@ -80,11 +81,11 @@ namespace La_petite_boite
 
         ComboBox listeDossierSauvegarde = new ComboBox();
         
-        Lieu Village = new Lieu(512, -28, 448, 270, items.villagePrevious, items.villageAfter, items.villageFin, "mapVillage.png", new Point(140, 520), "Memory"); //MEMORY
-        Lieu Chateau = new Lieu(126, 1026, 327, 404, items.chateauPrevious, items.chateauAfter, items.chateauFin, "mapChateau.png", new Point(1130, 380),"Chateau");//CHATEAU
-        Lieu Cabane = new Lieu(437, 775, 213, 192, items.cabanePrevious, items.cabaneAfter, items.cabaneFin, "mapCabane.png", new Point(830, 520), "Chasse aux mots");//CHASSE AUX MOTS
-        Lieu Tronc = new Lieu(104, 620, 177, 196, items.troncPrevious, items.troncAfter, items.troncFin, "mapTronc.png", new Point(650, 186), "Grand Ou Petit");//GRAND OU PETIT
-        Lieu Montagne = new Lieu(1, 1, 378, 196, items.montagnePrevious, items.montagneAfter, items.montagneFin, "mapMontagne.png", new Point(140, 156),"Que fait le Roi?");//QUE FAIT LE ROI
+        Lieu Village = new Lieu(512, -28, 448, 270, items.villagePrevious, items.villageAfter, items.mapVillage,  new Point(140, 520), "Memory"); //MEMORY
+        Lieu Chateau = new Lieu(126, 1026, 327, 404, items.chateauPrevious, items.chateauAfter, items.map, new Point(1130, 380),"Chateau");//CHATEAU
+        Lieu Cabane = new Lieu(437, 775, 213, 192, items.cabanePrevious, items.cabaneAfter, items.mapCabane, new Point(830, 520), "Chasse aux mots");//CHASSE AUX MOTS
+        Lieu Tronc = new Lieu(104, 620, 177, 196, items.troncPrevious, items.troncAfter, items.mapTronc, new Point(650, 186), "Grand Ou Petit");//GRAND OU PETIT
+        Lieu Montagne = new Lieu(1, 1, 378, 196, items.montagnePrevious, items.montagneAfter, items.mapMontagne, new Point(140, 156),"Que fait le Roi?");//QUE FAIT LE ROI
         Lieu arrivee = new Lieu();
 
         SpecialLabel menuPrincipal = new SpecialLabel();
@@ -176,6 +177,10 @@ namespace La_petite_boite
             CarteJeu.Location = new Point(0, 0);
             CarteJeu.Width = 1400;
             CarteJeu.Height = 770;
+
+            typeof(Panel).InvokeMember("DoubleBuffered",
+    BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
+    null, CarteJeu, new object[] { true });
 
             //Cour du roi
             CourRoi = new Panel();
@@ -603,25 +608,6 @@ namespace La_petite_boite
             listeLieux[3] = Montagne;
             listeLieux[4] = Chateau;
         }
-        
-        public void chargementTexte (String nomFichier, List<String> tableauRes)
-        {
-            try
-            {
-                using (StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream(nomFichier)))
-                {
-                    String line;
-                    while ((line = reader.ReadLine()) != null)
-                    {
-                        tableauRes.Add(line);
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Console.Write("Le fichier n'a pas pu etre lu" + e);
-            }
-        }
 
         public void JouerSon(Stream stream)
         {
@@ -651,8 +637,6 @@ namespace La_petite_boite
         
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //Cursor myCursor = new Cursor("../../Resources/Jeu/souris.cur");
-            /// this.Cursor = myCursor;
 
             if (progressBar1.Value < 100)
             {
@@ -974,22 +958,15 @@ namespace La_petite_boite
 
         public void Carte()
         {
-            Refresh();
-            this.Controls.Add(CarteJeu);
-
-            //on initialise les elements de la carte : avatar, magicien, chateau, prochaine etoile,
-
-            //pour afficher le decor il faut que l-image chevalier appartienne au label de depart
-            
-            imgChevalier.Image = imagesAvatars[chevalier.avatarJoueur()];
-            
             //position  
             imgChevalier.Left = chevalier.positionJoueur().getPosition().X;
             imgChevalier.Top = chevalier.positionJoueur().getPosition().Y;
 
             ajoutEtoiles();
-
-            //on affiche les elements du jeu
+            
+            //on initialise les elements de la carte 
+                
+            imgChevalier.Image = imagesAvatars[chevalier.avatarJoueur()];
             conteneurEtoilesCoffre.Controls.Add(ConteneurEtoile);
             conteneurEtoilesCoffre.Controls.Add(coffre);
             CarteJeu.Controls.Add(conteneurEtoilesCoffre);
@@ -1000,22 +977,14 @@ namespace La_petite_boite
             CarteJeu.Controls.Add(Cabane);
             CarteJeu.Controls.Add(Chateau);
             CarteJeu.Controls.Add(tabBord);
+            
+            Refresh();
+            this.Controls.Add(CarteJeu);
         }
 
         private void declencheTimer(object sender, EventArgs e)
         {
             arrivee = (Lieu)sender;
-            //il faut afficher la bonne carte
-
-            /* arrivee.chargementMap(CarteJeu);
-
-            CarteJeu.Controls.Remove(Village);
-            CarteJeu.Controls.Remove(Montagne);
-            CarteJeu.Controls.Remove(Tronc);
-            CarteJeu.Controls.Remove(Cabane);
-            CarteJeu.Controls.Remove(Chateau);
-
-            this.Refresh();*/
 
             timer2.Enabled = true;
         }
@@ -1462,10 +1431,9 @@ namespace La_petite_boite
             Panel p = (Panel)sender;
             if (p.Enabled == false)
             {
-
                 //ici il faudra mettre l-image du lieu en gris de maniere definitive
 
-                listeLieux[IndiceJeu].chargementFinImage();
+                CarteJeu.BackgroundImage = listeLieux[IndiceJeu].chargementLieuInactif();
 
                 //remove le mouseEnter et le mouseSortie
                 listeLieux[IndiceJeu].MouseEnter -= changementImageLieu;

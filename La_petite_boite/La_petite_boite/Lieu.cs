@@ -14,11 +14,10 @@ namespace La_petite_boite
     {
         Point position;
         Bitmap imgDebut;
-        Bitmap imgFin;
+        Bitmap map;
         Bitmap imgSurvol;
-        String map;
 
-        public Lieu (int Top, int Left, int Width, int Height, Bitmap imageDebut, Bitmap imageSurvol, Bitmap imageFin, String map, Point p, String nom)
+        public Lieu (int Top, int Left, int Width, int Height, Bitmap imageDebut, Bitmap imageSurvol, Bitmap map, Point p, String nom)
         {
             this.Name = nom;
             this.Top = Top;
@@ -30,7 +29,6 @@ namespace La_petite_boite
             this.position = p;
             this.imgDebut = imageDebut;
             this.imgSurvol = imageSurvol;
-            this.imgFin = imageFin;
             this.map = map;
             this.BackgroundImage = imageDebut;
         }
@@ -50,9 +48,11 @@ namespace La_petite_boite
             this.BackgroundImage = imgSurvol;
         }
 
-        public void chargementFinImage()
+        public Bitmap chargementLieuInactif()
         {
-            this.BackgroundImage = imgFin;
+            this.Hide();
+
+            return this.map;
         }
         
         public Point getPosition()

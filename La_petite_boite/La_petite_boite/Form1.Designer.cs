@@ -39,9 +39,9 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(379, 520);
+            this.progressBar1.Location = new System.Drawing.Point(372, 455);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(617, 5);
+            this.progressBar1.Size = new System.Drawing.Size(607, 5);
             this.progressBar1.TabIndex = 1;
             // 
             // timer1
@@ -56,7 +56,6 @@
             this.chargement.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chargement.Location = new System.Drawing.Point(-6, -2);
             this.chargement.Name = "chargement";
-            this.chargement.Size = new System.Drawing.Size(1400, 770);
             this.chargement.TabIndex = 2;
             // 
             // timer2
@@ -74,9 +73,10 @@
             this.Controls.Add(this.chargement);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(1400, 789);
+            this.MaximumSize = new System.Drawing.Size(1350, 700);
             this.MinimizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "La petite Boite";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.chargement.ResumeLayout(false);

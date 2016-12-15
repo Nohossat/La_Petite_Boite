@@ -153,8 +153,8 @@ namespace Que_fait_le_Roi
                     bouton.Enabled = false;
                 }
 
-                MessageBox.Show("Tu as fini le 1er niveau !", "Bravo !");
                 this.Enabled = false;
+                chargementPartie();
             }
 
         }

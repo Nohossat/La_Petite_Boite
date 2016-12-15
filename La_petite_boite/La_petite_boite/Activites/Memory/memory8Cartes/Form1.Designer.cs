@@ -246,7 +246,7 @@ namespace memory8Cartes
             // MemoryPanel
             // 
             this.ClientSize = new System.Drawing.Size(700, 528);
-            this.Location = new System.Drawing.Point(330, 190);
+            this.Location = new System.Drawing.Point(330, 160);
             this.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Controls.Add(this.conteneurCarte);
             this.Name = "Memory8";
@@ -469,7 +469,7 @@ namespace memory8Cartes
             // 
             this.ClientSize = new System.Drawing.Size(700, 528);
             this.Controls.Add(this.conteneurCarte);
-            this.Location = new System.Drawing.Point(350,190);
+            this.Location = new System.Drawing.Point(350,160);
             this.Name = "Memory12";
             this.Text = "Form1";
             this.conteneurCarte.ResumeLayout(false);
@@ -778,7 +778,7 @@ namespace memory8Cartes
             // 
             this.ClientSize = new System.Drawing.Size(890, 528);
             this.Controls.Add(this.conteneurCarte);
-            this.Location = new System.Drawing.Point(230, 190);
+            this.Location = new System.Drawing.Point(230, 160);
             this.Name = "Memory18";
             this.Text = "Memory18";
             this.conteneurCarte.ResumeLayout(false);

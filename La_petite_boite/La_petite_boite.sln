@@ -23,6 +23,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chasse aux mots", "La_petite_boite\Activites\Chasse aux mots\Chasse aux mots\Chasse aux mots.csproj", "{163E04D8-0CD2-458A-B2D9-DF1755DB23BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Memory", "La_petite_boite\Activites\Memory\memory8Cartes\Memory.csproj", "{049BCAB4-F4A1-4735-A159-B37E45715A75}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7BE225B5-11E7-4C99-B3DB-67F0C46CF705} = {7BE225B5-11E7-4C99-B3DB-67F0C46CF705}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Que fait le Roi", "La_petite_boite\Activites\Que fait le Roi\Que fait le Roi\Que fait le Roi.csproj", "{417083FF-86DD-47FC-99C1-785B08DB3865}"
 EndProject

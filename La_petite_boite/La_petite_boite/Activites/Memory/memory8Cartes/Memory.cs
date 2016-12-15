@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ressources;
 using System.IO;
+using Jeu;
 
 namespace memory8Cartes
 {
@@ -21,9 +22,17 @@ namespace memory8Cartes
         public Panel conteneurCarte;
         public List<Stream> sons = new List<Stream>();
         public List<Bitmap> img = new List<Bitmap>();
+        
+
+
+        public new void lancement()
+        {
+
+        }
 
         public new void chargementPartie()
         {
+            score = 0;
             this.ImageEnAttente1 = null; //initialisation à null
             this.ImageEnAttente2 = null; //initialisation à null
             this.Enabled = true;
@@ -45,14 +54,13 @@ namespace memory8Cartes
                 coordonneesCartes.Remove(p);
             }
         }
-
+        
         public void chargementData(PictureBox pic, Bitmap img, Stream str)
         {
             pic.Image = img;
             JouerSon(str);
         }
         
-
         public void jouer(object sender, EventArgs e)
         {
             int index;
@@ -63,7 +71,6 @@ namespace memory8Cartes
             //attribution des mots pour chaque paires selon le tag 
 
             chargementData(carteCourante, img[index], sons[index]);
-            //controleCartes(carteCourante, finalScore);
 
             DialogResult rep;
 
@@ -126,14 +133,14 @@ namespace memory8Cartes
                     ImageEnAttente2 = null;
                 }
             }
-
-
+            
             if (this.score == finalScore)
             {
-                MessageBox.Show("Super ! Vous avez fini la partie !", "BRAVO !!!");
                 this.Enabled = false;
-
+                chargementPartie();
             }
         }
+
+        
     }
 }

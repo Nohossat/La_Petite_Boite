@@ -14,7 +14,7 @@ namespace La_petite_boite
         public ControlButton () {
             this.Width = 200;
             this.Height = 70;
-            this.Top = 620;
+            this.Top = 590;
             this.FlatAppearance.BorderSize = 0;
             this.TabStop = false;
             this.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
@@ -66,13 +66,13 @@ namespace La_petite_boite
         public LittleButton(int top)
         {
             this.Width = 150;
-            this.Height = 35;
+            this.Height = 45;
             this.Top = top;
             this.FlatAppearance.BorderSize = 0;
             this.TabStop = false;
             this.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             this.FlatStyle = FlatStyle.Flat;
-            this.ForeColor = SystemColors.ControlLightLight;
+            this.ForeColor = Color.Chocolate;
             this.BackColor = Color.Transparent;
             this.FlatAppearance.MouseDownBackColor = Color.Transparent;
             this.FlatAppearance.MouseOverBackColor = Color.Transparent;
@@ -89,16 +89,16 @@ namespace La_petite_boite
         {
             Button b = (Button)sender;
 
-            b.ForeColor = SystemColors.ControlLightLight;
+            b.ForeColor = Color.Chocolate;
         }
 
         private void changeColorButton(object sender, EventArgs e)
         {
             Button b = (Button)sender;
 
-            b.ForeColor = ColorTranslator.FromHtml("#a14e6d");
+            b.ForeColor = Color.Brown;
         }
-
+        
         private TextRenderingHint _textRenderingHint = TextRenderingHint.SystemDefault;
 
         public TextRenderingHint TextRenderingHint

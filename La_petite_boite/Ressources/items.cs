@@ -95,6 +95,14 @@ namespace Ressources
 
         //images JeuPPL
 
+        public static Bitmap retourFleche
+        {
+            get
+            {
+                return Properties.Resources.retourFleche;
+            }
+        }
+
         public static Bitmap mapCabane
         {
             get

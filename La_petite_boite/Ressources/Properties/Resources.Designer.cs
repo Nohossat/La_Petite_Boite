@@ -1057,6 +1057,16 @@ namespace Ressources.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap retourFleche {
+            get {
+                object obj = ResourceManager.GetObject("retourFleche", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap riviere {
             get {
                 object obj = ResourceManager.GetObject("riviere", resourceCulture);

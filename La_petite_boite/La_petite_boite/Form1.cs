@@ -10,6 +10,7 @@ using System.Drawing.Text;
 using System.Media;
 using Jeu;
 using Ressources;
+using System.Web;
 
 //reste a faire:  design,
 
@@ -56,13 +57,13 @@ namespace La_petite_boite
         public static List<String> listeSauvegarde = new List<string>();
 
         public List<Jeu.Jeu> epreuvesO;
+        public List<Jeu.Jeu> epreuvesF;
         public static Lieu positionInitiale = new Lieu();
         public static PrivateFontCollection privateFontCollection;
         public Form tuto;
 
         //private variables
         int indexAvatar = -1;
-        int chargementCarte = 0;
 
         SpecialButton nouvellePartie = new SpecialButton();
         SpecialButton chargerPartie = new SpecialButton();
@@ -71,21 +72,20 @@ namespace La_petite_boite
         ControlButton commencer = new ControlButton();
         ControlButton retour = new ControlButton();
 
-        LittleButton pret = new LittleButton(600);
-        LittleButton suivant = new LittleButton(600);
+        LittleButton actionJoueur = new LittleButton(530);
         LittleButton precedent = new LittleButton(600);
-        LittleButton AfficherCarte = new LittleButton(600);
 
         Button Yes;
         Button No;
+        List<Bitmap> imagesDiaporama = new List<Bitmap>();
 
         ComboBox listeDossierSauvegarde = new ComboBox();
         
-        Lieu Village = new Lieu(512, -28, 448, 270, items.villagePrevious, items.villageAfter, items.mapVillage,  new Point(140, 520), "Memory"); //MEMORY
-        Lieu Chateau = new Lieu(126, 1026, 327, 404, items.chateauPrevious, items.chateauAfter, items.map, new Point(1130, 380),"Chateau");//CHATEAU
-        Lieu Cabane = new Lieu(437, 775, 213, 192, items.cabanePrevious, items.cabaneAfter, items.mapCabane, new Point(830, 520), "Chasse aux mots");//CHASSE AUX MOTS
-        Lieu Tronc = new Lieu(104, 620, 177, 196, items.troncPrevious, items.troncAfter, items.mapTronc, new Point(650, 186), "Grand Ou Petit");//GRAND OU PETIT
-        Lieu Montagne = new Lieu(1, 1, 378, 196, items.montagnePrevious, items.montagneAfter, items.mapMontagne, new Point(140, 156),"Que fait le Roi?");//QUE FAIT LE ROI
+        Lieu Village = new Lieu(470, -28, 448, 270, items.villagePrevious, items.villageAfter, items.mapVillage,  new Point(140, 520), "Memory"); //MEMORY
+        Lieu Chateau = new Lieu(106, 1006, 327, 404, items.chateauPrevious, items.chateauAfter, items.map, new Point(1130, 380),"Chateau");//CHATEAU
+        Lieu Cabane = new Lieu(417, 755, 213, 192, items.cabanePrevious, items.cabaneAfter, items.mapCabane, new Point(830, 520), "Chasse aux mots");//CHASSE AUX MOTS
+        Lieu Tronc = new Lieu(80, 600, 177, 196, items.troncPrevious, items.troncAfter, items.mapTronc, new Point(650, 186), "Grand Ou Petit");//GRAND OU PETIT
+        Lieu Montagne = new Lieu(-5, -3, 378, 196, items.montagnePrevious, items.montagneAfter, items.mapMontagne, new Point(140, 156),"Que fait le Roi?");//QUE FAIT LE ROI
         Lieu arrivee = new Lieu();
 
         SpecialLabel menuPrincipal = new SpecialLabel();
@@ -96,7 +96,6 @@ namespace La_petite_boite
         Label ageLabel = new Label();
         Label dossierSauvegarde = new Label();
         Label prenomJoueur = new Label();
-        Label MessageRoi;
 
         ListBox joueursPossibles = new ListBox();
 
@@ -121,6 +120,7 @@ namespace La_petite_boite
         PictureBox sauvegarde = new PictureBox();
         PictureBox quitterMiniJeu = new PictureBox();
         List<PictureBox>listeAvatars = new List<PictureBox>();
+        Image imgChev = items.bain1;//TEST
 
         List<Bitmap> imagesAvatars = new List<Bitmap>();
         List<Bitmap> imagesAvatarsGris = new List<Bitmap>();
@@ -128,10 +128,13 @@ namespace La_petite_boite
         //String sauvegardeImgAvatar = null;
         String jeuEnCours = "";
         String message ="";
+        String nomJoueur = "";
+        List<String> textesDiaporama = new List<String>();
 
         TextBox prenomField = new TextBox();
         TextBox ageField = new TextBox();
         
+        //Charger les elements
         public Form1()
         {
             InitializeComponent();
@@ -147,57 +150,61 @@ namespace La_petite_boite
 
         private void generationElements()
         {
+            
             //---------------------PANELS------------------------//
             
             //chargement
             chargement.BackgroundImage = items.chargement;
+            chargement.BackgroundImageLayout = ImageLayout.Stretch;
+            chargement.Size = new Size(1350, 670);
 
             //accueil
             accueil.BackgroundImage = items.accueil;
             accueil.Location = new Point(-6, -2);
-            accueil.Width = 1400;
-            accueil.Height = 770;
+            accueil.Width = 1350;
+            accueil.Height = 670;
+            accueil.BackgroundImageLayout = ImageLayout.Stretch;
 
             //ecran nouveau joueur
             nouveauJoueur.BackgroundImage = items.menu;
-            nouveauJoueur.Width = 1400;
-            nouveauJoueur.Height = 770;
+            nouveauJoueur.Width = 1350;
+            nouveauJoueur.Height = 670;
             nouveauJoueur.Location = new Point(-6, -2);
-
+            nouveauJoueur.BackgroundImageLayout = ImageLayout.Stretch;
 
             //diaporamaHistoire
-            diaporamaHistoire.BackgroundImage = items.diapoTrone;
+
             diaporamaHistoire.Location = new Point(-6, -2);
-            diaporamaHistoire.Width = 1400;
-            diaporamaHistoire.Height = 770;
-            
+            diaporamaHistoire.Width = 1350;
+            diaporamaHistoire.Height = 670;
+            diaporamaHistoire.BackgroundImageLayout = ImageLayout.Stretch;
+
             //carteJeu
             CarteJeu.BackgroundImage = items.map;
             CarteJeu.Name = "Carte";
             CarteJeu.Location = new Point(0, 0);
-            CarteJeu.Width = 1400;
-            CarteJeu.Height = 770;
-
-            typeof(Panel).InvokeMember("DoubleBuffered",
-    BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
-    null, CarteJeu, new object[] { true });
+            CarteJeu.Width = 1350;
+            CarteJeu.Height = 670;
+            CarteJeu.BackgroundImageLayout = ImageLayout.Stretch;
 
             //Cour du roi
             CourRoi = new Panel();
             CourRoi.BackgroundImage = items.diapoTrone;
-            CourRoi.Width = 1400;
-            CourRoi.Height = 722;
+            CourRoi.Width = 1350;
+            CourRoi.Height = 670;
             CourRoi.Location = new Point(-6, -2);
-            
+            CourRoi.BackgroundImageLayout = ImageLayout.Stretch;
+
             //ecran mini-jeu
             Jeu.Location = new Point(-6, -2);
-            Jeu.Width = 1400;
-            Jeu.Height = 770;
+            Jeu.Width = 1350;
+            Jeu.Height = 670;
             Jeu.Name = "Jeu";
             Jeu.BorderStyle = BorderStyle.FixedSingle;
+            Jeu.BackgroundImageLayout = ImageLayout.Stretch;
 
             //--------------------MINI PANELS-------------------------------//
-            
+
             //mini-panel choix avatar
             choixAvatar.Width = 700;
             choixAvatar.Height = 150;
@@ -208,7 +215,7 @@ namespace La_petite_boite
             //mini panel saisie informations personnelles
             saisirInfos.Width = 500;
             saisirInfos.Height = 250;
-            saisirInfos.Top = 340;
+            saisirInfos.Top = 320;
             saisirInfos.Left = 450;
             saisirInfos.BackColor = Color.Transparent;
             saisirInfos.BorderStyle = BorderStyle.FixedSingle;
@@ -217,7 +224,7 @@ namespace La_petite_boite
 
             tabBord.Width = 200;
             tabBord.Height = 100;
-            tabBord.Top = 680;
+            tabBord.Top = 560;
             tabBord.Left = 1190;
             tabBord.BackColor = Color.Transparent;
 
@@ -239,7 +246,7 @@ namespace La_petite_boite
             //conteneurEtoilesCoffre
 
             conteneurEtoilesCoffre.Top = -5;
-            conteneurEtoilesCoffre.Left = 390;
+            conteneurEtoilesCoffre.Left = 380;
             conteneurEtoilesCoffre.Width = 1000;
             conteneurEtoilesCoffre.Height = 100;
             conteneurEtoilesCoffre.BackColor = Color.Transparent;
@@ -346,12 +353,12 @@ namespace La_petite_boite
 
             //on lit le fichier Joueurs et on cree une nouvelle instance Joueur avec les donnees trouvees
 
-            //chargementTexte("La_petite_boite.Resources.Joueurs.txt", joueursFichier);
-            joueursFichier = items.chargementTexte("Joueurs.txt");
+            chargementTexte("La_petite_boite.Resources.Joueurs.txt", joueursFichier);
+            //joueursFichier = items.chargementTexte("Joueurs.txt");
             //on lit le fichier Sauvegarde et on le met dans un tableau
-            listeSauvegarde = items.chargementTexte("dossiers_sauvegarde.txt");
+            //listeSauvegarde = items.chargementTexte("dossiers_sauvegarde.txt");
 
-            //chargementTexte("La_petite_boite.Resources.dossiers_sauvegarde.txt", listeSauvegarde);
+            chargementTexte("La_petite_boite.Resources.dossiers_sauvegarde.txt", listeSauvegarde);
 
             //--------------------------------BOUTONS----------------------------------------//
 
@@ -369,7 +376,7 @@ namespace La_petite_boite
 
             //quitter
             quitter.Text = "Quitter";
-            quitter.Top = 630;
+            quitter.Top = 560;
             quitter.Click += new EventHandler(quitterPartie);
             quitter.Font = new Font(privateFontCollection.Families[0], 40);
 
@@ -384,41 +391,24 @@ namespace La_petite_boite
             retour.Left = 725;
             retour.Font = new Font(Form1.privateFontCollection.Families[0], 20);
             retour.Click += new EventHandler(retourButton);
+
+
+            //ActionJouer button
             
-       
-            //Pret button
-            pret.Text = "Pret";
-            pret.Left = 600;
-            pret.Height = 90;
-            pret.Width = 200;
-            pret.Font = new Font(privateFontCollection.Families[0], 40);
-            pret.Click += new EventHandler(ReadyButton);
-
-            //suivant
-            suivant.Text = "Suivant";
-            suivant.Height = 90;
-            suivant.Width = 250;
-            suivant.Left = 800;
-            suivant.Font = new Font(privateFontCollection.Families[0], 30);
-            suivant.Click += new EventHandler(afficherDiapoSuivant);
-
+            actionJoueur.Left = 430;
+            actionJoueur.Height = 90;
+            actionJoueur.Width = 500;
+            actionJoueur.Font = new Font(privateFontCollection.Families[0], 40);
+            
             //precedent
-            precedent.Text = "Precedent";
-            precedent.Height = 90;
-            precedent.Width = 300;
-            precedent.Left = 350;
-            precedent.Font = new Font(privateFontCollection.Families[0], 30);
+            precedent.Height = 120;
+            precedent.Width = 170;
+            precedent.Left = 50;
+            precedent.Top = 40;
+            precedent.BackgroundImage = items.retourFleche;
             precedent.Click += new EventHandler(afficherDiapoPrecedente);
-
-            //afficherCarte
-            AfficherCarte.Text = "Commencer le Jeu";
-            AfficherCarte.Height = 90;
-            AfficherCarte.Width = 400;
-            AfficherCarte.Left = 800;
-            AfficherCarte.Font = new Font(privateFontCollection.Families[0], 30);
-            AfficherCarte.Click += new EventHandler(afficherCarte);
-
-
+            
+            
             Yes = new Button();
             Yes.Text = "Oui";
             Yes.Name = "Oui";
@@ -457,7 +447,8 @@ namespace La_petite_boite
             menuPrincipal.Width = 1400;
             menuPrincipal.Height = 200;
             menuPrincipal.Font = new Font(privateFontCollection.Families[0], 65);
-            menuPrincipal.ForeColor = ColorTranslator.FromHtml("#18518c");
+            //menuPrincipal.ForeColor = ColorTranslator.FromHtml("#18518c"); 
+            menuPrincipal.ForeColor = Color.Brown;
             menuPrincipal.BackColor = Color.Transparent;
 
 
@@ -486,7 +477,6 @@ namespace La_petite_boite
             listeDossierSauvegarde.Width = 250;
             listeDossierSauvegarde.Height = 25;
             listeDossierSauvegarde.Font = new Font(listeDossierSauvegarde.Font.FontFamily, 14);
-            listeDossierSauvegarde.SelectedIndexChanged += new EventHandler(afficherJoueursPossibles);
 
             //on link le tableau listeSauvegarde avec le combobox via une boucle
 
@@ -543,25 +533,26 @@ namespace La_petite_boite
             ageField.Text = null;
 
             //texte pour le diaporama
-
-            textePresentationJeu.Width = 950;
+            
+            textesDiaporama.Add("Bienvenue à toi "+ nomJoueur + ", je suis le roi Kazan."+ Environment.NewLine +"Es - tu pret pour la mission que j'ai a te confier?");
+            textesDiaporama.Add("Avant de commencer, rends visite au magicien. " + Environment.NewLine + "Il te donnera de precieux conseils pour la suite de l'aventure");
+            textesDiaporama.Add("Bienvenue à toi " + nomJoueur + " , je suis le magicien Kazan, et je serai ton guide tout au long de ton périple. " + Environment.NewLine + "Bon courage!");
+            textesDiaporama.Add("est-ce que tu as vraiment recolter toutes les etoiles?");
+            
+            textePresentationJeu.Width = 1220;
             textePresentationJeu.Height = 80;
-            textePresentationJeu.Top = 540;
-            textePresentationJeu.Left = 210; 
+            textePresentationJeu.Top = 460;
+            textePresentationJeu.Left = 60; 
             textePresentationJeu.Font = new Font(privateFontCollection.Families[0], 21);
             textePresentationJeu.ForeColor = ColorTranslator.FromHtml("#f2f2f2");
             textePresentationJeu.BackColor = Color.Transparent;
-            textePresentationJeu.TextAlign = ContentAlignment.TopLeft;
+            textePresentationJeu.TextAlign = ContentAlignment.TopCenter;
 
+            //images pour le diaporama
 
-            MessageRoi = new Label();
-            MessageRoi.Location = new Point(100, 500);
-            MessageRoi.Width = 500;
-            MessageRoi.Height = 100;
-            MessageRoi.BackColor = Color.Transparent;
-            MessageRoi.ForeColor = Color.Silver;
-            MessageRoi.Font = new Font(MessageRoi.Font.FontFamily, 13);
-            MessageRoi.Text = "est-ce que tu as vraiment recolter toutes les etoiles?";
+            imagesDiaporama.Add(items.diapoTrone);
+            imagesDiaporama.Add(items.diapoMag);
+            
 
             //titre pour le mini jeu
 
@@ -617,6 +608,26 @@ namespace La_petite_boite
             son.Dispose();
         }
 
+        public void chargementTexte(String nomFichier, List<String> tableauRes)
+        {
+            try
+            {
+                using (StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream(nomFichier)))
+                {
+                    String line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        tableauRes.Add(line);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Write("Le fichier n'a pas pu etre lu" + e);
+            }
+        }
+
+        //Enregistrement de donnees
         private void enregistrementFichier (String fichier)
         {
             try
@@ -635,9 +646,9 @@ namespace La_petite_boite
             }
         }
         
+        //Afficher Accueil
         private void timer1_Tick(object sender, EventArgs e)
         {
-
             if (progressBar1.Value < 100)
             {
                 progressBar1.Value += 2;
@@ -661,42 +672,8 @@ namespace La_petite_boite
                 timer1.Enabled = false;
             }
         }
-
-        private void afficherJoueursPossibles(object sender, EventArgs e)
-        {
-            //fonction qui sert a afficher la liste des joueurs possibles 
-            //selon le dossier selectionne dans le panneau chargement
-
-            String[] ligne;
-            String dossier = Convert.ToString(listeDossierSauvegarde.SelectedItem);
-            
-            if (dossier != "")
-            {
-                if (joueursPossibles.Items != null)
-                {
-                    joueursPossibles.Items.Clear();
-                }
-
-                for (int i = 0; i < joueursFichier.Count(); i++)
-                {
-                    if (joueursFichier.ElementAt(i).Contains(dossier))
-                    {
-                        ligne = joueursFichier.ElementAt(i).Split('-');
-                        joueursPossibles.Items.Add(ligne[0]);
-                    }
-                }
-
-                //on affiche la liste que s-il y a des elements dans la liste joueurs possibles
-                joueursPossibles.Visible = false;
-                chargerJoueur.Controls.Add(joueursPossibles);
-
-                if (joueursPossibles.Items.Count > 0)
-                {
-                    joueursPossibles.Visible = true;
-                }
-            }
-        }
-
+        
+        //afficher panel Nouvelle Partie
         private void nouvelle_partie_button(object sender, EventArgs e)
         {
             //on cache l/accueil
@@ -723,69 +700,7 @@ namespace La_petite_boite
             nouveauJoueur.Controls.Add(retour);
         }
 
-        private DialogResult afficheMessageBox(String titre, String message)
-        {
-           return MessageBox.Show(message, titre, MessageBoxButtons.OKCancel, MessageBoxIcon.None);
-        }
-
-        private void afficheInputBox()
-        {
-            //creation d-une nouvelle form InputBox
-
-            var InputBox = new Form2();
-            InputBox.ShowDialog();
-        }
-
-        public void clickAvatar(object sender, EventArgs e)
-        {
-            //on recupere l-objet 
-            PictureBox ImgTemporaire = (PictureBox)sender;
-            
-            //on remet les couleurs de l-image selectionnee
-            indexAvatar = listeAvatars.IndexOf(ImgTemporaire);
-            ImgTemporaire.Image = imagesAvatars[indexAvatar];
-            
-            
-            //on change les images des autres avatars
-            for (int i = 0; i < listeAvatars.Count(); i++)
-            {
-                //si ce n-est pas le perso choisi, on grise l-image
-                if (i != indexAvatar)
-                {
-                    listeAvatars[i].Image = imagesAvatarsGris[i];
-                }
-            }
-        }
-
-        private void charger_partie_button(object sender, EventArgs e)
-        {
-            int i;
-            var ChargeBox = new Charger();
-            ChargeBox.ShowDialog();
-
-            if (chargementReussi == true)
-            {
-                //on retrouve le lieu associe a la valeur contenu dans lieuTemporaire (recupere dans Charger.cs)
-                for (i=0;i<listeLieux.Length;i++)
-                {
-                    if (listeLieux[i].Name.Equals(lieuTemporaire))
-                    {
-                        positionInitiale = listeLieux[i];
-                    }
-                }
-                Console.Write(positionInitiale);
-                //on instancie le joueur
-                chevalier = new Joueur(nom, age, avatar, positionInitiale, score, dos, epreuvesEmportees);
-                afficherDiaporama();
-            }
-        }
-
-        private void retourButton(object sender, EventArgs e)
-        {
-            this.Controls.Remove(retour.Parent);
-            this.Controls.Add(accueil);
-        }
-
+        //traitement des donnees saisies dans le panel Nouvelle Partie
         private void commencer_button(object sender, EventArgs e)
         {
             //il faut donner un nouveau nom de dossier, 
@@ -828,7 +743,7 @@ namespace La_petite_boite
                     Console.WriteLine(s);
                     message = message + Environment.NewLine + s;
                 }
-                afficheMessageBox("Valeurs manquantes",message);
+                afficheMessageBox("Valeurs manquantes", message);
 
                 valeursVides.Clear();
             }
@@ -867,13 +782,13 @@ namespace La_petite_boite
                     if (existe == true)
                     {
                         String message = "Le personnage " + prenomField.Text.ToLower() + " existe deja." + Environment.NewLine + "Veuillez choisir un autre nom";
-                        afficheMessageBox("Erreur",message);
+                        afficheMessageBox("Erreur", message);
                     }
 
                     if (isNumerical == false)
                     {
                         String message = "L'age doit etre un nombre entier";
-                        afficheMessageBox("Erreur",message);
+                        afficheMessageBox("Erreur", message);
                     }
                 }
                 else
@@ -881,72 +796,164 @@ namespace La_petite_boite
                     int[] epreuves = { 0, 0, 0, 0 };
                     //apres toutes les verifications, on peut enregistrer le nouveau joueur
                     String enregistrementJoueur = prenomField.Text.ToLower() + "-" + ageJoueur + "-" + indexAvatar + "-" + Montagne.Name + "-" + etoile + "-" + dossier + "-" + epreuves[0] + "-" + epreuves[1] + "-" + epreuves[2] + "-" + epreuves[3];
-                    
+
                     //on l-enreigistre d-abord dans la liste joueursFichier, la fonction quitter va enregistrer les donnees en dur
                     joueursFichier.Add(enregistrementJoueur);
 
                     //il faut creer une nouvelle instance de joueur
-                    
+
                     chevalier = new Joueur(prenomField.Text, ageJoueur, indexAvatar, Chateau, Int16.Parse(etoile), dossier, epreuves);
-                    
+
                     //on affiche le prelude
                     afficherDiaporama();
                 }
+            }
         }
-    }
+
+        //Fonctions d'affichage de messages
+        private DialogResult afficheMessageBox(String titre, String message)
+        {
+           return MessageBox.Show(message, titre, MessageBoxButtons.OKCancel, MessageBoxIcon.None);
+        }
+
+        private void afficheInputBox()
+        {
+            //creation d-une nouvelle form InputBox
+
+            var InputBox = new Form2();
+            InputBox.ShowDialog();
+        }
+
+        //Selection de l'avatar
+        public void clickAvatar(object sender, EventArgs e)
+        {
+            //on recupere l-objet 
+            PictureBox ImgTemporaire = (PictureBox)sender;
+            
+            //on remet les couleurs de l-image selectionnee
+            indexAvatar = listeAvatars.IndexOf(ImgTemporaire);
+            ImgTemporaire.Image = imagesAvatars[indexAvatar];
+            
+            
+            //on change les images des autres avatars
+            for (int i = 0; i < listeAvatars.Count(); i++)
+            {
+                //si ce n-est pas le perso choisi, on grise l-image
+                if (i != indexAvatar)
+                {
+                    listeAvatars[i].Image = imagesAvatarsGris[i];
+                }
+            }
+        }
+
+        //afficher le panel ChargerPartie
+        private void charger_partie_button(object sender, EventArgs e)
+        {
+            int i;
+            var ChargeBox = new Charger();
+            ChargeBox.ShowDialog();
+
+            if (chargementReussi == true)
+            {
+                //on retrouve le lieu associe a la valeur contenu dans lieuTemporaire (recupere dans Charger.cs)
+                for (i=0;i<listeLieux.Length;i++)
+                {
+                    if (listeLieux[i].Name.Equals(lieuTemporaire))
+                    {
+                        positionInitiale = listeLieux[i];
+                    }
+                }
+                Console.Write(positionInitiale);
+                //on instancie le joueur
+                chevalier = new Joueur(nom, age, avatar, positionInitiale, score, dos, epreuvesEmportees);
+                afficherDiaporama();
+            }
+        }
+
+        //retour vers l'accueil
+        private void retourButton(object sender, EventArgs e)
+        {
+            this.Controls.Remove(retour.Parent);
+            this.Controls.Add(accueil);
+        }
+
+        //Afficher le diaporama
 
         private void afficherDiaporama()
         {
-
-            //on affiche la planche avec le roi puis la planche avec le magicien...le bouton suivant doit clignoter
+            //on affiche la planche avec le roi puis la planche avec le magicien...le bouton doit clignoter
             //lors du diaporama on a le texte et une voix off qui explique l-histoire
-            
-            this.Controls.Remove(accueil);
-            this.Controls.Remove(nouveauJoueur);
-            this.Controls.Remove(chargerJoueur);
-            textePresentationJeu.Text = "Bienvenue à toi "+ chevalier.nomJoueur() + " , je suis le roi Kazan. Es-tu pret pour la mission que j'ai a te confier?";
-            diaporamaHistoire.Controls.Add(pret);
+            nomJoueur = chevalier.nomJoueur();
+            textePresentationJeu.Text = textesDiaporama.ElementAt(0);
+
+            actionJoueur.Text = "Oui";
+            actionJoueur.Click += new EventHandler(ReadyButton);
+
+            diaporamaHistoire.Tag = "0";
+            diaporamaHistoire.BackgroundImage = imagesDiaporama.ElementAt(0);
+            diaporamaHistoire.Controls.Add(precedent);
+            diaporamaHistoire.Controls.Add(actionJoueur);
             diaporamaHistoire.Controls.Add(textePresentationJeu);
+            this.Controls.Clear();
             this.Controls.Add(diaporamaHistoire);
-            
         }
 
         private void ReadyButton(object sender, EventArgs e)
         {
-            textePresentationJeu.Text = "Avant de commencer, rends visite au magicien. Il te donnera de precieux conseils pour la suite de l'aventure";
-            diaporamaHistoire.Controls.Remove(pret);
-            diaporamaHistoire.Controls.Add(precedent);
-            diaporamaHistoire.Controls.Add(suivant);
+            textePresentationJeu.Text = textesDiaporama.ElementAt(1);
+            diaporamaHistoire.Tag = "1";
+            actionJoueur.Text = "Voir le Magicien";
+            actionJoueur.Click -= ReadyButton;
+            actionJoueur.Click += new EventHandler(afficherDiapoSuivant);
         }
 
-        private void afficherDiapoPrecedente(object sender, EventArgs e)
+        public void afficherDiapoPrecedente(object sender, EventArgs e)
         {
-            //on retourne a l-ecran du roi
-            if (diaporamaHistoire.Name.Equals("diapoMag.png") == true)
+            String index = (String)diaporamaHistoire.Tag;
+            Console.WriteLine("index du diapo :" + index);
+
+            if (index.Equals("0"))
             {
-                diaporamaHistoire.BackgroundImage = items.diapoTrone;
-                textePresentationJeu.Text = "Avant de commencer, rends visite au magicien. Il te donnera de precieux conseils pour la suite de l'aventure";
-                diaporamaHistoire.Controls.Add(precedent);
-                diaporamaHistoire.Controls.Add(suivant);
-                diaporamaHistoire.Controls.Remove(AfficherCarte);
+                this.Controls.Clear();
+                //retour a l'accueil
+                this.Controls.Add(accueil);
             }
-            else
+            else if (index.Equals("1"))
             {
-                diaporamaHistoire.BackgroundImage = items.diapoTrone;
-                textePresentationJeu.Text = "Bienvenue à toi " + chevalier.nomJoueur() + " , je suis le roi Kazan. Es-tu pret pour la mission que j'ai a te confier?";
-                diaporamaHistoire.Controls.Remove(suivant);
-                diaporamaHistoire.Controls.Remove(precedent);
-                diaporamaHistoire.Controls.Add(pret);
+                //retour au premier panel roi
+                diaporamaHistoire.Tag = "0";
+                textePresentationJeu.Text = textesDiaporama.ElementAt(0);
+
+                actionJoueur.Text = "Oui";
+                actionJoueur.Click -= afficherDiapoSuivant;
+                actionJoueur.Click += new EventHandler(ReadyButton);
+            }
+            else if (index.Equals("2"))
+            {
+                //retaur au deuxieme panel roi
+                diaporamaHistoire.Tag = "1";
+                textePresentationJeu.Text = textesDiaporama.ElementAt(1);
+                diaporamaHistoire.BackgroundImage = imagesDiaporama.ElementAt(0);
+
+                actionJoueur.Text = "Voir le Magicien";
+                actionJoueur.Click -= afficherCarte;
+                actionJoueur.Click += new EventHandler(afficherDiapoSuivant);
             }
         }
 
         private void afficherDiapoSuivant(object sender, EventArgs e)
         {
-            diaporamaHistoire.Controls.Remove(suivant);
-            textePresentationJeu.Text = "Bienvenue à toi " + chevalier.nomJoueur() + " , je suis le magicien Kazan, et je serai ton guide tout au long de ton périple. Bon courage!";
-            diaporamaHistoire.BackgroundImage = items.diapoMag;
-            diaporamaHistoire.Controls.Add(AfficherCarte);
+            textePresentationJeu.Text = textesDiaporama.ElementAt(2);
+            diaporamaHistoire.Tag = "2";
+            diaporamaHistoire.BackgroundImage = imagesDiaporama.ElementAt(1);
+
+            actionJoueur.Text = "Commencer le Jeu";
+            actionJoueur.Click -= afficherDiapoSuivant;
+            actionJoueur.Click += new EventHandler(afficherCarte);
+            Console.WriteLine("index du diapo :" + diaporamaHistoire.Tag);
         }
+
+        //afficher la Carte
         
         private void afficherCarte(object sender, EventArgs e)
         {
@@ -958,6 +965,11 @@ namespace La_petite_boite
 
         public void Carte()
         {
+            typeof(Panel).InvokeMember("DoubleBuffered",
+   BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
+   null, CarteJeu, new object[] { true });
+
+            
             //position  
             imgChevalier.Left = chevalier.positionJoueur().getPosition().X;
             imgChevalier.Top = chevalier.positionJoueur().getPosition().Y;
@@ -978,10 +990,10 @@ namespace La_petite_boite
             CarteJeu.Controls.Add(Chateau);
             CarteJeu.Controls.Add(tabBord);
             
-            Refresh();
             this.Controls.Add(CarteJeu);
         }
 
+        //deplacement de l'avatar
         private void declencheTimer(object sender, EventArgs e)
         {
             arrivee = (Lieu)sender;
@@ -1036,7 +1048,6 @@ namespace La_petite_boite
                 {
                     deplacementHorizontal(arrivee);
                 }
-                
             }
             else if (chevalier.positionJoueur().Name.Equals("Que fait le Roi?"))
             {
@@ -1052,8 +1063,6 @@ namespace La_petite_boite
                 }
                 
             }
-            
-
             imgChevalier.Refresh();
             //on desactive le timer
             timer2.Enabled = false;
@@ -1138,9 +1147,22 @@ namespace La_petite_boite
 
         private void deplacementCabaneTronc()
         {
-            deplacementHorizontal(Chateau);
-            deplacementVertical(Tronc);
+            //if depart == Tronc
+            if (chevalier.positionJoueur().Name.Equals("Grand Ou Petit"))
+            {
+                deplacementHorizontal(Chateau);
+                deplacementVertical(Cabane);
+            }
+            //if depart== Cabane
+            else if (chevalier.positionJoueur().Name.Equals("Chasse aux mots"))
+            {
+                deplacementHorizontal(Chateau);
+                deplacementVertical(Tronc);
+            }
+            
         }
+
+        //sauvegarde
 
         private void sauvegardeButton (object sender, EventArgs e)
         {
@@ -1179,6 +1201,8 @@ namespace La_petite_boite
             }
         }
 
+        //sauvegarde + exit
+
         private void quitterPartie (object sender, EventArgs e)
         {
             //enregistrement en dur des donnees
@@ -1187,6 +1211,8 @@ namespace La_petite_boite
             //on quitte le jeu
             Application.Exit();
         }
+
+        //modification de l'etat du lieu sur la carte 
 
         private void changementImageLieu (object sender, EventArgs e)
         {
@@ -1204,19 +1230,28 @@ namespace La_petite_boite
         
         //MINI JEUX
 
+       //afficher le mini jeu
         private void afficheJeu (String nomJeu, Panel p)
         {
+            this.Controls.Remove(CarteJeu);
             
-            titreJeu.Text = "Niveau 1 : " + nomJeu;
             
-
             //on ajoute le minijeu
             miniJeu.Controls.Add(p);
             
-            if (chevalier.epreuvesJoueur().Contains(miniJeu.Controls[0]))
+            if (epreuvesO.Contains(miniJeu.Controls[0]) || epreuvesF.Contains(miniJeu.Controls[0]))
             {
+                if (epreuvesO.Contains(miniJeu.Controls[0]))
+                {
+                    titreJeu.Text = "Niveau 1 : ";
+                }
+                else
+                {
+                    titreJeu.Text = "Niveau 2 : ";
+                }
+
+                titreJeu.Text = titreJeu.Text + nomJeu;
                 p.EnabledChanged += new EventHandler(finMiniJeu);
-                
             }
             
             //position de l'avatar en haut a gauche  
@@ -1224,22 +1259,21 @@ namespace La_petite_boite
             imgChevalier.Top = 20;
             imgChevalier.BackColor = Color.Transparent;
             
-                obj.Text = "Objectif";
-                obj.ForeColor = Color.White;
-                obj.BackColor = Color.Transparent;
-                obj.Font = new Font(obj.Font.FontFamily, 12);
-                obj.Width = 100;
-                obj.Left = 20;
-                obj.Top = 400;
-                //on met le nom du joueur
-                prenomJoueur.Text = chevalier.nomJoueur();
-                prenomJoueur.BackColor = Color.Transparent;
+            obj.Text = "Objectif";
+            obj.ForeColor = Color.White;
+            obj.BackColor = Color.Transparent;
+            obj.Font = new Font(obj.Font.FontFamily, 12);
+            obj.Width = 100;
+            obj.Left = 20;
+            obj.Top = 400;
+            //on met le nom du joueur
+            prenomJoueur.Text = chevalier.nomJoueur();
+            prenomJoueur.BackColor = Color.Transparent;
 
             //on ajoute les etoiles au conteneurEtoiles
 
-               ajoutEtoiles();
+            ajoutEtoiles();
             
-
             if (chevalier.getEpreuvesGagnees(IndiceJeu) == 1)
                 {
                     //epreuve remportee / alors il n'y a pas d'etoiles jaunes a remporter
@@ -1256,7 +1290,6 @@ namespace La_petite_boite
                 else
                 {
                     //epreuve perdue ou premiere fois /il y a encore des etoiles a remporter
-
                     //on ajoute les etoiles jaunes
 
                     for (int i = 0; i < 3; i++)
@@ -1285,10 +1318,10 @@ namespace La_petite_boite
         private void LanceMiniJeu(object sender, EventArgs e)
         {
             Lieu l = (Lieu)sender;
-            this.Controls.Remove(CarteJeu);
             Boolean FonctionChateauActive = false;
 
             epreuvesO = chevalier.epreuvesJoueur();
+            epreuvesF = chevalier.epreuvesFacultatives();
 
             jeuEnCours = l.Name;
             if (l.Name == "Chasse aux mots")
@@ -1326,10 +1359,37 @@ namespace La_petite_boite
 
             if (FonctionChateauActive == false)
             {
-                afficheJeu(l.Name, epreuvesO.ElementAt(IndiceJeu));
+                //si le joueur a deja gagnee l'epreuve obligatoire,
+                //on peut lui demander s-il veut joueur au niveau suivant
+
+                if (chevalier.getEpreuvesGagnees(IndiceJeu) == 1)
+                {
+                    //s'il a deja gagne les etoiles /pop up personalise
+
+                    DialogResult res = MessageBox.Show("Tu as deja gagne les etoiles de cette epreuve. Souhaites tu rejouer au premier niveau ou veux/tu passer au niveau suivant ?", "No title", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+
+                    
+                    if (res == DialogResult.Yes)
+                    {
+                        //pour l-instant, yes = premier niveau
+                        afficheJeu(l.Name, epreuvesO.ElementAt(IndiceJeu));
+                    }
+                    else
+                    {
+                        //no = deuxieme niveau
+                        afficheJeu(l.Name, epreuvesF.ElementAt(IndiceJeu));
+                    }
+                    
+                }
+                else
+                {
+                    //s'il na jamais gagne les etoiles
+                    afficheJeu(l.Name, epreuvesO.ElementAt(IndiceJeu));
+                }
             }
         }
         
+        //retour vers La Carte ou l-Accueil depuis le moni jeu
         private void retourTabBord (object sender, EventArgs e)
         {
             Control source = (Control)sender;
@@ -1364,17 +1424,12 @@ namespace La_petite_boite
 
                     //on affiche l-accueil
                     this.Controls.Add(accueil);
-
-                    //on affiche les boutons a l-ecran accueil
-                    accueil.Controls.Add(menuPrincipal);
-                    accueil.Controls.Add(nouvellePartie);
-                    accueil.Controls.Add(chargerPartie);
-                    accueil.Controls.Add(quitter);
-
+                    
                 }
             }
         }
 
+        //traitement apres la reussite du mini jeu
         public void finMiniJeu(object sender, EventArgs e)
         {
             Panel p = (Panel)sender;
@@ -1410,8 +1465,8 @@ namespace La_petite_boite
 
                 }
                 //on demande au joueur s-il veut jouer au niveau suivant mais pas d-etoiles a gagner supp. c-est juste pour savoir s-il a assimile
-
-                DialogResult reponse = MessageBox.Show("Veux-tu jouer au niveau suivant?", "Niveau suivant", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                //ici pop up spe
+                DialogResult reponse = MessageBox.Show("Super ! Tu viens de terminer le premier niveau ! Veux-tu jouer au niveau suivant?", "Niveau suivant", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                 if (reponse == DialogResult.Yes)
                 {
@@ -1419,7 +1474,6 @@ namespace La_petite_boite
                 }
                 else
                 {
-                    miniJeu.Controls.Clear();
                     this.Controls.Remove(Jeu);
                     Carte();
                 }
@@ -1438,28 +1492,31 @@ namespace La_petite_boite
                 //remove le mouseEnter et le mouseSortie
                 listeLieux[IndiceJeu].MouseEnter -= changementImageLieu;
                 listeLieux[IndiceJeu].MouseLeave -= changementImageLieuOrigine;
-                
-                //on peut proposer au joueur de rejouer ou de revenir a la carte
 
+                //on peut proposer au joueur de rejouer ou de revenir a la carte
+                
                 var Popup = new PopUp();
                 Popup.ShowDialog();
 
-                if (Program.petiteBoite.choixFinMiniJeu == 1)
+                if (choixFinMiniJeu == 1)
                 {
                     //on revient a la carte
-                    miniJeu.Controls.Clear();
                     this.Controls.Remove(Jeu);
                     Carte();
                 }
-                else if (Program.petiteBoite.choixFinMiniJeu == 2)
+                else if (choixFinMiniJeu == 2)
                 {
-                    //on joue au premier niveau
+                    //on affiche et on reload le premier niveau
+                    miniJeu.Controls.Clear();
                     epreuvesO.ElementAt(IndiceJeu).chargementPartie();
+                    miniJeu.Controls.Add(epreuvesO.ElementAt(IndiceJeu));
+                    titreJeu.Text = "Niveau 1 : " + jeuEnCours;
                 }
-                else if (Program.petiteBoite.choixFinMiniJeu == 3)
+                else if (choixFinMiniJeu == 3)
                 {
                     //on joue au deuxieme niveau
-                    chevalier.epreuvesFacultatives().ElementAt(IndiceJeu).chargementPartie();
+                    titreJeu.Text = "Niveau 2 : " + jeuEnCours;
+                    epreuvesF.ElementAt(IndiceJeu).chargementPartie();
                 }
             }
         }
@@ -1472,6 +1529,7 @@ namespace La_petite_boite
             miniJeu.Controls.Add(chevalier.epreuvesFacultatives().ElementAt(IndiceJeu));
         }
 
+        //ajouter les etoiles au conteneurEtoiles
         public void ajoutEtoiles()
         {
             //on met les etoiles dans conteneurEtoiles - a factoriser
@@ -1497,6 +1555,8 @@ namespace La_petite_boite
                 ConteneurEtoile.Controls.Add(new Etoile(left, 2));
             }
         }
+
+        //aide du jeu
 
         public void ConseilsGuide()
         {
@@ -1524,12 +1584,14 @@ namespace La_petite_boite
                 }
             }
         }
-
+        
         public void AfficheMessage(object sender, EventArgs e)
         {
             ConseilsGuide();
             MessageBox.Show(message, "Aide La Petite Boite", MessageBoxButtons.OK, MessageBoxIcon.None);
         }
+
+        //revelation du coffre
 
         public void devoileCoffre()
         {

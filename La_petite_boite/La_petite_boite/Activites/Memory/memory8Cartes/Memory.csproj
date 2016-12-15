@@ -35,7 +35,7 @@
   <ItemGroup>
     <Reference Include="Jeu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Jeu\bin\Debug\Jeu.exe</HintPath>
+      <HintPath>..\..\Jeu\bin\Debug\Jeu.exe</HintPath>
     </Reference>
     <Reference Include="Ressources">
       <HintPath>..\..\..\..\..\Ressources\bin\Debug\Ressources.dll</HintPath>

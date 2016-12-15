@@ -57,6 +57,11 @@ namespace memory8Cartes
         public MemoryPanel()
         {
             initialize();
+            lancement();
+        }
+
+        public new void lancement ()
+        {
             this.chargementPartie();
             finalScore = 4;
             sons.Add(items.doudouFR);
@@ -89,6 +94,11 @@ namespace memory8Cartes
         public Memory12Panel()
         {
             initialize();
+            lancement();
+        }
+
+        public new void lancement()
+        {
             chargementPartie();
             finalScore = 6;
             sons.Add(items.foretTurc);
@@ -133,6 +143,12 @@ namespace memory8Cartes
         public Memory18Panel()
         {
             initialize();
+            lancement();
+            
+        }
+
+        public new void lancement()
+        {
             chargementPartie();
             finalScore = 9;
             //chargement sons

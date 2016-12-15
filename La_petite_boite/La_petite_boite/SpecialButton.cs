@@ -47,15 +47,14 @@ namespace La_petite_boite
         private void PreviousColorButton(object sender, EventArgs e)
         {
             Button b = (Button)sender;
-
             b.ForeColor = ColorTranslator.FromHtml("#003255");
         }
 
         private void changeColorButton(object sender, EventArgs e)
         {
             Button b = (Button)sender;
-
-            b.ForeColor = ColorTranslator.FromHtml("#a14e6d");
+            b.ForeColor = Color.Brown;
+            //b.ForeColor = ColorTranslator.FromHtml("#a14e6d");
         }
     }
 }

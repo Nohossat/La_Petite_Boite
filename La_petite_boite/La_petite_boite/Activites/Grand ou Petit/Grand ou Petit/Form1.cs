@@ -66,7 +66,7 @@ namespace Grand_ou_Petit
         public GrandOuPetit()
         {
             initialize();
-            chargementPartie();
+
             finalScore = 4;
             //images
             img.Add(items.chateau1);
@@ -85,6 +85,9 @@ namespace Grand_ou_Petit
             sons.Add(items.petitCoffreFR);
             sons.Add(items.petitJardinTurc);
             sons.Add(items.petitPontTurc);
+
+            chargementPartie();
+            
         }
     }
 
@@ -118,7 +121,7 @@ namespace Grand_ou_Petit
         public GrandOuPetit8Panel()
         {
             initialize();
-            chargementPartie();
+            
             finalScore = 8;
             //images
             img.Add(items.chateau1);
@@ -149,6 +152,8 @@ namespace Grand_ou_Petit
             sons.Add(items.petitTableTurc);
             sons.Add(items.petiteChaiseFR);
             sons.Add(items.petiteForetFR);
+
+            chargementPartie();
         }
     }
 
@@ -194,7 +199,7 @@ namespace Grand_ou_Petit
         public GrandOuPetit12Panel()
         {
             initialize();
-            chargementPartie();
+            
             finalScore = 12;
 
             //images
@@ -238,6 +243,8 @@ namespace Grand_ou_Petit
             sons.Add(items.petitEscalierFR);
             sons.Add(items.petitEcoleFR);
             sons.Add(items.petitDoudouTurc);
+
+            chargementPartie();
         }
     }
 }

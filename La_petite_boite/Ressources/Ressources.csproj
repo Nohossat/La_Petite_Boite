@@ -275,6 +275,7 @@
     <EmbeddedResource Include="Resources\Jeu\mapMontagne.png" />
     <EmbeddedResource Include="Resources\Jeu\mapTronc.png" />
     <EmbeddedResource Include="Resources\Jeu\mapVillage.png" />
+    <EmbeddedResource Include="Resources\Jeu\retourFleche.png" />
     <Content Include="Resources\miniJeu\pauseFR.wav" />
   </ItemGroup>
   <ItemGroup />

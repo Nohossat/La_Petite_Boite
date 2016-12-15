@@ -10,8 +10,8 @@ namespace La_petite_boite
     {
         SpecialLabel Selection = new SpecialLabel();
         SpecialLabel annonce = new SpecialLabel();
-        LittleButton charger = new LittleButton(450);
-        LittleButton retour = new LittleButton(450);
+        LittleButton charger = new LittleButton(500);
+        LittleButton retour = new LittleButton(250);
         ComboBox listeDossierSauvegarde = new ComboBox();
         ListBox joueursPossibles = new ListBox();
         Panel chargerJoueur = new Panel();
@@ -39,7 +39,7 @@ namespace La_petite_boite
             //label Selection
 
             Selection.Text = "Selectionne un dossier de sauvegarde";
-            Selection.Top = 50;
+            Selection.Top = 120;
             Selection.Left = 0;
             Selection.Width = 640;
             Selection.Height = 40;
@@ -53,7 +53,7 @@ namespace La_petite_boite
             listeDossierSauvegarde.Font = new Font("Segoe UI Symbol", 13, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             listeDossierSauvegarde.Width = 200;
             listeDossierSauvegarde.Height = 35;
-            listeDossierSauvegarde.Top = 100;
+            listeDossierSauvegarde.Top = 170;
             listeDossierSauvegarde.Left = 220;
             listeDossierSauvegarde.SelectedIndexChanged += new EventHandler(afficherJoueursPossibles);
             
@@ -87,19 +87,20 @@ namespace La_petite_boite
 
             //retour
             retour.Text = "Retour";
-            retour.Left = 350;
-            retour.Font = new Font(Form1.privateFontCollection.Families[0], 20);
+            retour.Left = 245;
+            retour.Font = new Font(Form1.privateFontCollection.Families[0], 25);
             retour.Click += new EventHandler(retourButton);
 
             //charger
             charger.Text = "Charger";
-            charger.Left = 150;
-            charger.Font = new Font(Form1.privateFontCollection.Families[0], 20);
+            charger.Left = 140;
+            charger.Font = new Font(Form1.privateFontCollection.Families[0], 25);
             charger.Click += new EventHandler(chargerMethod);
 
             
             chargerJoueur.Controls.Add(listeDossierSauvegarde);
             chargerJoueur.Controls.Add(Selection);
+            chargerJoueur.Controls.Add(retour);
 
             this.Controls.Add(chargerJoueur);
         }
@@ -129,7 +130,10 @@ namespace La_petite_boite
         {
             //fonction qui sert a afficher la liste des joueurs possibles 
             //selon le dossier selectionne dans le panneau chargement
-
+            retour.Top = 500;
+            retour.Left = 350;
+            Selection.Top = 50;
+            listeDossierSauvegarde.Top = 100;
             String[] ligne;
             String dossier = Convert.ToString(listeDossierSauvegarde.SelectedItem);
 
@@ -167,7 +171,7 @@ namespace La_petite_boite
                 }
                 
                 chargerJoueur.Controls.Add(charger);
-                chargerJoueur.Controls.Add(retour);
+                
             }
         }
 

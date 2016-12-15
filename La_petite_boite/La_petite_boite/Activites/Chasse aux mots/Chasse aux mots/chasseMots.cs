@@ -80,9 +80,9 @@ namespace Chasse_aux_mots
 
                 if (this.score == finalScore)
                 {
-                    MessageBox.Show("Bien joué, tu as fini la partie !", "Bravo !");
                     Ecouter.Enabled = false;
                     this.Enabled = false;
+                    chargementPartie();
                 }
             }
             else

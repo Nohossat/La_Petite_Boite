@@ -24,6 +24,11 @@ namespace Jeu
 
         }
 
+        public void lancement()
+        {
+
+        }
+
         public void chargementPartie()
         {
 
@@ -36,6 +41,8 @@ namespace Jeu
             son.Play();
             son.Dispose();
         }
+
+        
 
     }
 }

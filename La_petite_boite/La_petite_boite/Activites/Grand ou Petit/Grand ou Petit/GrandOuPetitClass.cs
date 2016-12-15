@@ -30,7 +30,7 @@ namespace Grand_ou_Petit
         public List<Bitmap> img = new List<Bitmap>();
         public List<Stream> sons = new List<Stream>();
         int index;
-        int indexEmplacement = 0;
+        int indexEmplacement;
 
         public GrandOuPetitClass ()
         {
@@ -46,10 +46,25 @@ namespace Grand_ou_Petit
             deuxiemeCarteSelectionnee = "";
             destinationCarte = "";
             petiteImageRecup = null;
+            indexEmplacement = 0;
 
             //récupérer les localisations des grandes cartes
             foreach (PictureBox image in conteneurGrandeCarte.Controls)
             {
+                image.SizeMode = PictureBoxSizeMode.StretchImage;
+                image.BackColor = Color.Transparent;
+                image.TabStop = false;
+
+                if (conteneurPetiteCarte.Controls.Count < 11)
+                {
+                    //taille hors Grand Ou Petit 12
+                    image.Size = new Size(130, 160);
+                }
+                else
+                {
+                    image.Size = new System.Drawing.Size(100, 130);
+                }
+
                 image.Image = items.dosCarte;
                 image.Enabled = true;
                 coordonneesGrandeCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
@@ -59,6 +74,20 @@ namespace Grand_ou_Petit
             //récupérer les localisations des emplacements
             foreach (PictureBox image in conteneurCarteAPlacer.Controls)
             {
+                image.TabStop = false;
+                image.BackColor = Color.Transparent;
+
+                if (conteneurPetiteCarte.Controls.Count < 11)
+                {
+                    //taille hors Grand Ou Petit 12
+                   
+                    image.Size = new Size(130, 160);
+                }
+                else
+                {
+                    image.Size = new Size(100, 130);
+                }
+
                 image.Enabled = true;
                 image.AllowDrop = false;
                 image.Image = null;
@@ -88,7 +117,22 @@ namespace Grand_ou_Petit
             {
                 image.Enabled = true;
                 image.Visible = true;
+                image.BackColor = Color.Transparent;
                 image.Image = items.dosCarte;
+                image.SizeMode = PictureBoxSizeMode.StretchImage;
+                image.TabStop = false;
+
+                if (conteneurPetiteCarte.Controls.Count < 11)
+                {
+                    //taille hors Grand Ou Petit 12
+                    
+                    image.Size = new Size(130, 160);
+                }
+                else
+                {
+                    image.Size = new System.Drawing.Size(100, 130);
+                }
+                
                 coordonneesPetiteCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
                 image.MouseDown += new MouseEventHandler(this.receveurImage_MouseDown);
             }
@@ -112,10 +156,12 @@ namespace Grand_ou_Petit
                 premiereCarteSelectionnee = (String)carteCourante.Tag;
                 carteRetournee = true;
                 index = Int32.Parse(premiereCarteSelectionnee) - 1;
-
-                Console.WriteLine("premiere carte : " + index);
+                
                 //on devoile la carte
+                carteCourante.BackColor = Color.White;
                 carteCourante.Image = img[index];
+                Refresh();
+                
 
                 //on ecoute le son associe a la carte
                 JouerSon(sons[index]);
@@ -139,18 +185,17 @@ namespace Grand_ou_Petit
         private void petiteImage_DragDrop(object sender, DragEventArgs e)
         {
             PictureBox image = (PictureBox)sender;
-            image.Image = petiteImageRecup;
+            image.Image = new Bitmap(petiteImageRecup, new Size(80, 104));
+            image.BackColor = Color.White;
+            image.SizeMode = PictureBoxSizeMode.CenterImage;
+            Refresh();
             destinationCarte = (String)image.Tag;
-
-            Console.WriteLine(premiereCarteSelectionnee);
-            Console.WriteLine(deuxiemeCarteSelectionnee);
-            Console.WriteLine(destinationCarte);
+            
             if (premiereCarteSelectionnee.Equals(deuxiemeCarteSelectionnee) & premiereCarteSelectionnee.Equals(destinationCarte))
             {
                 this.score++;
                 cartePetiteDejaSelectionnee = false;
                 carteRetournee = false;
-                Console.WriteLine("petite carte a retirer:" + index);
                 conteneurPetiteCarte.Controls[index].Hide();
                 conteneurGrandeCarte.Controls[index].Enabled = false;
                 JouerSon(items.applaudissement);
@@ -169,8 +214,8 @@ namespace Grand_ou_Petit
                     imageGrande.Enabled = false;
                 }
 
-                MessageBox.Show("Tu as fini le 1er niveau !", "Bravo !");
                 this.Enabled = false;
+                chargementPartie();
             }
         }
 
@@ -183,7 +228,6 @@ namespace Grand_ou_Petit
                 deuxiemeCarteSelectionnee = (String)image.Tag;
                 cartePetiteDejaSelectionnee = true;
                 int index = Int32.Parse(deuxiemeCarteSelectionnee) - 1;
-                Console.WriteLine("tag de la petite carte: " + index);
 
                 //on retourne toutes les cartes
                 foreach (PictureBox petiteImage in conteneurPetiteCarte.Controls)
@@ -191,10 +235,18 @@ namespace Grand_ou_Petit
                     if (petiteImage.Tag != image.Tag)
                     {
                         petiteImage.Image = items.dosCarte;
+                        image.BackColor = Color.Transparent;
+                        petiteImage.SizeMode = PictureBoxSizeMode.StretchImage;
+                        Refresh();
                     }
                 }
+                
+                image.Image = new Bitmap(img[index], new Size(80, 104));
+                image.SizeMode = PictureBoxSizeMode.CenterImage;
+                image.BackColor = Color.White;
+                Refresh();
 
-                image.Image = img[index];
+
                 foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)
                 {
                     petiteImage.AllowDrop = true;
@@ -202,7 +254,6 @@ namespace Grand_ou_Petit
 
                 //lecture du son lié à la petite carte
                 JouerSon(sons[index + finalScore]);
-
                 petiteImageRecup = image.Image;
                 conteneurCarteAPlacer.DoDragDrop("x", DragDropEffects.Move);
             }

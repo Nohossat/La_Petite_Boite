@@ -53,9 +53,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Activites\Que fait le Roi\Que fait le Roi\bin\Debug\Que fait le Roi.exe</HintPath>
     </Reference>
-    <Reference Include="Ressources, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Ressources\bin\Debug\Ressources.dll</HintPath>
+    <Reference Include="Ressources">
+      <HintPath>Activites\Ressources\bin\Debug\Ressources.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

@@ -1,4 +1,6 @@
-﻿namespace La_petite_boite
+﻿using System;
+
+namespace La_petite_boite
 {
     partial class Form1
     {
@@ -53,7 +55,6 @@
             // 
             this.chargement.BackColor = System.Drawing.Color.Transparent;
             this.chargement.Controls.Add(this.progressBar1);
-            this.chargement.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chargement.Location = new System.Drawing.Point(-6, -2);
             this.chargement.Name = "chargement";
             this.chargement.TabIndex = 2;
@@ -68,21 +69,27 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1267, 683);
+            this.ClientSize = new System.Drawing.Size(System.Windows.Forms.Screen.PrimaryScreen.Bounds.X, System.Windows.Forms.Screen.PrimaryScreen.Bounds.Y);
             this.Controls.Add(this.chargement);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            //this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(1350, 700);
+            this.MaximumSize = new System.Drawing.Size(System.Windows.Forms.Screen.PrimaryScreen.Bounds.X, System.Windows.Forms.Screen.PrimaryScreen.Bounds.Y);
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Location = new System.Drawing.Point(0, 0);
             this.Text = "La petite Boite";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.chargement.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.Resize += new EventHandler(resizableControls);
 
         }
+
+
 
         #endregion
         private System.Windows.Forms.ProgressBar progressBar1;

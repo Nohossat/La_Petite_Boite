@@ -38,7 +38,7 @@
       <HintPath>..\..\Jeu\bin\Debug\Jeu.exe</HintPath>
     </Reference>
     <Reference Include="Ressources">
-      <HintPath>..\..\..\..\..\Ressources\bin\Debug\Ressources.dll</HintPath>
+      <HintPath>..\..\Ressources\bin\Debug\Ressources.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -76,8 +76,8 @@ namespace La_petite_boite
             //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             //this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(System.Windows.Forms.Screen.PrimaryScreen.Bounds.X, System.Windows.Forms.Screen.PrimaryScreen.Bounds.Y);
-            this.MinimizeBox = false;
+            this.MinimizeBox = true;
+            this.MinimumSize = new System.Drawing.Size(1300,728);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Location = new System.Drawing.Point(0, 0);

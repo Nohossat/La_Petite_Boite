@@ -21,7 +21,7 @@ namespace La_petite_boite
             }
             this.Width = 50;
             this.Height = 50;
-            this.Top = 20;
+            this.Top = 0;
             this.Left = L;
             this.BackColor = Color.Transparent;
             this.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

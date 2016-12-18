@@ -31,7 +31,7 @@ namespace Grand_ou_Petit
         public List<Stream> sons = new List<Stream>();
         int index;
         int indexEmplacement;
-        int indexCarte = 0;
+        int indexCarte;
 
         public GrandOuPetitClass ()
         {
@@ -48,6 +48,7 @@ namespace Grand_ou_Petit
             destinationCarte = "";
             petiteImageRecup = null;
             indexEmplacement = 0;
+            indexCarte = 0;
 
             //récupérer les localisations des grandes cartes
             foreach (PictureBox image in conteneurGrandeCarte.Controls)
@@ -57,7 +58,6 @@ namespace Grand_ou_Petit
                 image.TabStop = false;
                 image.Image = items.dosCarte;
                 image.Enabled = true;
-                coordonneesGrandeCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
                 image.Click += new System.EventHandler(this.cliquerPremiereLigne);
                 image.Top = 3;
                 
@@ -65,11 +65,13 @@ namespace Grand_ou_Petit
                 {
                     //Grand Ou Petit 12
                     image.Size = new System.Drawing.Size(100, 130);
+                    image.Left = indexCarte * 106;
                 }
                 else if (conteneurGrandeCarte.Controls.Count == 8)
                 {
                     //Grand Ou Petit 8
                     image.Size = new System.Drawing.Size(120, 150);
+                    image.Left = indexCarte * 135;
                 }
                 else {
                     //Grand Ou Petit
@@ -77,10 +79,12 @@ namespace Grand_ou_Petit
                     image.Left = indexCarte * 145;
                 }
                 indexCarte++;
+                coordonneesGrandeCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
             }
 
-            //initialisation de l[index pour la prochaine boucle
+            //initialisation de l'index pour la prochaine boucle
             indexCarte = 0;
+
             //récupérer les localisations des emplacements
             foreach (PictureBox image in conteneurCarteAPlacer.Controls)
             {
@@ -98,11 +102,13 @@ namespace Grand_ou_Petit
                 {
                     //Grand Ou Petit 12
                     image.Size = new System.Drawing.Size(100, 130);
+                    image.Left = indexCarte * 106;
                 }
                 else if (conteneurCarteAPlacer.Controls.Count == 8)
                 {
                     //Grand Ou Petit 8
                     image.Size = new System.Drawing.Size(120, 150);
+                    image.Left = indexCarte * 135;
                 }
                 else
                 {
@@ -145,11 +151,13 @@ namespace Grand_ou_Petit
                 {
                     //Grand Ou Petit 12
                     image.Size = new System.Drawing.Size(100, 130);
+                    image.Left = indexCarte * 106;
                 }
                 else if (conteneurPetiteCarte.Controls.Count == 8)
                 {
                     //Grand Ou Petit 8
                     image.Size = new System.Drawing.Size(120, 150);
+                    image.Left = indexCarte * 135;
                 }
                 else
                 {

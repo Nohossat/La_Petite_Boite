@@ -168,8 +168,7 @@ namespace La_petite_boite
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
             Table.Dock = DockStyle.Fill;
-            Table.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset;
-
+           
 
             //---------------------PANELS------------------------//
 
@@ -280,8 +279,10 @@ namespace La_petite_boite
 
             //conteneurEtoilesCoffre
 
-            conteneurEtoilesCoffre.Top = -5;
-            conteneurEtoilesCoffre.Left = 380;
+            conteneurEtoilesCoffre.Top = 0;
+            conteneurEtoilesCoffre.Left = 0;
+            //conteneurEtoilesCoffre.Top = -5;
+            //conteneurEtoilesCoffre.Left = 380;
             conteneurEtoilesCoffre.Width = 1000;
             conteneurEtoilesCoffre.Height = 100;
             conteneurEtoilesCoffre.BackColor = Color.Transparent;
@@ -289,8 +290,10 @@ namespace La_petite_boite
             //conteneurEtoile
 
             ConteneurEtoile.Top = 5;
-            ConteneurEtoile.Left = 20;
-            ConteneurEtoile.Width = 860;
+            ConteneurEtoile.Left = 65;
+            //ConteneurEtoile.Top = 5;
+            //ConteneurEtoile.Left = 20;
+            ConteneurEtoile.Width = 830;
             ConteneurEtoile.Height = 100;
             ConteneurEtoile.BackColor = Color.Transparent;
 
@@ -303,8 +306,6 @@ namespace La_petite_boite
             objectif.BackColor = Color.Transparent;
 
             //miniJeu
-            //miniJeu.Top = 90;
-            //miniJeu.Left = 100;
             miniJeu.Top = 0;
             miniJeu.Left = 0;
             miniJeu.Width = 1274;
@@ -367,8 +368,10 @@ namespace La_petite_boite
             coffre.Image = items.coffre;
             coffre.Width = 100;
             coffre.Height = 90;
-            coffre.Top = 5;
-            coffre.Left = 890;
+           //coffre.Top = 0;
+            coffre.Left = 900;
+            coffre.Top = -5;
+            //coffre.Left = 890;
             coffre.SizeMode = PictureBoxSizeMode.StretchImage;
             coffre.BackColor = Color.Transparent;
 
@@ -437,8 +440,8 @@ namespace La_petite_boite
 
 
             //ActionJouer button
-            actionJoueur.Top = Convert.ToInt16(Height * 0.75);
-            actionJoueur.Left = Convert.ToInt16(Width * 0.3);
+            actionJoueur.Top = 0;
+            actionJoueur.Left = 0;
             actionJoueur.Height = 90;
             actionJoueur.Width = 500;
             actionJoueur.Font = new Font(privateFontCollection.Families[0], 40);
@@ -600,9 +603,9 @@ namespace La_petite_boite
 
             textePresentationJeu.Width = 900;
             textePresentationJeu.Height = 300;
-            textePresentationJeu.Top = Convert.ToInt16(Height * 0.65);
-            textePresentationJeu.Left = Convert.ToInt16(Width * 0.13);
-            textePresentationJeu.Font = new Font(privateFontCollection.Families[0], 21);
+            textePresentationJeu.Top = 0;
+            textePresentationJeu.Left = 0;
+            textePresentationJeu.Font = new Font(privateFontCollection.Families[0], 19);
             textePresentationJeu.ForeColor = ColorTranslator.FromHtml("#f2f2f2");
             textePresentationJeu.BackColor = Color.Transparent;
             textePresentationJeu.TextAlign = ContentAlignment.TopCenter;
@@ -662,10 +665,7 @@ namespace La_petite_boite
 
         private void resizableControls(object sender, EventArgs e)
         {
-            textePresentationJeu.Top = Convert.ToInt16(Height * 0.65);
-            textePresentationJeu.Left = Convert.ToInt16(Width * 0.13);
-            actionJoueur.Left = Convert.ToInt16(Width * 0.3);
-            actionJoueur.Top = Convert.ToInt16(Height * 0.75);
+            //refresh carte
             Refresh();
         }
 
@@ -730,15 +730,29 @@ namespace La_petite_boite
 
                 this.Update();
                 //on affiche l-accueil
+                Table.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+                Table.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
+                Table.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
+                Table.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
 
-
-
+                accueil.Controls.Add(Table);
                 //on affiche les boutons a l-ecran accueil
                 conteneurTitrePPL.Controls.Add(menuPrincipal);
-                accueil.Controls.Add(conteneurTitrePPL);
-                accueil.Controls.Add(nouvellePartie);
-                accueil.Controls.Add(chargerPartie);
-                accueil.Controls.Add(quitter);
+                Table.Controls.Add(conteneurTitrePPL, 0, 0);
+                Table.Controls.Add(nouvellePartie, 0, 1);
+                Table.Controls.Add(chargerPartie, 0, 2);
+                Table.Controls.Add(quitter, 0 , 3);
+
+                foreach (Control c in Table.Controls)
+                {
+                    Table.SetColumnSpan(c, 4);
+                    c.Dock = DockStyle.None;
+                    c.Anchor = AnchorStyles.None;
+                }
+
+                nouvellePartie.Anchor = AnchorStyles.Bottom;
+                chargerPartie.Anchor = AnchorStyles.Top;
+
                 this.Controls.Add(accueil);
                 //on arrete le timer
                 timer1.Enabled = false;
@@ -982,11 +996,28 @@ namespace La_petite_boite
             actionJoueur.Text = "Oui";
             actionJoueur.Click += new EventHandler(ReadyButton);
 
+            Table.Controls.Clear();
+            Table.RowStyles.Clear();
+            Table.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            Table.RowStyles.Add(new RowStyle(SizeType.Percent, 57F));
+            Table.RowStyles.Add(new RowStyle(SizeType.Percent, 13F));
+            Table.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            Table.Controls.Add(precedent, 0, 0);
+            Table.Controls.Add(textePresentationJeu, 0, 2);
+            Table.Controls.Add(actionJoueur, 0, 3);
+            Table.SetColumnSpan(textePresentationJeu, 4);
+            Table.SetColumnSpan(actionJoueur, 4);
+
+            foreach (Control c in Table.Controls)
+            {
+                c.Dock = DockStyle.None;
+                c.Anchor = AnchorStyles.None;
+            }
+
+            actionJoueur.Anchor = AnchorStyles.Top;
+            diaporamaHistoire.Controls.Add(Table);
             diaporamaHistoire.Tag = "0";
             diaporamaHistoire.BackgroundImage = imagesDiaporama.ElementAt(0);
-            diaporamaHistoire.Controls.Add(precedent);
-            diaporamaHistoire.Controls.Add(actionJoueur);
-            diaporamaHistoire.Controls.Add(textePresentationJeu);
             this.Controls.Clear();
             this.Controls.Add(diaporamaHistoire);
         }
@@ -1051,8 +1082,8 @@ namespace La_petite_boite
         private void afficherCarte(object sender, EventArgs e)
         {
             Control control = (Control)sender;
-
-            this.Controls.Remove(control.Parent);
+            Control parent = control.Parent;
+            this.Controls.Remove(parent.Parent);
             Carte();
         }
 
@@ -1062,7 +1093,7 @@ namespace La_petite_boite
    BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
    null, CarteJeu, new object[] { true });
 
-
+            Table.Controls.Clear();
             //position  
             imgChevalier.Left = chevalier.positionJoueur().getPosition().X;
             imgChevalier.Top = chevalier.positionJoueur().getPosition().Y;
@@ -1401,6 +1432,7 @@ namespace La_petite_boite
             objectif.Controls.Add(obj);
             
             Table.ColumnStyles.Clear();
+            Table.RowStyles.Clear();
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
@@ -1411,9 +1443,11 @@ namespace La_petite_boite
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
 
-            tabBord.Dock = DockStyle.Fill;
+            tabBord.Dock = DockStyle.None;
+            tabBord.Anchor = AnchorStyles.None;
+            
             conteneurEtoilesCoffre.Dock = DockStyle.Top;
-            conteneurEtoilesCoffre.Anchor = AnchorStyles.Right;
+            conteneurEtoilesCoffre.Anchor = AnchorStyles.Top;
             titreJeu.Dock = DockStyle.Fill;
             prenomJoueur.Dock = DockStyle.Fill;
             miniJeu.Dock = DockStyle.Fill;
@@ -1678,7 +1712,6 @@ namespace La_petite_boite
         //ajouter les etoiles au conteneurEtoiles
         public void ajoutEtoiles()
         {
-            //on met les etoiles dans conteneurEtoiles - a factoriser
 
             ConteneurEtoile.Controls.Clear();
             //etoiles jaunes

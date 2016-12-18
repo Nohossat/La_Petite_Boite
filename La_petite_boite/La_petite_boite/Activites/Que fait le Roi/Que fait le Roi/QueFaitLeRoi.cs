@@ -94,8 +94,7 @@ namespace Que_fait_le_Roi
                 image.Location = p;
                 coordonneesCarte.Remove(p);
             }
-
-           
+            
         }
         
         public void Ecouter(object sender, EventArgs e)

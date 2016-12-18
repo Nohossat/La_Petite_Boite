@@ -16,12 +16,14 @@ namespace La_petite_boite
         Bitmap imgDebut;
         Bitmap map;
         Bitmap imgSurvol;
+        int ordonee;
+        int abs;
 
         public Lieu (int Top, int Left, int Width, int Height, Bitmap imageDebut, Bitmap imageSurvol, Bitmap map, Point p, String nom)
         {
             this.Name = nom;
-            this.Top = Top;
-            this.Left = Left;
+            this.ordonee = Top;
+            this.abs = Left;
             this.Width = Width;
             this.Height = Height;
             this.BackColor = Color.Transparent;
@@ -37,7 +39,16 @@ namespace La_petite_boite
         {
 
         }
-        
+
+        public int getOrdonne ()
+        {
+            return this.ordonee;
+        }
+
+        public int getAbs()
+        {
+            return this.abs;
+        }
         public void chargementDebutImage()
         {
             this.BackgroundImage = imgDebut;

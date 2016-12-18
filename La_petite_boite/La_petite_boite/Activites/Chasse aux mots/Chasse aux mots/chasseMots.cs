@@ -24,6 +24,7 @@ namespace Chasse_aux_mots
         public List<Stream> sons = new List<Stream>();
         public Button Ecouter;
         public Boolean[] trouves;
+        int indexCarte;
 
         public chasseMots ()
         {
@@ -37,11 +38,53 @@ namespace Chasse_aux_mots
             carteACliquerTag = "";
             imageCliqueTag = "";
 
+            indexCarte = 0;
             //récupérer les localisations des cartes
             foreach (PictureBox image in conteneurCarte.Controls)
             {
+                if (conteneurCarte.Controls.Count == 4)
+                {
+                    image.Left = indexCarte * 145;
+                    image.Top = 0;
+                }
+                else if (conteneurCarte.Controls.Count == 8)
+                {
+                    image.Left = indexCarte * 145;
+
+                    if (indexCarte < 4)
+                    {
+                        image.Top = 0;
+                    }
+                    else
+                    {
+                        image.Left = (indexCarte-4) * 145;
+                        image.Top = 183;
+                    }
+                }
+                else
+                {
+                    
+                    image.Left = indexCarte * 145;
+
+                    if (indexCarte < 6)
+                    {
+                        image.Top = 0;
+                    }
+                    else
+                    {
+                        image.Left = (indexCarte - 6) * 145;
+                        image.Top = 183;
+                    }
+                }
+                
+                image.Size = new Size(130, 160);
+                image.SizeMode = PictureBoxSizeMode.StretchImage;
+                image.TabIndex = 3;
+                image.TabStop = false;
                 image.Enabled = true;
+                image.Click += new System.EventHandler(this.CliquerReponse);
                 coordonneesCartes.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
+                indexCarte++;
             }
 
             //mélange des cartes
@@ -51,6 +94,7 @@ namespace Chasse_aux_mots
                 Point p = coordonneesCartes[next];
                 image.Location = p;
                 coordonneesCartes.Remove(p);
+
             }
         }
 

@@ -13,9 +13,9 @@ namespace La_petite_boite
     {
         public SpecialButton ()
         {
-            this.Width = 1400;
+            this.Width = 500;
             this.Height = 90;
-            this.Anchor = AnchorStyles.None;
+            //this.Anchor = AnchorStyles.None;
             this.ForeColor = ColorTranslator.FromHtml("#003255");
             this.BackColor = Color.Transparent;
             this.UseCompatibleTextRendering = true;

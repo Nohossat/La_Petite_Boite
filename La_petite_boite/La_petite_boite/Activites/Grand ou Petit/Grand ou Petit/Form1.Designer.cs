@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace Grand_ou_Petit
 {
@@ -368,61 +369,53 @@ namespace Grand_ou_Petit
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox24);
             this.conteneurPetiteCarte.Location = new System.Drawing.Point(0, 360);
             this.conteneurPetiteCarte.Name = "conteneurPetiteCarte";
-            this.conteneurPetiteCarte.Size = new System.Drawing.Size(1135, 167);
+            this.conteneurPetiteCarte.Size = new System.Drawing.Size(1115, 167);
             this.conteneurPetiteCarte.TabIndex = 9;
             // 
             // pictureBox24
             // 
-            this.pictureBox24.Location = new System.Drawing.Point(1029, 3);
             this.pictureBox24.Name = "pictureBox24";
             this.pictureBox24.TabIndex = 35;
             this.pictureBox24.Tag = "8";
             // 
             // pictureBox23
             // 
-            this.pictureBox23.Location = new System.Drawing.Point(880, 3);
             this.pictureBox23.Name = "pictureBox23";
             this.pictureBox23.TabIndex = 34;
             this.pictureBox23.Tag = "7";
             // 
             // pictureBox22
             // 
-            this.pictureBox22.Location = new System.Drawing.Point(734, 4);
             this.pictureBox22.Name = "pictureBox22";
             this.pictureBox22.TabIndex = 33;
             this.pictureBox22.Tag = "6";
             // 
             // pictureBox21
             // 
-            this.pictureBox21.Location = new System.Drawing.Point(588, 3);
             this.pictureBox21.Name = "pictureBox21";
             this.pictureBox21.TabIndex = 32;
             this.pictureBox21.Tag = "5";
             // 
             // pictureBox20
             // 
-            this.pictureBox20.Location = new System.Drawing.Point(441, 3);
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.TabIndex = 31;
             this.pictureBox20.Tag = "4";
             // 
             // pictureBox19
             // 
-            this.pictureBox19.Location = new System.Drawing.Point(294, 3);
             this.pictureBox19.Name = "pictureBox19";
             this.pictureBox19.TabIndex = 30;
             this.pictureBox19.Tag = "3";
             // 
             // pictureBox18
-            // 
-            this.pictureBox18.Location = new System.Drawing.Point(148, 3);
+
             this.pictureBox18.Name = "pictureBox18";
             this.pictureBox18.TabIndex = 29;
             this.pictureBox18.Tag = "2";
             // 
             // pictureBox17
             // 
-            this.pictureBox17.Location = new System.Drawing.Point(3, 3);
             this.pictureBox17.Name = "pictureBox17";
             this.pictureBox17.TabIndex = 28;
             this.pictureBox17.Tag = "1";
@@ -440,34 +433,30 @@ namespace Grand_ou_Petit
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox16);
             this.conteneurCarteAPlacer.Location = new System.Drawing.Point(0, 185);
             this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
-            this.conteneurCarteAPlacer.Size = new System.Drawing.Size(1135, 169);
+            this.conteneurCarteAPlacer.Size = new System.Drawing.Size(1115, 169);
             this.conteneurCarteAPlacer.TabIndex = 8;
 
             //emplacements carte
             // pictureBox12
             // 
-            this.pictureBox12.Location = new System.Drawing.Point(441, 6);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.TabIndex = 23;
             this.pictureBox12.Tag = "4";
             // 
             // pictureBox11
             // 
-            this.pictureBox11.Location = new System.Drawing.Point(294, 6);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.TabIndex = 22;
             this.pictureBox11.Tag = "3";
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Location = new System.Drawing.Point(148, 6);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.TabIndex = 21;
             this.pictureBox10.Tag = "2";
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Location = new System.Drawing.Point(3, 6);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.TabIndex = 20;
             this.pictureBox9.Tag = "1";
@@ -476,28 +465,23 @@ namespace Grand_ou_Petit
             // 
             // pictureBox14
             // 
-            this.pictureBox14.Location = new System.Drawing.Point(734, 6);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.TabIndex = 25;
             this.pictureBox14.Tag = "6";
             // 
             // pictureBox13
             // 
-            this.pictureBox13.Location = new System.Drawing.Point(588, 6);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.TabIndex = 24;
             this.pictureBox13.Tag = "5";
             // 
             // pictureBox16
             // 
-            this.pictureBox16.Location = new System.Drawing.Point(1029, 6);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.TabIndex = 27;
             this.pictureBox16.Tag = "8";
             // 
             // pictureBox15
-            // 
-            this.pictureBox15.Location = new System.Drawing.Point(880, 6);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.TabIndex = 26;
             this.pictureBox15.Tag = "7";
@@ -515,33 +499,29 @@ namespace Grand_ou_Petit
             this.conteneurGrandeCarte.Controls.Add(this.pictureBox8);
             this.conteneurGrandeCarte.Location = new System.Drawing.Point(0, 9);
             this.conteneurGrandeCarte.Name = "conteneurGrandeCarte";
-            this.conteneurGrandeCarte.Size = new System.Drawing.Size(1135, 170);
+            this.conteneurGrandeCarte.Size = new System.Drawing.Size(1115, 170);
             this.conteneurGrandeCarte.TabIndex = 6;
             //grandes cartes
             // pictureBox8
             // 
-            this.pictureBox8.Location = new System.Drawing.Point(1029, 3);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.TabIndex = 15;
             this.pictureBox8.Tag = "8";
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Location = new System.Drawing.Point(880, 3);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.TabIndex = 14;
             this.pictureBox7.Tag = "7";
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Location = new System.Drawing.Point(734, 3);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.TabIndex = 13;
             this.pictureBox6.Tag = "6";
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Location = new System.Drawing.Point(588, 3);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.TabIndex = 12;
             this.pictureBox5.Tag = "5";
@@ -549,21 +529,18 @@ namespace Grand_ou_Petit
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(441, 3);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.Tag = "4";
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(294, 3);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.Tag = "3";
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(148, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(130, 160);
             this.pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -573,13 +550,12 @@ namespace Grand_ou_Petit
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.Tag = "1";
             // GrandOuPetit8
             // 
-            this.ClientSize = new System.Drawing.Size(1140, 527);
+            this.ClientSize = new System.Drawing.Size(1120, 527);
             this.Location = new System.Drawing.Point(0, 0);
             this.Controls.Add(this.conteneurPetiteCarte);
             this.Controls.Add(this.conteneurCarteAPlacer);
@@ -737,33 +713,29 @@ namespace Grand_ou_Petit
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox36);
             this.conteneurPetiteCarte.Location = new System.Drawing.Point(0, 360);
             this.conteneurPetiteCarte.Name = "conteneurPetiteCarte";
-            this.conteneurPetiteCarte.Size = new System.Drawing.Size(1275, 138);
+            this.conteneurPetiteCarte.Size = new System.Drawing.Size(1268, 138);
             this.conteneurPetiteCarte.TabIndex = 15;
             // 
             // pictureBox17
             // 
-            this.pictureBox17.Location = new System.Drawing.Point(1170, 4);
             this.pictureBox17.Name = "pictureBox17";
             this.pictureBox17.TabIndex = 31;
             this.pictureBox17.Tag = "1";
             // 
             // pictureBox18
             // 
-            this.pictureBox18.Location = new System.Drawing.Point(1064, 4);
             this.pictureBox18.Name = "pictureBox18";
             this.pictureBox18.TabIndex = 30;
             this.pictureBox18.Tag = "2";
             // 
             // pictureBox19
             // 
-            this.pictureBox19.Location = new System.Drawing.Point(958, 4);
             this.pictureBox19.Name = "pictureBox19";
             this.pictureBox19.TabIndex = 29;
             this.pictureBox19.Tag = "3";
             // 
             // pictureBox20
             // 
-            this.pictureBox20.Location = new System.Drawing.Point(852, 4);
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.TabIndex = 28;
             this.pictureBox20.Tag = "4";
@@ -771,7 +743,6 @@ namespace Grand_ou_Petit
             
             // pictureBox24
             // 
-            this.pictureBox24.Location = new System.Drawing.Point(746, 4);
             this.pictureBox24.Name = "pictureBox24";
             this.pictureBox24.TabIndex = 27;
             this.pictureBox24.Tag = "5";
@@ -779,14 +750,12 @@ namespace Grand_ou_Petit
             // 
             // pictureBox22
             // 
-            this.pictureBox22.Location = new System.Drawing.Point(640, 4);
             this.pictureBox22.Name = "pictureBox22";
             this.pictureBox22.TabIndex = 26;
             this.pictureBox22.Tag = "6";
 
             // pictureBox33
             // 
-            this.pictureBox33.Location = new System.Drawing.Point(534, 4);
             this.pictureBox33.Name = "pictureBox33";
             this.pictureBox33.TabIndex = 25;
             this.pictureBox33.Tag = "7";
@@ -794,35 +763,30 @@ namespace Grand_ou_Petit
             // 
             // pictureBox35
             // 
-            this.pictureBox35.Location = new System.Drawing.Point(428, 4);
             this.pictureBox35.Name = "pictureBox35";
             this.pictureBox35.TabIndex = 24;
             this.pictureBox35.Tag = "8";
 
             // pictureBox21
             // 
-            this.pictureBox21.Location = new System.Drawing.Point(322, 4);
             this.pictureBox21.Name = "pictureBox21";
             this.pictureBox21.TabIndex = 23;
             this.pictureBox21.Tag = "9";
 
             // pictureBox23
             // 
-            this.pictureBox23.Location = new System.Drawing.Point(216, 4);
             this.pictureBox23.Name = "pictureBox23";
             this.pictureBox23.TabIndex = 22;
             this.pictureBox23.Tag = "10";
 
             // pictureBox34
             // 
-            this.pictureBox34.Location = new System.Drawing.Point(110, 4);
             this.pictureBox34.Name = "pictureBox34";
             this.pictureBox34.TabIndex = 21;
             this.pictureBox34.Tag = "11";
             // 
             // pictureBox36
             // 
-            this.pictureBox36.Location = new System.Drawing.Point(4, 4);
             this.pictureBox36.Name = "pictureBox36";
             this.pictureBox36.TabIndex = 20;
             this.pictureBox36.Tag = "12";
@@ -843,33 +807,29 @@ namespace Grand_ou_Petit
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox9);
             this.conteneurCarteAPlacer.Location = new System.Drawing.Point(0, 185);
             this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
-            this.conteneurCarteAPlacer.Size = new System.Drawing.Size(1275, 144);
+            this.conteneurCarteAPlacer.Size = new System.Drawing.Size(1268, 144);
             this.conteneurCarteAPlacer.TabIndex = 14;
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Location = new System.Drawing.Point(1170, 7);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.TabIndex = 31;
             this.pictureBox9.Tag = "12";
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Location = new System.Drawing.Point(1064, 7);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.TabIndex = 30;
             this.pictureBox10.Tag = "11";
             // 
             // pictureBox11
             // 
-            this.pictureBox11.Location = new System.Drawing.Point(958, 7);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.TabIndex = 29;
             this.pictureBox11.Tag = "10";
             // 
             // pictureBox12
             // 
-            this.pictureBox12.Location = new System.Drawing.Point(852, 7);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.TabIndex = 28;
             this.pictureBox12.Tag = "9";
@@ -877,21 +837,18 @@ namespace Grand_ou_Petit
            
             // pictureBox16
             // 
-            this.pictureBox16.Location = new System.Drawing.Point(746, 7);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.TabIndex = 27;
             this.pictureBox16.Tag = "8";
 
             // pictureBox14
             // 
-            this.pictureBox14.Location = new System.Drawing.Point(640, 7);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.TabIndex = 26;
             this.pictureBox14.Tag = "7";
             // 
             // pictureBox29
             // 
-            this.pictureBox29.Location = new System.Drawing.Point(534, 7);
             this.pictureBox29.Name = "pictureBox29";
             this.pictureBox29.TabIndex = 25;
             this.pictureBox29.Tag = "6";
@@ -899,21 +856,18 @@ namespace Grand_ou_Petit
            
             // pictureBox31
             // 
-            this.pictureBox31.Location = new System.Drawing.Point(428, 7);
             this.pictureBox31.Name = "pictureBox31";
             this.pictureBox31.TabIndex = 24;
             this.pictureBox31.Tag = "5";
 
             // pictureBox13
             // 
-            this.pictureBox13.Location = new System.Drawing.Point(322, 7);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.TabIndex = 23;
             this.pictureBox13.Tag = "4";
 
             // pictureBox15
             // 
-            this.pictureBox15.Location = new System.Drawing.Point(216, 7);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.TabIndex = 22;
             this.pictureBox15.Tag = "3";
@@ -921,7 +875,6 @@ namespace Grand_ou_Petit
 
             // pictureBox30
             // 
-            this.pictureBox30.Location = new System.Drawing.Point(110, 7);
             this.pictureBox30.Name = "pictureBox30";
             this.pictureBox30.TabIndex = 21;
             this.pictureBox30.Tag = "2";
@@ -929,7 +882,6 @@ namespace Grand_ou_Petit
             // 
             // pictureBox32
             // 
-            this.pictureBox32.Location = new System.Drawing.Point(4, 7);
             this.pictureBox32.Name = "pictureBox32";
             this.pictureBox32.TabIndex = 20;
             this.pictureBox32.Tag = "1";
@@ -951,33 +903,29 @@ namespace Grand_ou_Petit
             this.conteneurGrandeCarte.Controls.Add(this.pictureBox28);
             this.conteneurGrandeCarte.Location = new System.Drawing.Point(0, 9);
             this.conteneurGrandeCarte.Name = "conteneurGrandeCarte";
-            this.conteneurGrandeCarte.Size = new System.Drawing.Size(1275, 142);
+            this.conteneurGrandeCarte.Size = new System.Drawing.Size(1268, 142);
             this.conteneurGrandeCarte.TabIndex = 12;
             // 
             // pictureBox28
             // 
-            this.pictureBox28.Location = new System.Drawing.Point(1169, 3);
             this.pictureBox28.Name = "pictureBox28";
             this.pictureBox28.TabIndex = 19;
             this.pictureBox28.Tag = "12";
             // 
             // pictureBox27
             // 
-            this.pictureBox27.Location = new System.Drawing.Point(1063, 3);
             this.pictureBox27.Name = "pictureBox27";
             this.pictureBox27.TabIndex = 18;
             this.pictureBox27.Tag = "11";
             // 
             // pictureBox26
             // 
-            this.pictureBox26.Location = new System.Drawing.Point(957, 3);
             this.pictureBox26.Name = "pictureBox26";
             this.pictureBox26.TabIndex = 17;
             this.pictureBox26.Tag = "10";
             // 
             // pictureBox25
             // 
-            this.pictureBox25.Location = new System.Drawing.Point(851, 3);
             this.pictureBox25.Name = "pictureBox25";
             this.pictureBox25.TabIndex = 16;
             this.pictureBox25.Tag = "9";
@@ -985,14 +933,12 @@ namespace Grand_ou_Petit
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Location = new System.Drawing.Point(745, 3);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.TabIndex = 15;
             this.pictureBox8.Tag = "8";
 
             // pictureBox7
             // 
-            this.pictureBox7.Location = new System.Drawing.Point(639, 3);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.TabIndex = 14;
             this.pictureBox7.Tag = "7";
@@ -1000,7 +946,6 @@ namespace Grand_ou_Petit
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Location = new System.Drawing.Point(533, 3);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.TabIndex = 13;
             this.pictureBox6.Tag = "6";
@@ -1009,41 +954,36 @@ namespace Grand_ou_Petit
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Location = new System.Drawing.Point(427, 3);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.TabIndex = 12;
             this.pictureBox5.Tag = "5";
 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(321, 3);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.Tag = "4";
 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(215, 3);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.Tag = "3";
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(109, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.Tag = "2";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.Tag = "1";
             // 
             // PANEL
             // 
-            this.ClientSize = new System.Drawing.Size(1300, 700);
+            this.ClientSize = new System.Drawing.Size(1270, 700);
             this.Location = new System.Drawing.Point(0, 140);
             this.Controls.Add(this.conteneurPetiteCarte);
             this.Controls.Add(this.conteneurCarteAPlacer);

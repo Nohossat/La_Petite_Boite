@@ -146,14 +146,13 @@ namespace Grand_ou_Petit
             this.conteneurGrandeCarte.Controls.Add(this.pictureBox2);
             this.conteneurGrandeCarte.Controls.Add(this.pictureBox3);
             this.conteneurGrandeCarte.Controls.Add(this.pictureBox4);
-            this.conteneurGrandeCarte.Location = new System.Drawing.Point(151, 12);
+            this.conteneurGrandeCarte.Location = new System.Drawing.Point(0, 12);
             this.conteneurGrandeCarte.Name = "conteneurGrandeCarte";
-            this.conteneurGrandeCarte.Size = new System.Drawing.Size(576, 170);
+            this.conteneurGrandeCarte.Size = new System.Drawing.Size(576, 165);
             this.conteneurGrandeCarte.TabIndex = 0;
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(441, 3);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.Tag = "4";
@@ -161,21 +160,18 @@ namespace Grand_ou_Petit
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(294, 3);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.Tag = "3";
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(148, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.Tag = "2";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.Tag = "1";
@@ -187,14 +183,13 @@ namespace Grand_ou_Petit
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox6);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox7);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox8);
-            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(151, 189);
+            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(0, 178);
             this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
-            this.conteneurCarteAPlacer.Size = new System.Drawing.Size(576, 169);
+            this.conteneurCarteAPlacer.Size = new System.Drawing.Size(576, 165);
             this.conteneurCarteAPlacer.TabIndex = 4;
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Location = new System.Drawing.Point(441, 3);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.TabIndex = 15;
             this.pictureBox8.Tag = "4";
@@ -202,21 +197,18 @@ namespace Grand_ou_Petit
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Location = new System.Drawing.Point(294, 3);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.TabIndex = 14;
             this.pictureBox7.Tag = "3";
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Location = new System.Drawing.Point(148, 3);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.TabIndex = 13;
             this.pictureBox6.Tag = "2";
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Location = new System.Drawing.Point(3, 3);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.TabIndex = 12;
             this.pictureBox5.Tag = "1";
@@ -227,43 +219,39 @@ namespace Grand_ou_Petit
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox11);
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox10);
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox9);
-            this.conteneurPetiteCarte.Location = new System.Drawing.Point(151, 365);
+            this.conteneurPetiteCarte.Location = new System.Drawing.Point(0, 347);
             this.conteneurPetiteCarte.Name = "conteneurPetiteCarte";
-            this.conteneurPetiteCarte.Size = new System.Drawing.Size(576, 189);
+            this.conteneurPetiteCarte.Size = new System.Drawing.Size(576, 170);
             this.conteneurPetiteCarte.TabIndex = 5;
             // 
             // pictureBox12
             // 
-            this.pictureBox12.Location = new System.Drawing.Point(443, 14);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.TabIndex = 23;
             this.pictureBox12.Tag = "1";
             // 
             // pictureBox11
             // 
-            this.pictureBox11.Location = new System.Drawing.Point(294, 14);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.TabIndex = 22;
             this.pictureBox11.Tag = "2";
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Location = new System.Drawing.Point(148, 14);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.TabIndex = 21;
             this.pictureBox10.Tag = "3";
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Location = new System.Drawing.Point(3, 14);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.TabIndex = 20;
             this.pictureBox9.Tag = "4";
             // 
             // GrandOuPetitPanel
             // 
-            this.ClientSize = new System.Drawing.Size(800, 650);
-            this.Location = new System.Drawing.Point(200, 140);
+            this.ClientSize = new System.Drawing.Size(580, 560);
+            this.Location = new System.Drawing.Point(0, 0);
             this.Controls.Add(this.conteneurPetiteCarte);
             this.Controls.Add(this.conteneurCarteAPlacer);
             this.Controls.Add(this.conteneurGrandeCarte);
@@ -370,7 +358,6 @@ namespace Grand_ou_Petit
             // 
             // conteneurPetiteCarte
             // 
-            
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox17);
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox18);
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox19);
@@ -379,9 +366,9 @@ namespace Grand_ou_Petit
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox22);
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox23);
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox24);
-            this.conteneurPetiteCarte.Location = new System.Drawing.Point(10, 360);
+            this.conteneurPetiteCarte.Location = new System.Drawing.Point(0, 360);
             this.conteneurPetiteCarte.Name = "conteneurPetiteCarte";
-            this.conteneurPetiteCarte.Size = new System.Drawing.Size(1162, 167);
+            this.conteneurPetiteCarte.Size = new System.Drawing.Size(1135, 167);
             this.conteneurPetiteCarte.TabIndex = 9;
             // 
             // pictureBox24
@@ -451,9 +438,9 @@ namespace Grand_ou_Petit
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox14);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox15);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox16);
-            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(10, 185);
+            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(0, 185);
             this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
-            this.conteneurCarteAPlacer.Size = new System.Drawing.Size(1162, 169);
+            this.conteneurCarteAPlacer.Size = new System.Drawing.Size(1135, 169);
             this.conteneurCarteAPlacer.TabIndex = 8;
 
             //emplacements carte
@@ -526,9 +513,9 @@ namespace Grand_ou_Petit
             this.conteneurGrandeCarte.Controls.Add(this.pictureBox6);
             this.conteneurGrandeCarte.Controls.Add(this.pictureBox7);
             this.conteneurGrandeCarte.Controls.Add(this.pictureBox8);
-            this.conteneurGrandeCarte.Location = new System.Drawing.Point(10, 9);
+            this.conteneurGrandeCarte.Location = new System.Drawing.Point(0, 9);
             this.conteneurGrandeCarte.Name = "conteneurGrandeCarte";
-            this.conteneurGrandeCarte.Size = new System.Drawing.Size(1162, 170);
+            this.conteneurGrandeCarte.Size = new System.Drawing.Size(1135, 170);
             this.conteneurGrandeCarte.TabIndex = 6;
             //grandes cartes
             // pictureBox8
@@ -559,8 +546,6 @@ namespace Grand_ou_Petit
             this.pictureBox5.TabIndex = 12;
             this.pictureBox5.Tag = "5";
             // 
-            // 
-
             // 
             // pictureBox4
             // 
@@ -594,8 +579,8 @@ namespace Grand_ou_Petit
             this.pictureBox1.Tag = "1";
             // GrandOuPetit8
             // 
-            this.ClientSize = new System.Drawing.Size(1200, 600);
-            this.Location = new System.Drawing.Point(50, 140);
+            this.ClientSize = new System.Drawing.Size(1140, 527);
+            this.Location = new System.Drawing.Point(0, 0);
             this.Controls.Add(this.conteneurPetiteCarte);
             this.Controls.Add(this.conteneurCarteAPlacer);
             this.Controls.Add(this.conteneurGrandeCarte);

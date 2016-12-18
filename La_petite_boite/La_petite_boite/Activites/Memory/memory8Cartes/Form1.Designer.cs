@@ -149,7 +149,7 @@ namespace memory8Cartes
             // doubleCarte4
             // 
             this.doubleCarte4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.doubleCarte4.Location = new System.Drawing.Point(475, 194);
+            this.doubleCarte4.Location = new System.Drawing.Point(476, 194);
             this.doubleCarte4.Name = "doubleCarte4";
             this.doubleCarte4.Size = new System.Drawing.Size(130, 160);
             this.doubleCarte4.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -209,7 +209,7 @@ namespace memory8Cartes
             // carte2
             // 
             this.carte2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.carte2.Location = new System.Drawing.Point(320, 15);
+            this.carte2.Location = new System.Drawing.Point(321, 15);
             this.carte2.Name = "carte2";
             this.carte2.Size = new System.Drawing.Size(130, 160);
             this.carte2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -245,7 +245,7 @@ namespace memory8Cartes
             // 
             // MemoryPanel
             // 
-            this.ClientSize = new System.Drawing.Size(700, 528);
+            this.ClientSize = new System.Drawing.Size(610, 360);
             this.Location = new System.Drawing.Point(330, 160);
             this.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Controls.Add(this.conteneurCarte);
@@ -467,9 +467,9 @@ namespace memory8Cartes
             // 
             // Memory12Panel
             // 
-            this.ClientSize = new System.Drawing.Size(700, 528);
+            this.ClientSize = new System.Drawing.Size(560, 500);
             this.Controls.Add(this.conteneurCarte);
-            this.Location = new System.Drawing.Point(350,160);
+            this.Location = new System.Drawing.Point(0,0);
             this.Name = "Memory12";
             this.Text = "Form1";
             this.conteneurCarte.ResumeLayout(false);
@@ -776,7 +776,7 @@ namespace memory8Cartes
             // 
             // Memory18Panel
             // 
-            this.ClientSize = new System.Drawing.Size(890, 528);
+            this.ClientSize = new System.Drawing.Size(830, 500);
             this.Controls.Add(this.conteneurCarte);
             this.Location = new System.Drawing.Point(230, 160);
             this.Name = "Memory18";

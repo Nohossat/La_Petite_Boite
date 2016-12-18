@@ -168,6 +168,7 @@ namespace La_petite_boite
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
             Table.Dock = DockStyle.Fill;
+            Table.CellBorderStyle = TableLayoutPanelCellBorderStyle.Inset;
 
 
             //---------------------PANELS------------------------//
@@ -295,10 +296,10 @@ namespace La_petite_boite
 
             //objectifs
 
-            objectif.Width = 80;
+            objectif.Width = 60;
             objectif.Height = 200;
-            objectif.Top = 250;
-            objectif.Left = 10;
+            objectif.Top = 0;
+            objectif.Left = 0;
             objectif.BackColor = Color.Transparent;
 
             //miniJeu
@@ -1327,9 +1328,11 @@ namespace La_petite_boite
         {
             this.Controls.Remove(CarteJeu);
             Table.Controls.Clear();
-
             p.Dock = DockStyle.None;
             p.Anchor = AnchorStyles.None;
+
+            objectif.Dock = DockStyle.None;
+            objectif.Anchor = AnchorStyles.None;
 
             //on ajoute le minijeu
             miniJeu.Controls.Add(p);
@@ -1377,7 +1380,7 @@ namespace La_petite_boite
 
                 for (int i = 1; i < 4; i++)
                 {
-                    int left = 30;
+                    int left = 0;
                     int top = i * 70;
                     objectif.Controls.Add(new Etoile(left, top, 2));
                 }
@@ -1389,21 +1392,24 @@ namespace La_petite_boite
 
                 for (int i = 0; i < 3; i++)
                 {
-                    int left = 30;
+                    int left = 0;
                     int top = i * 70;
                     objectif.Controls.Add(new Etoile(left, top, 1));
                 }
             }
 
             objectif.Controls.Add(obj);
-
-
-
+            
             Table.ColumnStyles.Clear();
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+
+            Table.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
+            Table.RowStyles.Add(new RowStyle(SizeType.Percent, 5F));
+            Table.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
+            Table.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
 
             tabBord.Dock = DockStyle.Fill;
             conteneurEtoilesCoffre.Dock = DockStyle.Top;
@@ -1419,12 +1425,14 @@ namespace La_petite_boite
             Table.Controls.Add(conteneurEtoilesCoffre, 2, 0);
             Table.Controls.Add(imgChevalier, 0, 0);
             Table.Controls.Add(prenomJoueur, 1, 0);
-            Table.Controls.Add(titreJeu, 0, 1);
+            Table.Controls.Add(titreJeu, 1, 1);
             Table.Controls.Add(miniJeu, 1, 2);
 
-            Table.SetColumnSpan(titreJeu, 4);
+            Table.SetColumnSpan(titreJeu, 3);
             Table.SetColumnSpan(conteneurEtoilesCoffre, 2);
             Table.SetColumnSpan(miniJeu, 3);
+            Table.SetRowSpan(miniJeu, 2);
+            Table.SetRowSpan(imgChevalier, 2);
 
 
             Jeu.Controls.Add(Table);
@@ -1553,6 +1561,7 @@ namespace La_petite_boite
             Panel p = (Panel)sender;
             //on enregistre les etoiles si l-epreuve est obligatoire et s-il n-ajamais remporte l-epreuve
 
+           
             if (p.Enabled == false)
             {
 
@@ -1569,12 +1578,12 @@ namespace La_petite_boite
 
                     for (int i = 0; i < 3; i++)
                     {
-                        int left = 30;
+                        int left = 0;
                         int top = i * 70;
                         objectif.Controls.Add(new Etoile(left, top, 2));
                     }
 
-                    //on enregistre le nouveau score
+                    //on enregistre les nouvelles etoiles
                     chevalier.setJoueurScore(3);
 
                     //on met les etoiles dans conteneurEtoiles
@@ -1659,6 +1668,10 @@ namespace La_petite_boite
             titreJeu.Text = "Niveau 2 : " + jeuEnCours;
             miniJeu.Controls.Clear();
             chevalier.epreuvesFacultatives().ElementAt(IndiceJeu).EnabledChanged += new EventHandler(finMiniJeuFacultatif);
+
+            chevalier.epreuvesFacultatives().ElementAt(IndiceJeu).Dock = DockStyle.None;
+            chevalier.epreuvesFacultatives().ElementAt(IndiceJeu).Anchor = AnchorStyles.None;
+
             miniJeu.Controls.Add(chevalier.epreuvesFacultatives().ElementAt(IndiceJeu));
         }
 

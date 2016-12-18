@@ -187,9 +187,9 @@ namespace Que_fait_le_Roi
             this.conteneurCarte.Controls.Add(this.pictureBox2);
             this.conteneurCarte.Controls.Add(this.pictureBox3);
             this.conteneurCarte.Controls.Add(this.pictureBox4);
-            this.conteneurCarte.Location = new System.Drawing.Point(90, 275);
+            this.conteneurCarte.Location = new System.Drawing.Point(0, 275);
             this.conteneurCarte.Name = "conteneurCarte";
-            this.conteneurCarte.Size = new System.Drawing.Size(700, 167);
+            this.conteneurCarte.Size = new System.Drawing.Size(678, 167);
             this.conteneurCarte.TabIndex = 8;
             // 
             // pictureBox4
@@ -246,7 +246,7 @@ namespace Que_fait_le_Roi
             this.conteneurBouton.Controls.Add(this.button2);
             this.conteneurBouton.Controls.Add(this.button3);
             this.conteneurBouton.Controls.Add(this.button4);
-            this.conteneurBouton.Location = new System.Drawing.Point(90, 5);
+            this.conteneurBouton.Location = new System.Drawing.Point(0, 5);
             this.conteneurBouton.Name = "conteneurBouton";
             this.conteneurBouton.Size = new System.Drawing.Size(676, 44);
             this.conteneurBouton.TabIndex = 10;
@@ -257,9 +257,9 @@ namespace Que_fait_le_Roi
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox6);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox7);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox8);
-            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(90, 55);
+            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(0, 55);
             this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
-            this.conteneurCarteAPlacer.Size = new System.Drawing.Size(700, 168);
+            this.conteneurCarteAPlacer.Size = new System.Drawing.Size(678, 167);
             this.conteneurCarteAPlacer.TabIndex = 9;
             // 
             // pictureBox5
@@ -311,8 +311,8 @@ namespace Que_fait_le_Roi
             this.pictureBox8.DragEnter += new System.Windows.Forms.DragEventHandler(this.Image_DragEnter);
             // 
             // QueFaitLeRoiPanel
-            this.ClientSize = new System.Drawing.Size(800, 600);
-            this.Location = new System.Drawing.Point(230, 200);
+            this.ClientSize = new System.Drawing.Size(680, 442);
+            this.Location = new System.Drawing.Point(0, 0);
             this.Controls.Add(this.conteneurBouton);
             this.Controls.Add(this.conteneurCarteAPlacer);
             this.Controls.Add(this.conteneurCarte);
@@ -416,7 +416,7 @@ namespace Que_fait_le_Roi
             this.conteneurBouton.Controls.Add(this.button2);
             this.conteneurBouton.Controls.Add(this.button3);
             this.conteneurBouton.Controls.Add(this.button4);
-            this.conteneurBouton.Location = new System.Drawing.Point(1, 12);
+            this.conteneurBouton.Location = new System.Drawing.Point(0, 12);
             this.conteneurBouton.Name = "conteneurBouton";
             this.conteneurBouton.Size = new System.Drawing.Size(1090, 44);
             this.conteneurBouton.TabIndex = 16;
@@ -475,7 +475,7 @@ namespace Que_fait_le_Roi
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox6);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox7);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox8);
-            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(1, 82);
+            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(0, 82);
             this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
             this.conteneurCarteAPlacer.Size = new System.Drawing.Size(1090, 168);
             this.conteneurCarteAPlacer.TabIndex = 15;
@@ -586,14 +586,14 @@ namespace Que_fait_le_Roi
             this.conteneurCarte.Controls.Add(this.pictureBox13);
             this.conteneurCarte.Controls.Add(this.pictureBox14);
             this.conteneurCarte.Controls.Add(this.pictureBox16);
-            this.conteneurCarte.Location = new System.Drawing.Point(1, 302);
+            this.conteneurCarte.Location = new System.Drawing.Point(0, 302);
             this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(1090, 167);
             this.conteneurCarte.TabIndex = 14;
             // 
             // pictureBox16
             // 
-            this.pictureBox16.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pictureBox16.Cursor = Cursors.Default;
             this.pictureBox16.Location = new System.Drawing.Point(955, 3);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(130, 160);
@@ -605,7 +605,7 @@ namespace Que_fait_le_Roi
             // 
             // pictureBox14
             // 
-            this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pictureBox14.Cursor = Cursors.Default;
             this.pictureBox14.Location = new System.Drawing.Point(819, 3);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(130, 160);
@@ -728,10 +728,10 @@ namespace Que_fait_le_Roi
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.Ecouter);
             // 
-            // queFaitLeRoi8Panel
+            // queFaitLeRoi8Panel 
             // 
-            this.ClientSize = new System.Drawing.Size(1100, 600);
-            this.Location = new System.Drawing.Point(100, 200);
+            this.ClientSize = new System.Drawing.Size(1100, 469);
+            this.Location = new System.Drawing.Point(0, 0);
             this.Controls.Add(this.conteneurBouton);
             this.Controls.Add(this.conteneurCarteAPlacer);
             this.Controls.Add(this.conteneurCarte);
@@ -865,9 +865,9 @@ namespace Que_fait_le_Roi
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox6);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox7);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox8);
-            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(4, 96);
+            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(0, 96);
             this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
-            this.conteneurCarteAPlacer.Size = new System.Drawing.Size(1274, 142);
+            this.conteneurCarteAPlacer.Size = new System.Drawing.Size(1240, 142);
             this.conteneurCarteAPlacer.TabIndex = 21;
             // 
             // pictureBox18
@@ -1028,9 +1028,9 @@ namespace Que_fait_le_Roi
             this.conteneurCarte.Controls.Add(this.pictureBox23);
             this.conteneurCarte.Controls.Add(this.pictureBox22);
             this.conteneurCarte.Controls.Add(this.pictureBox21);
-            this.conteneurCarte.Location = new System.Drawing.Point(2, 255);
+            this.conteneurCarte.Location = new System.Drawing.Point(0, 255);
             this.conteneurCarte.Name = "conteneurCarte";
-            this.conteneurCarte.Size = new System.Drawing.Size(1274, 139);
+            this.conteneurCarte.Size = new System.Drawing.Size(1240, 139);
             this.conteneurCarte.TabIndex = 20;
             // 
             //// pictureBox21
@@ -1189,9 +1189,9 @@ namespace Que_fait_le_Roi
             this.conteneurBouton.Controls.Add(this.button2);
             this.conteneurBouton.Controls.Add(this.button3);
             this.conteneurBouton.Controls.Add(this.button4);
-            this.conteneurBouton.Location = new System.Drawing.Point(4, 25);
+            this.conteneurBouton.Location = new System.Drawing.Point(0, 25);
             this.conteneurBouton.Name = "conteneurBouton";
-            this.conteneurBouton.Size = new System.Drawing.Size(1274, 44);
+            this.conteneurBouton.Size = new System.Drawing.Size(1240, 44);
             this.conteneurBouton.TabIndex = 25;
             // 
             // button12
@@ -1328,8 +1328,8 @@ namespace Que_fait_le_Roi
             // 
             // Que fait le roi 12
             // 
-            this.ClientSize = new System.Drawing.Size(1300, 600);
-            this.Location = new System.Drawing.Point(10, 200);
+            this.ClientSize = new System.Drawing.Size(1260, 400);
+            this.Location = new System.Drawing.Point(0, 0);
             this.Controls.Add(this.conteneurBouton);
             this.Controls.Add(this.conteneurCarteAPlacer);
             this.Controls.Add(this.conteneurCarte);

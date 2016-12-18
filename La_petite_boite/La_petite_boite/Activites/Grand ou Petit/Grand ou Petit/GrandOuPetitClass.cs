@@ -31,6 +31,7 @@ namespace Grand_ou_Petit
         public List<Stream> sons = new List<Stream>();
         int index;
         int indexEmplacement;
+        int indexCarte = 0;
 
         public GrandOuPetitClass ()
         {
@@ -54,50 +55,67 @@ namespace Grand_ou_Petit
                 image.SizeMode = PictureBoxSizeMode.StretchImage;
                 image.BackColor = Color.Transparent;
                 image.TabStop = false;
-
-                if (conteneurPetiteCarte.Controls.Count < 11)
-                {
-                    //taille hors Grand Ou Petit 12
-                    image.Size = new Size(130, 160);
-                }
-                else
-                {
-                    image.Size = new System.Drawing.Size(100, 130);
-                }
-
                 image.Image = items.dosCarte;
                 image.Enabled = true;
                 coordonneesGrandeCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
                 image.Click += new System.EventHandler(this.cliquerPremiereLigne);
+                image.Top = 3;
+                
+                if (conteneurGrandeCarte.Controls.Count == 12)
+                {
+                    //Grand Ou Petit 12
+                    image.Size = new System.Drawing.Size(100, 130);
+                }
+                else if (conteneurGrandeCarte.Controls.Count == 8)
+                {
+                    //Grand Ou Petit 8
+                    image.Size = new System.Drawing.Size(120, 150);
+                }
+                else {
+                    //Grand Ou Petit
+                    image.Size = new Size(130, 160);
+                    image.Left = indexCarte * 145;
+                }
+                indexCarte++;
             }
 
+            //initialisation de l[index pour la prochaine boucle
+            indexCarte = 0;
             //récupérer les localisations des emplacements
             foreach (PictureBox image in conteneurCarteAPlacer.Controls)
             {
                 image.TabStop = false;
                 image.BackColor = Color.Transparent;
-
-                if (conteneurPetiteCarte.Controls.Count < 11)
-                {
-                    //taille hors Grand Ou Petit 12
-                   
-                    image.Size = new Size(130, 160);
-                }
-                else
-                {
-                    image.Size = new Size(100, 130);
-                }
-
+                image.Top = 3;
                 image.Enabled = true;
                 image.AllowDrop = false;
                 image.Image = null;
                 image.BorderStyle = BorderStyle.FixedSingle;
                 image.DragDrop += new DragEventHandler(this.petiteImage_DragDrop);
                 image.DragEnter += new DragEventHandler(this.petiteImage_DragEnter);
-                coordonneesCarteAPlacer.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
 
+                if (conteneurCarteAPlacer.Controls.Count == 12)
+                {
+                    //Grand Ou Petit 12
+                    image.Size = new System.Drawing.Size(100, 130);
+                }
+                else if (conteneurCarteAPlacer.Controls.Count == 8)
+                {
+                    //Grand Ou Petit 8
+                    image.Size = new System.Drawing.Size(120, 150);
+                }
+                else
+                {
+                    //Grand Ou Petit
+                    image.Size = new Size(130, 160);
+                    image.Left = indexCarte * 145;
+                }
+                
+                coordonneesCarteAPlacer.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
+                indexCarte++;
             }
 
+            indexCarte = 0;
             //mélange des grandes cartes et des emplacements respectifs
             foreach (PictureBox image in conteneurGrandeCarte.Controls)
             {
@@ -121,20 +139,28 @@ namespace Grand_ou_Petit
                 image.Image = items.dosCarte;
                 image.SizeMode = PictureBoxSizeMode.StretchImage;
                 image.TabStop = false;
-
-                if (conteneurPetiteCarte.Controls.Count < 11)
+                image.Top = 3;
+                
+                if (conteneurPetiteCarte.Controls.Count == 12)
                 {
-                    //taille hors Grand Ou Petit 12
-                    
-                    image.Size = new Size(130, 160);
+                    //Grand Ou Petit 12
+                    image.Size = new System.Drawing.Size(100, 130);
+                }
+                else if (conteneurPetiteCarte.Controls.Count == 8)
+                {
+                    //Grand Ou Petit 8
+                    image.Size = new System.Drawing.Size(120, 150);
                 }
                 else
                 {
-                    image.Size = new System.Drawing.Size(100, 130);
+                    //Grand Ou Petit
+                    image.Size = new Size(130, 160);
+                    image.Left = indexCarte * 145;
                 }
-                
+
                 coordonneesPetiteCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
                 image.MouseDown += new MouseEventHandler(this.receveurImage_MouseDown);
+                indexCarte++;
             }
 
             //mélange des cartes

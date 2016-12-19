@@ -277,6 +277,8 @@
     <EmbeddedResource Include="Resources\Jeu\retourFleche.png" />
     <EmbeddedResource Include="Resources\Jeu\map.png" />
     <EmbeddedResource Include="Resources\Jeu\map1.png" />
+    <EmbeddedResource Include="Resources\Jeu\conteneurEtoile.png" />
+    <EmbeddedResource Include="Resources\Jeu\tabBord.png" />
     <Content Include="Resources\miniJeu\pauseFR.wav" />
   </ItemGroup>
   <ItemGroup />

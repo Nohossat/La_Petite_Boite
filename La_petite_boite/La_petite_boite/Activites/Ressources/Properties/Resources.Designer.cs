@@ -355,6 +355,16 @@ namespace Ressources.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap conteneurEtoile {
+            get {
+                object obj = ResourceManager.GetObject("conteneurEtoile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap diapoMag {
             get {
                 object obj = ResourceManager.GetObject("diapoMag", resourceCulture);
@@ -1271,6 +1281,16 @@ namespace Ressources.Properties {
         public static System.IO.UnmanagedMemoryStream roiVaALecoleTurc {
             get {
                 return ResourceManager.GetStream("roiVaALecoleTurc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap tabBord {
+            get {
+                object obj = ResourceManager.GetObject("tabBord", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

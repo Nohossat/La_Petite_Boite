@@ -77,12 +77,6 @@
     <Compile Include="Charger.Designer.cs">
       <DependentUpon>Charger.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="CustomButton1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Etoile.cs">
       <SubType>Component</SubType>
     </Compile>

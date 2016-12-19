@@ -23,8 +23,7 @@ namespace memory8Cartes
         public List<Stream> sons = new List<Stream>();
         public List<Bitmap> img = new List<Bitmap>();
         
-
-
+        
         public new void lancement()
         {
 
@@ -57,6 +56,7 @@ namespace memory8Cartes
         
         public void chargementData(PictureBox pic, Bitmap img, Stream str)
         {
+            pic.BackColor = Color.White;
             pic.Image = img;
             JouerSon(str);
         }
@@ -129,6 +129,8 @@ namespace memory8Cartes
 
                     ImageEnAttente1.Image = items.dosCarte;
                     ImageEnAttente2.Image = items.dosCarte;
+                    ImageEnAttente1.BackColor = Color.Transparent;
+                    ImageEnAttente2.BackColor = Color.Transparent;
                     ImageEnAttente1 = null;
                     ImageEnAttente2 = null;
                 }

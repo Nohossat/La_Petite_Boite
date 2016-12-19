@@ -95,6 +95,22 @@ namespace Ressources
 
         //images JeuPPL
 
+        public static Bitmap banniereGriseConteneurEtoiles
+        {
+            get
+            {
+                return Properties.Resources.conteneurEtoile;
+            }
+        }
+
+        public static Bitmap banniereGriseTabBord
+        {
+            get
+            {
+                return Properties.Resources.tabBord;
+            }
+        }
+
         public static Bitmap retourFleche
         {
             get

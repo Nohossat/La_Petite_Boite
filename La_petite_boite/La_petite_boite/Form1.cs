@@ -36,9 +36,7 @@ namespace La_petite_boite
         public static int[] epreuvesEmportees = new int[4];
 
         public Joueur chevalier;
-
-        public static Label obj = new Label();
-
+        
         public static Label titreJeu = new Label();
         public static Panel objectif = new Panel();
         public static Panel chargerJoueur = new Panel();
@@ -63,29 +61,7 @@ namespace La_petite_boite
 
         //private variables
         int indexAvatar = -1;
-
-        Double montagneTop;
-        Double villageTop;
-        Double troncTop;
-        Double cabaneTop;
-        Double chateauTop;
-        Double villageLeft;
-        Double troncLeft;
-        Double cabaneLeft;
-        Double chateauLeft;
-        Double montagneLeft;
-
-        Double montagneLargeur;
-        Double villageLargeur;
-        Double troncLargeur;
-        Double cabaneLargeur;
-        Double chateauLargeur;
-        Double villageHauteur;
-        Double troncHauteur;
-        Double cabaneHauteur;
-        Double chateauHauteur;
-        Double montagneHauteur;
-
+        
         TableLayoutPanel miniJeu = new TableLayoutPanel();
         TableLayoutPanel Table = new TableLayoutPanel();
         SpecialButton nouvellePartie = new SpecialButton();
@@ -260,11 +236,9 @@ namespace La_petite_boite
 
             //tabBord
 
-            tabBord.Width = 200;
-            tabBord.Height = 100;
-            tabBord.Top = 0;
-            tabBord.Left = 0;
+            
             tabBord.BackColor = Color.Transparent;
+            tabBord.BackgroundImage = items.banniereGriseTabBord;
 
             //on ajoute les boutons au tableau de bord
 
@@ -272,31 +246,25 @@ namespace La_petite_boite
             tabBord.Controls.Add(quitterMiniJeu);
             tabBord.Controls.Add(guide);
 
-            sauvegarde.Top = 8;
-            sauvegarde.Left = 0;
+            sauvegarde.Top = 15;
+            sauvegarde.Left = 40;
 
-            quitterMiniJeu.Top = 8;
-            quitterMiniJeu.Left = 80;
+            guide.Top = 8;
+            guide.Left = 90;
 
-            guide.Top = 0;
-            guide.Left = 140;
+            quitterMiniJeu.Top = 15;
+            quitterMiniJeu.Left = 145;
+            
 
             //conteneurEtoilesCoffre
-
-            conteneurEtoilesCoffre.Top = 0;
-            conteneurEtoilesCoffre.Left = 0;
-            //conteneurEtoilesCoffre.Top = -5;
-            //conteneurEtoilesCoffre.Left = 380;
+            
             conteneurEtoilesCoffre.Width = 1000;
-            conteneurEtoilesCoffre.Height = 100;
+            conteneurEtoilesCoffre.Height = 111;
+            conteneurEtoilesCoffre.BackgroundImage = items.banniereGriseConteneurEtoiles;
             conteneurEtoilesCoffre.BackColor = Color.Transparent;
 
             //conteneurEtoile
-
-            ConteneurEtoile.Top = 5;
-            ConteneurEtoile.Left = 65;
-            //ConteneurEtoile.Top = 5;
-            //ConteneurEtoile.Left = 20;
+            
             ConteneurEtoile.Width = 830;
             ConteneurEtoile.Height = 100;
             ConteneurEtoile.BackColor = Color.Transparent;
@@ -361,24 +329,20 @@ namespace La_petite_boite
             imgChevalier.Height = 130;
             imgChevalier.BackColor = Color.Transparent;
 
+            //coffre
+            coffre.Image = items.coffre;
+            coffre.Width = 100;
+            coffre.Height = 90;
+            coffre.SizeMode = PictureBoxSizeMode.StretchImage;
+            coffre.BackColor = Color.Transparent;
+
             //guide
             guide.Image = items.aide;
             guide.Width = 50;
             guide.Height = 50;
             guide.SizeMode = PictureBoxSizeMode.StretchImage;
             guide.Click += new EventHandler(AfficheMessage);
-
-            //coffre
-            coffre.Image = items.coffre;
-            coffre.Width = 100;
-            coffre.Height = 90;
-           //coffre.Top = 0;
-            coffre.Left = 900;
-            coffre.Top = -5;
-            //coffre.Left = 890;
-            coffre.SizeMode = PictureBoxSizeMode.StretchImage;
-            coffre.BackColor = Color.Transparent;
-
+            
 
             //sauvegarde
             sauvegarde.Image = items.sauvegarde;
@@ -392,8 +356,8 @@ namespace La_petite_boite
             //quitterMiniJeu
             quitterMiniJeu.Image = items.quitter;
             quitterMiniJeu.Name = "quitterMiniJeu";
-            quitterMiniJeu.Width = 34;
-            quitterMiniJeu.Height = 34;
+            quitterMiniJeu.Width = 40;
+            quitterMiniJeu.Height = 40;
             quitterMiniJeu.SizeMode = PictureBoxSizeMode.StretchImage;
             quitterMiniJeu.BackColor = Color.Transparent;
             quitterMiniJeu.Click += new EventHandler(retourTabBord);
@@ -605,7 +569,7 @@ namespace La_petite_boite
             textesDiaporama.Add("est-ce que tu as vraiment recolter toutes les etoiles?");
 
 
-            textePresentationJeu.Width = 900;
+            textePresentationJeu.Width = 1100;
             textePresentationJeu.Height = 300;
             textePresentationJeu.Top = 0;
             textePresentationJeu.Left = 0;
@@ -669,68 +633,11 @@ namespace La_petite_boite
 
         private void resizableControls(object sender, EventArgs e)
         {
-            //trouver les bons rapports de proportionnalite et transformer la banniere grise en picturebox
-
-            //locations des lieux
-            villageTop = 0.69 * CarteJeu.Height;
-            troncTop = 0.145 * CarteJeu.Height;
-            cabaneTop = 0.59 * CarteJeu.Height;
-            chateauTop = 0.176 * CarteJeu.Height;
-            villageLeft = -0.022 * CarteJeu.Width;
-            troncLeft = 0.45 * CarteJeu.Width;
-            cabaneLeft = 0.564 * CarteJeu.Width;
-            chateauLeft = 0.75 * CarteJeu.Width;
-            montagneLeft = 0.002 * CarteJeu.Width;
-            montagneTop = 0.005 * CarteJeu.Height;
-
-            //dimensions des lieux
-            villageHauteur = 0.36 * CarteJeu.Height;
-            villageLargeur = 0.33 * CarteJeu.Width;
-
-            troncHauteur = 0.26 * CarteJeu.Height;
-            troncLargeur = 0.13 * CarteJeu.Width;
-
-            cabaneHauteur = 0.26 * CarteJeu.Height;
-            cabaneLargeur = 0.16 * CarteJeu.Width;
-
-            chateauHauteur = 0.54 * CarteJeu.Height;
-            chateauLargeur = 0.24 * CarteJeu.Width;
-
-            montagneHauteur = 0.26 * CarteJeu.Height;
-            montagneLargeur = 0.29 * CarteJeu.Width;
-
-            Village.Top = (int)villageTop;
-            Tronc.Top = (int)troncTop;
-            Chateau.Top = (int)chateauTop;
-            Cabane.Top = (int)cabaneTop;
-            Montagne.Top = (int)montagneTop;
-            Montagne.Left = (int)montagneLeft;
-            Village.Left = (int)villageLeft;
-            Tronc.Left = (int)troncLeft;
-            Chateau.Left = (int)chateauLeft;
-            Cabane.Left = (int)cabaneLeft;
-
-            Village.Width = (int)villageLargeur;
-            Village.Height = (int)villageHauteur;
-
-            Cabane.Width = (int)cabaneLargeur;
-            Cabane.Height = (int)cabaneHauteur;
-
-            Tronc.Width = (int)troncLargeur;
-            Tronc.Height = (int)troncHauteur;
-
-            Chateau.Width = (int)chateauLargeur;
-            Chateau.Height = (int)chateauHauteur;
-
-            Montagne.Width = (int)montagneLargeur;
-            Montagne.Height = (int)montagneHauteur;
-
-            //refresh carte
-            Refresh();
-
-            Console.WriteLine(CarteJeu.Width);
-            Console.WriteLine(CarteJeu.Height);
-
+            if (this.Controls.Contains(CarteJeu))
+            {
+                //trouver les bons rapports de proportionnalite et transformer la banniere grise en picturebox
+                positionLieux();
+            }
         }
 
         public void JouerSon(Stream stream)
@@ -780,6 +687,38 @@ namespace La_petite_boite
         }
 
         //Afficher Accueil
+
+        public void afficheAccueil()
+        {
+            //on affiche l-accueil
+            Table.RowStyles.Clear();
+            Table.ColumnStyles.Clear();
+            Table.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            Table.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
+            Table.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
+            Table.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
+
+            accueil.Controls.Add(Table);
+            //on affiche les boutons a l-ecran accueil
+            conteneurTitrePPL.Controls.Add(menuPrincipal);
+            Table.Controls.Add(conteneurTitrePPL, 0, 0);
+            Table.Controls.Add(nouvellePartie, 0, 1);
+            Table.Controls.Add(chargerPartie, 0, 2);
+            Table.Controls.Add(quitter, 0, 3);
+
+            foreach (Control c in Table.Controls)
+            {
+                Table.SetColumnSpan(c, 4);
+                c.Dock = DockStyle.None;
+                c.Anchor = AnchorStyles.None;
+            }
+
+            nouvellePartie.Anchor = AnchorStyles.Bottom;
+            chargerPartie.Anchor = AnchorStyles.Top;
+
+            this.Controls.Add(accueil);
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (progressBar1.Value < 100)
@@ -793,36 +732,12 @@ namespace La_petite_boite
                 this.Controls.Remove(chargement);
 
                 this.Update();
-                //on affiche l-accueil
-                Table.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-                Table.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
-                Table.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
-                Table.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
 
-                accueil.Controls.Add(Table);
-                //on affiche les boutons a l-ecran accueil
-                conteneurTitrePPL.Controls.Add(menuPrincipal);
-                Table.Controls.Add(conteneurTitrePPL, 0, 0);
-                Table.Controls.Add(nouvellePartie, 0, 1);
-                Table.Controls.Add(chargerPartie, 0, 2);
-                Table.Controls.Add(quitter, 0 , 3);
-
-                foreach (Control c in Table.Controls)
-                {
-                    Table.SetColumnSpan(c, 4);
-                    c.Dock = DockStyle.None;
-                    c.Anchor = AnchorStyles.None;
-                }
-
-                nouvellePartie.Anchor = AnchorStyles.Bottom;
-                chargerPartie.Anchor = AnchorStyles.Top;
-
-                this.Controls.Add(accueil);
+                afficheAccueil();
+                
                 //on arrete le timer
                 timer1.Enabled = false;
-
-                Console.WriteLine(accueil.Width);
-                Console.WriteLine(accueil.Height);
+                
             }
         }
 
@@ -1048,7 +963,7 @@ namespace La_petite_boite
         private void retourButton(object sender, EventArgs e)
         {
             this.Controls.Remove(retour.Parent);
-            this.Controls.Add(accueil);
+            afficheAccueil();
         }
 
         //Afficher le diaporama
@@ -1062,13 +977,12 @@ namespace La_petite_boite
 
             actionJoueur.Text = "Oui";
             actionJoueur.Click += new EventHandler(ReadyButton);
-
             Table.Controls.Clear();
             Table.RowStyles.Clear();
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 57F));
-            Table.RowStyles.Add(new RowStyle(SizeType.Percent, 13F));
-            Table.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            Table.RowStyles.Add(new RowStyle(SizeType.Percent, 12F));
+            Table.RowStyles.Add(new RowStyle(SizeType.Percent, 21F));
             Table.Controls.Add(precedent, 0, 0);
             Table.Controls.Add(textePresentationJeu, 0, 2);
             Table.Controls.Add(actionJoueur, 0, 3);
@@ -1156,18 +1070,91 @@ namespace La_petite_boite
 
         public void Carte()
         {
+            //performance du display a modifier
             typeof(Panel).InvokeMember("DoubleBuffered",
    BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
    null, CarteJeu, new object[] { true });
 
+            //on vide le layout
             Table.Controls.Clear();
-            //position  
+
+            //position du chevalier
             imgChevalier.Left = chevalier.positionJoueur().getPosition().X;
             imgChevalier.Top = chevalier.positionJoueur().getPosition().Y;
-
+            imgChevalier.Image = imagesAvatars[chevalier.avatarJoueur()];
+            
             ajoutEtoiles();
 
             //on initialise les elements de la carte 
+            //on determine les positions et les dimensions des lieux selon la taille de la form
+            positionLieux();
+            
+            conteneurEtoilesCoffre.Controls.Add(ConteneurEtoile);
+            conteneurEtoilesCoffre.Controls.Add(coffre);
+            CarteJeu.Controls.Add(conteneurEtoilesCoffre);
+            CarteJeu.Controls.Add(imgChevalier);
+            CarteJeu.Controls.Add(Montagne);
+            CarteJeu.Controls.Add(Village);
+            CarteJeu.Controls.Add(Tronc);
+            CarteJeu.Controls.Add(Cabane);
+            CarteJeu.Controls.Add(Chateau);
+            CarteJeu.Controls.Add(tabBord);
+
+            this.Controls.Add(CarteJeu);
+        }
+
+        public void positionLieux ()
+        {
+            Double montagneTop;
+            Double villageTop;
+            Double troncTop;
+            Double cabaneTop;
+            Double chateauTop;
+            Double villageLeft;
+            Double troncLeft;
+            Double cabaneLeft;
+            Double chateauLeft;
+            Double montagneLeft;
+
+            Double montagneLargeur;
+            Double villageLargeur;
+            Double troncLargeur;
+            Double cabaneLargeur;
+            Double chateauLargeur;
+            Double villageHauteur;
+            Double troncHauteur;
+            Double cabaneHauteur;
+            Double chateauHauteur;
+            Double montagneHauteur;
+
+            //on ajoute le conteneur d'etoiles
+            conteneurEtoilesCoffre.BringToFront();
+            conteneurEtoilesCoffre.Top = -5;
+            conteneurEtoilesCoffre.Left = 300;
+            ConteneurEtoile.Top = 25;
+            ConteneurEtoile.Left = 35;
+            coffre.Top = 10;
+            coffre.Left = 870;
+
+            //position du tableau de bord
+            Double tabBordTop = 0.91 * CarteJeu.Height;
+            Double tabBordLeft = 0.85 * CarteJeu.Width;
+            tabBord.Top = (int) tabBordTop;
+            tabBord.Left = (int) tabBordLeft;
+            tabBord.Width = 240;
+            tabBord.Height = 87;
+
+            //guide
+            guide.Width = 50;
+            guide.Height = 50;
+            
+            //sauvegarde
+            sauvegarde.Width = 34;
+            sauvegarde.Height = 34;
+
+            //quitterMiniJeu
+            quitterMiniJeu.Width = 40;
+            quitterMiniJeu.Height = 40;
 
             villageHauteur = 0.36 * CarteJeu.Height;
             villageLargeur = 0.33 * CarteJeu.Width;
@@ -1184,20 +1171,20 @@ namespace La_petite_boite
             montagneHauteur = 0.26 * CarteJeu.Height;
             montagneLargeur = 0.29 * CarteJeu.Width;
 
-            Village.Width = (int) villageLargeur;
-            Village.Height = (int) villageHauteur;
+            Village.Width = (int)villageLargeur;
+            Village.Height = (int)villageHauteur;
 
-            Cabane.Width = (int) cabaneLargeur;
-            Cabane.Height = (int) cabaneHauteur;
+            Cabane.Width = (int)cabaneLargeur;
+            Cabane.Height = (int)cabaneHauteur;
 
-            Tronc.Width = (int) troncLargeur;
-            Tronc.Height = (int) troncHauteur;
+            Tronc.Width = (int)troncLargeur;
+            Tronc.Height = (int)troncHauteur;
 
-            Chateau.Width = (int) chateauLargeur;
-            Chateau.Height = (int) chateauHauteur;
+            Chateau.Width = (int)chateauLargeur;
+            Chateau.Height = (int)chateauHauteur;
 
-            Montagne.Width = (int) montagneLargeur;
-            Montagne.Height = (int) montagneHauteur;
+            Montagne.Width = (int)montagneLargeur;
+            Montagne.Height = (int)montagneHauteur;
 
             villageTop = 0.69 * CarteJeu.Height;
             troncTop = 0.145 * CarteJeu.Height;
@@ -1210,34 +1197,19 @@ namespace La_petite_boite
             montagneLeft = 0.002 * CarteJeu.Width;
             montagneTop = 0.005 * CarteJeu.Height;
 
-            Montagne.Top = (int) montagneTop;
-            Village.Top = (int) villageTop;
-            Tronc.Top = (int) troncTop;
-            Chateau.Top = (int) chateauTop;
-            Cabane.Top = (int) cabaneTop;
-            Montagne.Left= (int) montagneLeft;
-            Village.Left = (int) villageLeft;
-            Tronc.Left = (int) troncLeft;
-            Chateau.Left = (int) chateauLeft;
-            Cabane.Left = (int) cabaneLeft;
+            Montagne.Top = (int)montagneTop;
+            Village.Top = (int)villageTop;
+            Tronc.Top = (int)troncTop;
+            Chateau.Top = (int)chateauTop;
+            Cabane.Top = (int)cabaneTop;
+            Montagne.Left = (int)montagneLeft;
+            Village.Left = (int)villageLeft;
+            Tronc.Left = (int)troncLeft;
+            Chateau.Left = (int)chateauLeft;
+            Cabane.Left = (int)cabaneLeft;
             
-            Console.WriteLine(CarteJeu.Width);
-            Console.WriteLine(CarteJeu.Height);
-
-            imgChevalier.Image = imagesAvatars[chevalier.avatarJoueur()];
-            conteneurEtoilesCoffre.Controls.Add(ConteneurEtoile);
-            conteneurEtoilesCoffre.Controls.Add(coffre);
-            conteneurEtoilesCoffre.Hide();
-            CarteJeu.Controls.Add(conteneurEtoilesCoffre);
-            CarteJeu.Controls.Add(imgChevalier);
-            CarteJeu.Controls.Add(Montagne);
-            CarteJeu.Controls.Add(Village);
-            CarteJeu.Controls.Add(Tronc);
-            CarteJeu.Controls.Add(Cabane);
-            CarteJeu.Controls.Add(Chateau);
-            CarteJeu.Controls.Add(tabBord);
-
-            this.Controls.Add(CarteJeu);
+            //refresh carte
+            Refresh();
         }
 
         //deplacement de l'avatar
@@ -1481,16 +1453,34 @@ namespace La_petite_boite
         private void afficheJeu(String nomJeu, Panel p)
         {
             this.Controls.Remove(CarteJeu);
-            Table.Controls.Clear();
-            p.Dock = DockStyle.None;
-            p.Anchor = AnchorStyles.None;
-
-            objectif.Dock = DockStyle.None;
-            objectif.Anchor = AnchorStyles.None;
 
             //on ajoute le minijeu
             miniJeu.Controls.Add(p);
+            Table.Controls.Clear();
+            
+            conteneurEtoilesCoffre.Margin = new Padding(0);
+            coffre.Top = 5;
+            
+            tabBord.BackgroundImageLayout = ImageLayout.Stretch;
+            tabBord.Width = 140;
+            tabBord.Height = 70;
 
+            sauvegarde.Top = 8;
+            sauvegarde.Left = 25;
+            sauvegarde.Width = 20;
+            sauvegarde.Height = 20;
+
+            guide.Top = 8;
+            guide.Left = 60;
+            guide.Width = 30;
+            guide.Height = 30;
+
+            quitterMiniJeu.Top = 8;
+            quitterMiniJeu.Left = 110;
+            quitterMiniJeu.Width = 30;
+            quitterMiniJeu.Height = 30;
+            
+            
             if (epreuvesO.Contains(miniJeu.Controls[0]) || epreuvesF.Contains(miniJeu.Controls[0]))
             {
                 if (epreuvesO.Contains(miniJeu.Controls[0]))
@@ -1505,19 +1495,9 @@ namespace La_petite_boite
                 titreJeu.Text = titreJeu.Text + jeuEnCours;
                 p.EnabledChanged += new EventHandler(finMiniJeu);
             }
-
-            //position de l'avatar en haut a gauche  
-            imgChevalier.Left = 20;
-            imgChevalier.Top = 20;
+            
             imgChevalier.BackColor = Color.Transparent;
-
-            obj.Text = "Objectif";
-            obj.ForeColor = Color.White;
-            obj.BackColor = Color.Transparent;
-            obj.Font = new Font(obj.Font.FontFamily, 12);
-            obj.Width = 100;
-            obj.Left = 20;
-            obj.Top = 400;
+            
             //on met le nom du joueur
             prenomJoueur.Text = chevalier.nomJoueur();
             prenomJoueur.BackColor = Color.Transparent;
@@ -1529,9 +1509,7 @@ namespace La_petite_boite
             if (chevalier.getEpreuvesGagnees(IndiceJeu) == 1)
             {
                 //epreuve remportee / alors il n'y a pas d'etoiles jaunes a remporter
-
-                //on ajoute les etoiles grises et le label Objectif au panel Objectif
-
+                
                 for (int i = 1; i < 4; i++)
                 {
                     int left = 0;
@@ -1551,13 +1529,11 @@ namespace La_petite_boite
                     objectif.Controls.Add(new Etoile(left, top, 1));
                 }
             }
-
-            objectif.Controls.Add(obj);
             
             Table.ColumnStyles.Clear();
             Table.RowStyles.Clear();
-            Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12F));
+            Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8F));
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
 
@@ -1566,16 +1542,19 @@ namespace La_petite_boite
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
 
+            p.Dock = DockStyle.None;
+            p.Anchor = AnchorStyles.None;
+            objectif.Dock = DockStyle.None;
+            objectif.Anchor = AnchorStyles.None;
             tabBord.Dock = DockStyle.None;
-            tabBord.Anchor = AnchorStyles.None;
-            
-            conteneurEtoilesCoffre.Dock = DockStyle.Top;
-            conteneurEtoilesCoffre.Anchor = AnchorStyles.Top;
+            tabBord.Anchor = AnchorStyles.Left | AnchorStyles.Top;
             titreJeu.Dock = DockStyle.Fill;
             prenomJoueur.Dock = DockStyle.Fill;
             miniJeu.Dock = DockStyle.Fill;
-
-
+            conteneurEtoilesCoffre.Dock = DockStyle.None;
+            conteneurEtoilesCoffre.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            Table.Margin = new Padding(0);
+            
             //on ajoute tous les composants dans le panel
             Table.Controls.Add(tabBord, 0, 3);
             Table.Controls.Add(objectif, 0, 2);
@@ -1590,8 +1569,7 @@ namespace La_petite_boite
             Table.SetColumnSpan(miniJeu, 3);
             Table.SetRowSpan(miniJeu, 2);
             Table.SetRowSpan(imgChevalier, 2);
-
-
+            
             Jeu.Controls.Add(Table);
             this.Controls.Add(Jeu);
 
@@ -1677,19 +1655,19 @@ namespace La_petite_boite
         {
             Control source = (Control)sender;
             Control parent = source.Parent;
-
-            if (parent.Parent == Jeu)
+            Control grandParent = parent.Parent;
+            if (grandParent.Parent == Jeu)
             {
                 miniJeu.Controls.Clear();
                 this.Controls.Remove(Jeu);
                 Carte();
             }
-            /*else if (parent.Parent == CourRoi)
+            /*else if (grandParent.Parent == CourRoi)
             {
                 this.Controls.Remove(CourRoi);
                 Carte();
             }*/
-            else if (parent.Parent == CarteJeu)
+            else if (grandParent == CarteJeu)
             {
                 DialogResult res = afficheMessageBox("Attention", "Tu es sur le point de quitter la partie. Souhaites-tu sauvegarder tes donnees? Appuies sur Annuler pour revenir sur la carte.");
 
@@ -1706,7 +1684,7 @@ namespace La_petite_boite
                     this.Controls.Remove(CarteJeu);
 
                     //on affiche l-accueil
-                    this.Controls.Add(accueil);
+                    afficheAccueil();
 
                 }
             }
@@ -1717,8 +1695,7 @@ namespace La_petite_boite
         {
             Panel p = (Panel)sender;
             //on enregistre les etoiles si l-epreuve est obligatoire et s-il n-ajamais remporte l-epreuve
-
-           
+            
             if (p.Enabled == false)
             {
 
@@ -1731,7 +1708,6 @@ namespace La_petite_boite
                     //on met toutes les etoiles jaunes du panel Objectif en gris
 
                     objectif.Controls.Clear();
-                    objectif.Controls.Add(obj);
 
                     for (int i = 0; i < 3; i++)
                     {
@@ -1787,9 +1763,9 @@ namespace La_petite_boite
                 refEvents.Add(2);
                 refEvents.Add(3);
                 refEvents.Add(1);
-
-                //var Popup = new PopUp(ColorTranslator.FromHtml("#28225c"), items.chevalier1, 3, "Niveau 2 reussi!" + Environment.NewLine + " Quete terminee", nomsButtons, refEvents);
-                //Popup.ShowDialog();
+                
+                var Popup = new PopUp(ColorTranslator.FromHtml("#28225c"), items.chevalier1, 3, "Niveau 2 reussi!" + Environment.NewLine + "Quete terminee", nomsButtons, refEvents);
+                Popup.ShowDialog();
 
                 if (choixFinMiniJeu == 0)
                 {

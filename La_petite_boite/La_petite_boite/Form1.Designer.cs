@@ -66,18 +66,26 @@ namespace La_petite_boite
             // 
             // Form1
             // 
+            Double flagResolution = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height / System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
+            Console.WriteLine("resolution flag :" + System.Windows.Forms.Screen.PrimaryScreen);
+            if (flagResolution == 1366 / 768)
+            {
+                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+                this.ClientSize = new System.Drawing.Size(System.Windows.Forms.Screen.PrimaryScreen.Bounds.X, System.Windows.Forms.Screen.PrimaryScreen.Bounds.Y);
+            }
+            {
+                this.ClientSize = new System.Drawing.Size(1300, 730);
+            }
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(System.Windows.Forms.Screen.PrimaryScreen.Bounds.X, System.Windows.Forms.Screen.PrimaryScreen.Bounds.Y);
             this.Controls.Add(this.chargement);
-            //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            //this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = true;
-            this.MinimumSize = new System.Drawing.Size(1300,728);
+            this.MinimumSize = new System.Drawing.Size(1300,730);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Location = new System.Drawing.Point(0, 0);
@@ -86,7 +94,6 @@ namespace La_petite_boite
             this.chargement.ResumeLayout(false);
             this.ResumeLayout(false);
             this.Resize += new EventHandler(resizableControls);
-
         }
 
 

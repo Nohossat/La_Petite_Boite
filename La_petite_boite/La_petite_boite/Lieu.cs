@@ -33,6 +33,7 @@ namespace La_petite_boite
             this.imgSurvol = imageSurvol;
             this.map = map;
             this.BackgroundImage = imageDebut;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         public Lieu()

@@ -64,6 +64,27 @@ namespace La_petite_boite
         //private variables
         int indexAvatar = -1;
 
+        Double villageTop;
+        Double troncTop;
+        Double cabaneTop;
+        Double chateauTop;
+        Double villageLeft;
+        Double troncLeft;
+        Double cabaneLeft;
+        Double chateauLeft;
+        Double montagneLeft;
+
+        Double montagneLargeur;
+        Double villageLargeur;
+        Double troncLargeur;
+        Double cabaneLargeur;
+        Double chateauLargeur;
+        Double villageHauteur;
+        Double troncHauteur;
+        Double cabaneHauteur;
+        Double chateauHauteur;
+        Double montagneHauteur;
+
         TableLayoutPanel miniJeu = new TableLayoutPanel();
         TableLayoutPanel Table = new TableLayoutPanel();
         SpecialButton nouvellePartie = new SpecialButton();
@@ -665,8 +686,31 @@ namespace La_petite_boite
 
         private void resizableControls(object sender, EventArgs e)
         {
+            //trouver les bons rapports de proportionnalite et transformer la banniere grise en picturebox
+            villageTop = 0.62 * this.Height;
+            troncTop = 0.13 * this.Height;
+            cabaneTop = 0.55 * this.Height;
+            chateauTop = 0.15 * this.Height;
+            villageLeft = -0.03 * this.Width;
+            troncLeft = 0.44 * this.Width;
+            cabaneLeft = 0.55 * this.Width;
+            chateauLeft = 0.72 * this.Width;
+            montagneLeft = 0.0007 * this.Width;
+            
+            Village.Top = (int)villageTop;
+            Tronc.Top = (int)troncTop;
+            Chateau.Top = (int)chateauTop;
+            Cabane.Top = (int)cabaneTop;
+
+            Montagne.Left = (int)montagneLeft;
+            Village.Left = (int)villageLeft;
+            Tronc.Left = (int)troncLeft;
+            Chateau.Left = (int)chateauLeft;
+            Cabane.Left = (int)cabaneLeft;
+
             //refresh carte
             Refresh();
+            
         }
 
         public void JouerSon(Stream stream)
@@ -1101,6 +1145,63 @@ namespace La_petite_boite
             ajoutEtoiles();
 
             //on initialise les elements de la carte 
+
+            villageHauteur = 0.35 * this.Height;
+            villageLargeur = 0.34 * this.Width;
+
+            troncHauteur = 0.25 * this.Height;
+            troncLargeur = 0.13 * this.Width;
+
+            cabaneHauteur = 0.25 * this.Height;
+            cabaneLargeur = 0.15 * this.Width;
+
+            chateauHauteur = 0.51 * this.Height;
+            chateauLargeur = 0.24 * this.Width;
+
+            montagneHauteur = 0.25 * this.Height;
+            montagneLargeur = 0.28 * this.Width;
+
+            Village.Width = (int) villageLargeur;
+            Village.Height = (int) villageHauteur;
+
+            Cabane.Width = (int) cabaneLargeur;
+            Cabane.Height = (int) cabaneHauteur;
+
+            Tronc.Width = (int) troncLargeur;
+            Tronc.Height = (int) troncHauteur;
+
+            Chateau.Width = (int) chateauLargeur;
+            Chateau.Height = (int) chateauHauteur;
+
+            Montagne.Width = (int) montagneLargeur;
+            Montagne.Height = (int) montagneHauteur;
+
+            villageTop = 0.62 * this.Height;
+            troncTop = 0.13 * this.Height;
+            cabaneTop = 0.55 * this.Height;
+            chateauTop = 0.15 * this.Height;
+            villageLeft = -0.03 * this.Width;
+            troncLeft = 0.44 * this.Width;
+            cabaneLeft = 0.55 * this.Width;
+            chateauLeft = 0.72 * this.Width;
+            montagneLeft = 0.0007 * this.Width;
+            
+            Montagne.Top = 0;
+            Village.Top = (int) villageTop;
+            Tronc.Top = (int) troncTop;
+            Chateau.Top = (int) chateauTop;
+            Cabane.Top = (int) cabaneTop;
+            
+            Montagne.Left= (int) montagneLeft;
+            Village.Left = (int) villageLeft;
+            Tronc.Left = (int) troncLeft;
+            Chateau.Left = (int) chateauLeft;
+            Cabane.Left = (int) cabaneLeft;
+
+            Console.WriteLine(villageTop);
+            Console.WriteLine(Village.Left);
+            Console.WriteLine(this.Width);
+            Console.WriteLine(this.Height);
 
             imgChevalier.Image = imagesAvatars[chevalier.avatarJoueur()];
             conteneurEtoilesCoffre.Controls.Add(ConteneurEtoile);

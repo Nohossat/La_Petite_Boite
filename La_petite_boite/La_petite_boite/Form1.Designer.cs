@@ -57,6 +57,7 @@ namespace La_petite_boite
             this.chargement.Controls.Add(this.progressBar1);
             this.chargement.Location = new System.Drawing.Point(-6, -2);
             this.chargement.Name = "chargement";
+            this.chargement.Size = new System.Drawing.Size(1273, 689);
             this.chargement.TabIndex = 2;
             // 
             // timer2
@@ -66,34 +67,22 @@ namespace La_petite_boite
             // 
             // Form1
             // 
-            Double flagResolution = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height / System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
-            Console.WriteLine("resolution flag :" + System.Windows.Forms.Screen.PrimaryScreen);
-            if (flagResolution == 1366 / 768)
-            {
-                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-                this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-                this.ClientSize = new System.Drawing.Size(System.Windows.Forms.Screen.PrimaryScreen.Bounds.X, System.Windows.Forms.Screen.PrimaryScreen.Bounds.Y);
-            }
-            {
-                this.ClientSize = new System.Drawing.Size(1300, 730);
-            }
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
             this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1273, 689);
             this.Controls.Add(this.chargement);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimizeBox = true;
-            this.MinimumSize = new System.Drawing.Size(1300,730);
+            this.MinimumSize = new System.Drawing.Size(1278, 719);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Location = new System.Drawing.Point(0, 0);
             this.Text = "La petite Boite";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.resizableControls);
             this.chargement.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.Resize += new EventHandler(resizableControls);
+
         }
 
 

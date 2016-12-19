@@ -64,6 +64,7 @@ namespace La_petite_boite
         //private variables
         int indexAvatar = -1;
 
+        Double montagneTop;
         Double villageTop;
         Double troncTop;
         Double cabaneTop;
@@ -129,9 +130,9 @@ namespace La_petite_boite
         Panel saisirInfos = new Panel();
         Panel diaporamaHistoire = new Panel();
         Panel tabBord = new Panel();
-        Panel CourRoi;
         Panel Recompense = new recompense();
         Panel conteneurTitrePPL = new Panel();
+        List<Panel> listePanels = new List<Panel>();
 
         PictureBox imgChevalier = new PictureBox();
         PictureBox imagePersonnage1 = new PictureBox();
@@ -165,6 +166,20 @@ namespace La_petite_boite
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Double flagResolution = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height / System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
+            Console.WriteLine("resolution flag :" + System.Windows.Forms.Screen.PrimaryScreen);
+            if (flagResolution == 1366 / 768)
+            {
+                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+                this.ClientSize = new System.Drawing.Size(System.Windows.Forms.Screen.PrimaryScreen.Bounds.X, System.Windows.Forms.Screen.PrimaryScreen.Bounds.Y);
+            }
+            {
+                this.ClientSize = new System.Drawing.Size(1292, 726);
+                this.Size = new System.Drawing.Size(1289, 728);
+            }
+            Console.WriteLine(this.Width);
+            Console.WriteLine(this.Height);
             this.DoubleBuffered = true;
             //EMBED FONTS
             privateFontCollection = items.chargementFont();
@@ -176,7 +191,7 @@ namespace La_petite_boite
             //---------------------LAYOUTS------------------------//
 
             Table.Location = new Point(0, 0);
-            Table.Size = this.Size;
+            Table.Size = new Size(1292, 726);
             Table.AutoSize = true;
             Table.Name = "Table";
             Table.ColumnCount = 4;
@@ -189,73 +204,41 @@ namespace La_petite_boite
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
             Table.Dock = DockStyle.Fill;
-           
+
 
             //---------------------PANELS------------------------//
 
+            listePanels.Add(chargement);
+            listePanels.Add(accueil);
+            listePanels.Add(nouveauJoueur);
+            listePanels.Add(diaporamaHistoire);
+            listePanels.Add(CarteJeu);
+            listePanels.Add(Jeu);
+
+            foreach (Panel p in listePanels)
+            {
+                p.BackgroundImageLayout = ImageLayout.Stretch;
+                p.Size = new Size(1273, 689);
+                p.Anchor = AnchorStyles.None;
+                p.Dock = DockStyle.Fill;
+                p.Location = new Point(-6, -2);
+            }
+
             //chargement
             chargement.BackgroundImage = items.chargement;
-            chargement.BackgroundImageLayout = ImageLayout.Stretch;
-            chargement.Size = new Size(1350, 740);
-            chargement.Anchor = AnchorStyles.None;
-            chargement.Dock = DockStyle.Fill;
 
             //accueil
             accueil.BackgroundImage = items.accueil;
-            accueil.Location = new Point(-6, -2);
-            accueil.Width = 1350;
-            accueil.Height = 740;
-            accueil.BackgroundImageLayout = ImageLayout.Stretch;
-            accueil.Anchor = AnchorStyles.None;
-            accueil.Dock = DockStyle.Fill;
 
             //ecran nouveau joueur
             nouveauJoueur.BackgroundImage = items.menu;
-            nouveauJoueur.Width = 1350;
-            nouveauJoueur.Height = 740;
-            nouveauJoueur.Location = new Point(-6, -2);
-            nouveauJoueur.BackgroundImageLayout = ImageLayout.Stretch;
-            nouveauJoueur.Anchor = AnchorStyles.None;
-            nouveauJoueur.Dock = DockStyle.Fill;
-
-            //diaporamaHistoire
-
-            diaporamaHistoire.Location = new Point(-6, -2);
-            diaporamaHistoire.Width = 1350;
-            diaporamaHistoire.Height = 740;
-            diaporamaHistoire.BackgroundImageLayout = ImageLayout.Stretch;
-            diaporamaHistoire.Anchor = AnchorStyles.None;
-            diaporamaHistoire.Dock = DockStyle.Fill;
-
+            
             //carteJeu
             CarteJeu.BackgroundImage = items.map;
             CarteJeu.Name = "Carte";
-            CarteJeu.Location = new Point(0, 0);
-            CarteJeu.Width = 1350;
-            CarteJeu.Height = 740;
-            CarteJeu.BackgroundImageLayout = ImageLayout.Stretch;
-            CarteJeu.Anchor = AnchorStyles.None;
-            CarteJeu.Dock = DockStyle.Fill;
-
-            //Cour du roi
-            CourRoi = new Panel();
-            CourRoi.BackgroundImage = items.diapoTrone;
-            CourRoi.Width = 1350;
-            CourRoi.Height = 740;
-            CourRoi.Location = new Point(-6, -2);
-            CourRoi.BackgroundImageLayout = ImageLayout.Stretch;
-            CourRoi.Anchor = AnchorStyles.None;
-            CourRoi.Dock = DockStyle.Fill;
-
+            
             //ecran mini-jeu
-            Jeu.Location = new Point(-6, -2);
-            Jeu.Width = 1350;
-            Jeu.Height = 740;
             Jeu.Name = "Jeu";
-            Jeu.BorderStyle = BorderStyle.FixedSingle;
-            Jeu.BackgroundImageLayout = ImageLayout.Stretch;
-            Jeu.Anchor = AnchorStyles.None;
-            Jeu.Dock = DockStyle.Fill;
 
             //--------------------MINI PANELS-------------------------------//
 
@@ -687,30 +670,67 @@ namespace La_petite_boite
         private void resizableControls(object sender, EventArgs e)
         {
             //trouver les bons rapports de proportionnalite et transformer la banniere grise en picturebox
-            villageTop = 0.62 * this.Height;
-            troncTop = 0.13 * this.Height;
-            cabaneTop = 0.55 * this.Height;
-            chateauTop = 0.15 * this.Height;
-            villageLeft = -0.03 * this.Width;
-            troncLeft = 0.44 * this.Width;
-            cabaneLeft = 0.55 * this.Width;
-            chateauLeft = 0.72 * this.Width;
-            montagneLeft = 0.0007 * this.Width;
-            
+
+            //locations des lieux
+            villageTop = 0.69 * CarteJeu.Height;
+            troncTop = 0.145 * CarteJeu.Height;
+            cabaneTop = 0.59 * CarteJeu.Height;
+            chateauTop = 0.176 * CarteJeu.Height;
+            villageLeft = -0.022 * CarteJeu.Width;
+            troncLeft = 0.45 * CarteJeu.Width;
+            cabaneLeft = 0.564 * CarteJeu.Width;
+            chateauLeft = 0.75 * CarteJeu.Width;
+            montagneLeft = 0.002 * CarteJeu.Width;
+            montagneTop = 0.005 * CarteJeu.Height;
+
+            //dimensions des lieux
+            villageHauteur = 0.36 * CarteJeu.Height;
+            villageLargeur = 0.33 * CarteJeu.Width;
+
+            troncHauteur = 0.26 * CarteJeu.Height;
+            troncLargeur = 0.13 * CarteJeu.Width;
+
+            cabaneHauteur = 0.26 * CarteJeu.Height;
+            cabaneLargeur = 0.16 * CarteJeu.Width;
+
+            chateauHauteur = 0.54 * CarteJeu.Height;
+            chateauLargeur = 0.24 * CarteJeu.Width;
+
+            montagneHauteur = 0.26 * CarteJeu.Height;
+            montagneLargeur = 0.29 * CarteJeu.Width;
+
             Village.Top = (int)villageTop;
             Tronc.Top = (int)troncTop;
             Chateau.Top = (int)chateauTop;
             Cabane.Top = (int)cabaneTop;
-
+            Montagne.Top = (int)montagneTop;
             Montagne.Left = (int)montagneLeft;
             Village.Left = (int)villageLeft;
             Tronc.Left = (int)troncLeft;
             Chateau.Left = (int)chateauLeft;
             Cabane.Left = (int)cabaneLeft;
 
+            Village.Width = (int)villageLargeur;
+            Village.Height = (int)villageHauteur;
+
+            Cabane.Width = (int)cabaneLargeur;
+            Cabane.Height = (int)cabaneHauteur;
+
+            Tronc.Width = (int)troncLargeur;
+            Tronc.Height = (int)troncHauteur;
+
+            Chateau.Width = (int)chateauLargeur;
+            Chateau.Height = (int)chateauHauteur;
+
+            Montagne.Width = (int)montagneLargeur;
+            Montagne.Height = (int)montagneHauteur;
+
             //refresh carte
             Refresh();
-            
+
+            Console.WriteLine(CarteJeu.Width);
+            Console.WriteLine(CarteJeu.Height);
+
         }
 
         public void JouerSon(Stream stream)
@@ -800,6 +820,9 @@ namespace La_petite_boite
                 this.Controls.Add(accueil);
                 //on arrete le timer
                 timer1.Enabled = false;
+
+                Console.WriteLine(accueil.Width);
+                Console.WriteLine(accueil.Height);
             }
         }
 
@@ -1146,20 +1169,20 @@ namespace La_petite_boite
 
             //on initialise les elements de la carte 
 
-            villageHauteur = 0.35 * this.Height;
-            villageLargeur = 0.34 * this.Width;
+            villageHauteur = 0.36 * CarteJeu.Height;
+            villageLargeur = 0.33 * CarteJeu.Width;
 
-            troncHauteur = 0.25 * this.Height;
-            troncLargeur = 0.13 * this.Width;
+            troncHauteur = 0.26 * CarteJeu.Height;
+            troncLargeur = 0.13 * CarteJeu.Width;
 
-            cabaneHauteur = 0.25 * this.Height;
-            cabaneLargeur = 0.15 * this.Width;
+            cabaneHauteur = 0.26 * CarteJeu.Height;
+            cabaneLargeur = 0.16 * CarteJeu.Width;
 
-            chateauHauteur = 0.51 * this.Height;
-            chateauLargeur = 0.24 * this.Width;
+            chateauHauteur = 0.54 * CarteJeu.Height;
+            chateauLargeur = 0.24 * CarteJeu.Width;
 
-            montagneHauteur = 0.25 * this.Height;
-            montagneLargeur = 0.28 * this.Width;
+            montagneHauteur = 0.26 * CarteJeu.Height;
+            montagneLargeur = 0.29 * CarteJeu.Width;
 
             Village.Width = (int) villageLargeur;
             Village.Height = (int) villageHauteur;
@@ -1176,36 +1199,35 @@ namespace La_petite_boite
             Montagne.Width = (int) montagneLargeur;
             Montagne.Height = (int) montagneHauteur;
 
-            villageTop = 0.62 * this.Height;
-            troncTop = 0.13 * this.Height;
-            cabaneTop = 0.55 * this.Height;
-            chateauTop = 0.15 * this.Height;
-            villageLeft = -0.03 * this.Width;
-            troncLeft = 0.44 * this.Width;
-            cabaneLeft = 0.55 * this.Width;
-            chateauLeft = 0.72 * this.Width;
-            montagneLeft = 0.0007 * this.Width;
-            
-            Montagne.Top = 0;
+            villageTop = 0.69 * CarteJeu.Height;
+            troncTop = 0.145 * CarteJeu.Height;
+            cabaneTop = 0.59 * CarteJeu.Height;
+            chateauTop = 0.176 * CarteJeu.Height;
+            villageLeft = -0.022 * CarteJeu.Width;
+            troncLeft = 0.45 * CarteJeu.Width;
+            cabaneLeft = 0.564 * CarteJeu.Width;
+            chateauLeft = 0.75 * CarteJeu.Width;
+            montagneLeft = 0.002 * CarteJeu.Width;
+            montagneTop = 0.005 * CarteJeu.Height;
+
+            Montagne.Top = (int) montagneTop;
             Village.Top = (int) villageTop;
             Tronc.Top = (int) troncTop;
             Chateau.Top = (int) chateauTop;
             Cabane.Top = (int) cabaneTop;
-            
             Montagne.Left= (int) montagneLeft;
             Village.Left = (int) villageLeft;
             Tronc.Left = (int) troncLeft;
             Chateau.Left = (int) chateauLeft;
             Cabane.Left = (int) cabaneLeft;
-
-            Console.WriteLine(villageTop);
-            Console.WriteLine(Village.Left);
-            Console.WriteLine(this.Width);
-            Console.WriteLine(this.Height);
+            
+            Console.WriteLine(CarteJeu.Width);
+            Console.WriteLine(CarteJeu.Height);
 
             imgChevalier.Image = imagesAvatars[chevalier.avatarJoueur()];
             conteneurEtoilesCoffre.Controls.Add(ConteneurEtoile);
             conteneurEtoilesCoffre.Controls.Add(coffre);
+            conteneurEtoilesCoffre.Hide();
             CarteJeu.Controls.Add(conteneurEtoilesCoffre);
             CarteJeu.Controls.Add(imgChevalier);
             CarteJeu.Controls.Add(Montagne);
@@ -1662,11 +1684,11 @@ namespace La_petite_boite
                 this.Controls.Remove(Jeu);
                 Carte();
             }
-            else if (parent.Parent == CourRoi)
+            /*else if (parent.Parent == CourRoi)
             {
                 this.Controls.Remove(CourRoi);
                 Carte();
-            }
+            }*/
             else if (parent.Parent == CarteJeu)
             {
                 DialogResult res = afficheMessageBox("Attention", "Tu es sur le point de quitter la partie. Souhaites-tu sauvegarder tes donnees? Appuies sur Annuler pour revenir sur la carte.");
@@ -1877,11 +1899,11 @@ namespace La_petite_boite
         {
             this.Controls.Remove(CarteJeu);
             textePresentationJeu.Text = "As-tu reuni l-ensemble des etoiles ?";
-            CourRoi.Controls.Add(textePresentationJeu);
+            /*CourRoi.Controls.Add(textePresentationJeu);
             CourRoi.Controls.Add(Yes);
             CourRoi.Controls.Add(No);
             CourRoi.Controls.Add(tabBord);
-            this.Controls.Add(CourRoi);
+            this.Controls.Add(CourRoi);*/
 
         }
 
@@ -1901,8 +1923,8 @@ namespace La_petite_boite
 
         public void afficheRecompense(object sender, EventArgs e)
         {
-            this.Controls.Remove(CourRoi);
-            this.Controls.Add(Recompense);
+            //this.Controls.Remove(CourRoi);
+            //this.Controls.Add(Recompense);
 
             //Recompense.Width = 1400;
             //Recompense.Height = 722;

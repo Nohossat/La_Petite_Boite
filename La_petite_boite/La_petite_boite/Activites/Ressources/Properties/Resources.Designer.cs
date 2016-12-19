@@ -728,9 +728,9 @@ namespace Ressources.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap mapCabane {
+        public static System.Drawing.Bitmap map {
             get {
-                object obj = ResourceManager.GetObject("mapCabane", resourceCulture);
+                object obj = ResourceManager.GetObject("map", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -738,9 +738,19 @@ namespace Ressources.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap mapDebut2 {
+        public static System.Drawing.Bitmap map1 {
             get {
-                object obj = ResourceManager.GetObject("mapDebut2", resourceCulture);
+                object obj = ResourceManager.GetObject("map1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap mapCabane {
+            get {
+                object obj = ResourceManager.GetObject("mapCabane", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

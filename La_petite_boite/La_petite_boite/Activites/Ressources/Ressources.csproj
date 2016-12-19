@@ -250,7 +250,6 @@
     <EmbeddedResource Include="Resources\Jeu\exit.png" />
     <EmbeddedResource Include="Resources\Jeu\guide.png" />
     <EmbeddedResource Include="Resources\Jeu\magicien.png" />
-    <EmbeddedResource Include="Resources\Jeu\mapDebut2.png" />
     <EmbeddedResource Include="Resources\Jeu\menu.png" />
     <EmbeddedResource Include="Resources\Jeu\montagne.png" />
     <EmbeddedResource Include="Resources\Jeu\montagneAfter.png" />
@@ -276,6 +275,8 @@
     <EmbeddedResource Include="Resources\Jeu\mapTronc.png" />
     <EmbeddedResource Include="Resources\Jeu\mapVillage.png" />
     <EmbeddedResource Include="Resources\Jeu\retourFleche.png" />
+    <EmbeddedResource Include="Resources\Jeu\map.png" />
+    <EmbeddedResource Include="Resources\Jeu\map1.png" />
     <Content Include="Resources\miniJeu\pauseFR.wav" />
   </ItemGroup>
   <ItemGroup />

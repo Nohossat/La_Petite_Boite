@@ -179,7 +179,7 @@ namespace Ressources
         {
             get
             {
-                return Properties.Resources.mapDebut2;
+                return Properties.Resources.map;
             }
         }
 

@@ -61,7 +61,6 @@ namespace La_petite_boite
 
         //private variables
         int indexAvatar = -1;
-        
         TableLayoutPanel miniJeu = new TableLayoutPanel();
         TableLayoutPanel Table = new TableLayoutPanel();
         SpecialButton nouvellePartie = new SpecialButton();
@@ -629,6 +628,7 @@ namespace La_petite_boite
             listeLieux[2] = Tronc;
             listeLieux[3] = Montagne;
             listeLieux[4] = Chateau;
+
         }
 
         private void resizableControls(object sender, EventArgs e)
@@ -1135,7 +1135,7 @@ namespace La_petite_boite
             ConteneurEtoile.Left = 35;
             coffre.Top = 10;
             coffre.Left = 870;
-
+            
             //position du tableau de bord
             Double tabBordTop = 0.91 * CarteJeu.Height;
             Double tabBordLeft = 0.85 * CarteJeu.Width;

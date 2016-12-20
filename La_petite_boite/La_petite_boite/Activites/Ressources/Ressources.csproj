@@ -227,7 +227,6 @@
     <EmbeddedResource Include="Resources\Jeu\cabaneFin.png" />
     <EmbeddedResource Include="Resources\Jeu\cabanePrevious.png" />
     <EmbeddedResource Include="Resources\Jeu\chargement.png" />
-    <EmbeddedResource Include="Resources\Jeu\Chargement_LapetiteBoite.png" />
     <EmbeddedResource Include="Resources\Jeu\chateauAfter.png" />
     <EmbeddedResource Include="Resources\Jeu\chateauFin.png" />
     <EmbeddedResource Include="Resources\Jeu\chateauPrevious.png" />
@@ -279,6 +278,9 @@
     <EmbeddedResource Include="Resources\Jeu\map1.png" />
     <EmbeddedResource Include="Resources\Jeu\conteneurEtoile.png" />
     <EmbeddedResource Include="Resources\Jeu\tabBord.png" />
+    <EmbeddedResource Include="Resources\Jeu\helpicone.png" />
+    <EmbeddedResource Include="Resources\Jeu\homeBouton.png" />
+    <EmbeddedResource Include="Resources\Jeu\sauvegardebutton1.png" />
     <Content Include="Resources\miniJeu\pauseFR.wav" />
   </ItemGroup>
   <ItemGroup />

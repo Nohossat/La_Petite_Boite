@@ -141,7 +141,7 @@ namespace La_petite_boite
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Double flagResolution = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height / System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
+            Double flagResolution = Screen.PrimaryScreen.Bounds.Height / System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
             Console.WriteLine("resolution flag :" + System.Windows.Forms.Screen.PrimaryScreen);
             if (flagResolution == 1366 / 768)
             {
@@ -234,7 +234,6 @@ namespace La_petite_boite
             saisirInfos.BorderStyle = BorderStyle.FixedSingle;
 
             //tabBord
-
             
             tabBord.BackColor = Color.Transparent;
             tabBord.BackgroundImage = items.banniereGriseTabBord;
@@ -244,17 +243,7 @@ namespace La_petite_boite
             tabBord.Controls.Add(sauvegarde);
             tabBord.Controls.Add(quitterMiniJeu);
             tabBord.Controls.Add(guide);
-
-            sauvegarde.Top = 15;
-            sauvegarde.Left = 40;
-
-            guide.Top = 8;
-            guide.Left = 90;
-
-            quitterMiniJeu.Top = 15;
-            quitterMiniJeu.Left = 145;
             
-
             //conteneurEtoilesCoffre
             
             conteneurEtoilesCoffre.Width = 1000;
@@ -270,7 +259,7 @@ namespace La_petite_boite
 
             //objectifs
 
-            objectif.Width = 60;
+            objectif.Width = 200;
             objectif.Height = 200;
             objectif.Top = 0;
             objectif.Left = 0;
@@ -418,6 +407,7 @@ namespace La_petite_boite
             precedent.Width = 170;
             precedent.Left = 50;
             precedent.Top = 40;
+            precedent.BackgroundImageLayout = ImageLayout.Stretch;
             precedent.BackgroundImage = items.retourFleche;
             precedent.Click += new EventHandler(afficherDiapoPrecedente);
 
@@ -988,6 +978,7 @@ namespace La_petite_boite
             Table.Controls.Add(actionJoueur, 0, 3);
             Table.SetColumnSpan(textePresentationJeu, 4);
             Table.SetColumnSpan(actionJoueur, 4);
+            
 
             foreach (Control c in Table.Controls)
             {
@@ -995,6 +986,7 @@ namespace La_petite_boite
                 c.Anchor = AnchorStyles.None;
             }
 
+            precedent.Dock = DockStyle.Fill;
             actionJoueur.Anchor = AnchorStyles.Top;
             diaporamaHistoire.Controls.Add(Table);
             diaporamaHistoire.Tag = "0";
@@ -1137,24 +1129,30 @@ namespace La_petite_boite
             coffre.Left = 870;
             
             //position du tableau de bord
-            Double tabBordTop = 0.91 * CarteJeu.Height;
-            Double tabBordLeft = 0.85 * CarteJeu.Width;
+            Double tabBordTop = 0.90 * CarteJeu.Height;
+            Double tabBordLeft = 0.845 * CarteJeu.Width;
             tabBord.Top = (int) tabBordTop;
             tabBord.Left = (int) tabBordLeft;
             tabBord.Width = 240;
             tabBord.Height = 87;
-
-            //guide
-            guide.Width = 50;
-            guide.Height = 50;
             
+            //guide
+            guide.Width = 49;
+            guide.Height = 49;
+            guide.Left = 143;
+            guide.Top = 8;
+
             //sauvegarde
-            sauvegarde.Width = 34;
-            sauvegarde.Height = 34;
+            sauvegarde.Width = 49;
+            sauvegarde.Height = 49;
+            sauvegarde.Left = 84;
+            sauvegarde.Top = 8;
 
             //quitterMiniJeu
-            quitterMiniJeu.Width = 40;
-            quitterMiniJeu.Height = 40;
+            quitterMiniJeu.Width = 49;
+            quitterMiniJeu.Height = 49;
+            quitterMiniJeu.Left = 25;
+            quitterMiniJeu.Top = 8;
 
             villageHauteur = 0.36 * CarteJeu.Height;
             villageLargeur = 0.33 * CarteJeu.Width;
@@ -1465,18 +1463,18 @@ namespace La_petite_boite
             tabBord.Width = 140;
             tabBord.Height = 70;
 
-            sauvegarde.Top = 8;
-            sauvegarde.Left = 25;
-            sauvegarde.Width = 20;
-            sauvegarde.Height = 20;
+            sauvegarde.Top = 11;
+            sauvegarde.Left = 62;
+            sauvegarde.Width = 30;
+            sauvegarde.Height = 30;
 
-            guide.Top = 8;
-            guide.Left = 60;
+            guide.Top = 11;
+            guide.Left = 102;
             guide.Width = 30;
             guide.Height = 30;
 
-            quitterMiniJeu.Top = 8;
-            quitterMiniJeu.Left = 110;
+            quitterMiniJeu.Top = 11;
+            quitterMiniJeu.Left = 22;
             quitterMiniJeu.Width = 30;
             quitterMiniJeu.Height = 30;
             
@@ -1509,25 +1507,20 @@ namespace La_petite_boite
             if (chevalier.getEpreuvesGagnees(IndiceJeu) == 1)
             {
                 //epreuve remportee / alors il n'y a pas d'etoiles jaunes a remporter
+
+                objectif.Controls.Add(new Etoile(0, 0, 2));
+                objectif.Controls.Add(new Etoile(90, 0, 2));
+                objectif.Controls.Add(new Etoile(45, 70, 2));
                 
-                for (int i = 1; i < 4; i++)
-                {
-                    int left = 0;
-                    int top = i * 70;
-                    objectif.Controls.Add(new Etoile(left, top, 2));
-                }
             }
             else
             {
                 //epreuve perdue ou premiere fois /il y a encore des etoiles a remporter
                 //on ajoute les etoiles jaunes
-
-                for (int i = 0; i < 3; i++)
-                {
-                    int left = 0;
-                    int top = i * 70;
-                    objectif.Controls.Add(new Etoile(left, top, 1));
-                }
+                
+                objectif.Controls.Add(new Etoile(0, 0, 1));
+                objectif.Controls.Add(new Etoile(90, 0, 1));
+                objectif.Controls.Add(new Etoile(45, 70, 1));
             }
             
             Table.ColumnStyles.Clear();
@@ -1553,6 +1546,8 @@ namespace La_petite_boite
             miniJeu.Dock = DockStyle.Fill;
             conteneurEtoilesCoffre.Dock = DockStyle.None;
             conteneurEtoilesCoffre.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            imgChevalier.Dock = DockStyle.None;
+            imgChevalier.Anchor = AnchorStyles.None;
             Table.Margin = new Padding(0);
             
             //on ajoute tous les composants dans le panel

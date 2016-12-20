@@ -195,7 +195,7 @@ namespace Ressources
         {
             get
             {
-                return Properties.Resources.map;
+                return Properties.Resources.map1;
             }
         }
 
@@ -291,7 +291,7 @@ namespace Ressources
         {
             get
             {
-                return Properties.Resources.question;
+                return Properties.Resources.helpicone;
             }
         }
 
@@ -299,7 +299,7 @@ namespace Ressources
         {
             get
             {
-                return Properties.Resources.disquette;
+                return Properties.Resources.sauvegardebutton1;
             }
         }
 
@@ -307,7 +307,7 @@ namespace Ressources
         {
             get
             {
-                return Properties.Resources.exit;
+                return Properties.Resources.homeBouton;
             }
         }
 

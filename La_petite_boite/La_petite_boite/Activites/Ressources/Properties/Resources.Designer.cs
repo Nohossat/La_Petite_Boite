@@ -682,6 +682,26 @@ namespace Ressources.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap helpicone {
+            get {
+                object obj = ResourceManager.GetObject("helpicone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap homeBouton {
+            get {
+                object obj = ResourceManager.GetObject("homeBouton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap jardin1 {
             get {
                 object obj = ResourceManager.GetObject("jardin1", resourceCulture);
@@ -1281,6 +1301,16 @@ namespace Ressources.Properties {
         public static System.IO.UnmanagedMemoryStream roiVaALecoleTurc {
             get {
                 return ResourceManager.GetStream("roiVaALecoleTurc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap sauvegardebutton1 {
+            get {
+                object obj = ResourceManager.GetObject("sauvegardebutton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

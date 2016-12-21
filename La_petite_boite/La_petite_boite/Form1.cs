@@ -94,6 +94,7 @@ namespace La_petite_boite
         Label ageLabel = new Label();
         Label dossierSauvegarde = new Label();
         Label prenomJoueur = new Label();
+        Label gain = new Label();
 
         ListBox joueursPossibles = new ListBox();
 
@@ -179,6 +180,7 @@ namespace La_petite_boite
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
             Table.Dock = DockStyle.Fill;
+            Table.Margin = new Padding(0);
 
 
             //---------------------PANELS------------------------//
@@ -532,7 +534,8 @@ namespace La_petite_boite
             prenomJoueur.Height = 35;
             prenomJoueur.ForeColor = Color.White;
             prenomJoueur.TextAlign = ContentAlignment.MiddleCenter;
-            prenomJoueur.Font = new Font(prenomJoueur.Font.FontFamily, 16);
+            prenomJoueur.Font = new Font(privateFontCollection.Families[0], 16);
+            prenomJoueur.BackColor = Color.Transparent;
 
             //age
             ageLabel.Text = "Age";
@@ -549,6 +552,17 @@ namespace La_petite_boite
             ageField.Top = 70;
             ageField.Left = 150;
             ageField.Text = null;
+
+            
+            gain.Text = "Gain";
+            gain.Font = new Font(privateFontCollection.Families[0], 15);
+            gain.BackColor = Color.Transparent;
+            gain.ForeColor = Color.White;
+            gain.Location = new Point(0, 0);
+            gain.Size = new Size(150, 70);
+            gain.TextAlign = ContentAlignment.MiddleCenter;
+            objectif.Controls.Add(gain);
+            
 
             //texte pour le diaporama
 
@@ -1408,13 +1422,21 @@ namespace La_petite_boite
 
             //on signale au joueur que l-enregistrement a ete fait
 
+            List<String> nomsButtons = new List<string>();
+            List<int> refEvents = new List<int>();
+            nomsButtons.Add("Retour");
+            refEvents.Add(0);
+            
+
             if (enregistrer == true)
             {
-                afficheMessageBox("Sauvegarde", "Les donnees ont ete sauvegardees");
+                var Popup = new PopUp(ColorTranslator.FromHtml("#006532"), items.felicitations, 1, "Les donnees ont ete sauvegardees !", nomsButtons, refEvents);
+                Popup.ShowDialog();
             }
             else
             {
-                afficheMessageBox("Erreur", "Une erreur s-est produite, les donnees n-ont pas pu etre enregistrees");
+                var Popup = new PopUp(ColorTranslator.FromHtml("#be1621"), items.felicitations, 1, "Une erreur s-est produite, les donnees n-ont pas pu etre enregistrees.", nomsButtons, refEvents);
+                Popup.ShowDialog();
             }
         }
 
@@ -1454,8 +1476,6 @@ namespace La_petite_boite
 
             //on ajoute le minijeu
             miniJeu.Controls.Add(p);
-            Table.Controls.Clear();
-            
             conteneurEtoilesCoffre.Margin = new Padding(0);
             coffre.Top = 5;
             
@@ -1494,35 +1514,19 @@ namespace La_petite_boite
                 p.EnabledChanged += new EventHandler(finMiniJeu);
             }
             
-            imgChevalier.BackColor = Color.Transparent;
-            
             //on met le nom du joueur
             prenomJoueur.Text = chevalier.nomJoueur();
-            prenomJoueur.BackColor = Color.Transparent;
+           
 
             //on ajoute les etoiles au conteneurEtoiles
 
             ajoutEtoiles();
 
-            if (chevalier.getEpreuvesGagnees(IndiceJeu) == 1)
-            {
-                //epreuve remportee / alors il n'y a pas d'etoiles jaunes a remporter
+            //on met a jour les etoiles a gagner
+            miseAJourEtoiles();
 
-                objectif.Controls.Add(new Etoile(0, 0, 2));
-                objectif.Controls.Add(new Etoile(90, 0, 2));
-                objectif.Controls.Add(new Etoile(45, 70, 2));
-                
-            }
-            else
-            {
-                //epreuve perdue ou premiere fois /il y a encore des etoiles a remporter
-                //on ajoute les etoiles jaunes
-                
-                objectif.Controls.Add(new Etoile(0, 0, 1));
-                objectif.Controls.Add(new Etoile(90, 0, 1));
-                objectif.Controls.Add(new Etoile(45, 70, 1));
-            }
-            
+            //on configure le layout
+            Table.Controls.Clear();
             Table.ColumnStyles.Clear();
             Table.RowStyles.Clear();
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12F));
@@ -1538,7 +1542,7 @@ namespace La_petite_boite
             p.Dock = DockStyle.None;
             p.Anchor = AnchorStyles.None;
             objectif.Dock = DockStyle.None;
-            objectif.Anchor = AnchorStyles.None;
+            objectif.Anchor = AnchorStyles.Top;
             tabBord.Dock = DockStyle.None;
             tabBord.Anchor = AnchorStyles.Left | AnchorStyles.Top;
             titreJeu.Dock = DockStyle.Fill;
@@ -1548,7 +1552,7 @@ namespace La_petite_boite
             conteneurEtoilesCoffre.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             imgChevalier.Dock = DockStyle.None;
             imgChevalier.Anchor = AnchorStyles.None;
-            Table.Margin = new Padding(0);
+            
             
             //on ajoute tous les composants dans le panel
             Table.Controls.Add(tabBord, 0, 3);
@@ -1697,41 +1701,31 @@ namespace La_petite_boite
                 if (chevalier.getEpreuvesGagnees(IndiceJeu) == 0)
                 {
                     //on passe l-indice du jeu a 1
-
                     chevalier.setEpreuvesRemportees(IndiceJeu);
 
                     //on met toutes les etoiles jaunes du panel Objectif en gris
-
-                    objectif.Controls.Clear();
-
-                    for (int i = 0; i < 3; i++)
-                    {
-                        int left = 0;
-                        int top = i * 70;
-                        objectif.Controls.Add(new Etoile(left, top, 2));
-                    }
-
+                    miseAJourEtoiles();
                     //on enregistre les nouvelles etoiles
                     chevalier.setJoueurScore(3);
 
                     //on met les etoiles dans conteneurEtoiles
 
                     ajoutEtoiles();
-
                 }
                 //on demande au joueur s-il veut jouer au niveau suivant mais pas d-etoiles a gagner supp. c-est juste pour savoir s-il a assimile
                 //ici pop up spe
-                DialogResult reponse = MessageBox.Show("Super ! Tu viens de terminer le premier niveau ! Veux-tu jouer au niveau suivant?", "Niveau suivant", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                List<String> nomsButtons = new List<string>();
+                List<int> refEvents = new List<int>();
+                nomsButtons.Add("Rejouer");
+                nomsButtons.Add("Niveau 2");
+                nomsButtons.Add("Carte");
+                refEvents.Add(2);
+                refEvents.Add(3);
+                refEvents.Add(1);
 
-                if (reponse == DialogResult.Yes)
-                {
-                    lanceNiveauSuperieur();
-                }
-                else
-                {
-                    this.Controls.Remove(Jeu);
-                    Carte();
-                }
+                var Popup = new PopUp(ColorTranslator.FromHtml("#28225c"), items.felicitations, 3, "Niveau 1 reussi!", nomsButtons, refEvents);
+                Popup.ShowDialog();
+                reponsePopUp();
             }
         }
 
@@ -1759,48 +1753,44 @@ namespace La_petite_boite
                 refEvents.Add(3);
                 refEvents.Add(1);
                 
-                var Popup = new PopUp(ColorTranslator.FromHtml("#28225c"), items.chevalier1, 3, "Niveau 2 reussi!" + Environment.NewLine + "Quete terminee", nomsButtons, refEvents);
+                var Popup = new PopUp(ColorTranslator.FromHtml("#28225c"), items.felicitations, 3, "Niveau 2 reussi! Quete terminee", nomsButtons, refEvents);
                 Popup.ShowDialog();
-
-                if (choixFinMiniJeu == 0)
-                {
-                    //on revient a la carte
-                    this.Controls.Remove(Jeu);
-                    Carte();
-                }
-                else if (choixFinMiniJeu == 1)
-                {
-                    //on affiche et on reload le premier niveau
-                    miniJeu.Controls.Clear();
-                    epreuvesO.ElementAt(IndiceJeu).chargementPartie();
-                    miniJeu.Controls.Add(epreuvesO.ElementAt(IndiceJeu));
-                    titreJeu.Text = "Niveau 1 : " + jeuEnCours;
-                }
-                else if (choixFinMiniJeu == 2)
-                {
-                    //on joue au deuxieme niveau
-                    titreJeu.Text = "Niveau 2 : " + jeuEnCours;
-                    epreuvesF.ElementAt(IndiceJeu).chargementPartie();
-                }
-                else if (choixFinMiniJeu == 3)
-                {
-                    //on sauvegarde et on quitte
-                    //titreJeu.Text = "Niveau 2 : " + jeuEnCours;
-                    //epreuvesF.ElementAt(IndiceJeu).chargementPartie();
-                }
+                reponsePopUp();
             }
         }
-
-        public void lanceNiveauSuperieur()
+        
+        public void reponsePopUp()
         {
-            titreJeu.Text = "Niveau 2 : " + jeuEnCours;
-            miniJeu.Controls.Clear();
-            chevalier.epreuvesFacultatives().ElementAt(IndiceJeu).EnabledChanged += new EventHandler(finMiniJeuFacultatif);
+            if (choixFinMiniJeu == 0)
+            {
+                //on revient a la carte
+                this.Controls.Remove(Jeu);
+                Carte();
+            }
+            else if (choixFinMiniJeu == 1)
+            {
+                //on affiche et on reload le premier niveau
+                miniJeu.Controls.Clear();
+                epreuvesO.ElementAt(IndiceJeu).chargementPartie();
+                miniJeu.Controls.Add(epreuvesO.ElementAt(IndiceJeu));
+                titreJeu.Text = "Niveau 1 : " + jeuEnCours;
+            }
+            else if (choixFinMiniJeu == 2)
+            {
+                //on joue au deuxieme niveau
+                titreJeu.Text = "Niveau 2 : " + jeuEnCours;
+                epreuvesF.ElementAt(IndiceJeu).chargementPartie();
+            }
+            else if (choixFinMiniJeu == 3)
+            {
+                //on sauvegarde et on quitte
+                sauvegardePartie();
+                //enregistrement en dur des donnees
+                enregistrementFichier("La_petite_boite.Resources.Joueurs.txt");
 
-            chevalier.epreuvesFacultatives().ElementAt(IndiceJeu).Dock = DockStyle.None;
-            chevalier.epreuvesFacultatives().ElementAt(IndiceJeu).Anchor = AnchorStyles.None;
-
-            miniJeu.Controls.Add(chevalier.epreuvesFacultatives().ElementAt(IndiceJeu));
+                //on quitte le jeu
+                Application.Exit();
+            }
         }
 
         //ajouter les etoiles au conteneurEtoiles
@@ -1829,15 +1819,42 @@ namespace La_petite_boite
             }
         }
 
+        //mise a jour gain etoiles
+
+        public void miseAJourEtoiles ()
+        {
+            objectif.Controls.Clear();
+
+            objectif.Controls.Add(gain);
+            if (chevalier.getEpreuvesGagnees(IndiceJeu) == 1)
+            {
+                //epreuve remportee / alors il n'y a pas d'etoiles jaunes a remporter
+
+                objectif.Controls.Add(new Etoile(0, 80, 2));
+                objectif.Controls.Add(new Etoile(90, 80, 2));
+                objectif.Controls.Add(new Etoile(45, 150, 2));
+
+            }
+            else
+            {
+                //epreuve perdue ou premiere fois /il y a encore des etoiles a remporter
+                //on ajoute les etoiles jaunes
+
+                objectif.Controls.Add(new Etoile(0, 80, 1));
+                objectif.Controls.Add(new Etoile(90, 80, 1));
+                objectif.Controls.Add(new Etoile(45, 150, 1));
+            }
+        }
+
         //aide du jeu
 
         public void ConseilsGuide()
         {
-            if (guide.Parent.Parent.Name.Equals("Carte"))
+            if (guide.Parent.Parent.Parent.Name.Equals("Carte"))
             {
                 message = "Clique sur un des lieux grises pour te deplacer sur la carte et acceder aux jeux";
             }
-            else if (guide.Parent.Parent.Name.Equals("Jeu"))
+            else if (guide.Parent.Parent.Parent.Name.Equals("Jeu"))
             {
                 if (jeuEnCours == "Memory")
                 {
@@ -1861,10 +1878,18 @@ namespace La_petite_boite
         public void AfficheMessage(object sender, EventArgs e)
         {
             ConseilsGuide();
-            MessageBox.Show(message, "Aide La Petite Boite", MessageBoxButtons.OK, MessageBoxIcon.None);
+            // MessageBox.Show(message, "Aide La Petite Boite", MessageBoxButtons.OK, MessageBoxIcon.None);
+            List<String> nomsButtons = new List<string>();
+            List<int> refEvents = new List<int>();
+            nomsButtons.Add("Retour");
+            refEvents.Add(0);
+            
+            var Popup = new PopUp(ColorTranslator.FromHtml("#006532"), items.felicitations, 1, message, nomsButtons, refEvents);
+            Popup.ShowDialog();
+
         }
 
-        //revelation du coffre
+    //revelation du coffre
 
         public void devoileCoffre()
         {

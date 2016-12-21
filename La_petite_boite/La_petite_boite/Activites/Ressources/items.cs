@@ -94,6 +94,13 @@ namespace Ressources
         }
 
         //images JeuPPL
+        public static Bitmap felicitations
+        {
+            get
+            {
+                return Properties.Resources.fireworks1;
+            }
+        }
 
         public static Bitmap banniereGriseConteneurEtoiles
         {

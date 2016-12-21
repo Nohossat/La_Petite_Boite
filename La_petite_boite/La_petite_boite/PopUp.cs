@@ -84,7 +84,7 @@ namespace La_petite_boite
                     this.Controls[i].Click += new EventHandler(tableauFonctions.ElementAt(referenceMethods.ElementAt(i)));
                 }
             }
-            else
+            else if (nbrBoutons == 3)
             {
                 //nbrBoutons == 3
                 popUpButton bouton1 = new popUpButton();
@@ -105,11 +105,10 @@ namespace La_petite_boite
                     this.Controls[i].Click += new EventHandler(tableauFonctions.ElementAt(referenceMethods.ElementAt(i)));
                 }
             }
-
             this.Controls.Add(this.message);
             this.Controls.Add(this.animation);
         }
-
+        
         void Retour(object sender, EventArgs e)
         {
             //on referme la form

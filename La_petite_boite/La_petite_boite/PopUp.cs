@@ -27,19 +27,19 @@ namespace La_petite_boite
             
             // 
             //message
-            this.message.Font = new Font(Form1.privateFontCollection.Families[0], 16);
+            this.message.Font = new Font(Form1.privateFontCollection.Families[0], 15);
             this.message.ForeColor = Color.White;
             this.message.BackColor = Color.Transparent;
             this.message.Location = new Point(96, 140);
-            this.message.Size = new Size(400, 75);
+            this.message.Size = new Size(440, 75);
             this.message.TabIndex = 3;
             this.message.TextAlign = ContentAlignment.MiddleCenter;
             this.message.Text = message;
             // 
             // animation
             // 
-            this.animation.Location = new Point(186, 12);
-            this.animation.Size = new Size(234, 105);
+            this.animation.Location = new Point(210, 20);
+            this.animation.Size = new Size(190, 120);
             this.animation.TabIndex = 4;
             this.animation.TabStop = false;
             this.animation.Image = animation;
@@ -51,7 +51,8 @@ namespace La_petite_boite
             tableauFonctions.Add(Carte);
             tableauFonctions.Add(Niveau1);
             tableauFonctions.Add(Niveau2);
-            tableauFonctions.Add(SauvegardeQuitter);
+            tableauFonctions.Add(SauvegardeRetourAccueil);
+            tableauFonctions.Add(RetourAccueil);
             tableauFonctions.Add(Quitter);
             BackColor = fond;
             
@@ -78,7 +79,7 @@ namespace La_petite_boite
                 {
                     this.Controls[i].Width = 195;
                     this.Controls[i].Height = 55;
-                    this.Controls[i].Left = i * 230 + 30;
+                    this.Controls[i].Left = i * 230 + 100;
                     this.Controls[i].Font = new Font(Form1.privateFontCollection.Families[0], 14);
                     this.Controls[i].Text = texteBoutons.ElementAt(i);
                     this.Controls[i].Click += new EventHandler(tableauFonctions.ElementAt(referenceMethods.ElementAt(i)));
@@ -141,9 +142,17 @@ namespace La_petite_boite
             this.Dispose();
         }
 
-        void SauvegardeQuitter(object sender, EventArgs e)
+        void SauvegardeRetourAccueil(object sender, EventArgs e)
         {
             Program.petiteBoite.choixFinMiniJeu = 3;
+            //on referme la form
+            this.Close();
+            this.Dispose();
+        }
+
+        void RetourAccueil(object sender, EventArgs e)
+        {
+            Program.petiteBoite.choixFinMiniJeu = 4;
             //on referme la form
             this.Close();
             this.Dispose();
@@ -153,6 +162,5 @@ namespace La_petite_boite
         {
             Application.Exit();
         }
-
     }
 }

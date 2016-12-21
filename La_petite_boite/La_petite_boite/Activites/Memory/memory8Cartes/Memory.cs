@@ -20,6 +20,8 @@ namespace memory8Cartes
         public PictureBox ImageEnAttente1; //la première carte sélectionnée
         public PictureBox ImageEnAttente2; //la deuxième carte sélectionnée
         public Panel conteneurCarte;
+        public Button Valider = new Button();
+        public Button Annuler = new Button();
         public List<Stream> sons = new List<Stream>();
         public List<Bitmap> img = new List<Bitmap>();
         
@@ -31,6 +33,8 @@ namespace memory8Cartes
 
         public new void chargementPartie()
         {
+            //Valider.Size = new Size(100,100);
+            //Valider.Location = new Point(0, 0);
             score = 0;
             this.ImageEnAttente1 = null; //initialisation à null
             this.ImageEnAttente2 = null; //initialisation à null

@@ -694,6 +694,7 @@ namespace La_petite_boite
 
         public void afficheAccueil()
         {
+            this.Controls.Clear();
             //on affiche l-accueil
             Table.RowStyles.Clear();
             Table.ColumnStyles.Clear();
@@ -733,7 +734,6 @@ namespace La_petite_boite
             if (progressBar1.Value == 100)
             {
                 //on remove l-ecran chargement du form
-                this.Controls.Remove(chargement);
 
                 this.Update();
 
@@ -1109,7 +1109,7 @@ namespace La_petite_boite
             this.Controls.Add(CarteJeu);
         }
 
-        public void positionLieux ()
+        public void positionLieux()
         {
             Double montagneTop;
             Double villageTop;
@@ -1430,13 +1430,15 @@ namespace La_petite_boite
 
             if (enregistrer == true)
             {
-                var Popup = new PopUp(ColorTranslator.FromHtml("#006532"), items.felicitations, 1, "Les donnees ont ete sauvegardees !", nomsButtons, refEvents);
+                var Popup = new PopUp(ColorTranslator.FromHtml("#006532"), items.guide, 1, "Les donnees ont ete sauvegardees !", nomsButtons, refEvents);
                 Popup.ShowDialog();
+                reponsePopUp();
             }
             else
             {
-                var Popup = new PopUp(ColorTranslator.FromHtml("#be1621"), items.felicitations, 1, "Une erreur s-est produite, les donnees n-ont pas pu etre enregistrees.", nomsButtons, refEvents);
+                var Popup = new PopUp(ColorTranslator.FromHtml("#be1621"), items.attention, 1, "Une erreur s-est produite, les donnees n-ont pas pu etre enregistrees.", nomsButtons, refEvents);
                 Popup.ShowDialog();
+                reponsePopUp();
             }
         }
 
@@ -1661,31 +1663,17 @@ namespace La_petite_boite
                 this.Controls.Remove(Jeu);
                 Carte();
             }
-            /*else if (grandParent.Parent == CourRoi)
-            {
-                this.Controls.Remove(CourRoi);
-                Carte();
-            }*/
             else if (grandParent == CarteJeu)
             {
-                DialogResult res = afficheMessageBox("Attention", "Tu es sur le point de quitter la partie. Souhaites-tu sauvegarder tes donnees? Appuies sur Annuler pour revenir sur la carte.");
-
-                if (res != DialogResult.Cancel)
-                {
-
-                    if (res == DialogResult.Yes)
-                    {
-                        //il faut sauvegarder
-                        sauvegardePartie();
-                    }
-
-                    //on remove l-ecran chargement du form
-                    this.Controls.Remove(CarteJeu);
-
-                    //on affiche l-accueil
-                    afficheAccueil();
-
-                }
+                List<String> nomsButtons = new List<string>();
+                List<int> refEvents = new List<int>();
+                nomsButtons.Add("Sauvegarder et Retour a l'accueil");
+                nomsButtons.Add("Retour a la Carte");
+                refEvents.Add(4);
+                refEvents.Add(0);
+                var Popup = new PopUp(ColorTranslator.FromHtml("#f39200"), items.attention, 2, "Tu es sur le point de quitter la partie."+ Environment.NewLine+"Souhaites - tu sauvegarder tes donnees ?", nomsButtons, refEvents);
+                Popup.ShowDialog();
+                reponsePopUp();
             }
         }
 
@@ -1788,8 +1776,13 @@ namespace La_petite_boite
                 //enregistrement en dur des donnees
                 enregistrementFichier("La_petite_boite.Resources.Joueurs.txt");
 
-                //on quitte le jeu
-                Application.Exit();
+                //on revient a l-accueil
+                afficheAccueil();
+            }
+            else if (choixFinMiniJeu == 4)
+            {
+                //on revient a l'accueil
+                afficheAccueil();
             }
         }
 
@@ -1821,7 +1814,7 @@ namespace La_petite_boite
 
         //mise a jour gain etoiles
 
-        public void miseAJourEtoiles ()
+        public void miseAJourEtoiles()
         {
             objectif.Controls.Clear();
 
@@ -1850,9 +1843,9 @@ namespace La_petite_boite
 
         public void ConseilsGuide()
         {
-            if (guide.Parent.Parent.Parent.Name.Equals("Carte"))
+            if (guide.Parent.Parent.Name.Equals("Carte"))
             {
-                message = "Clique sur un des lieux grises pour te deplacer sur la carte et acceder aux jeux";
+                message = "Clique sur un des lieux gris pour te deplacer sur la carte et acceder aux jeux";
             }
             else if (guide.Parent.Parent.Parent.Name.Equals("Jeu"))
             {
@@ -1878,13 +1871,12 @@ namespace La_petite_boite
         public void AfficheMessage(object sender, EventArgs e)
         {
             ConseilsGuide();
-            // MessageBox.Show(message, "Aide La Petite Boite", MessageBoxButtons.OK, MessageBoxIcon.None);
             List<String> nomsButtons = new List<string>();
             List<int> refEvents = new List<int>();
             nomsButtons.Add("Retour");
             refEvents.Add(0);
             
-            var Popup = new PopUp(ColorTranslator.FromHtml("#006532"), items.felicitations, 1, message, nomsButtons, refEvents);
+            var Popup = new PopUp(ColorTranslator.FromHtml("#27348a"), items.guide, 1, message, nomsButtons, refEvents);
             Popup.ShowDialog();
 
         }

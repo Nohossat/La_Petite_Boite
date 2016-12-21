@@ -94,6 +94,15 @@ namespace Ressources
         }
 
         //images JeuPPL
+
+        public static Bitmap attention
+        {
+            get
+            {
+                return Properties.Resources.attention;
+            }
+        }
+
         public static Bitmap felicitations
         {
             get
@@ -203,6 +212,14 @@ namespace Ressources
             get
             {
                 return Properties.Resources.map1;
+            }
+        }
+
+        public static Bitmap guide
+        {
+            get
+            {
+                return Properties.Resources.guide;
             }
         }
 

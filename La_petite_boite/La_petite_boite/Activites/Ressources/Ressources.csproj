@@ -283,6 +283,8 @@
     <EmbeddedResource Include="Resources\Jeu\sauvegardebutton1.png" />
     <EmbeddedResource Include="Resources\Jeu\fireworks1.gif" />
     <EmbeddedResource Include="Resources\Jeu\attention.png" />
+    <EmbeddedResource Include="Resources\Jeu\fauxmin.png" />
+    <EmbeddedResource Include="Resources\Jeu\vraimin.png" />
     <Content Include="Resources\miniJeu\pauseFR.wav" />
   </ItemGroup>
   <ItemGroup />

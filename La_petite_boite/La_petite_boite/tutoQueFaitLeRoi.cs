@@ -20,25 +20,41 @@ namespace La_petite_boite
         private PictureBox pictureBox6;
         private PictureBox pictureBox5;
         private Panel conteneurCarteAPlacer;
-
-        Random localisationBouton = new Random();
-        Random localisationCarte = new Random();
-        Random localisationCarteAPlacer = new Random();
-        List<Point> coordonneesCarte = new List<Point>();
-        List<Point> coordonneesBouton = new List<Point>();
-        List<Point> coordonneesCarteAPlacer = new List<Point>();
+        
         List<Stream> audio = new List<Stream>();
         List<Bitmap> images = new List<Bitmap>();
-        int compteur = 0;
+        public int compteur = 0;
 
         public tutoQueFaitLeRoi()
         {
             InitializeComponent();
             QueFaitLeRoi_Load();
-            timer1.Enabled = true;
+            //timer1.Enabled = true;
             button3.Enabled = false;
+
+            foreach (Button b in conteneurBouton.Controls)
+            {
+                //BUG
+                b.GotFocus += new EventHandler(getFocus);
+                b.Focus();
+                //System.Threading.Thread.Sleep(1000);
+                Console.WriteLine(compteur);
+                compteur++;
+            }
+            button3.Enabled = true;
         }
 
+        private void getFocus(object sender, EventArgs e)
+        {
+            Console.WriteLine(compteur);
+            Program.petiteBoite.JouerSon(audio.ElementAt(compteur));
+            System.Threading.Thread.Sleep(3000);
+            conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(compteur).Image = images.ElementAt(compteur);
+            conteneurCarte.Controls[compteur].Hide();
+            Program.petiteBoite.JouerSon(items.applaudissement);
+            
+        }
+        
         private void QueFaitLeRoi_Load()
         {
             audio.Add(items.roiRentreAuChateauFR);
@@ -60,33 +76,30 @@ namespace La_petite_boite
                 image.BorderStyle = BorderStyle.FixedSingle;
                 image.Image = null;
                 image.Enabled = true;
-                coordonneesCarteAPlacer.Add(image.Location);
             }
             
-
             foreach (PictureBox image in conteneurCarte.Controls)
             {
                 image.Visible = true;
                 image.Enabled = true;
-                coordonneesCarte.Add(image.Location);
+                image.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             
 
             foreach (Button bouton in conteneurBouton.Controls)
             {
                 bouton.Enabled = true;
-                coordonneesBouton.Add(bouton.Location);
             }
             
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            SoundPlayer sound = new SoundPlayer();
             if (compteur < 2)
             {
                 conteneurBouton.Controls[compteur].Focus();
                 Program.petiteBoite.JouerSon(audio.ElementAt(compteur));
+                System.Threading.Thread.Sleep(3000);
                 conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(compteur).Image = images.ElementAt(compteur);
                 conteneurCarte.Controls[compteur].Hide();
                 Program.petiteBoite.JouerSon(items.applaudissement);
@@ -97,9 +110,8 @@ namespace La_petite_boite
                 timer1.Enabled = false;
                 button3.Enabled = true;
             }
-            
         }
-
+        
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();

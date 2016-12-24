@@ -18,7 +18,7 @@ namespace La_petite_boite
         public PictureBox carte2;
         public PictureBox doubleCarte1;
         public PictureBox carte1;
-        Random localisation = new Random(); //
+        Random localisation = new Random(); 
         List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
         int compteur = 0;
         
@@ -33,7 +33,6 @@ namespace La_petite_boite
 
         public void chargementPartie()
         {
-            
             this.Enabled = true;
             //récupérer les localisations des cartes
             foreach (PictureBox image in conteneurCarte.Controls)
@@ -54,7 +53,13 @@ namespace La_petite_boite
             //le dos des cartes est affiché
             foreach (PictureBox image in conteneurCarte.Controls)
             {
+                image.Enabled = true;
                 image.Image = items.dosCarte;
+                image.Cursor = Cursors.Hand;
+                image.Size = new Size(130, 160);
+                image.SizeMode = PictureBoxSizeMode.StretchImage;
+                image.TabStop = false;
+                image.BackColor = Color.Transparent;
             }
         }
         

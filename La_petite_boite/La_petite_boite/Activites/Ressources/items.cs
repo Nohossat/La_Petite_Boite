@@ -95,6 +95,22 @@ namespace Ressources
 
         //images JeuPPL
 
+        public static Bitmap check
+        {
+            get
+            {
+                return Properties.Resources.vraimin;
+            }
+        }
+
+        public static Bitmap faux
+        {
+            get
+            {
+                return Properties.Resources.fauxmin;
+            }
+        }
+
         public static Bitmap attention
         {
             get

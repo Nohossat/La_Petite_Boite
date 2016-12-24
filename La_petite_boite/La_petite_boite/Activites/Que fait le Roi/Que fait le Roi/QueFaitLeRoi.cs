@@ -82,7 +82,6 @@ namespace Que_fait_le_Roi
                 image.Visible = true;
                 image.Enabled = true;
                 image.SizeMode = PictureBoxSizeMode.StretchImage;
-
                 coordonneesCarte.Add(image.Location);
             }
 

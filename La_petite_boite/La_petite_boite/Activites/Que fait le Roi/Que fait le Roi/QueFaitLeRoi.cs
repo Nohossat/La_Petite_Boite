@@ -14,12 +14,11 @@ namespace Que_fait_le_Roi
     {
         public int finalScore;
         public int score;
+        public int indexcarte;
         public Panel conteneurCarte;
         public Panel conteneurBouton;
         public Panel conteneurCarteAPlacer;
-        public Random localisationBouton = new Random();
-        public Random localisationCarte = new Random();
-        public Random localisationCarteAPlacer = new Random();
+        public Random localisation = new Random();
         public List<Point> coordonneesCarte = new List<Point>();
         public List<Point> coordonneesBouton = new List<Point>();
         public List<Point> coordonneesCarteAPlacer = new List<Point>();
@@ -29,6 +28,7 @@ namespace Que_fait_le_Roi
         public String receveurTag;
         public Boolean sonBoutonEcoute;
         public List<Stream> sons = new List<Stream>();
+        public Point mouseLocation;
 
 
         public QueFaitLeRoiClass ()
@@ -45,28 +45,73 @@ namespace Que_fait_le_Roi
             sonBoutonEcoute = false;
             imageRecuperee = null;
             int indexEmplacement = 0;
+            
             //on prepare les boutons
+            indexcarte = 0;
             foreach (Button bouton in conteneurBouton.Controls)
             {
                 bouton.Enabled = true;
+                bouton.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                bouton.Size = new Size(130, 37);
+                bouton.UseVisualStyleBackColor = true;
+                bouton.Top = 3;
+
+                if (conteneurCarte.Controls.Count == 4)
+                {
+                    bouton.Left = indexcarte * 185;
+                }
+                else if (conteneurCarte.Controls.Count == 8)
+                {
+                    bouton.Left = indexcarte * 135;
+                }
+                else
+                {
+                    bouton.Left = indexcarte * 102;
+                    bouton.Size = new System.Drawing.Size(100, 37);
+                }
+
+                bouton.Tag = "";
+                bouton.Click += new EventHandler(this.Ecouter);
+                indexcarte++;
                 coordonneesBouton.Add(bouton.Location);
             }
-            
-            //on prepare les emplacements 
 
+            //on prepare les emplacements 
+            indexcarte = 0;
             foreach (PictureBox image in conteneurCarteAPlacer.Controls)
             {
                 image.BorderStyle = BorderStyle.FixedSingle;
                 image.AllowDrop = false;
                 image.Image = null;
-                image.Enabled = true;
+                image.Size = new System.Drawing.Size(130, 160);
+                image.SizeMode = PictureBoxSizeMode.StretchImage;
+                image.TabStop = false;
+                image.Top = 5;
+
+                if (conteneurCarte.Controls.Count == 4)
+                {
+                    image.Left = indexcarte * 185;
+                }
+                else if (conteneurCarte.Controls.Count == 8)
+                {
+                    image.Left = indexcarte * 135;
+                }
+                else
+                {
+                    image.Left = indexcarte * 102;
+                    image.Size = new System.Drawing.Size(100, 130);
+                }
+
+                image.DragDrop += new DragEventHandler(this.Image_DragDrop);
+                image.DragEnter += new DragEventHandler(this.Image_DragEnter);
                 coordonneesCarteAPlacer.Add(image.Location);
+                indexcarte++;
             }
 
-            //on repere la localisation des boutons et des emplacements
+            //on melange les boutons et les emplacements
             foreach (Button bouton in conteneurBouton.Controls)
             {
-                int next = localisationBouton.Next(coordonneesBouton.Count);
+                int next = localisation.Next(coordonneesBouton.Count);
                 Point p = coordonneesBouton[next];
                 Point pEmplacement = coordonneesCarteAPlacer[next];
                 bouton.Location = p;
@@ -77,23 +122,51 @@ namespace Que_fait_le_Roi
             }
             
             //on prepare les carte a placer
+            indexcarte = 0;
             foreach (PictureBox image in conteneurCarte.Controls)
             {
                 image.Visible = true;
                 image.Enabled = true;
+                image.BackColor = Color.White;
+                //image.MouseMove += new MouseEventHandler(imageMouseMove);
+                image.Cursor = Cursors.Hand;
+                image.Size = new Size(130, 160);
                 image.SizeMode = PictureBoxSizeMode.StretchImage;
+                image.TabStop = false;
+                image.Top = 3;
+
+                if (conteneurCarte.Controls.Count == 4)
+                {
+                    image.Left = indexcarte * 185;
+                }
+                else if (conteneurCarte.Controls.Count == 8) 
+                {
+                    image.Left = indexcarte * 135;
+                }
+                else
+                {
+                    image.Left = indexcarte * 102;
+                    image.Size = new System.Drawing.Size(100, 130);
+                }
+                
+                image.MouseDown += new MouseEventHandler(this.receveurImage_MouseDown);
+                image.MouseEnter += new EventHandler(imageMouseEnter);
                 coordonneesCarte.Add(image.Location);
+                indexcarte++;
             }
 
-            //on repere la localisation des cartes
+            //on melange les cartes
             foreach (PictureBox image in conteneurCarte.Controls)
             {
-                int next = localisationCarte.Next(coordonneesCarte.Count);
+                int next = localisation.Next(coordonneesCarte.Count);
                 Point p = coordonneesCarte[next];
                 image.Location = p;
                 coordonneesCarte.Remove(p);
             }
             
+            this.Controls.Add(this.conteneurBouton);
+            this.Controls.Add(this.conteneurCarteAPlacer);
+            this.Controls.Add(this.conteneurCarte);
         }
         
         public void Ecouter(object sender, EventArgs e)
@@ -127,6 +200,7 @@ namespace Que_fait_le_Roi
             if (carteTag == sonTag & receveurTag == sonTag)
             {
                 image.Image = imageRecuperee;
+                image.BackColor = Color.White;
                 sonBoutonEcoute = false;
                 JouerSon(items.applaudissement);
                 conteneurCarte.Controls[index].Hide();
@@ -157,7 +231,7 @@ namespace Que_fait_le_Roi
 
         }
 
-        public void receveurImage_MouseDown(object sender, MouseEventArgs e)
+        private void imageMouseEnter(object sender, EventArgs e)
         {
             PictureBox image = (PictureBox)sender;
             imageRecuperee = image.Image;
@@ -168,7 +242,34 @@ namespace Que_fait_le_Roi
             {
                 JouerSon(sons[index]);
             }
+        }
+
+        public void receveurImage_MouseDown(object sender, MouseEventArgs e)
+        {
+            PictureBox image = (PictureBox)sender;
+            imageRecuperee = image.Image;
+            carteTag = (String)image.Tag;
+            int index = Int32.Parse(carteTag) + finalScore - 1;
+            
+            //on recupere la position de la souris
+            if (e.Button == MouseButtons.Left)
+            {
+                Console.WriteLine(mouseLocation);
+                mouseLocation = e.Location;
+            }
             conteneurCarteAPlacer.DoDragDrop("x", DragDropEffects.All);
+            
+        }
+
+        public void imageMouseMove(object sender, MouseEventArgs e)
+        {
+            PictureBox image = (PictureBox)sender;
+            Console.WriteLine(image.Name);
+            Console.WriteLine(mouseLocation.X);
+            image.Left = e.X;
+            image.Top = e.Y;
+
+            Refresh();
         }
     }
 }

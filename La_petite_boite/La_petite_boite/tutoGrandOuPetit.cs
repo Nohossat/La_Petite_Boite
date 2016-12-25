@@ -35,18 +35,24 @@ namespace La_petite_boite
 
         int compteur = 0;
         int seconds = 0;
+        
 
         public tutoGrandOuPetit()
         {
             InitializeComponent();
             chargementPartie();
-            timer1.Enabled = true;
+            System.Threading.Thread.Sleep(4000);
+            conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(0).Image = images.ElementAt(0);
+            Program.petiteBoite.JouerSon(audio.ElementAt(0));
         }
-
+        
         private void chargementPartie()
         {
-            audio.Add(items.grandChateauFR);
+            audio.Add(items.grandChateauTurc);
             audio.Add(items.grandCoffreFR);
+            audio.Add(items.petitChateauTurc);
+            audio.Add(items.petitCoffreFR);
+
             images.Add(items.chateau1);
             images.Add(items.coffre1);
             images.Add(items.chateau1);
@@ -57,9 +63,9 @@ namespace La_petite_boite
             //récupérer les localisations des grandes cartes
             foreach (PictureBox image in conteneurGrandeCarte.Controls)
             {
+                image.SizeMode = PictureBoxSizeMode.StretchImage;
                 image.Image = items.dosCarte;
                 image.Enabled = true;
-                coordonneesGrandeCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
             }
             
             //récupérer les localisations des emplacements
@@ -69,7 +75,6 @@ namespace La_petite_boite
                 image.AllowDrop = false;
                 image.Image = null;
                 image.BorderStyle = BorderStyle.FixedSingle;
-                coordonneesCarteAPlacer.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
             }
             
             //récupérer les localisations des petites cartes
@@ -77,20 +82,33 @@ namespace La_petite_boite
             {
                 image.Enabled = true;
                 image.Visible = true;
+                image.SizeMode = PictureBoxSizeMode.StretchImage;
                 image.Image = items.dosCarte;
-                coordonneesPetiteCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
             }
+
+           /* //timer1.Enabled = true;
+            conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(0).Image = images.ElementAt(0);
+            Program.petiteBoite.JouerSon(audio.ElementAt(0));
+            //System.Threading.Thread.Sleep(2000);
+            conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(0).Image = images.ElementAt(0);
+            Program.petiteBoite.JouerSon(audio.ElementAt(2));
+            //System.Threading.Thread.Sleep(2000);
+            conteneurPetiteCarte.Controls[0].Hide();
+            //System.Threading.Thread.Sleep(2000);
+            conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(0).Image = images.ElementAt(0);*/
+            
         }
         
-
         private void timer1_Tick(object sender, EventArgs e)
         {
-            SoundPlayer sound = new SoundPlayer();
+
             if (compteur < 2)
             {
                 //lecture d-une carte de la premiere ligne + son
                 conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(compteur).Image = images.ElementAt(compteur);
                 Program.petiteBoite.JouerSon(audio.ElementAt(compteur));
+
+                
 
                 if (compteur == 0)
                 {

@@ -694,10 +694,11 @@ namespace La_petite_boite
 
         public void afficheAccueil()
         {
+            Table.Controls.Clear();
+            Table.ColumnStyles.Clear();
+            Table.RowStyles.Clear();
             this.Controls.Clear();
             //on affiche l-accueil
-            Table.RowStyles.Clear();
-            Table.ColumnStyles.Clear();
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
@@ -750,6 +751,10 @@ namespace La_petite_boite
         {
             //on cache l/accueil
             this.Controls.Remove(accueil);
+
+            Table.Controls.Clear();
+            Table.ColumnStyles.Clear();
+            Table.RowStyles.Clear();
 
             conteneurTitrePPL.Controls.Clear();
 

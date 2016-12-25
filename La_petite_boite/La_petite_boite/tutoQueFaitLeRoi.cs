@@ -32,27 +32,31 @@ namespace La_petite_boite
             //timer1.Enabled = true;
             button3.Enabled = false;
 
-            foreach (Button b in conteneurBouton.Controls)
-            {
-                //BUG
-                b.GotFocus += new EventHandler(getFocus);
-                b.Focus();
-                //System.Threading.Thread.Sleep(1000);
-                Console.WriteLine(compteur);
-                compteur++;
-            }
+            for (int i=0; i< 2; i++)
+             {
+                 //BUG
+                 //b.GotFocus += new EventHandler(getFocus);
+                 //b.Focus();
+
+                 conteneurBouton.Controls[i].Select();
+                 Console.WriteLine(i);
+                 //compteur++;
+             }
+
+
             button3.Enabled = true;
         }
 
         private void getFocus(object sender, EventArgs e)
         {
-            Console.WriteLine(compteur);
+            /*Console.WriteLine(compteur);
             Program.petiteBoite.JouerSon(audio.ElementAt(compteur));
             System.Threading.Thread.Sleep(3000);
             conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(compteur).Image = images.ElementAt(compteur);
             conteneurCarte.Controls[compteur].Hide();
-            Program.petiteBoite.JouerSon(items.applaudissement);
-            
+            Program.petiteBoite.JouerSon(items.applaudissement);*/
+
+            Console.WriteLine(compteur);
         }
         
         private void QueFaitLeRoi_Load()

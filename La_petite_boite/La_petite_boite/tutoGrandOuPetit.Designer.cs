@@ -192,9 +192,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
+        
         #endregion
 
         private System.Windows.Forms.Label label1;

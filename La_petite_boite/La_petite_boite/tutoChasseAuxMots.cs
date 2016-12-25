@@ -16,9 +16,7 @@ namespace La_petite_boite
         public PictureBox pictureBox2;
         public PictureBox pictureBox1;
         public Button Ecouter;
-
-        Random localisation = new Random(); //
-        List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
+        
         List<Stream> sounds = new List<Stream>();
         SoundPlayer son = new SoundPlayer();
 
@@ -44,14 +42,18 @@ namespace La_petite_boite
         
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (compteur < 2)
+            Ecouter.Select();
+            Program.petiteBoite.JouerSon(sounds.ElementAt(0));
+            conteneurCarte.Controls.OfType<PictureBox>().ElementAt(0).Image = items.dosCarte;
+            Program.petiteBoite.JouerSon(items.applaudissement);
+
+            /*if (compteur < 2)
             {
                 Program.petiteBoite.JouerSon(sounds.ElementAt(compteur));
                 conteneurCarte.Controls.OfType<PictureBox>().ElementAt(compteur).Image = items.dosCarte;
                 Program.petiteBoite.JouerSon(items.applaudissement);
                 compteur++;
-            }
-            
+            }*/
         }
 
         private void button1_Click(object sender, EventArgs e)

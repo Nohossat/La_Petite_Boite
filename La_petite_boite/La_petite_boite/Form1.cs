@@ -17,8 +17,35 @@ using System.Web;
 namespace La_petite_boite
 //il faut regler bug affichage images, ajouter les recompenses et diapo roi.
 {
+    public class TableLayoutPanelPlus : TableLayoutPanel
+    {
+        public TableLayoutPanelPlus()
+        {
+            this.DoubleBuffered = true;
+        }
+    }
 
-    public partial class Form1 : Form
+    public class FormSpecial : Form
+    {
+        public FormSpecial()
+        {
+
+        }
+
+        // Prevent form and controls from flickering
+        //try to understand why
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle = cp.ExStyle | 0x2000000;
+                return cp;
+            }
+        }
+    }
+
+    public partial class Form1 : FormSpecial
     {
         Assembly _assembly = Assembly.GetExecutingAssembly();
 
@@ -61,8 +88,8 @@ namespace La_petite_boite
 
         //private variables
         int indexAvatar = -1;
-        TableLayoutPanel miniJeu = new TableLayoutPanel();
-        TableLayoutPanel Table = new TableLayoutPanel();
+        TableLayoutPanelPlus miniJeu = new TableLayoutPanelPlus();
+        TableLayoutPanelPlus Table = new TableLayoutPanelPlus();
         SpecialButton nouvellePartie = new SpecialButton();
         SpecialButton chargerPartie = new SpecialButton();
         SpecialButton quitter = new SpecialButton();
@@ -125,7 +152,7 @@ namespace La_petite_boite
         List<Bitmap> imagesAvatars = new List<Bitmap>();
         List<Bitmap> imagesAvatarsGris = new List<Bitmap>();
 
-        //String sauvegardeImgAvatar = null;
+        Point positionJoueur = new Point();
         String jeuEnCours = "";
         String message = "";
         String nomJoueur = "";
@@ -198,11 +225,12 @@ namespace La_petite_boite
                 p.Size = new Size(1273, 689);
                 p.Anchor = AnchorStyles.None;
                 p.Dock = DockStyle.Fill;
-                p.Location = new Point(-6, -2);
+                p.Location = new Point(0, 0);
             }
 
             //chargement
             chargement.BackgroundImage = items.chargement;
+            
 
             //accueil
             accueil.BackgroundImage = items.accueil;
@@ -213,7 +241,8 @@ namespace La_petite_boite
             //carteJeu
             CarteJeu.BackgroundImage = items.map;
             CarteJeu.Name = "Carte";
-            
+            CarteJeu.Paint += new PaintEventHandler(this.Form1_Paint);
+
             //ecran mini-jeu
             Jeu.Name = "Jeu";
 
@@ -1088,12 +1117,10 @@ namespace La_petite_boite
 
             //on vide le layout
             Table.Controls.Clear();
-
-            //position du chevalier
-            imgChevalier.Left = chevalier.positionJoueur().getPosition().X;
-            imgChevalier.Top = chevalier.positionJoueur().getPosition().Y;
-            imgChevalier.Image = imagesAvatars[chevalier.avatarJoueur()];
             
+            imgChevalier.Image = imagesAvatars[chevalier.avatarJoueur()];
+
+            positionJoueur = chevalier.positionJoueur().getPosition();
             ajoutEtoiles();
 
             //on initialise les elements de la carte 
@@ -1103,7 +1130,6 @@ namespace La_petite_boite
             conteneurEtoilesCoffre.Controls.Add(ConteneurEtoile);
             conteneurEtoilesCoffre.Controls.Add(coffre);
             CarteJeu.Controls.Add(conteneurEtoilesCoffre);
-            CarteJeu.Controls.Add(imgChevalier);
             CarteJeu.Controls.Add(Montagne);
             CarteJeu.Controls.Add(Village);
             CarteJeu.Controls.Add(Tronc);
@@ -1112,6 +1138,13 @@ namespace La_petite_boite
             CarteJeu.Controls.Add(tabBord);
 
             this.Controls.Add(CarteJeu);
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            //on fait le repaint
+            e.Graphics.DrawImage(items.chevalier1, positionJoueur.X, positionJoueur.Y, 100, 130);
+            Console.WriteLine("on invalide");
         }
 
         public void positionLieux()
@@ -1299,7 +1332,7 @@ namespace La_petite_boite
                 }
 
             }
-            imgChevalier.Refresh();
+            //imgChevalier.Refresh();
             //on desactive le timer
             timer2.Enabled = false;
             chevalier.setPosition(arrivee);
@@ -1318,66 +1351,71 @@ namespace La_petite_boite
 
         private void deplacementHorizontal(Lieu a)
         {
-            while (imgChevalier.Left != a.getPosition().X)
+            while (positionJoueur.X != a.getPosition().X)
             {
-                if (imgChevalier.Left < a.getPosition().X)
+                if (positionJoueur.X < a.getPosition().X)
                 {
-                    imgChevalier.Left += 2;
-                    imgChevalier.Refresh();
-
+                    positionJoueur.X += 2;
                 }
                 else
                 {
-                    imgChevalier.Left -= 2;
-                    imgChevalier.Refresh();
+                    positionJoueur.X -= 2;
                 }
+
+                //on invalide la region ou se trouve le perso
+                CarteJeu.Invalidate(new Rectangle(positionJoueur, new Size(100,130)));
+                CarteJeu.Update();
             }
 
-            while (imgChevalier.Top != a.getPosition().Y)
+            while (positionJoueur.Y != a.getPosition().Y)
             {
-                if (imgChevalier.Top < a.getPosition().Y)
+                if (positionJoueur.Y < a.getPosition().Y)
                 {
-                    imgChevalier.Top += 2;
-                    imgChevalier.Refresh();
+                    positionJoueur.Y += 2;
                 }
                 else
                 {
-                    imgChevalier.Top -= 2;
-                    imgChevalier.Refresh();
+                    positionJoueur.Y -= 2;
                 }
+
+                //on invalide la region ou se trouve le perso
+                CarteJeu.Invalidate(new Rectangle(positionJoueur, new Size(100, 130)));
+                CarteJeu.Update();
             }
         }
 
         private void deplacementVertical(Lieu a)
         {
-
-            while (imgChevalier.Top != a.getPosition().Y)
+            while (positionJoueur.Y != a.getPosition().Y)
             {
-                if (imgChevalier.Top < a.getPosition().Y)
+                if (positionJoueur.Y < a.getPosition().Y)
                 {
-                    imgChevalier.Top += 2;
-                    imgChevalier.Refresh();
+                    positionJoueur.Y += 2;
                 }
                 else
                 {
-                    imgChevalier.Top -= 2;
-                    imgChevalier.Refresh();
+                    positionJoueur.Y -= 2;
                 }
+                //on invalide la region ou se trouve le perso
+                CarteJeu.Invalidate(new Rectangle(positionJoueur, new Size(100, 130)));
+                CarteJeu.Update();
             }
 
-            while (imgChevalier.Left != a.getPosition().X)
+            while (positionJoueur.X != a.getPosition().X)
             {
-                if (imgChevalier.Left < a.getPosition().X)
+                if (positionJoueur.X < a.getPosition().X)
                 {
-                    imgChevalier.Left += 2;
-                    imgChevalier.Refresh();
+                    positionJoueur.X += 2;
 
                 }
                 else
                 {
-                    imgChevalier.Left -= 2;
-                    imgChevalier.Refresh();
+                    positionJoueur.X -= 2;
                 }
+
+                //on invalide la region ou se trouve le perso
+                CarteJeu.Invalidate(new Rectangle(positionJoueur, new Size(100, 130)));
+                CarteJeu.Update();
             }
         }
 
@@ -1395,7 +1433,6 @@ namespace La_petite_boite
                 deplacementHorizontal(Chateau);
                 deplacementVertical(Tronc);
             }
-
         }
 
         //sauvegarde
@@ -1524,7 +1561,6 @@ namespace La_petite_boite
             //on met le nom du joueur
             prenomJoueur.Text = chevalier.nomJoueur();
            
-
             //on ajoute les etoiles au conteneurEtoiles
 
             ajoutEtoiles();
@@ -1929,6 +1965,8 @@ namespace La_petite_boite
 
             //sur cette page, on a trois picturebox avec les liens vers les recompenses (video, coloriages, etc
         }
-
+        
     }
+    
+    
 }

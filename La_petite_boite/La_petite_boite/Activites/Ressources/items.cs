@@ -227,7 +227,7 @@ namespace Ressources
         {
             get
             {
-                return Properties.Resources.map1;
+                return Properties.Resources.map;
             }
         }
 

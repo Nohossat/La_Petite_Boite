@@ -20,7 +20,7 @@ namespace La_petite_boite
         List<Stream> sounds = new List<Stream>();
         SoundPlayer son = new SoundPlayer();
 
-        int compteur = 0;
+        //int compteur = 0;
 
         public tutoChasseAuxMots()
         {

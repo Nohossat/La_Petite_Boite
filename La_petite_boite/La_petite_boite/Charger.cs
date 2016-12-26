@@ -6,7 +6,7 @@ using Ressources;
 
 namespace La_petite_boite
 {
-    public partial class Charger : Form
+    public partial class Charger : FormSpecial
     {
         SpecialLabel Selection = new SpecialLabel();
         SpecialLabel annonce = new SpecialLabel();
@@ -228,5 +228,6 @@ namespace La_petite_boite
             }
 
         }
+        
     }
 }

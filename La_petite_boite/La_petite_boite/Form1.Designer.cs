@@ -41,9 +41,9 @@ namespace La_petite_boite
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(372, 455);
+            this.progressBar1.Location = new System.Drawing.Point(339, 457);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(607, 5);
+            this.progressBar1.Size = new System.Drawing.Size(519, 10);
             this.progressBar1.TabIndex = 1;
             // 
             // timer1
@@ -53,12 +53,8 @@ namespace La_petite_boite
             // 
             // chargement
             // 
-            this.chargement.BackColor = System.Drawing.Color.Transparent;
             this.chargement.Controls.Add(this.progressBar1);
-            this.chargement.Location = new System.Drawing.Point(-6, -2);
             this.chargement.Name = "chargement";
-            this.chargement.Size = new System.Drawing.Size(1273, 689);
-            this.chargement.TabIndex = 2;
             // 
             // timer2
             // 
@@ -71,7 +67,7 @@ namespace La_petite_boite
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1273, 689);
+            this.ClientSize = new System.Drawing.Size(1268, 689);
             this.Controls.Add(this.chargement);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1278, 719);

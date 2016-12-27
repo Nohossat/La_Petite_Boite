@@ -10,7 +10,7 @@ using Ressources;
 
 namespace La_petite_boite
 {
-    public partial class tutoGrandOuPetit : Form
+    public partial class tutoGrandOuPetit : PopForm
     {
         private System.Windows.Forms.Panel conteneurGrandeCarte;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -25,7 +25,7 @@ namespace La_petite_boite
         List<Stream> audio = new List<Stream>();
         List<Bitmap> images = new List<Bitmap>();
         
-        public tutoGrandOuPetit()
+        public tutoGrandOuPetit() : base()
         {
             InitializeComponent();
             chargementPartie();
@@ -60,6 +60,7 @@ namespace La_petite_boite
                 image.Enabled = true;
                 image.AllowDrop = false;
                 image.Image = null;
+                image.SizeMode = PictureBoxSizeMode.StretchImage;
                 image.BorderStyle = BorderStyle.FixedSingle;
             }
 

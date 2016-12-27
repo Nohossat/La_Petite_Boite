@@ -83,8 +83,8 @@ namespace La_petite_boite
         Lieu Village = new Lieu(470, -28, 448, 270, items.villagePrevious, items.villageAfter, items.mapVillage, new Point(120, 440), "Memory"); //MEMORY
         Lieu Chateau = new Lieu(106, 1006, 327, 404, items.chateauPrevious, items.chateauAfter, items.map, new Point(1050, 380), "Chateau");//CHATEAU
         Lieu Cabane = new Lieu(417, 755, 213, 192, items.cabanePrevious, items.cabaneAfter, items.mapCabane, new Point(760, 440), "Chasse aux mots");//CHASSE AUX MOTS
-        Lieu Tronc = new Lieu(80, 600, 177, 196, items.troncPrevious, items.troncAfter, items.mapTronc, new Point(600, 160), "Grand Ou Petit");//GRAND OU PETIT
-        Lieu Montagne = new Lieu(-5, -3, 378, 196, items.montagnePrevious, items.montagneAfter, items.mapMontagne, new Point(120, 146), "Que fait le Roi?");//QUE FAIT LE ROI
+        Lieu Tronc = new Lieu(80, 600, 177, 196, items.troncPrevious, items.troncAfter, items.mapTronc, new Point(600, 140), "Grand Ou Petit");//GRAND OU PETIT
+        Lieu Montagne = new Lieu(-5, -3, 378, 196, items.montagnePrevious, items.montagneAfter, items.mapMontagne, new Point(120, 140), "Que fait le Roi?");//QUE FAIT LE ROI
         Lieu arrivee = new Lieu();
 
         SpecialLabel menuPrincipal = new SpecialLabel();
@@ -140,6 +140,10 @@ namespace La_petite_boite
         {
             InitializeComponent();
         }
+
+        [DllImport("user32.dll", EntryPoint = "SetCursorPos")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool SetCursorPos(int X, int Y);
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -698,6 +702,10 @@ namespace La_petite_boite
 
         public void afficheAccueil()
         {
+            SetCursorPos(1000, 200);
+            Console.WriteLine(Cursor.Position);
+            SetCursorPos(500, 200);
+            Console.WriteLine(Cursor.Position);
             Table.Controls.Clear();
             Table.ColumnStyles.Clear();
             Table.RowStyles.Clear();
@@ -1612,6 +1620,9 @@ namespace La_petite_boite
             Table.SetColumnSpan(miniJeu, 3);
             Table.SetRowSpan(miniJeu, 2);
             Table.SetRowSpan(imgChevalier, 2);
+
+            System.Threading.Thread.Sleep(2000);
+            tuto.ShowDialog();
         }
 
         private void LanceMiniJeu(object sender, EventArgs e)
@@ -1685,8 +1696,6 @@ namespace La_petite_boite
                     //s'il na jamais gagne les etoiles
                     afficheJeu(l.Name, epreuvesO.ElementAt(IndiceJeu));
                 }
-
-                tuto.ShowDialog();
             }
         }
 
@@ -1991,5 +2000,54 @@ namespace La_petite_boite
                 return cp;
             }
         }
+    }
+
+    public abstract class PopForm : Form
+    {
+        Button exit = new Button();
+        Label label1 = new Label();
+
+        protected PopForm () 
+        {
+            this.ClientSize = new Size(540, 530);
+            this.BackColor = Color.Beige;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.AutoScaleMode = AutoScaleMode.Font;
+            this.AutoScaleDimensions = new SizeF(6F, 13F);
+
+            //exit
+            this.exit.BackgroundImage = items.exit;
+            this.exit.BackgroundImageLayout = ImageLayout.Stretch;
+            this.exit.Size = new Size(50,50);
+            this.exit.Location = new Point(470, 20);
+            this.exit.BackColor = Color.Transparent;
+            this.exit.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            this.exit.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            this.exit.FlatAppearance.BorderSize = 0;
+            this.exit.TabStop = false;
+            this.exit.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+            this.exit.FlatStyle = FlatStyle.Flat;
+            this.exit.Dock = DockStyle.None;
+            this.Controls.Add(exit);
+            this.exit.Click += new EventHandler(sortieApplication);
+
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new Point(200, 40);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Regles du jeu";
+            this.label1.TextAlign = ContentAlignment.MiddleCenter;
+            this.Controls.Add(label1);
+        }
+
+        private void sortieApplication(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
+        }
+
     }
 }

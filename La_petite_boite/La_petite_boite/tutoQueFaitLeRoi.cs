@@ -9,7 +9,7 @@ using System.IO;
 
 namespace La_petite_boite
 {
-    public partial class tutoQueFaitLeRoi : Form
+    public partial class tutoQueFaitLeRoi : PopForm
     {
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
@@ -25,14 +25,13 @@ namespace La_petite_boite
         List<Bitmap> images = new List<Bitmap>();
         public int compteur = 0;
 
-        public tutoQueFaitLeRoi()
+        public tutoQueFaitLeRoi() : base()
         {
             InitializeComponent();
             QueFaitLeRoi_Load();
             System.Threading.Thread.Sleep(2000);
             timer1.Enabled = true;
         }
-        
         
         private void QueFaitLeRoi_Load()
         {
@@ -56,6 +55,7 @@ namespace La_petite_boite
                 image.BorderStyle = BorderStyle.FixedSingle;
                 image.Image = null;
                 image.Enabled = true;
+                image.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             
             foreach (PictureBox image in conteneurCarte.Controls)
@@ -74,19 +74,23 @@ namespace La_petite_boite
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Point buttonCentre = new Point(button3.Width / 2, button3.Height / 2);
-            Point p = button3.PointToScreen(buttonCentre);
-            Cursor.Position = p;
-
             //on ecoute la premiere phrase
             Program.petiteBoite.JouerSon(audio.ElementAt(0));
+            System.Threading.Thread.Sleep(2000);
             //on survole la premiere carte
-
+            Program.petiteBoite.JouerSon(items.ecoleFR);
+            System.Threading.Thread.Sleep(2000);
             //on survole la deuxieme carte
-
+            Program.petiteBoite.JouerSon(items.chateauTurc);
+            System.Threading.Thread.Sleep(2000);
             //on met la bonne carte au bon emplacement
-
+            conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(0).Image = images[1];
+            conteneurCarte.Controls.OfType<PictureBox>().ElementAt(0).Hide();
+            Refresh();
+            System.Threading.Thread.Sleep(1000);
+            Program.petiteBoite.JouerSon(items.applaudissement);
             timer1.Enabled = false;
+            //on active le jeu
             button3.Enabled = true;
         }
         

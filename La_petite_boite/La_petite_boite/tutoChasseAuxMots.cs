@@ -10,7 +10,7 @@ using Ressources;
 
 namespace La_petite_boite
 {
-    public partial class tutoChasseAuxMots : Form
+    public partial class tutoChasseAuxMots : PopForm
     {
         public Panel conteneurCarte;
         public PictureBox pictureBox2;
@@ -18,15 +18,14 @@ namespace La_petite_boite
         public Button Ecouter;
         
         List<Stream> sounds = new List<Stream>();
-        SoundPlayer son = new SoundPlayer();
-
-        //int compteur = 0;
-
-        public tutoChasseAuxMots()
+        
+        public tutoChasseAuxMots() : base()
         {
             InitializeComponent();
             ChasseAuxMots_Load();
+            System.Threading.Thread.Sleep(1000);
             timer1.Enabled = true;
+            button1.Enabled = false;
         }
 
         private void ChasseAuxMots_Load()
@@ -42,18 +41,18 @@ namespace La_petite_boite
         
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Ecouter.Select();
+            //on clique sur Ecouter
             Program.petiteBoite.JouerSon(sounds.ElementAt(0));
-            conteneurCarte.Controls.OfType<PictureBox>().ElementAt(0).Image = items.dosCarte;
+            //le bouton Ecouter est disabled
+            Ecouter.Enabled = false;
+            //on clique dessus et elle se retourne
+            System.Threading.Thread.Sleep(1000);
+            pictureBox1.Image = items.dosCarte;
+            System.Threading.Thread.Sleep(500);
             Program.petiteBoite.JouerSon(items.applaudissement);
-
-            /*if (compteur < 2)
-            {
-                Program.petiteBoite.JouerSon(sounds.ElementAt(compteur));
-                conteneurCarte.Controls.OfType<PictureBox>().ElementAt(compteur).Image = items.dosCarte;
-                Program.petiteBoite.JouerSon(items.applaudissement);
-                compteur++;
-            }*/
+            //on arrete le timer et on active le jeu
+            timer1.Enabled = false;
+            button1.Enabled = true;
         }
 
         private void button1_Click(object sender, EventArgs e)

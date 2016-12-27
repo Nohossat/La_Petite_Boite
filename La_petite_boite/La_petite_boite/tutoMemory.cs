@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace La_petite_boite
 {
-    public partial class tutoMemory : Form
+    public partial class tutoMemory : PopForm
     {
         
         public Panel conteneurCarte;
@@ -23,7 +23,7 @@ namespace La_petite_boite
         int compteur = 0;
         
 
-        public tutoMemory()
+        public tutoMemory() : base()
         {
             InitializeComponent();
             chargementPartie();

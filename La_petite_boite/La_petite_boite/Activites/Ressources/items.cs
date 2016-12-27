@@ -95,6 +95,14 @@ namespace Ressources
 
         //images JeuPPL
 
+        public static Bitmap exit
+        {
+            get
+            {
+                return Properties.Resources.exitNoir;
+            }
+        }
+
         public static Bitmap check
         {
             get

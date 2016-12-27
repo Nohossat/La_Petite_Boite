@@ -529,6 +529,16 @@ namespace Ressources.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap exitNoir {
+            get {
+                object obj = ResourceManager.GetObject("exitNoir", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap fauxmin {
             get {
                 object obj = ResourceManager.GetObject("fauxmin", resourceCulture);

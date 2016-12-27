@@ -285,6 +285,7 @@
     <EmbeddedResource Include="Resources\Jeu\attention.png" />
     <EmbeddedResource Include="Resources\Jeu\fauxmin.png" />
     <EmbeddedResource Include="Resources\Jeu\vraimin.png" />
+    <EmbeddedResource Include="Resources\Jeu\exitNoir.png" />
     <Content Include="Resources\miniJeu\pauseFR.wav" />
   </ItemGroup>
   <ItemGroup />

@@ -54,7 +54,10 @@ namespace La_petite_boite
             // chargement
             // 
             this.chargement.Controls.Add(this.progressBar1);
+            this.chargement.Location = new System.Drawing.Point(0, 0);
             this.chargement.Name = "chargement";
+            this.chargement.Size = new System.Drawing.Size(200, 100);
+            this.chargement.TabIndex = 0;
             // 
             // timer2
             // 
@@ -80,9 +83,7 @@ namespace La_petite_boite
             this.ResumeLayout(false);
 
         }
-
-
-
+        
         #endregion
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Timer timer1;

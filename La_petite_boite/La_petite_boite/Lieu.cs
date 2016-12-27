@@ -6,59 +6,68 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace La_petite_boite
 {
-    public class Lieu : System.Windows.Forms.Panel
+    public class Lieu : Panel
     {
         Point position;
-        Assembly _assembly;
-        Stream _imageStream;
+        Bitmap imgDebut;
+        Bitmap map;
+        Bitmap imgSurvol;
+        int ordonee;
+        int abs;
 
-        public Lieu (int Top, int Left, int Width, int Height, String image, Point p, String nom)
+        public Lieu (int Top, int Left, int Width, int Height, Bitmap imageDebut, Bitmap imageSurvol, Bitmap map, Point p, String nom)
         {
             this.Name = nom;
-            this.Top = Top;
-            this.Left = Left;
+            this.ordonee = Top;
+            this.abs = Left;
             this.Width = Width;
             this.Height = Height;
             this.BackColor = Color.Transparent;
             this.DoubleBuffered = true;
             this.position = p;
-            chargementImage(image);
+            this.imgDebut = imageDebut;
+            this.imgSurvol = imageSurvol;
+            this.map = map;
+            this.BackgroundImage = imageDebut;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
-        public Lieu ()
+        public Lieu()
         {
 
         }
 
-        private void chargementImage(String res)
+        public int getOrdonne ()
         {
-            //accessing image
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.Jeu." + res);
-                Console.WriteLine(res);
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //display image
-            try
-            {
-                this.BackgroundImage = new Bitmap(_imageStream);
-            }
-            catch
-            {
-                Console.WriteLine("cant create image LIEU!");
-            }
+            return this.ordonee;
         }
 
-        public Point getPosition ()
+        public int getAbs()
+        {
+            return this.abs;
+        }
+        public void chargementDebutImage()
+        {
+            this.BackgroundImage = imgDebut;
+        }
+
+        public void chargementSurvolImage()
+        {
+            this.BackgroundImage = imgSurvol;
+        }
+
+        public Bitmap chargementLieuInactif()
+        {
+            this.Hide();
+
+            return this.map;
+        }
+        
+        public Point getPosition()
         {
             return this.position;
         }

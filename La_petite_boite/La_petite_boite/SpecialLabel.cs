@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,16 @@ using System.Windows.Forms;
 
 namespace La_petite_boite
 {
-    class SpecialLabel : Label
+    public class SpecialLabel : Label
     {
+        public SpecialLabel ()
+        {
+            this.UseCompatibleTextRendering = true;
+            this.AutoSize = false;
+            this.TextAlign = ContentAlignment.MiddleCenter;
+            this.Dock = DockStyle.None;
+            this.TextRenderingHint = TextRenderingHint.AntiAlias;
+        }
         private TextRenderingHint _textRenderingHint = TextRenderingHint.SystemDefault;
 
         public TextRenderingHint TextRenderingHint

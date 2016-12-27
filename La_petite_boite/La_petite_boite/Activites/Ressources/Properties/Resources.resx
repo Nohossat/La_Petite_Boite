@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="accueil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\accueil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="applaudissement" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\applaudissement.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bain1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\bain1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bainTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\bainTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cabaneAfter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\cabaneAfter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cabaneFin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\cabaneFin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cabanePrevious" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\cabanePrevious.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chaise1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\chaise1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chaiseFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\chaiseFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chaiseTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\chaiseTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chargement" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\chargement.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chateau1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\chateau1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chateauAfter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\chateauAfter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chateauFin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\chateauFin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chateauFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\chateauFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chateauPrevious" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\chateauPrevious.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chateauTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\chateauTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chevalier1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\chevalier1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chevalier1gris" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\chevalier1gris.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chevalier2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\chevalier2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chevalier2gris" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\chevalier2gris.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chevalier3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\chevalier3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chevalier3gris" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\chevalier3gris.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chevalier4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\chevalier4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chevalier4gris" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\chevalier4gris.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clairiere" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\clairiere.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coffre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\coffre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coffre1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\coffre1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coffreFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\coffreFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="coffreTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\coffreTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="diapoMag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\diapoMag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="diapoTrone1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\diapoTrone1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="disquette" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\disquette.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dosCarte" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\dosCarte.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="doudou1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\doudou1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="doudouFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\doudouFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="doudouTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\doudouTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ecole1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\ecole1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ecoleFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\ecoleFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ecoleTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\ecoleTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="escalier1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\escalier1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="escalierFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\escalierFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="escalierTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\escalierTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="etoileGrise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\etoileGrise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="etoileJaune" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\etoileJaune.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="foret1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\foret1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="foretFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\foretFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="foretTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\foretTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandChateauFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\grandChateauFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandChateauTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\grandChateauTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandCoffreTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\grandCoffreTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandDoudouTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\grandDoudouTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandeBoiteFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\grandeBoiteFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandeChaiseFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\grandeChaiseFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandeEcoleFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\grandeEcoleFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandeForetFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\grandeForetFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandEscalierFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\grandEscalierFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandJardinTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\grandJardinTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandLitTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\grandLitTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandPontFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\grandPontFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandPontTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\grandPontTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandRoiTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\grandRoiTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="grandTableTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\grandTableTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="jardin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\jardin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="jardinFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\jardinFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="jardinTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\jardinTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\lit1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="litFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\litFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="litTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\litTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="montagne" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\montagne.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="montagneAfter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\montagneAfter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="montagneFin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\montagneFin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="montagnePrevious" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\montagnePrevious.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pause1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\pause1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pauseFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\pauseFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitChateauFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\petitChateauFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitChateauTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\petitChateauTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitCoffreTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\petitCoffreTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitDoudouTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\petitDoudouTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petiteBoiteFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\petiteBoiteFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petiteChaiseFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\petiteChaiseFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitEcoleFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\petitEcoleFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petiteForetFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\petiteForetFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitEscalierFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\petitEscalierFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petiteTableTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\petiteTableTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitJardinTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\petitJardinTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitLitTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\petitLitTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitPontFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\petitPontFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitPontTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\petitPontTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="petitRoiTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\petitRoiTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pijama" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\pijama.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pijama1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\pijama1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pont1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\pont1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pontFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\pontFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pouet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\pouet.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="question" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="questionBoiteFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\questionBoiteFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="questionBoiteTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\questionBoiteTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="riviere" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\riviere.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="roi1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roi1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="roiFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiMetPijamaTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiMetPijamaTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiMonteChaiseFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiMonteChaiseFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiMonteChaiseTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiMonteChaiseTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiMonteEscalierFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiMonteEscalierFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiMonteEscalierTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiMonteEscalierTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiMonteLitFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiMonteLitFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiMonteLitTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiMonteLitTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiPrendBainTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiPrendBainTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiPrendPauseFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiPrendPauseFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiRentreALecoleFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiRentreALecoleFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiRentreAuChateauFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiRentreAuChateauFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiRentreAuChateauTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiRentreAuChateauTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiSInstalleTableFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiSInstalleTableFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiTraverseLaForetFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiTraverseLaForetFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiTraverseLaForetTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiTraverseLaForetTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiTraverseLeJardinFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiTraverseLeJardinFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiTraverseLeJardinTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiTraverseLeJardinTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="roiVaALecoleTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\roiVaALecoleTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="table1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\table1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tableFR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\tableFR.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tableTurc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniJeu\tableTurc.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="troncAfter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\troncAfter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="troncFin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\troncFin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="troncPrevious" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\troncPrevious.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="village" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\village.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="villageAfter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\villageAfter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="villageFin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\villageFin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="villagePrevious" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\villagePrevious.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mapCabane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\mapCabane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mapMontagne" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\mapMontagne.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mapTronc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\mapTronc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mapVillage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\mapVillage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="retourFleche" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\retourFleche.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="map" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\map.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="map1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\map1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="conteneurEtoile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\conteneurEtoile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tabBord" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\tabBord.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="helpicone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\helpicone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="homeBouton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\homeBouton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sauvegardebutton1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\sauvegardebutton1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fireworks1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\fireworks1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="attention" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\attention.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="guide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\guide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fauxmin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\fauxmin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vraimin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\vraimin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exitNoir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\exitNoir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

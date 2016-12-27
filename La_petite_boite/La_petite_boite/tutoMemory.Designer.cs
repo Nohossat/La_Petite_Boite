@@ -36,7 +36,6 @@
             this.carte1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.conteneurCarte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doubleCarte2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carte2)).BeginInit();
@@ -50,7 +49,7 @@
             this.conteneurCarte.Controls.Add(this.carte2);
             this.conteneurCarte.Controls.Add(this.doubleCarte1);
             this.conteneurCarte.Controls.Add(this.carte1);
-            this.conteneurCarte.Location = new System.Drawing.Point(113, 60);
+            this.conteneurCarte.Location = new System.Drawing.Point(113, 70);
             this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(314, 368);
             this.conteneurCarte.TabIndex = 0;
@@ -58,9 +57,9 @@
             // doubleCarte2
             // 
             this.doubleCarte2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.doubleCarte2.Location = new System.Drawing.Point(167, 194);
+            this.doubleCarte2.Location = new System.Drawing.Point(150, 194);
             this.doubleCarte2.Name = "doubleCarte2";
-            this.doubleCarte2.Size = new System.Drawing.Size(130, 160);
+            this.doubleCarte2.Size = new System.Drawing.Size(100, 130);
             this.doubleCarte2.TabIndex = 11;
             this.doubleCarte2.TabStop = false;
             this.doubleCarte2.Tag = "2";
@@ -70,7 +69,7 @@
             this.carte2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.carte2.Location = new System.Drawing.Point(14, 194);
             this.carte2.Name = "carte2";
-            this.carte2.Size = new System.Drawing.Size(130, 160);
+            this.carte2.Size = new System.Drawing.Size(100, 130);
             this.carte2.TabIndex = 10;
             this.carte2.TabStop = false;
             this.carte2.Tag = "2";
@@ -78,9 +77,9 @@
             // doubleCarte1
             // 
             this.doubleCarte1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.doubleCarte1.Location = new System.Drawing.Point(167, 15);
+            this.doubleCarte1.Location = new System.Drawing.Point(150, 15);
             this.doubleCarte1.Name = "doubleCarte1";
-            this.doubleCarte1.Size = new System.Drawing.Size(130, 160);
+            this.doubleCarte1.Size = new System.Drawing.Size(100, 130);
             this.doubleCarte1.TabIndex = 9;
             this.doubleCarte1.TabStop = false;
             this.doubleCarte1.Tag = "1";
@@ -90,7 +89,7 @@
             this.carte1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.carte1.Location = new System.Drawing.Point(14, 15);
             this.carte1.Name = "carte1";
-            this.carte1.Size = new System.Drawing.Size(130, 160);
+            this.carte1.Size = new System.Drawing.Size(100, 130);
             this.carte1.TabIndex = 8;
             this.carte1.TabStop = false;
             this.carte1.Tag = "1";
@@ -110,22 +109,11 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(194, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 24);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Trouve la paire !";
             // 
             // tutoMemory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(539, 530);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.conteneurCarte);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -146,7 +134,6 @@
 
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
     }
 
 }

@@ -1,33 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
+using System.Media;
+using Ressources;
+using System.Linq;
 
 namespace La_petite_boite
 {
-    public partial class tutoMemory : Form
+    public partial class tutoMemory : PopForm
     {
-        Assembly _assembly = Assembly.GetExecutingAssembly();
-        Stream _imageStream;
-        Stream _sonStream;
-        Random localisation = new Random(); //
+        
+        public Panel conteneurCarte;
+        public PictureBox doubleCarte2;
+        public PictureBox carte2;
+        public PictureBox doubleCarte1;
+        public PictureBox carte1;
+        Random localisation = new Random(); 
         List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
-        private Panel conteneurCarte;
-        private PictureBox doubleCarte2;
-        private PictureBox carte2;
-        private PictureBox doubleCarte1;
-        private PictureBox carte1;
         int compteur = 0;
-        System.Media.SoundPlayer sound;
+        
 
-        public tutoMemory()
+        public tutoMemory() : base()
         {
             InitializeComponent();
             chargementPartie();
@@ -37,7 +33,6 @@ namespace La_petite_boite
 
         public void chargementPartie()
         {
-            
             this.Enabled = true;
             //récupérer les localisations des cartes
             foreach (PictureBox image in conteneurCarte.Controls)
@@ -58,74 +53,30 @@ namespace La_petite_boite
             //le dos des cartes est affiché
             foreach (PictureBox image in conteneurCarte.Controls)
             {
-                chargementImage("carte1.png", image);
-                
+                image.Enabled = true;
+                image.Image = items.dosCarte;
+                image.Cursor = Cursors.Hand;
+                image.Size = new Size(130, 160);
+                image.SizeMode = PictureBoxSizeMode.StretchImage;
+                image.TabStop = false;
+                image.BackColor = Color.Transparent;
             }
         }
-
-        public void chargementImage(String res, PictureBox p)
-        {
-            //access resource
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.miniJeu." + res);
-                Console.WriteLine(res);
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //display image
-            try
-            {
-                p.Image = new Bitmap(_imageStream);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Cant create image for picturebox!" + e);
-            }
-        }
-
-        public void chargementSon(String res, System.Media.SoundPlayer son)
-        {
-            //access resource
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _sonStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.miniJeu." + res);
-                Console.WriteLine(res);
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //play sound
-            try
-            {
-                son = new System.Media.SoundPlayer(_sonStream);
-                son.Play();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Cant play the sound" + e);
-            }
-        }
-
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
+            SoundPlayer sound = new SoundPlayer();
+
             if (compteur < 2)
             {
-                chargementImage("doudou1.png", (PictureBox)conteneurCarte.Controls[compteur]);
-                chargementSon("UnDoudou.wav", sound);
+                conteneurCarte.Controls.OfType<PictureBox>().ElementAt(compteur).Image = items.doudou1;
+                Program.petiteBoite.JouerSon(items.doudouFR);
                 compteur++;
             }
             else
             {
                 timer1.Enabled = false;
-                chargementSon("applaudissements.wav", sound);
+                Program.petiteBoite.JouerSon(items.applaudissement);
                 button1.Enabled = true;
             }
         }

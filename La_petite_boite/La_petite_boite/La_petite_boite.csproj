@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>La_petite_boite</RootNamespace>
     <AssemblyName>La_petite_boite</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -36,51 +36,30 @@
   <ItemGroup>
     <Reference Include="Chasse aux mots, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\ChasseAuxMotsAllLvl\Chasse aux mots 4\Chasse aux mots\bin\Debug\Chasse aux mots.exe</HintPath>
-    </Reference>
-    <Reference Include="chasseAuxMots12Cartes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\ChasseAuxMotsAllLvl\chasseAuxMots12Cartes\chasseAuxMots12Cartes\bin\Debug\chasseAuxMots12Cartes.exe</HintPath>
-    </Reference>
-    <Reference Include="chassesAuxMots8Cartes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\ChasseAuxMotsAllLvl\chasseAuxMots8Cartes\chassesAuxMots8Cartes\bin\Debug\chassesAuxMots8Cartes.exe</HintPath>
-    </Reference>
-    <Reference Include="Grand ou petit 8, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\GrandOuPetitAllLvl\Grand ou petit 8\Grand ou petit 8\bin\Debug\Grand ou petit 8.exe</HintPath>
+      <HintPath>Activites\Chasse aux mots\Chasse aux mots\bin\Debug\Chasse aux mots.exe</HintPath>
     </Reference>
     <Reference Include="Grand ou Petit, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\GrandOuPetitAllLvl\Grand ou Petit 4\Grand ou Petit\bin\Debug\Grand ou Petit.exe</HintPath>
+      <HintPath>Activites\Grand ou Petit\Grand ou Petit\bin\Debug\Grand ou Petit.exe</HintPath>
     </Reference>
-    <Reference Include="memory12cartes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Jeu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\MemoryAllLvl\memory12cartes\memory12cartes\bin\Debug\memory12cartes.exe</HintPath>
+      <HintPath>Activites\Jeu\bin\Debug\Jeu.exe</HintPath>
     </Reference>
-    <Reference Include="memory16Cartes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\MemoryAllLvl\memory16Cartes\memory16Cartes\bin\Debug\memory16Cartes.exe</HintPath>
-    </Reference>
-    <Reference Include="memory8Cartes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\MemoryAllLvl\memory8Cartes\memory8Cartes\bin\Debug\memory8Cartes.exe</HintPath>
-    </Reference>
-    <Reference Include="Que fait le roi 12, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\QueFaitLeRoiAllLvl\Que fait le roi 12\Que fait le roi 12\bin\Debug\Que fait le roi 12.exe</HintPath>
-    </Reference>
-    <Reference Include="Que fait le roi 8, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\QueFaitLeRoiAllLvl\Que fait le roi 8\Que fait le roi 8\bin\Debug\Que fait le roi 8.exe</HintPath>
+    <Reference Include="memory8Cartes">
+      <HintPath>Activites\Memory\memory8Cartes\bin\Debug\memory8Cartes.exe</HintPath>
     </Reference>
     <Reference Include="Que fait le Roi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Activites\QueFaitLeRoiAllLvl\Que fait le Roi\Que fait le Roi\bin\Debug\Que fait le Roi.exe</HintPath>
+      <HintPath>Activites\Que fait le Roi\Que fait le Roi\bin\Debug\Que fait le Roi.exe</HintPath>
+    </Reference>
+    <Reference Include="Ressources">
+      <HintPath>Activites\Ressources\bin\Debug\Ressources.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -118,6 +97,12 @@
     </Compile>
     <Compile Include="Lieu.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUp.Designer.cs">
+      <DependentUpon>PopUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -166,6 +151,9 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PopUp.resx">
+      <DependentUpon>PopUp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -198,157 +186,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Resources\Jeu\maturafont.TTF" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\Chargement_LapetiteBoite.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\chateau.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\clairiere.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\coffre.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\disquette.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\etoileGrise.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\etoileJaune.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\exit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\guide_roi.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\map.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\menu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\montagne.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\riviere.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\roi2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\roi3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\roi4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\village.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\mapCsharp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\accueil.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\magicien.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\presentationJeu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\plan.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\planJeu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\map.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\villageIcone.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\villageIconeGris.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\chateauIcone.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\chateauIconeGris.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\cabaneIcone.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\cabaneIconeGris.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\troncIcone.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\troncIconeGris.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\montagneIcone.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\montagneIconeGris.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\guide.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\chevalier1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\chevalier2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\chevalier3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\chevalier4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\mapCabane.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\mapChateau.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\mapMontagne.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\mapReference.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\mapTronc.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\mapVillage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\chateauMap.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\chateauMapGris.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\montagneMap.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\montagneMapGris.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\dossiers_sauvegarde.txt" />
@@ -360,170 +200,9 @@
     <EmbeddedResource Include="recompense1.resx">
       <DependentUpon>recompense1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Joueurs.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\dossiers_sauvegarde.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Jeu\revelationcoffre.png" />
-    <EmbeddedResource Include="Resources\Jeu\accueil.jpg" />
-    <EmbeddedResource Include="Resources\Jeu\biche.png" />
-    <EmbeddedResource Include="Resources\Jeu\cabaneIcone.png" />
-    <EmbeddedResource Include="Resources\Jeu\cabaneIconeGris.png" />
-    <EmbeddedResource Include="Resources\Jeu\Chargement_LapetiteBoite.png" />
-    <EmbeddedResource Include="Resources\Jeu\chateau2.png" />
-    <EmbeddedResource Include="Resources\Jeu\chateauIcone.png" />
-    <EmbeddedResource Include="Resources\Jeu\chateauIconeGris.png" />
-    <EmbeddedResource Include="Resources\Jeu\chateauMap.png" />
-    <EmbeddedResource Include="Resources\Jeu\chateauMapGris.png" />
-    <EmbeddedResource Include="Resources\Jeu\chevalier1.png" />
-    <EmbeddedResource Include="Resources\Jeu\chevalier2.png" />
-    <EmbeddedResource Include="Resources\Jeu\chevalier3.png" />
-    <EmbeddedResource Include="Resources\Jeu\chevalier4.png" />
-    <EmbeddedResource Include="Resources\Jeu\chevre.png" />
-    <EmbeddedResource Include="Resources\Jeu\clairiere.png" />
-    <EmbeddedResource Include="Resources\Jeu\coffre.ico" />
-    <EmbeddedResource Include="Resources\Jeu\coffre.png" />
-    <EmbeddedResource Include="Resources\Jeu\coffreCanStock.jpg" />
-    <EmbeddedResource Include="Resources\Jeu\coffreCanStockD.png" />
-    <EmbeddedResource Include="Resources\Jeu\coffreCanStockG.png" />
-    <EmbeddedResource Include="Resources\Jeu\disquette.png" />
-    <EmbeddedResource Include="Resources\Jeu\etoileGrise.png" />
-    <EmbeddedResource Include="Resources\Jeu\etoileJaune.png" />
-    <EmbeddedResource Include="Resources\Jeu\exit.png" />
-    <EmbeddedResource Include="Resources\Jeu\guide.png" />
-    <EmbeddedResource Include="Resources\Jeu\guide_roi.png" />
-    <EmbeddedResource Include="Resources\Jeu\magicien.png" />
-    <EmbeddedResource Include="Resources\Jeu\map.png" />
-    <EmbeddedResource Include="Resources\Jeu\mapCabane.png" />
-    <EmbeddedResource Include="Resources\Jeu\mapChateau.png" />
-    <EmbeddedResource Include="Resources\Jeu\mapCsharp.png" />
-    <EmbeddedResource Include="Resources\Jeu\mapMontagne.png" />
-    <EmbeddedResource Include="Resources\Jeu\mapReference.png" />
-    <EmbeddedResource Include="Resources\Jeu\mapTronc.png" />
-    <EmbeddedResource Include="Resources\Jeu\mapVillage.png" />
-    <EmbeddedResource Include="Resources\Jeu\menu.png" />
-    <EmbeddedResource Include="Resources\Jeu\montagne.png" />
-    <EmbeddedResource Include="Resources\Jeu\montagneIcone.png" />
-    <EmbeddedResource Include="Resources\Jeu\montagneIconeGris.png" />
-    <EmbeddedResource Include="Resources\Jeu\montagneMap.png" />
-    <EmbeddedResource Include="Resources\Jeu\montagneMapGris.png" />
-    <EmbeddedResource Include="Resources\Jeu\plan.png" />
-    <EmbeddedResource Include="Resources\Jeu\planJeu.png" />
-    <EmbeddedResource Include="Resources\Jeu\presentationJeu.png" />
-    <EmbeddedResource Include="Resources\Jeu\riviere.png" />
-    <EmbeddedResource Include="Resources\Jeu\roi2.png" />
-    <EmbeddedResource Include="Resources\Jeu\roi3.png" />
-    <EmbeddedResource Include="Resources\Jeu\roi4.png" />
-    <EmbeddedResource Include="Resources\Jeu\sanglier.png" />
-    <EmbeddedResource Include="Resources\Jeu\sapin.png" />
-    <EmbeddedResource Include="Resources\Jeu\troncIcone.png" />
-    <EmbeddedResource Include="Resources\Jeu\troncIconeGris.png" />
-    <EmbeddedResource Include="Resources\Jeu\village.png" />
-    <EmbeddedResource Include="Resources\Jeu\villageIcone.png" />
-    <EmbeddedResource Include="Resources\Jeu\villageIconeGris.png" />
-    <EmbeddedResource Include="Resources\miniJeu\carte1.png" />
-    <EmbeddedResource Include="Resources\Jeu\accueil.png" />
-    <EmbeddedResource Include="Resources\Jeu\question.png" />
-    <EmbeddedResource Include="Resources\Jeu\chateauMap1.png" />
-    <EmbeddedResource Include="Resources\Jeu\chateauMap1Gris.png" />
-    <EmbeddedResource Include="Resources\Jeu\diapoMag.png" />
-    <EmbeddedResource Include="Resources\Jeu\diapoTrone1.png" />
-    <EmbeddedResource Include="Resources\miniJeu\carte2.png" />
-    <EmbeddedResource Include="Resources\miniJeu\chaise1.png" />
-    <EmbeddedResource Include="Resources\miniJeu\chaise2.png" />
-    <EmbeddedResource Include="Resources\miniJeu\chaise3.png" />
-    <EmbeddedResource Include="Resources\miniJeu\chaise4.png" />
-    <EmbeddedResource Include="Resources\miniJeu\chateau1.png" />
-    <EmbeddedResource Include="Resources\miniJeu\chateau2.png" />
-    <EmbeddedResource Include="Resources\miniJeu\chateau3.png" />
-    <EmbeddedResource Include="Resources\miniJeu\chateau4.png" />
-    <EmbeddedResource Include="Resources\miniJeu\coffre1.png" />
-    <EmbeddedResource Include="Resources\miniJeu\coffre2.png" />
-    <EmbeddedResource Include="Resources\miniJeu\coffre3.png" />
-    <EmbeddedResource Include="Resources\miniJeu\coffre4.png" />
-    <EmbeddedResource Include="Resources\miniJeu\dosCarte.png" />
-    <EmbeddedResource Include="Resources\miniJeu\doudou1.png" />
-    <EmbeddedResource Include="Resources\miniJeu\doudou2.png" />
-    <EmbeddedResource Include="Resources\miniJeu\doudou3.png" />
-    <EmbeddedResource Include="Resources\miniJeu\doudou4.png" />
-    <EmbeddedResource Include="Resources\miniJeu\ecole1.png" />
-    <EmbeddedResource Include="Resources\miniJeu\ecole2.png" />
-    <EmbeddedResource Include="Resources\miniJeu\ecole3.png" />
-    <EmbeddedResource Include="Resources\miniJeu\ecole4.png" />
-    <EmbeddedResource Include="Resources\miniJeu\escalier1.png" />
-    <EmbeddedResource Include="Resources\miniJeu\escalier2.png" />
-    <EmbeddedResource Include="Resources\miniJeu\escalier3.png" />
-    <EmbeddedResource Include="Resources\miniJeu\escalier4.png" />
-    <EmbeddedResource Include="Resources\miniJeu\foret1.png" />
-    <EmbeddedResource Include="Resources\miniJeu\foret2.png" />
-    <EmbeddedResource Include="Resources\miniJeu\foret3.png" />
-    <EmbeddedResource Include="Resources\miniJeu\foret4.png" />
-    <EmbeddedResource Include="Resources\miniJeu\jardin1.png" />
-    <EmbeddedResource Include="Resources\miniJeu\jardin2.png" />
-    <EmbeddedResource Include="Resources\miniJeu\jardin3.png" />
-    <EmbeddedResource Include="Resources\miniJeu\jardin4.png" />
-    <EmbeddedResource Include="Resources\miniJeu\lit1.png" />
-    <EmbeddedResource Include="Resources\miniJeu\lit2.png" />
-    <EmbeddedResource Include="Resources\miniJeu\lit3.png" />
-    <EmbeddedResource Include="Resources\miniJeu\lit4.png" />
-    <EmbeddedResource Include="Resources\miniJeu\pijama1.png" />
-    <EmbeddedResource Include="Resources\miniJeu\pijama2.png" />
-    <EmbeddedResource Include="Resources\miniJeu\pijama3.png" />
-    <EmbeddedResource Include="Resources\miniJeu\pijama4.png" />
-    <EmbeddedResource Include="Resources\miniJeu\pont1.png" />
-    <EmbeddedResource Include="Resources\miniJeu\pont2.png" />
-    <EmbeddedResource Include="Resources\miniJeu\pont3.png" />
-    <EmbeddedResource Include="Resources\miniJeu\pont4.png" />
-    <EmbeddedResource Include="Resources\miniJeu\roi1.png" />
-    <EmbeddedResource Include="Resources\miniJeu\roi2.png" />
-    <EmbeddedResource Include="Resources\miniJeu\roi3.png" />
-    <EmbeddedResource Include="Resources\miniJeu\roi4.png" />
-    <EmbeddedResource Include="Resources\miniJeu\roiBain1.png" />
-    <EmbeddedResource Include="Resources\miniJeu\roiBain2.png" />
-    <EmbeddedResource Include="Resources\miniJeu\roiBain3.png" />
-    <EmbeddedResource Include="Resources\miniJeu\roiBain4.png" />
-    <EmbeddedResource Include="Resources\miniJeu\roiPause1.png" />
-    <EmbeddedResource Include="Resources\miniJeu\roiPause2.png" />
-    <EmbeddedResource Include="Resources\miniJeu\roiPause3.png" />
-    <EmbeddedResource Include="Resources\miniJeu\roiPause4.png" />
-    <EmbeddedResource Include="Resources\miniJeu\table1.png" />
-    <EmbeddedResource Include="Resources\miniJeu\table2.png" />
-    <EmbeddedResource Include="Resources\miniJeu\table3.png" />
-    <EmbeddedResource Include="Resources\miniJeu\table4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Activites\GrandOuPetitAllLvl\Grand ou petit 12\Grand ou petit 12\Grand ou petit 12.csproj">
-      <Project>{eb730318-1db9-4333-a179-a7c953fcbb60}</Project>
-      <Name>Grand ou petit 12</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\miniJeu\applaudissements.wav" />
-    <EmbeddedResource Include="Resources\miniJeu\pouet.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\miniJeu\UnDoudou.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\miniJeu\Bahce.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\miniJeu\leRoiRentreAuChateau.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\miniJeu\kralOkulaGirer.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\miniJeu\LaGrandeBoite.wav" />
-    <EmbeddedResource Include="Resources\miniJeu\LeGrandChateau.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Jeu\chevalier1gris.png" />
-    <EmbeddedResource Include="Resources\Jeu\chevalier2gris.png" />
-    <EmbeddedResource Include="Resources\Jeu\chevalier3gris.png" />
-    <EmbeddedResource Include="Resources\Jeu\chevalier4gris.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

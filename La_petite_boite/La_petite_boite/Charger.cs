@@ -1,93 +1,59 @@
 ﻿using System;
-using System.IO;
-using System.Reflection;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Ressources;
 
 namespace La_petite_boite
 {
-    public partial class Charger : Form
+    public partial class Charger : FormSpecial
     {
-        Label Selection = new Label();
-        Button charger = new Button();
-        Button retour = new Button();
+        SpecialLabel Selection = new SpecialLabel();
+        SpecialLabel annonce = new SpecialLabel();
+        LittleButton charger = new LittleButton(500);
+        LittleButton retour = new LittleButton(250);
         ComboBox listeDossierSauvegarde = new ComboBox();
         ListBox joueursPossibles = new ListBox();
-        Label annonce = new Label();
         Panel chargerJoueur = new Panel();
         Boolean trouve = false;
-        Assembly _assembly;
-        Stream _imageStream;
 
         public Charger()
         {
             InitializeComponent();
             
         }
-
-        private void chargementImage(String res, Panel pan)
-        {
-            //accessing resources
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.Jeu." + res);
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //creating image
-
-            try
-            {
-                pan.BackgroundImage = new Bitmap(_imageStream);
-                Console.Write("Cest cree");
-            }
-            catch
-            {
-                Console.WriteLine("Cant create image!");
-            }
-        }
-
+        
         private void Charger_Load(object sender, EventArgs e)
         {
             //design
-
+            
             //panel chargerJoueur
 
             //charger une partie
-            chargementImage("accueil.jpg",chargerJoueur);
-            chargerJoueur.Width = 689;
+            chargerJoueur.BackgroundImage = items.accueil;
+            chargerJoueur.Width = 640;
             chargerJoueur.Height = 558;
-            chargerJoueur.BackgroundImage = new Bitmap(_imageStream);
+            chargerJoueur.Left = 0;
             chargerJoueur.BorderStyle = BorderStyle.FixedSingle;
 
             //label Selection
 
             Selection.Text = "Selectionne un dossier de sauvegarde";
-            Selection.Top = 50;
-            Selection.Left = 160;
-            Selection.Width = 400;
+            Selection.Top = 120;
+            Selection.Left = 0;
+            Selection.Width = 640;
             Selection.Height = 40;
             Selection.ForeColor = Color.White;
             Selection.BackColor = Color.Transparent;
-            Selection.Font = new Font(Selection.Font.FontFamily, 15);
-
-           
+            Selection.Font = new Font(Form1.privateFontCollection.Families[0], 20);
+            
+            
             //liste de dossiers de sauvegarde
 
-            listeDossierSauvegarde.Font = new Font(Selection.Font.FontFamily, 14);
+            listeDossierSauvegarde.Font = new Font("Segoe UI Symbol", 13, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
             listeDossierSauvegarde.Width = 200;
             listeDossierSauvegarde.Height = 35;
-            listeDossierSauvegarde.Top = 100;
+            listeDossierSauvegarde.Top = 170;
             listeDossierSauvegarde.Left = 220;
             listeDossierSauvegarde.SelectedIndexChanged += new EventHandler(afficherJoueursPossibles);
             
@@ -101,54 +67,40 @@ namespace La_petite_boite
             //annonce
 
             annonce.Text = ""; 
-            annonce.Font = new Font(annonce.Font.FontFamily, 14);
+            annonce.Font = new Font(Form1.privateFontCollection.Families[0], 20);
             annonce.ForeColor = Color.White;
             annonce.BackColor = Color.Transparent;
-            annonce.Width = 400;
+            annonce.Width = 640;
             annonce.Height = 35;
             annonce.Top = 150;
-            annonce.Left = 170;
+            annonce.Left = 0;
 
-            //joueurs Possibles
+            //liste joueurs Possibles
 
             joueursPossibles.Top = 200;
             joueursPossibles.Width = 200;
             joueursPossibles.Left = 220;
             joueursPossibles.Height = 200;
-            joueursPossibles.Font = new Font(Selection.Font.FontFamily, 14);
+            joueursPossibles.Font = new System.Drawing.Font("Segoe UI Symbol", 13, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
+            //BUTTONS
 
             //retour
             retour.Text = "Retour";
-            retour.Top = 450;
-            retour.Left = 350;
-            retour.Width = 150;
-            retour.Height = 35;
-            retour.FlatAppearance.BorderSize = 0;
-            retour.FlatAppearance.MouseDownBackColor = System.Drawing.Color.AliceBlue;
-            retour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            retour.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            retour.ForeColor = Color.White;
-            retour.BackColor = Color.Transparent;
+            retour.Left = 245;
+            retour.Font = new Font(Form1.privateFontCollection.Families[0], 25);
             retour.Click += new EventHandler(retourButton);
 
             //charger
             charger.Text = "Charger";
-            charger.Top = 450;
-            charger.Left = 150;
-            charger.Width = 150;
-            charger.Height = 35;
-            charger.FlatAppearance.BorderSize = 0;
-            charger.FlatAppearance.MouseDownBackColor = System.Drawing.Color.AliceBlue;
-            charger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            charger.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            charger.ForeColor = Color.White;
-            charger.BackColor = Color.Transparent;
+            charger.Left = 140;
+            charger.Font = new Font(Form1.privateFontCollection.Families[0], 25);
             charger.Click += new EventHandler(chargerMethod);
 
             
             chargerJoueur.Controls.Add(listeDossierSauvegarde);
             chargerJoueur.Controls.Add(Selection);
+            chargerJoueur.Controls.Add(retour);
 
             this.Controls.Add(chargerJoueur);
         }
@@ -178,7 +130,10 @@ namespace La_petite_boite
         {
             //fonction qui sert a afficher la liste des joueurs possibles 
             //selon le dossier selectionne dans le panneau chargement
-
+            retour.Top = 500;
+            retour.Left = 350;
+            Selection.Top = 50;
+            listeDossierSauvegarde.Top = 100;
             String[] ligne;
             String dossier = Convert.ToString(listeDossierSauvegarde.SelectedItem);
 
@@ -216,7 +171,7 @@ namespace La_petite_boite
                 }
                 
                 chargerJoueur.Controls.Add(charger);
-                chargerJoueur.Controls.Add(retour);
+                
             }
         }
 
@@ -240,7 +195,7 @@ namespace La_petite_boite
                         //on enregistre les donnees du joueur pour cr'eer l-instance dans la form1 
                         Form1.nom = splitjoueurFichier[0];
                         Form1.age = Convert.ToInt16(splitjoueurFichier[1]);
-                        Form1.avatar = splitjoueurFichier[2];
+                        Form1.avatar = Convert.ToInt16(splitjoueurFichier[2]);
                         Form1.lieuTemporaire = splitjoueurFichier[3];
                         Form1.score = Convert.ToInt16(splitjoueurFichier[4]);
                         Form1.dos = splitjoueurFichier[5];
@@ -273,5 +228,6 @@ namespace La_petite_boite
             }
 
         }
+        
     }
 }

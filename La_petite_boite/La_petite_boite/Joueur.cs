@@ -1,38 +1,31 @@
 ﻿using Grand_ou_Petit;
-using Grand_ou_petit_8;
-using Grand_ou_petit_12;
 using memory8Cartes;
-using memory12cartes;
-using memory16Cartes;
 using Chasse_aux_mots;
-using chassesAuxMots8Cartes;
-using chasseAuxMots12Cartes;
 using Que_fait_le_Roi;
-using Que_fait_le_roi_8;
-using Que_fait_le_roi_12;
+using Jeu;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace La_petite_boite
 {
-    internal class Joueur : System.Windows.Forms.Panel
+    public class Joueur : Panel
     {
         String nom;
         int age;
-        String avatar;
+        int avatar; //index de l-avatar dans la liste Avatars
         Lieu position;
         int ScoreEtoile;
         String dossierSauvegarde;
         int niveau;
-        List<Panel> jeuxObligatoires = new List<Panel>();
-        List<Panel> jeuxFacultatifs = new List<Panel>();
+        List<Jeu.Jeu> jeuxObligatoires = new List<Jeu.Jeu>();
+        List<Jeu.Jeu> jeuxFacultatifs = new List<Jeu.Jeu>();
         int[] epreuvesGagnees = new int[4];
 
 
         //chargement d-une partie
-        public Joueur(String n, int a, String img, Lieu pos, int etoile, String dossier, int[] epreuves)
+        public Joueur(String n, int a, int img, Lieu pos, int etoile, String dossier, int[] epreuves)
         {
             this.nom = n;
             this.age = a;
@@ -65,7 +58,7 @@ namespace La_petite_boite
                 jeuxObligatoires.Add(new GrandOuPetit8Panel());
                 jeuxObligatoires.Add(new QueFaitLeRoi8Panel());
 
-                jeuxFacultatifs.Add(new Memory16Panel());
+                jeuxFacultatifs.Add(new Memory18Panel());
                 jeuxFacultatifs.Add(new ChasseAuxMots12Panel());
                 jeuxFacultatifs.Add(new GrandOuPetit12Panel());
                 jeuxFacultatifs.Add(new QueFaitLeRoi12Panel());
@@ -84,12 +77,11 @@ namespace La_petite_boite
             return this.nom;
         }
 
-        public String avatarJoueur()
+        public int avatarJoueur()
         {
             return this.avatar;
         }
-
-
+        
         public Lieu positionJoueur()
         {
             return this.position;
@@ -110,12 +102,12 @@ namespace La_petite_boite
             return this.niveau;
         }
 
-        public List<Panel> epreuvesJoueur()
+        public List<Jeu.Jeu> epreuvesJoueur()
         {
             return this.jeuxObligatoires;
         }
 
-        public List<Panel> epreuvesFacultatives()
+        public List<Jeu.Jeu> epreuvesFacultatives()
         {
             return this.jeuxFacultatifs;
         }

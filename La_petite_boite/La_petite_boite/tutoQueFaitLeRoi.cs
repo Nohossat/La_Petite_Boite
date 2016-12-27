@@ -1,57 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Reflection;
+using System.Media;
+using Ressources;
 using System.IO;
 
 namespace La_petite_boite
 {
-    public partial class tutoQueFaitLeRoi : Form
+    public partial class tutoQueFaitLeRoi : PopForm
     {
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel conteneurCarte;
-        private System.Windows.Forms.Panel conteneurBouton;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Panel conteneurCarteAPlacer;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private Button button1;
+        private Button button2;
+        private Panel conteneurCarte;
+        private Panel conteneurBouton;
+        private PictureBox pictureBox6;
+        private PictureBox pictureBox5;
+        private Panel conteneurCarteAPlacer;
+        
+        List<Stream> audio = new List<Stream>();
+        List<Bitmap> images = new List<Bitmap>();
+        public int compteur = 0;
 
-        Random localisationBouton = new Random();
-        Random localisationCarte = new Random();
-        Random localisationCarteAPlacer = new Random();
-        List<Point> coordonneesCarte = new List<Point>();
-        List<Point> coordonneesBouton = new List<Point>();
-        List<Point> coordonneesCarteAPlacer = new List<Point>();
-        List<String> audio = new List<String>();
-        List<String> images = new List<String>();
-        Assembly _assembly = Assembly.GetExecutingAssembly();
-        Stream _imageStream;
-        Stream _sonStream;
-        System.Media.SoundPlayer sound;
-        int compteur = 0;
-
-        public tutoQueFaitLeRoi()
+        public tutoQueFaitLeRoi() : base()
         {
             InitializeComponent();
             QueFaitLeRoi_Load();
+            System.Threading.Thread.Sleep(2000);
             timer1.Enabled = true;
-            button3.Enabled = false;
         }
-
+        
         private void QueFaitLeRoi_Load()
         {
-            audio.Add("leRoiRentreAuChateau.wav");
-            audio.Add("kralOkulaGirer.wav");
-            images.Add("chateau1.png");
-            images.Add("ecole1.png");
+            audio.Add(items.roiRentreAuChateauFR);
+            audio.Add(items.roiVaALecoleTurc);
+            images.Add(items.ecole1);
+            images.Add(items.chateau1);
+            
             this.Enabled = true;
 
             button1.Tag = "1";
@@ -59,104 +47,53 @@ namespace La_petite_boite
             button2.Tag = "2";
             button2.Text = "Kral okula girer.";
 
-            chargementImage("chateau1.png", pictureBox1);
-            chargementImage("ecole1.png", pictureBox2);
+            pictureBox1.Image = items.chateau1;
+            pictureBox2.Image = items.ecole1;
 
             foreach (PictureBox image in conteneurCarteAPlacer.Controls)
             {
                 image.BorderStyle = BorderStyle.FixedSingle;
                 image.Image = null;
                 image.Enabled = true;
-                coordonneesCarteAPlacer.Add(image.Location);
+                image.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             
-
             foreach (PictureBox image in conteneurCarte.Controls)
             {
                 image.Visible = true;
                 image.Enabled = true;
-                coordonneesCarte.Add(image.Location);
+                image.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             
 
             foreach (Button bouton in conteneurBouton.Controls)
             {
                 bouton.Enabled = true;
-                coordonneesBouton.Add(bouton.Location);
-            }
-            
-        }
-        
-        public void chargementImage(String res, PictureBox p)
-        {
-            //access resource
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.miniJeu." + res);
-                Console.WriteLine(res);
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //display image
-            try
-            {
-                p.Image = new Bitmap(_imageStream);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Cant create image for picturebox!" + e);
-            }
-        }
-
-        public void chargementSon(String res, System.Media.SoundPlayer son)
-        {
-            //access resource
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _sonStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.miniJeu." + res);
-                Console.WriteLine(res);
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //play sound
-            try
-            {
-                son = new System.Media.SoundPlayer(_sonStream);
-                son.Play();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Cant play the sound" + e);
             }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (compteur < 2)
-            {
-                conteneurBouton.Controls[compteur].Focus();
-                chargementSon(audio.ElementAt(compteur), sound);
-                chargementImage(images.ElementAt(compteur), (PictureBox)conteneurCarteAPlacer.Controls[compteur]);
-                conteneurCarte.Controls[compteur].Hide();
-                chargementSon("applaudissements.wav", sound);
-                compteur++;
-            }
-            else
-            {
-                timer1.Enabled = false;
-                button3.Enabled = true;
-            }
-            
+            //on ecoute la premiere phrase
+            Program.petiteBoite.JouerSon(audio.ElementAt(0));
+            System.Threading.Thread.Sleep(2000);
+            //on survole la premiere carte
+            Program.petiteBoite.JouerSon(items.ecoleFR);
+            System.Threading.Thread.Sleep(2000);
+            //on survole la deuxieme carte
+            Program.petiteBoite.JouerSon(items.chateauTurc);
+            System.Threading.Thread.Sleep(2000);
+            //on met la bonne carte au bon emplacement
+            conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(0).Image = images[1];
+            conteneurCarte.Controls.OfType<PictureBox>().ElementAt(0).Hide();
+            Refresh();
+            System.Threading.Thread.Sleep(1000);
+            Program.petiteBoite.JouerSon(items.applaudissement);
+            timer1.Enabled = false;
+            //on active le jeu
+            button3.Enabled = true;
         }
-
+        
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();

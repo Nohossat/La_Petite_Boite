@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
+using System.Media;
+using Ressources;
 
 namespace La_petite_boite
 {
-    public partial class tutoGrandOuPetit : Form
+    public partial class tutoGrandOuPetit : PopForm
     {
         private System.Windows.Forms.Panel conteneurGrandeCarte;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -23,158 +21,89 @@ namespace La_petite_boite
         private System.Windows.Forms.Panel conteneurPetiteCarte;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox9;
-
-        Random localisationGrandeCarte = new Random();
-        Random localisationCarteAPlacer = new Random();
-        Random localisationPetiteCarte = new Random();
-        List<Point> coordonneesGrandeCarte = new List<Point>(); //liste des localisations des PictureBox
-        List<Point> coordonneesCarteAPlacer = new List<Point>(); //liste des localisations des PictureBox
-        List<Point> coordonneesPetiteCarte = new List<Point>(); //liste des localisations des PictureBox
-        List<String> audio = new List<String>();
-        List<String> images = new List<String>();
-
-        Assembly _assembly = Assembly.GetExecutingAssembly();
-        Stream _imageStream;
-        Stream _sonStream;
-        System.Media.SoundPlayer sound;
-
-        int compteur = 0;
-        int seconds = 0;
-
-        public tutoGrandOuPetit()
+        
+        List<Stream> audio = new List<Stream>();
+        List<Bitmap> images = new List<Bitmap>();
+        
+        public tutoGrandOuPetit() : base()
         {
             InitializeComponent();
             chargementPartie();
+            System.Threading.Thread.Sleep(2000);
             timer1.Enabled = true;
         }
 
         private void chargementPartie()
         {
-            audio.Add("LeGrandChateau.wav");
-            audio.Add("LaGrandeBoite.wav");
-            images.Add("chateau1.png");
-            images.Add("coffre1.png");
-            images.Add("chateau3.png");
-            images.Add("coffre3.png");
-            this.Enabled = true;
+            //on charge les images et les sons
+            audio.Add(items.grandChateauTurc);
+            audio.Add(items.grandCoffreFR);
+            audio.Add(items.petitChateauTurc);
+            audio.Add(items.petitCoffreFR);
+
+            images.Add(items.chateau1);
+            images.Add(items.coffre1);
+            //this.Enabled = true;
             button1.Enabled = false;
 
-            //récupérer les localisations des grandes cartes
+            //grandes cartes
             foreach (PictureBox image in conteneurGrandeCarte.Controls)
             {
-                chargementImage("carte1.png", image);
+                image.SizeMode = PictureBoxSizeMode.StretchImage;
+                image.Image = items.dosCarte;
                 image.Enabled = true;
-                coordonneesGrandeCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
             }
-            
-            //récupérer les localisations des emplacements
+
+            //emplacements
             foreach (PictureBox image in conteneurCarteAPlacer.Controls)
             {
                 image.Enabled = true;
                 image.AllowDrop = false;
                 image.Image = null;
+                image.SizeMode = PictureBoxSizeMode.StretchImage;
                 image.BorderStyle = BorderStyle.FixedSingle;
-                coordonneesCarteAPlacer.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
             }
-            
-            //récupérer les localisations des petites cartes
+
+            //petites cartes
             foreach (PictureBox image in conteneurPetiteCarte.Controls)
             {
                 image.Enabled = true;
                 image.Visible = true;
-                chargementImage("carte1.png", image);
-                coordonneesPetiteCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
-            }
-        }
-        
-        public void chargementImage(String res, PictureBox p)
-        {
-            //access resource
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _imageStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.miniJeu." + res);
-                Console.WriteLine(res);
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //display image
-            try
-            {
-                p.Image = new Bitmap(_imageStream);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Cant create image for picturebox!" + e);
-            }
-        }
-
-        public void chargementSon(String res, System.Media.SoundPlayer son)
-        {
-            //access resource
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _sonStream = _assembly.GetManifestResourceStream("La_petite_boite.Resources.miniJeu." + res);
-                Console.WriteLine(res);
-            }
-            catch
-            {
-                Console.WriteLine("Error accessing resources!");
-            }
-
-            //play sound
-            try
-            {
-                son = new System.Media.SoundPlayer(_sonStream);
-                son.Play();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Cant play the sound" + e);
+                image.SizeMode = PictureBoxSizeMode.StretchImage;
+                image.Image = items.dosCarte;
             }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (compteur < 2)
-            {
-                //lecture d-une carte de la premiere ligne + son
-                chargementImage(images.ElementAt(compteur), (PictureBox) conteneurGrandeCarte.Controls[compteur]);
-                chargementSon(audio.ElementAt(compteur), sound);
-
-                if (compteur == 0)
-                {
-                    //lecture de la premiere carte de la ligne du bas
-                    //timer2.Enabled = true;
-                    chargementImage(images.ElementAt(2), (PictureBox)conteneurPetiteCarte.Controls[compteur]);
-                    //timer2.Enabled = true;
-                    //on retourne la carte
-                    chargementImage("carte1.png", (PictureBox)conteneurPetiteCarte.Controls[compteur]);
-                    //timer2.Enabled = true;
-                    //lecture de la deuxieme carte
-                    chargementImage(images.ElementAt(3), (PictureBox)conteneurPetiteCarte.Controls[1]);
-                    //timer2.Enabled = true;
-                    //on retourne la carte
-                    chargementImage("carte1.png", (PictureBox)conteneurPetiteCarte.Controls[1]);
-                }
-
-                //timer2.Enabled = true;
-                chargementImage(images.ElementAt(compteur+2), (PictureBox) conteneurPetiteCarte.Controls[compteur]);
-                //timer2.Enabled = true;
-                conteneurPetiteCarte.Controls[compteur].Hide();
-                //timer2.Enabled = true;
-                chargementImage(images.ElementAt(compteur+2), (PictureBox) conteneurCarteAPlacer.Controls[compteur]);
-                compteur++;
-            }
-            else
-            {
-                timer1.Enabled = false;
-                button1.Enabled = true;
-            }
+            //on devoile la premiere grde carte
+            conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(0).Image = images[0];
+            Refresh();
+            Program.petiteBoite.JouerSon(audio.ElementAt(0));
+            System.Threading.Thread.Sleep(3000);
+            //on devoile la premiere pt carte
+            conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(1).Image = images[1];
+            Refresh();
+            Program.petiteBoite.JouerSon(audio.ElementAt(3));
+            System.Threading.Thread.Sleep(2000);
+            //on retourne la premiere pt carte
+            conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(1).Image = items.dosCarte;
+            Refresh();
+            System.Threading.Thread.Sleep(2000);
+            //on devoile la deuxieme pt carte
+            conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(0).Image = images[0];
+            Refresh();
+            Program.petiteBoite.JouerSon(audio.ElementAt(2));
+            System.Threading.Thread.Sleep(2000);
+            //on la pose dans l'emplacement
+            conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(0).Image = images[0];
+            conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(0).Hide();
+            Refresh();
+            Program.petiteBoite.JouerSon(items.applaudissement);
+            //on la retire du conteneur petite carte
+            //on enable le bouton GO
+            timer1.Enabled = false;
+            button1.Enabled = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -182,19 +111,6 @@ namespace La_petite_boite
             this.Close();
             this.Dispose();
         }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            //ce timer ne sert qu'a stopper l'execution de certaines actions
-
-            if (seconds <5)
-            {
-                seconds++;
-            }
-            else
-            {
-                timer2.Enabled = false;
-            }
-        }
+        
     }
 }

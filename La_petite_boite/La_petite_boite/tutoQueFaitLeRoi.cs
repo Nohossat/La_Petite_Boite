@@ -29,42 +29,18 @@ namespace La_petite_boite
         {
             InitializeComponent();
             QueFaitLeRoi_Load();
-            //timer1.Enabled = true;
-            button3.Enabled = false;
-
-            for (int i=0; i< 2; i++)
-             {
-                 //BUG
-                 //b.GotFocus += new EventHandler(getFocus);
-                 //b.Focus();
-
-                 conteneurBouton.Controls[i].Select();
-                 Console.WriteLine(i);
-                 //compteur++;
-             }
-
-
-            button3.Enabled = true;
+            System.Threading.Thread.Sleep(2000);
+            timer1.Enabled = true;
         }
-
-        private void getFocus(object sender, EventArgs e)
-        {
-            /*Console.WriteLine(compteur);
-            Program.petiteBoite.JouerSon(audio.ElementAt(compteur));
-            System.Threading.Thread.Sleep(3000);
-            conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(compteur).Image = images.ElementAt(compteur);
-            conteneurCarte.Controls[compteur].Hide();
-            Program.petiteBoite.JouerSon(items.applaudissement);*/
-
-            Console.WriteLine(compteur);
-        }
+        
         
         private void QueFaitLeRoi_Load()
         {
             audio.Add(items.roiRentreAuChateauFR);
             audio.Add(items.roiVaALecoleTurc);
-            images.Add(items.chateau1);
             images.Add(items.ecole1);
+            images.Add(items.chateau1);
+            
             this.Enabled = true;
 
             button1.Tag = "1";
@@ -94,26 +70,24 @@ namespace La_petite_boite
             {
                 bouton.Enabled = true;
             }
-            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (compteur < 2)
-            {
-                conteneurBouton.Controls[compteur].Focus();
-                Program.petiteBoite.JouerSon(audio.ElementAt(compteur));
-                System.Threading.Thread.Sleep(3000);
-                conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(compteur).Image = images.ElementAt(compteur);
-                conteneurCarte.Controls[compteur].Hide();
-                Program.petiteBoite.JouerSon(items.applaudissement);
-                compteur++;
-            }
-            else
-            {
-                timer1.Enabled = false;
-                button3.Enabled = true;
-            }
+            Point buttonCentre = new Point(button3.Width / 2, button3.Height / 2);
+            Point p = button3.PointToScreen(buttonCentre);
+            Cursor.Position = p;
+
+            //on ecoute la premiere phrase
+            Program.petiteBoite.JouerSon(audio.ElementAt(0));
+            //on survole la premiere carte
+
+            //on survole la deuxieme carte
+
+            //on met la bonne carte au bon emplacement
+
+            timer1.Enabled = false;
+            button3.Enabled = true;
         }
         
         private void button3_Click(object sender, EventArgs e)

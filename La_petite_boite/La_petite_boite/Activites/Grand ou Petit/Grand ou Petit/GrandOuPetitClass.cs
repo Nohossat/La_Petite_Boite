@@ -271,14 +271,14 @@ namespace Grand_ou_Petit
                         petiteImage.Image = items.dosCarte;
                         image.BackColor = Color.Transparent;
                         petiteImage.SizeMode = PictureBoxSizeMode.StretchImage;
-                        Refresh();
+                        petiteImage.Refresh();
                     }
                 }
                 
                 image.Image = new Bitmap(img[index], new Size(80, 104));
                 image.SizeMode = PictureBoxSizeMode.CenterImage;
                 image.BackColor = Color.White;
-                Refresh();
+                image.Refresh();
 
 
                 foreach (PictureBox petiteImage in conteneurCarteAPlacer.Controls)

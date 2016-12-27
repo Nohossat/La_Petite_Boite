@@ -365,9 +365,6 @@ namespace La_petite_boite
             //on lit le fichier Joueurs et on cree une nouvelle instance Joueur avec les donnees trouvees
 
             chargementTexte("Joueurs.txt", joueursFichier);
-            //joueursFichier = items.chargementTexte("Joueurs.txt");
-            //on lit le fichier Sauvegarde et on le met dans un tableau
-            //listeSauvegarde = items.chargementTexte("dossiers_sauvegarde.txt");
             chargementTexte("dossiers_sauvegarde.txt", listeSauvegarde);
 
             //--------------------------------BOUTONS----------------------------------------//
@@ -1517,6 +1514,8 @@ namespace La_petite_boite
         private void afficheJeu(String nomJeu, Panel p)
         {
             this.Controls.Remove(CarteJeu);
+            Jeu.Controls.Add(Table);
+            this.Controls.Add(Jeu);
 
             //on ajoute le minijeu
             miniJeu.Controls.Add(p);
@@ -1613,11 +1612,6 @@ namespace La_petite_boite
             Table.SetColumnSpan(miniJeu, 3);
             Table.SetRowSpan(miniJeu, 2);
             Table.SetRowSpan(imgChevalier, 2);
-            
-            Jeu.Controls.Add(Table);
-            this.Controls.Add(Jeu);
-
-            tuto.ShowDialog();
         }
 
         private void LanceMiniJeu(object sender, EventArgs e)
@@ -1691,6 +1685,8 @@ namespace La_petite_boite
                     //s'il na jamais gagne les etoiles
                     afficheJeu(l.Name, epreuvesO.ElementAt(IndiceJeu));
                 }
+
+                tuto.ShowDialog();
             }
         }
 
@@ -1817,7 +1813,7 @@ namespace La_petite_boite
                 //on sauvegarde et on quitte
                 sauvegardePartie();
                 //enregistrement en dur des donnees
-                enregistrementFichier("La_petite_boite.Resources.Joueurs.txt");
+                enregistrementFichier("Joueurs.txt");
 
                 //on revient a l-accueil
                 afficheAccueil();

@@ -201,7 +201,12 @@ namespace La_petite_boite
                 p.Dock = DockStyle.Fill;
                 p.Location = new Point(0, 0);
             }
-            
+
+            panelJoueur.Size = new Size(1273, 490);
+            panelJoueur.Location = new Point(0, 120);
+            panelJoueur.Dock = DockStyle.None;
+            panelJoueur.Paint += new PaintEventHandler(this.Form1_Paint);
+            panelJoueur.BackColor = Color.Transparent;
 
             //chargement
             chargement.BackgroundImage = items.chargement;
@@ -216,10 +221,7 @@ namespace La_petite_boite
             //carteJeu
             CarteJeu.BackgroundImage = items.map;
             CarteJeu.Name = "Carte";
-
-            panelJoueur.Paint += new PaintEventHandler(this.Form1_Paint);
-            panelJoueur.BackColor = Color.Transparent;
-
+            
             //ecran mini-jeu
             Jeu.Name = "Jeu";
 
@@ -1102,7 +1104,7 @@ namespace La_petite_boite
             imgChevalier.Width = 123;
             imgChevalier.Height = 160;
             ajoutEtoiles();
-
+            panelJoueur.Hide();
             //on initialise les elements de la carte 
             //on determine les positions et les dimensions des lieux selon la taille de la form
             positionLieux();
@@ -1124,7 +1126,7 @@ namespace La_petite_boite
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             //on fait le repaint
-            e.Graphics.DrawImage(imagesAvatars[chevalier.avatarJoueur()], positionJoueur.X, positionJoueur.Y, 123, 160);
+            e.Graphics.DrawImage(imagesAvatars[chevalier.avatarJoueur()], positionJoueur.X, positionJoueur.Y - 120, 123, 160);
         }
 
         public void positionLieux()
@@ -1346,7 +1348,7 @@ namespace La_petite_boite
                 }
 
                 //on invalide la region ou se trouve le perso
-                CarteJeu.Invalidate(new Rectangle(positionJoueur, imgChevalier.Size));
+                CarteJeu.Invalidate(new Rectangle(positionJoueur.X, positionJoueur.Y, imgChevalier.Width, imgChevalier.Height + 120));
                 CarteJeu.Update();
             }
 
@@ -1362,7 +1364,7 @@ namespace La_petite_boite
                 }
 
                 //on invalide la region ou se trouve le perso
-                CarteJeu.Invalidate(new Rectangle(positionJoueur, imgChevalier.Size));
+                CarteJeu.Invalidate(new Rectangle(positionJoueur.X, positionJoueur.Y, imgChevalier.Width, imgChevalier.Height + 120));
                 CarteJeu.Update();
             }
         }
@@ -1380,7 +1382,7 @@ namespace La_petite_boite
                     positionJoueur.Y -= 2;
                 }
                 //on invalide la region ou se trouve le perso
-                CarteJeu.Invalidate(new Rectangle(positionJoueur, imgChevalier.Size));
+                CarteJeu.Invalidate(new Rectangle(positionJoueur.X, positionJoueur.Y, imgChevalier.Width, imgChevalier.Height + 120));
                 CarteJeu.Update();
             }
 
@@ -1397,7 +1399,7 @@ namespace La_petite_boite
                 }
 
                 //on invalide la region ou se trouve le perso
-                CarteJeu.Invalidate(new Rectangle(positionJoueur, imgChevalier.Size));
+                CarteJeu.Invalidate(new Rectangle(positionJoueur.X, positionJoueur.Y, imgChevalier.Width, imgChevalier.Height + 120));
                 CarteJeu.Update();
             }
         }

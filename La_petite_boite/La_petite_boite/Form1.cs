@@ -11,6 +11,7 @@ using System.Media;
 using Jeu;
 using Ressources;
 using System.Web;
+using System.Resources;
 
 //reste a faire:  design,
 
@@ -363,12 +364,11 @@ namespace La_petite_boite
 
             //on lit le fichier Joueurs et on cree une nouvelle instance Joueur avec les donnees trouvees
 
-            chargementTexte("La_petite_boite.Resources.Joueurs.txt", joueursFichier);
+            chargementTexte("Joueurs.txt", joueursFichier);
             //joueursFichier = items.chargementTexte("Joueurs.txt");
             //on lit le fichier Sauvegarde et on le met dans un tableau
             //listeSauvegarde = items.chargementTexte("dossiers_sauvegarde.txt");
-
-            chargementTexte("La_petite_boite.Resources.dossiers_sauvegarde.txt", listeSauvegarde);
+            chargementTexte("dossiers_sauvegarde.txt", listeSauvegarde);
 
             //--------------------------------BOUTONS----------------------------------------//
 
@@ -662,7 +662,7 @@ namespace La_petite_boite
         {
             try
             {
-                using (StreamReader reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream(nomFichier)))
+                using (var reader = new StreamReader(nomFichier))
                 {
                     String line;
                     while ((line = reader.ReadLine()) != null)
@@ -677,22 +677,23 @@ namespace La_petite_boite
             }
         }
 
-        //Enregistrement de donnees
+        //Enregistrement de donnees dans les fichiers de texte
         private void enregistrementFichier(String fichier)
         {
             try
             {
-                using (StreamWriter writer = new StreamWriter(Assembly.GetExecutingAssembly().GetManifestResourceStream(fichier)))
+                using (var writer = new StreamWriter(fichier))
                 {
                     foreach (String s in joueursFichier)
                     {
                         writer.WriteLine(s);
                     }
                 }
+                
             }
             catch
             {
-                Console.Write("Erreur lors de l-ecriture du fichier");
+                Console.Write("Erreur lors de l'ecriture du fichier");
             }
         }
 
@@ -1433,8 +1434,8 @@ namespace La_petite_boite
         {
             //sauvegarde en pleine partie / enregistrement dans le tableau joueursFichier. l-enregistrement en dur se fera a la fermeture de l-application
             Boolean enregistrer = false;
-
             chevalier.setPosition(arrivee);
+            Console.WriteLine(chevalier.positionJoueur());
             String enregistrementJoueur = chevalier.nomJoueur() + "-" + chevalier.ageJoueur() + "-" + chevalier.avatarJoueur() + "-" + chevalier.positionJoueur().Name + "-" + chevalier.scoreJoueur() + "-" + chevalier.dossierJoueur() + "-" + chevalier.getEpreuvesGagnees(0) + "-" + chevalier.getEpreuvesGagnees(1) + "-" + chevalier.getEpreuvesGagnees(2) + "-" + chevalier.getEpreuvesGagnees(3);
 
             //on enregistre dans le tableau joueursFichiers les nouvelles valeurs pour le joueur actuel
@@ -1488,7 +1489,7 @@ namespace La_petite_boite
         private void quitterPartie(object sender, EventArgs e)
         {
             //enregistrement en dur des donnees
-            enregistrementFichier("La_petite_boite.Resources.Joueurs.txt");
+            enregistrementFichier("Joueurs.txt");
 
             //on quitte le jeu
             Application.Exit();
@@ -1831,7 +1832,6 @@ namespace La_petite_boite
         //ajouter les etoiles au conteneurEtoiles
         public void ajoutEtoiles()
         {
-
             ConteneurEtoile.Controls.Clear();
             //etoiles jaunes
 
@@ -1845,7 +1845,7 @@ namespace La_petite_boite
                 }
             }
 
-            //etoiles grises
+            //on complete avec les etoiles encore dispo soit les etoiles grises
             for (int i = chevalier.scoreJoueur(); i < 12; i++)
             {
                 int left = i * 70;

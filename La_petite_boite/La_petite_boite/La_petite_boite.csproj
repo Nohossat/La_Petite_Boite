@@ -191,153 +191,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\images\Chargement_LapetiteBoite.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\chateau.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\clairiere.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\coffre.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\disquette.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\etoileGrise.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\etoileJaune.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\exit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\guide_roi.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\map.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\menu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\montagne.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\riviere.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\roi2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\roi3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\roi4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\village.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\mapCsharp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\accueil.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\magicien.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\presentationJeu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\plan.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\planJeu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\map.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\villageIcone.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\villageIconeGris.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\chateauIcone.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\chateauIconeGris.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\cabaneIcone.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\cabaneIconeGris.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\troncIcone.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\troncIconeGris.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\montagneIcone.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\montagneIconeGris.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\guide.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\chevalier1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\chevalier2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\chevalier3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\chevalier4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\mapCabane.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\mapChateau.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\mapMontagne.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\mapReference.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\mapTronc.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\mapVillage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\chateauMap.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\chateauMapGris.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\montagneMap.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\images\montagneMapGris.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="bin\Debug\dossiers_sauvegarde.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -347,10 +200,9 @@
     <EmbeddedResource Include="recompense1.resx">
       <DependentUpon>recompense1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Joueurs.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\dossiers_sauvegarde.txt" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

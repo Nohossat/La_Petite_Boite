@@ -1106,8 +1106,7 @@ namespace La_petite_boite
             ajoutEtoiles();
             panelJoueur.Hide();
             //on initialise les elements de la carte 
-            //on determine les positions et les dimensions des lieux selon la taille de la form
-            positionLieux();
+            
             
             conteneurEtoilesCoffre.Controls.Add(ConteneurEtoile);
             conteneurEtoilesCoffre.Controls.Add(coffre);
@@ -1121,6 +1120,8 @@ namespace La_petite_boite
             CarteJeu.Controls.Add(tabBord);
             CarteJeu.Controls.Add(panelJoueur);
             this.Controls.Add(CarteJeu);
+            //on determine les positions et les dimensions des lieux selon la taille de la form
+            positionLieux();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -1131,6 +1132,7 @@ namespace La_petite_boite
 
         public void positionLieux()
         {
+            Console.WriteLine(CarteJeu.Size);
             Double montagneTop;
             Double villageTop;
             Double troncTop;
@@ -1452,7 +1454,19 @@ namespace La_petite_boite
             List<String> nomsButtons = new List<string>();
             List<int> refEvents = new List<int>();
             nomsButtons.Add("Retour");
-            refEvents.Add(0);
+
+            if (choixFinMiniJeu == 3)
+            {
+                //si notre choix precedent pointait sur l'event sauvegardeRetourAccueil
+                //retour a l'accueil
+                refEvents.Add(5);
+            }
+            else
+            {
+                //retour au jeu
+                refEvents.Add(0);
+            }
+            
             
 
             if (enregistrer == true)

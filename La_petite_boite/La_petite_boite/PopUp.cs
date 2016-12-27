@@ -112,6 +112,7 @@ namespace La_petite_boite
         
         void Retour(object sender, EventArgs e)
         {
+            Program.petiteBoite.choixFinMiniJeu = -1;
             //on referme la form
             this.Close();
             this.Dispose();

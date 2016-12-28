@@ -25,7 +25,6 @@ namespace La_petite_boite
             ChasseAuxMots_Load();
             System.Threading.Thread.Sleep(1000);
             timer1.Enabled = true;
-            button1.Enabled = false;
         }
 
         private void ChasseAuxMots_Load()
@@ -52,13 +51,7 @@ namespace La_petite_boite
             Program.petiteBoite.JouerSon(items.applaudissement);
             //on arrete le timer et on active le jeu
             timer1.Enabled = false;
-            button1.Enabled = true;
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            this.Dispose();
-        }
+        
     }
 }

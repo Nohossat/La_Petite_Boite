@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Configuration;
 using System.Diagnostics;
+using Ressources;
 
 namespace La_petite_boite
 {
@@ -22,7 +23,7 @@ namespace La_petite_boite
         }
     }
 
-        public partial class recompense : Panel
+    public partial class recompense : Panel
         {
             private System.Windows.Forms.Button button1;
             private System.Windows.Forms.Button button2;
@@ -34,20 +35,14 @@ namespace La_petite_boite
 
             private void chanson(object sender, EventArgs e)
             {
-                Process player = null;
-                //File.WriteAllBytes("OtobusunTekerlegniYuvarlak.avi", Properties.Resources.OtubusunTekerlegniYuvarlak);
-                player = Process.Start("OtobusunTekerlegniYuvarlak.avi");
-                player.WaitForExit();
+                Process.Start("OtobusunTekerlegniYuvarlak.avi");
             }
 
             private void coloriage(object sender, EventArgs e)
             {
-                //var image= new Bitmap(Properties.Resources.coloriage1);
-                //var image1 = new Bitmap(Properties.Resources.coloriage2);
-                //image.Save("coloriage1.gif");
-                //image1.Save("coloriage2.gif");
                 Process.Start("coloriage1.gif");
-            }
+                Process.Start("coloriage2.gif");
+        }
         }
     }
 

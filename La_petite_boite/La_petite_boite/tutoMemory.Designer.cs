@@ -35,7 +35,6 @@
             this.doubleCarte1 = new System.Windows.Forms.PictureBox();
             this.carte1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.conteneurCarte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doubleCarte2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carte2)).BeginInit();
@@ -99,22 +98,12 @@
             this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(100, 441);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(338, 58);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "GO";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // 
             // tutoMemory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.conteneurCarte);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "tutoMemory";
@@ -133,7 +122,6 @@
         #endregion
 
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button button1;
     }
 
 }

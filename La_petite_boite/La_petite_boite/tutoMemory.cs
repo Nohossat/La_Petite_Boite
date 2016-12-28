@@ -27,7 +27,6 @@ namespace La_petite_boite
         {
             InitializeComponent();
             chargementPartie();
-            button1.Enabled = false;
             timer1.Enabled = true;
         }
 
@@ -77,14 +76,8 @@ namespace La_petite_boite
             {
                 timer1.Enabled = false;
                 Program.petiteBoite.JouerSon(items.applaudissement);
-                button1.Enabled = true;
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            this.Dispose();
-        }
+        
     }
 }

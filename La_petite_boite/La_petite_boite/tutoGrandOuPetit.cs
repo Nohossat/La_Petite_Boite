@@ -43,8 +43,6 @@ namespace La_petite_boite
 
             images.Add(items.chateau1);
             images.Add(items.coffre1);
-            //this.Enabled = true;
-            button1.Enabled = false;
 
             //grandes cartes
             foreach (PictureBox image in conteneurGrandeCarte.Controls)
@@ -103,14 +101,8 @@ namespace La_petite_boite
             //on la retire du conteneur petite carte
             //on enable le bouton GO
             timer1.Enabled = false;
-            button1.Enabled = true;
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            this.Dispose();
-        }
+        
         
     }
 }

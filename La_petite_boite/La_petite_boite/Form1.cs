@@ -73,9 +73,7 @@ namespace La_petite_boite
 
         LittleButton actionJoueur = new LittleButton(530);
         LittleButton precedent = new LittleButton(600);
-
-        Button Yes;
-        Button No;
+        
         List<Bitmap> imagesDiaporama = new List<Bitmap>();
 
         ComboBox listeDossierSauvegarde = new ComboBox();
@@ -419,36 +417,7 @@ namespace La_petite_boite
             precedent.BackgroundImageLayout = ImageLayout.Stretch;
             precedent.BackgroundImage = items.retourFleche;
             precedent.Click += new EventHandler(afficherDiapoPrecedente);
-
-
-            Yes = new Button();
-            Yes.Text = "Oui";
-            Yes.Name = "Oui";
-            Yes.Location = new Point(250, 700);
-            Yes.Width = 250;
-            Yes.Height = 60;
-            Yes.FlatAppearance.BorderSize = 0;
-            Yes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            Yes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Yes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            Yes.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            Yes.BackColor = Color.Transparent;
-            Yes.Click += new EventHandler(resultat);
-
-            No = new Button();
-            No.Text = "Non";
-            No.Name = "Non";
-            No.Location = new Point(600, 700);
-            No.Width = 250;
-            No.Height = 60;
-            No.FlatAppearance.BorderSize = 0;
-            No.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            No.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            No.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            No.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            No.BackColor = Color.Transparent;
-            No.Click += new EventHandler(resultat);
-
+            
             //-------------------------------CHAMPS------------------------------//
 
             //contenu du menu ppl pour qu'il soit resizable
@@ -989,17 +958,11 @@ namespace La_petite_boite
 
         //Afficher le diaporama
 
-        private void afficherDiaporama()
+        public void diaporama()
         {
-            //on affiche la planche avec le roi puis la planche avec le magicien...le bouton doit clignoter
-            //lors du diaporama on a le texte et une voix off qui explique l-histoire
-            nomJoueur = chevalier.nomJoueur();
-            textePresentationJeu.Text = textesDiaporama.ElementAt(0);
-
-            actionJoueur.Text = "Oui";
-            actionJoueur.Click += new EventHandler(ReadyButton);
             Table.Controls.Clear();
             Table.RowStyles.Clear();
+            Table.ColumnStyles.Clear();
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 57F));
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 12F));
@@ -1009,7 +972,6 @@ namespace La_petite_boite
             Table.Controls.Add(actionJoueur, 0, 3);
             Table.SetColumnSpan(textePresentationJeu, 4);
             Table.SetColumnSpan(actionJoueur, 4);
-            
 
             foreach (Control c in Table.Controls)
             {
@@ -1022,6 +984,19 @@ namespace La_petite_boite
             diaporamaHistoire.Controls.Add(Table);
             diaporamaHistoire.Tag = "0";
             diaporamaHistoire.BackgroundImage = imagesDiaporama.ElementAt(0);
+        }
+
+        private void afficherDiaporama()
+        {
+            //on affiche la planche avec le roi puis la planche avec le magicien...le bouton doit clignoter
+            //lors du diaporama on a le texte et une voix off qui explique l-histoire
+            nomJoueur = chevalier.nomJoueur();
+            textePresentationJeu.Text = textesDiaporama.ElementAt(0);
+            actionJoueur.Text = "Oui";
+            actionJoueur.Click += new EventHandler(ReadyButton);
+
+            diaporama();
+            
             this.Controls.Clear();
             this.Controls.Add(diaporamaHistoire);
         }
@@ -1356,7 +1331,7 @@ namespace La_petite_boite
                 }
 
                 //on invalide la region ou se trouve le perso
-                CarteJeu.Invalidate(new Rectangle(positionJoueur.X, positionJoueur.Y, imgChevalier.Width, imgChevalier.Height + 120));
+                CarteJeu.Invalidate(new Rectangle(positionJoueur.X, positionJoueur.Y, imgChevalier.Width, imgChevalier.Height));
                 CarteJeu.Update();
             }
 
@@ -1372,7 +1347,7 @@ namespace La_petite_boite
                 }
 
                 //on invalide la region ou se trouve le perso
-                CarteJeu.Invalidate(new Rectangle(positionJoueur.X, positionJoueur.Y, imgChevalier.Width, imgChevalier.Height + 120));
+                CarteJeu.Invalidate(new Rectangle(positionJoueur.X, positionJoueur.Y, imgChevalier.Width, imgChevalier.Height));
                 CarteJeu.Update();
             }
         }
@@ -1390,7 +1365,7 @@ namespace La_petite_boite
                     positionJoueur.Y -= 2;
                 }
                 //on invalide la region ou se trouve le perso
-                CarteJeu.Invalidate(new Rectangle(positionJoueur.X, positionJoueur.Y, imgChevalier.Width, imgChevalier.Height + 120));
+                CarteJeu.Invalidate(new Rectangle(positionJoueur.X, positionJoueur.Y, imgChevalier.Width, imgChevalier.Height));
                 CarteJeu.Update();
             }
 
@@ -1407,7 +1382,7 @@ namespace La_petite_boite
                 }
 
                 //on invalide la region ou se trouve le perso
-                CarteJeu.Invalidate(new Rectangle(positionJoueur.X, positionJoueur.Y, imgChevalier.Width, imgChevalier.Height + 120));
+                CarteJeu.Invalidate(new Rectangle(positionJoueur.X, positionJoueur.Y, imgChevalier.Width, imgChevalier.Height));
                 CarteJeu.Update();
             }
         }
@@ -1667,6 +1642,8 @@ namespace La_petite_boite
                 devoileCoffre();
             }
 
+
+            //la verification du nombre d'etoiles gagnees ne sert que si le joueur accede a un mini jeu et non au chateau
             if (FonctionChateauActive == false)
             {
                 //si le joueur a deja gagnee l'epreuve obligatoire,
@@ -1705,10 +1682,16 @@ namespace La_petite_boite
             Control source = (Control)sender;
             Control parent = source.Parent;
             Control grandParent = parent.Parent;
+
             if (grandParent.Parent == Jeu)
             {
                 miniJeu.Controls.Clear();
                 this.Controls.Remove(Jeu);
+                Carte();
+            }
+            else if (grandParent == diaporamaHistoire)
+            {
+                this.Controls.Remove(diaporamaHistoire);
                 Carte();
             }
             else if (grandParent == CarteJeu)
@@ -1933,43 +1916,37 @@ namespace La_petite_boite
         public void devoileCoffre()
         {
             this.Controls.Remove(CarteJeu);
-            textePresentationJeu.Text = "As-tu reuni l-ensemble des etoiles ?";
-            /*CourRoi.Controls.Add(textePresentationJeu);
-            CourRoi.Controls.Add(Yes);
-            CourRoi.Controls.Add(No);
-            CourRoi.Controls.Add(tabBord);
-            this.Controls.Add(CourRoi);*/
+            diaporama();
 
-        }
-
-        public void resultat(object sender, EventArgs e)
-        {
-            Button b = (Button)sender;
-            if (b.Name.Equals("Oui") && chevalier.scoreJoueur() == 12)
+            if (chevalier.scoreJoueur() < 12)
             {
-                MessageBox.Show("Tu as su mener à bien toutes les quêtes chevalier/chevalière ! Regardons maintenant ce qu'il y a dans la boite ! Clique sur le coffre pour devoiler son contenu", "Felicitations", MessageBoxButtons.OK, MessageBoxIcon.None);
-                coffre.Click += new EventHandler(afficheRecompense);
+                actionJoueur.Text = "Retour";
+                actionJoueur.Click -= afficherCarte;
+                actionJoueur.Click += new EventHandler(retourTabBord);
+                precedent.Hide();
+                textePresentationJeu.Text = "Il te manque des etoiles pour ouvrir le coffre. Reviens me voir lorsque ta quete sera achevee.";
             }
             else
             {
-                MessageBox.Show("Le nombre d'etoiles en votre possesion ne vous permet pas d'ouvrir le coffre", "Attention", MessageBoxButtons.OK, MessageBoxIcon.None);
+                actionJoueur.Text = "Coffre";
+                actionJoueur.Click -= afficherCarte;
+                actionJoueur.Click += new EventHandler(afficheRecompense);
+                textePresentationJeu.Text = "Bravo, jeune chevalier, tu as recolte toutes les etoiles. Clique sur le coffre pour decouvrir son contenu.";
             }
+            
+            this.Controls.Add(diaporamaHistoire);
         }
+        
 
         public void afficheRecompense(object sender, EventArgs e)
         {
-            //this.Controls.Remove(CourRoi);
-            //this.Controls.Add(Recompense);
+            this.Controls.Remove(diaporamaHistoire);
+            Table.Controls.Clear();
+            Table.RowStyles.Clear();
+            Table.ColumnStyles.Clear();
 
-            //Recompense.Width = 1400;
-            //Recompense.Height = 722;
-            //Recompense.Location = new Point(0, 0);
-            //Recompense.BackColor = Color.AliceBlue;
-            //Recompense.Controls.Add(recompense1);
-            //Recompense.Controls.Add(recompense2);
-            //Recompense.Controls.Add(recompense2);
-
-            //sur cette page, on a trois picturebox avec les liens vers les recompenses (video, coloriages, etc
+            recompense PanelRecompense = new recompense();
+            this.Controls.Add(PanelRecompense);
         }
         
     }

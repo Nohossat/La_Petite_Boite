@@ -33,7 +33,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Ecouter = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.conteneurCarte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -83,15 +82,6 @@
             this.Ecouter.Text = "Ecouter";
             this.Ecouter.UseVisualStyleBackColor = false;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(49, 444);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(445, 60);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "GO";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // timer1
             // 
@@ -102,7 +92,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.Ecouter);
             this.Controls.Add(this.conteneurCarte);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -119,8 +108,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
+        
         private System.Windows.Forms.Timer timer1;
     }
 }

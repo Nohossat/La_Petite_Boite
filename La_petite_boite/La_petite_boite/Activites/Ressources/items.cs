@@ -94,6 +94,7 @@ namespace Ressources
         }
 
         //images JeuPPL
+        
 
         public static Bitmap exit
         {

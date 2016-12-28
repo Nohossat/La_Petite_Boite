@@ -90,14 +90,7 @@ namespace La_petite_boite
             System.Threading.Thread.Sleep(1000);
             Program.petiteBoite.JouerSon(items.applaudissement);
             timer1.Enabled = false;
-            //on active le jeu
-            button3.Enabled = true;
         }
         
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            this.Dispose();
-        }
     }
 }

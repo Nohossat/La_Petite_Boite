@@ -38,7 +38,6 @@
             this.conteneurPetiteCarte = new System.Windows.Forms.Panel();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.conteneurGrandeCarte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -55,7 +54,7 @@
             // 
             this.conteneurGrandeCarte.Controls.Add(this.pictureBox2);
             this.conteneurGrandeCarte.Controls.Add(this.pictureBox1);
-            this.conteneurGrandeCarte.Location = new System.Drawing.Point(66, 80);
+            this.conteneurGrandeCarte.Location = new System.Drawing.Point(190, 80);
             this.conteneurGrandeCarte.Name = "conteneurGrandeCarte";
             this.conteneurGrandeCarte.Size = new System.Drawing.Size(292, 140);
             this.conteneurGrandeCarte.TabIndex = 0;
@@ -82,7 +81,7 @@
             // 
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox6);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox5);
-            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(66, 220);
+            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(190, 220);
             this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
             this.conteneurCarteAPlacer.Size = new System.Drawing.Size(292, 140);
             this.conteneurCarteAPlacer.TabIndex = 4;
@@ -109,7 +108,7 @@
             // 
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox10);
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox9);
-            this.conteneurPetiteCarte.Location = new System.Drawing.Point(66, 360);
+            this.conteneurPetiteCarte.Location = new System.Drawing.Point(190, 360);
             this.conteneurPetiteCarte.Name = "conteneurPetiteCarte";
             this.conteneurPetiteCarte.Size = new System.Drawing.Size(292, 140);
             this.conteneurPetiteCarte.TabIndex = 5;
@@ -133,16 +132,6 @@
             this.pictureBox9.Tag = "4";
             // 
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(300, 252);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 60);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "GO";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // timer1
             // 
             this.timer1.Interval = 5000;
@@ -153,7 +142,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.conteneurPetiteCarte);
             this.Controls.Add(this.conteneurCarteAPlacer);
             this.Controls.Add(this.conteneurGrandeCarte);
@@ -180,7 +168,6 @@
         
         #endregion
         
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer timer1;
     }
 }

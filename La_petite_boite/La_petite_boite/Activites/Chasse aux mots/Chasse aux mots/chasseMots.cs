@@ -34,9 +34,31 @@ namespace Chasse_aux_mots
         public new void chargementPartie()
         {
             this.Enabled = true;
+            this.Location = new Point(0, 0);
+            this.Controls.Add(this.Ecouter);
+            this.Controls.Add(this.conteneurCarte);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.BackgroundImage = items.fondBlanc;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+
             Ecouter.Enabled = true;
+            Ecouter.BackColor = System.Drawing.SystemColors.HotTrack;
+            Ecouter.FlatAppearance.BorderSize = 0;
+            Ecouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Ecouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            Ecouter.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            Ecouter.Name = "Ecouter";
+            Ecouter.Size = new System.Drawing.Size(140, 51);
+            Ecouter.Text = "Ecouter";
+            Ecouter.UseVisualStyleBackColor = false;
+
             carteACliquerTag = "";
             imageCliqueTag = "";
+            
+            conteneurCarte.BackColor = Color.Transparent;
+            conteneurCarte.Location = new System.Drawing.Point(15, 10);
+            conteneurCarte.Name = "conteneurCarte";
 
             indexCarte = 0;
             //récupérer les localisations des cartes

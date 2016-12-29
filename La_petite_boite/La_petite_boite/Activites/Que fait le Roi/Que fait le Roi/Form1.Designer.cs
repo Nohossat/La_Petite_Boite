@@ -142,7 +142,7 @@ namespace Que_fait_le_Roi
             this.conteneurBouton.Controls.Add(this.button2);
             this.conteneurBouton.Controls.Add(this.button3);
             this.conteneurBouton.Controls.Add(this.button4);
-            this.conteneurBouton.Location = new System.Drawing.Point(0, 5);
+            this.conteneurBouton.Location = new System.Drawing.Point(10, 5);
             this.conteneurBouton.Name = "conteneurBouton";
             this.conteneurBouton.Size = new System.Drawing.Size(690, 44);
             // 
@@ -152,7 +152,7 @@ namespace Que_fait_le_Roi
             this.conteneurCarte.Controls.Add(this.pictureBox2);
             this.conteneurCarte.Controls.Add(this.pictureBox3);
             this.conteneurCarte.Controls.Add(this.pictureBox4);
-            this.conteneurCarte.Location = new System.Drawing.Point(0, 275);
+            this.conteneurCarte.Location = new System.Drawing.Point(10, 275);
             this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(690, 167);
             // 
@@ -163,7 +163,7 @@ namespace Que_fait_le_Roi
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox6);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox7);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox8);
-            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(0, 55);
+            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(10, 55);
             this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
             this.conteneurCarteAPlacer.Size = new System.Drawing.Size(690, 167);
 
@@ -183,7 +183,7 @@ namespace Que_fait_le_Roi
             // 
 
             // QueFaitLeRoiPanel
-            this.ClientSize = new System.Drawing.Size(690, 442);
+            this.ClientSize = new System.Drawing.Size(720, 472);
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "QueFaitLeRoi";
             this.conteneurCarte.ResumeLayout(false);
@@ -284,7 +284,7 @@ namespace Que_fait_le_Roi
             this.conteneurBouton.Controls.Add(this.button2);
             this.conteneurBouton.Controls.Add(this.button3);
             this.conteneurBouton.Controls.Add(this.button4);
-            this.conteneurBouton.Location = new System.Drawing.Point(0, 12);
+            this.conteneurBouton.Location = new System.Drawing.Point(10, 12);
             this.conteneurBouton.Name = "conteneurBouton";
             this.conteneurBouton.Size = new System.Drawing.Size(1090, 44);
             this.conteneurBouton.TabIndex = 16;
@@ -300,7 +300,7 @@ namespace Que_fait_le_Roi
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox6);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox7);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox8);
-            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(0, 82);
+            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(10, 82);
             this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
             this.conteneurCarteAPlacer.Size = new System.Drawing.Size(1090, 168);
             this.conteneurCarteAPlacer.TabIndex = 15;
@@ -315,7 +315,7 @@ namespace Que_fait_le_Roi
             this.conteneurCarte.Controls.Add(this.pictureBox13);
             this.conteneurCarte.Controls.Add(this.pictureBox14);
             this.conteneurCarte.Controls.Add(this.pictureBox16);
-            this.conteneurCarte.Location = new System.Drawing.Point(0, 302);
+            this.conteneurCarte.Location = new System.Drawing.Point(10, 302);
             this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(1090, 167);
             this.conteneurCarte.TabIndex = 14;
@@ -342,7 +342,7 @@ namespace Que_fait_le_Roi
 
             // queFaitLeRoi8Panel 
             // 
-            this.ClientSize = new System.Drawing.Size(1100, 469);
+            this.ClientSize = new System.Drawing.Size(1120, 500);
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "queFaitLeRoi8";
             this.conteneurBouton.ResumeLayout(false);
@@ -473,7 +473,7 @@ namespace Que_fait_le_Roi
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox6);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox7);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox8);
-            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(0, 96);
+            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(5, 96);
             this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
             this.conteneurCarteAPlacer.Size = new System.Drawing.Size(1240, 142);
             this.conteneurCarteAPlacer.TabIndex = 21;
@@ -492,7 +492,7 @@ namespace Que_fait_le_Roi
             this.conteneurCarte.Controls.Add(this.pictureBox23);
             this.conteneurCarte.Controls.Add(this.pictureBox22);
             this.conteneurCarte.Controls.Add(this.pictureBox21);
-            this.conteneurCarte.Location = new System.Drawing.Point(0, 255);
+            this.conteneurCarte.Location = new System.Drawing.Point(5, 255);
             this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(1240, 139);
             this.conteneurCarte.TabIndex = 20;
@@ -511,7 +511,7 @@ namespace Que_fait_le_Roi
             this.conteneurBouton.Controls.Add(this.button2);
             this.conteneurBouton.Controls.Add(this.button3);
             this.conteneurBouton.Controls.Add(this.button4);
-            this.conteneurBouton.Location = new System.Drawing.Point(0, 25);
+            this.conteneurBouton.Location = new System.Drawing.Point(5, 25);
             this.conteneurBouton.Name = "conteneurBouton";
             this.conteneurBouton.Size = new System.Drawing.Size(1240, 44);
             this.conteneurBouton.TabIndex = 25;
@@ -550,7 +550,7 @@ namespace Que_fait_le_Roi
 
             // Que fait le roi 12
             // 
-            this.ClientSize = new System.Drawing.Size(1260, 400);
+            this.ClientSize = new System.Drawing.Size(1270, 430);
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "Que fait le roi ?";
             this.Text = "";

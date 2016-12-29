@@ -290,6 +290,9 @@
     <EmbeddedResource Include="Resources\Jeu\helpiconeClic.png" />
     <EmbeddedResource Include="Resources\Jeu\homeBoutonClic.png" />
     <EmbeddedResource Include="Resources\Jeu\sauvegardebuttonClic.png" />
+    <EmbeddedResource Include="Resources\Jeu\fauxminHover.png" />
+    <EmbeddedResource Include="Resources\Jeu\vraiminHover.png" />
+    <EmbeddedResource Include="Resources\Jeu\fondBlanc.png" />
     <Content Include="Resources\miniJeu\pauseFR.wav" />
   </ItemGroup>
   <ItemGroup />

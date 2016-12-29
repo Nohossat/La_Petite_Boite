@@ -120,6 +120,22 @@ namespace Ressources
             }
         }
 
+        public static Bitmap checkHover
+        {
+            get
+            {
+                return Properties.Resources.vraiminHover;
+            }
+        }
+
+        public static Bitmap fauxHover
+        {
+            get
+            {
+                return Properties.Resources.fauxminHover;
+            }
+        }
+
         public static Bitmap attention
         {
             get
@@ -133,6 +149,14 @@ namespace Ressources
             get
             {
                 return Properties.Resources.fireworks1;
+            }
+        }
+
+        public static Bitmap fondBlanc
+        {
+            get
+            {
+                return Properties.Resources.fondBlanc;
             }
         }
 

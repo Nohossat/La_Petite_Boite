@@ -45,7 +45,13 @@ namespace Que_fait_le_Roi
             sonBoutonEcoute = false;
             imageRecuperee = null;
             int indexEmplacement = 0;
-            
+
+            this.BackgroundImage = items.fondBlanc;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+            conteneurBouton.BackColor = Color.Transparent;
+            conteneurCarte.BackColor = Color.Transparent;
+            conteneurCarteAPlacer.BackColor = Color.Transparent;
+
             //on prepare les boutons
             indexcarte = 0;
             foreach (Button bouton in conteneurBouton.Controls)
@@ -99,7 +105,7 @@ namespace Que_fait_le_Roi
                 else
                 {
                     image.Left = indexcarte * 102;
-                    image.Size = new System.Drawing.Size(100, 130);
+                    image.Size = new System.Drawing.Size(100, 120);
                 }
 
                 image.DragDrop += new DragEventHandler(this.Image_DragDrop);
@@ -146,7 +152,7 @@ namespace Que_fait_le_Roi
                 else
                 {
                     image.Left = indexcarte * 102;
-                    image.Size = new System.Drawing.Size(100, 130);
+                    image.Size = new System.Drawing.Size(100, 120);
                 }
                 
                 image.MouseDown += new MouseEventHandler(this.receveurImage_MouseDown);

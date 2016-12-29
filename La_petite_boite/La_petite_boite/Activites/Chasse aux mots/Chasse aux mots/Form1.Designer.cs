@@ -129,10 +129,7 @@ namespace Chasse_aux_mots
             this.conteneurCarte.Controls.Add(this.pictureBox3);
             this.conteneurCarte.Controls.Add(this.pictureBox2);
             this.conteneurCarte.Controls.Add(this.pictureBox1);
-            this.conteneurCarte.Location = new Point(0, 0);
-            this.conteneurCarte.Name = "conteneurCarte";
-            this.conteneurCarte.Size = new Size(610, 197);
-            this.conteneurCarte.TabIndex = 0;
+            this.conteneurCarte.Size = new Size(600, 197);
             
             // 
             // pictureBox4
@@ -158,28 +155,13 @@ namespace Chasse_aux_mots
             // 
             // Ecouter
             // 
-            this.Ecouter.BackColor = SystemColors.HotTrack;
-            this.Ecouter.FlatAppearance.BorderSize = 0;
-            this.Ecouter.FlatStyle = FlatStyle.Flat;
-            this.Ecouter.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            this.Ecouter.ForeColor = SystemColors.ControlLightLight;
             this.Ecouter.Location = new Point(200, 210);
-            this.Ecouter.Name = "Ecouter";
-            this.Ecouter.Size = new Size(198, 51);
-            this.Ecouter.TabIndex = 1;
-            this.Ecouter.Text = "Ecouter";
-            this.Ecouter.UseVisualStyleBackColor = false;
             this.Ecouter.Click += new System.EventHandler(this.Ecouter_Click);
             // 
             // 
             // ChasseAuxMots
             // 
-            this.ClientSize = new Size(700, 528);
-            this.Location = new Point(340, 190);
-            this.Controls.Add(this.Ecouter);
-            this.Controls.Add(this.conteneurCarte);
-            this.Name = "ChasseAuxMots";
-            this.Text = "ChasseAuxMots";
+            this.ClientSize = new Size(600, 290);
             this.conteneurCarte.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -239,17 +221,7 @@ namespace Chasse_aux_mots
             // 
             // Ecouter
             // 
-            this.Ecouter.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.Ecouter.FlatAppearance.BorderSize = 0;
-            this.Ecouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Ecouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ecouter.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Ecouter.Location = new System.Drawing.Point(220, 380);
-            this.Ecouter.Name = "Ecouter";
-            this.Ecouter.Size = new System.Drawing.Size(198, 51);
-            this.Ecouter.TabIndex = 6;
-            this.Ecouter.Text = "Ecouter";
-            this.Ecouter.UseVisualStyleBackColor = false;
+            this.Ecouter.Location = new System.Drawing.Point(200, 380);
             this.Ecouter.Click += new System.EventHandler(this.Ecouter_Click);
             // 
             // conteneurCarte
@@ -262,11 +234,7 @@ namespace Chasse_aux_mots
             this.conteneurCarte.Controls.Add(this.pictureBox3);
             this.conteneurCarte.Controls.Add(this.pictureBox2);
             this.conteneurCarte.Controls.Add(this.pictureBox1);
-            this.conteneurCarte.Location = new System.Drawing.Point(0, 0);
-            this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(590, 348);
-            this.conteneurCarte.TabIndex = 5;
-            this.conteneurCarte.BackColor = Color.Red;
             // 
             // pictureBox8
             // 
@@ -313,13 +281,7 @@ namespace Chasse_aux_mots
             // 
             // ChasseAuxMots8Panel
             // 
-            this.ClientSize = new System.Drawing.Size(605, 500);
-            this.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.Controls.Add(this.Ecouter);
-            this.Controls.Add(this.conteneurCarte);
-            this.Name = "ChasseAuxMots8";
-            this.Text = "ChasseAuxMots8";
+            this.ClientSize = new System.Drawing.Size(605, 470);
             this.conteneurCarte.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
@@ -390,17 +352,7 @@ namespace Chasse_aux_mots
             // 
             // Ecouter
             // 
-            this.Ecouter.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.Ecouter.FlatAppearance.BorderSize = 0;
-            this.Ecouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Ecouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ecouter.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Ecouter.Location = new System.Drawing.Point(350, 380);
-            this.Ecouter.Name = "Ecouter";
-            this.Ecouter.Size = new System.Drawing.Size(140, 51);
-            this.Ecouter.TabIndex = 11;
-            this.Ecouter.Text = "Ecouter";
-            this.Ecouter.UseVisualStyleBackColor = false;
+            this.Ecouter.Location = new System.Drawing.Point(360, 380);
             this.Ecouter.Click += new System.EventHandler(this.Ecouter_Click);
             // 
             // conteneurCarte
@@ -417,10 +369,7 @@ namespace Chasse_aux_mots
             this.conteneurCarte.Controls.Add(this.pictureBox3);
             this.conteneurCarte.Controls.Add(this.pictureBox2);
             this.conteneurCarte.Controls.Add(this.pictureBox1);
-            this.conteneurCarte.Location = new System.Drawing.Point(0, 0);
-            this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(870, 380);
-            this.conteneurCarte.TabIndex = 10;
             // 
             // pictureBox12
             // 
@@ -484,12 +433,7 @@ namespace Chasse_aux_mots
             // 
             // ChasseAuxMots12Panel
             // 
-            this.ClientSize = new System.Drawing.Size(870, 450);
-            this.Location = new System.Drawing.Point(0, 0);
-            this.Controls.Add(this.Ecouter);
-            this.Controls.Add(this.conteneurCarte);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.ClientSize = new Size(905, 470);
             this.conteneurCarte.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();

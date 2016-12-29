@@ -19,6 +19,7 @@ namespace La_petite_boite
         List<actionButton> tableauFonctions = new List<actionButton>();
         public Label message = new Label();
         public PictureBox animation = new PictureBox();
+        public Panel conteneurButtons = new Panel();
 
 
         public PopUp(Color fond, Bitmap animation, int nbrBoutons, String message, List<String> texteBoutons, List<int> referenceMethods)
@@ -30,7 +31,7 @@ namespace La_petite_boite
             this.message.Font = new Font(Form1.privateFontCollection.Families[0], 15);
             this.message.ForeColor = Color.White;
             this.message.BackColor = Color.Transparent;
-            this.message.Location = new Point(96, 140);
+            this.message.Location = new Point(96, 175);
             this.message.Size = new Size(440, 75);
             this.message.TabIndex = 3;
             this.message.TextAlign = ContentAlignment.MiddleCenter;
@@ -38,13 +39,19 @@ namespace La_petite_boite
             // 
             // animation
             // 
-            this.animation.Location = new Point(210, 20);
-            this.animation.Size = new Size(190, 120);
+            this.animation.Location = new Point(104, 12);
+            this.animation.Size = new Size(422, 159);
             this.animation.TabIndex = 4;
             this.animation.TabStop = false;
             this.animation.Image = animation;
             this.animation.BackColor = Color.Transparent;
             this.animation.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            //conteneur Boutons
+            this.conteneurButtons.Size = new Size(621,60);
+            this.conteneurButtons.Location = new Point(0, 250);
+            this.conteneurButtons.BackColor = Color.Transparent;
+            this.conteneurButtons.BorderStyle = BorderStyle.None;
 
             //on stocke les fonctions dans un tableau pour pouvoir les appeler plus facilement
             tableauFonctions.Add(Retour);
@@ -54,12 +61,14 @@ namespace La_petite_boite
             tableauFonctions.Add(SauvegardeRetourAccueil);
             tableauFonctions.Add(RetourAccueil);
             tableauFonctions.Add(Quitter);
+
+            //on attribue la couleur du background
             BackColor = fond;
             
             if (nbrBoutons == 1)
             {
                 popUpButton bouton1 = new popUpButton();
-                this.Controls.Add(bouton1);
+                conteneurButtons.Controls.Add(bouton1);
                 bouton1.Width = 195;
                 bouton1.Height = 55;
                 bouton1.Left = 213;
@@ -71,18 +80,18 @@ namespace La_petite_boite
             {
                 popUpButton bouton1 = new popUpButton();
                 popUpButton bouton2 = new popUpButton();
-                this.Controls.Add(bouton1);
-                this.Controls.Add(bouton2);
+                conteneurButtons.Controls.Add(bouton1);
+                conteneurButtons.Controls.Add(bouton2);
 
                 //sur la form pour l'instant il n'y a que des boutons
                 for (int i = 0; i < 2; i++)
                 {
-                    this.Controls[i].Width = 195;
-                    this.Controls[i].Height = 55;
-                    this.Controls[i].Left = i * 230 + 100;
-                    this.Controls[i].Font = new Font(Form1.privateFontCollection.Families[0], 14);
-                    this.Controls[i].Text = texteBoutons.ElementAt(i);
-                    this.Controls[i].Click += new EventHandler(tableauFonctions.ElementAt(referenceMethods.ElementAt(i)));
+                    conteneurButtons.Controls[i].Width = 195;
+                    conteneurButtons.Controls[i].Height = 55;
+                    conteneurButtons.Controls[i].Left = i * 230 + 100;
+                    conteneurButtons.Controls[i].Font = new Font(Form1.privateFontCollection.Families[0], 14);
+                    conteneurButtons.Controls[i].Text = texteBoutons.ElementAt(i);
+                    conteneurButtons.Controls[i].Click += new EventHandler(tableauFonctions.ElementAt(referenceMethods.ElementAt(i)));
                 }
             }
             else if (nbrBoutons == 3)
@@ -91,23 +100,24 @@ namespace La_petite_boite
                 popUpButton bouton1 = new popUpButton();
                 popUpButton bouton2 = new popUpButton();
                 popUpButton bouton3 = new popUpButton();
-                this.Controls.Add(bouton1);
-                this.Controls.Add(bouton2);
-                this.Controls.Add(bouton3);
+                conteneurButtons.Controls.Add(bouton1);
+                conteneurButtons.Controls.Add(bouton2);
+                conteneurButtons.Controls.Add(bouton3);
 
                 //sur la form pour l'instant il n'y a que des boutons
                 for (int i = 0; i < 3; i++)
                 {
-                    this.Controls[i].Width = 156;
-                    this.Controls[i].Height = 55;
-                    this.Controls[i].Left = i * 206 + 26;
-                    this.Controls[i].Font = new Font(Form1.privateFontCollection.Families[0], 14);
-                    this.Controls[i].Text = texteBoutons.ElementAt(i);
-                    this.Controls[i].Click += new EventHandler(tableauFonctions.ElementAt(referenceMethods.ElementAt(i)));
+                    conteneurButtons.Controls[i].Width = 156;
+                    conteneurButtons.Controls[i].Height = 55;
+                    conteneurButtons.Controls[i].Left = i * 206 + 26;
+                    conteneurButtons.Controls[i].Font = new Font(Form1.privateFontCollection.Families[0], 14);
+                    conteneurButtons.Controls[i].Text = texteBoutons.ElementAt(i);
+                    conteneurButtons.Controls[i].Click += new EventHandler(tableauFonctions.ElementAt(referenceMethods.ElementAt(i)));
                 }
             }
             this.Controls.Add(this.message);
             this.Controls.Add(this.animation);
+            this.Controls.Add(this.conteneurButtons);
         }
         
         void Retour(object sender, EventArgs e)

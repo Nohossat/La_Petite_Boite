@@ -568,4 +568,25 @@
   <data name="exitNoir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Jeu\exitNoir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="flecheRetourRouge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\flecheRetourRouge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="helpiconeClic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\helpiconeClic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="homeBoutonClic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\homeBoutonClic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sauvegardebuttonClic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\sauvegardebuttonClic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fauxminHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\fauxminHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vraiminHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\vraiminHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondBlanc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Jeu\fondBlanc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

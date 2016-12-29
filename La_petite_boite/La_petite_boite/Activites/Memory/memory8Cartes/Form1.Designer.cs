@@ -155,7 +155,7 @@ namespace memory8Cartes
             // 
             // MemoryPanel
             // 
-            this.ClientSize = new System.Drawing.Size(820, 360);
+            this.ClientSize = new System.Drawing.Size(820, 392);
             this.conteneurCarte.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.doubleCarte4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carte4)).EndInit();
@@ -250,7 +250,7 @@ namespace memory8Cartes
             // 
             // Memory12Panel
             // 
-            this.ClientSize = new System.Drawing.Size(800, 500);
+            this.ClientSize = new System.Drawing.Size(800, 540);
             this.conteneurCarte.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.carte5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carte3)).EndInit();
@@ -375,7 +375,7 @@ namespace memory8Cartes
             // 
             // Memory18Panel
             // 
-            this.ClientSize = new System.Drawing.Size(1020, 500);
+            this.ClientSize = new System.Drawing.Size(1045, 540);
             this.conteneurCarte.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.carte9Double)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carte9)).EndInit();

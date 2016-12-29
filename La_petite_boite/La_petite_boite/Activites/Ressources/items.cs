@@ -120,6 +120,22 @@ namespace Ressources
             }
         }
 
+        public static Bitmap checkHover
+        {
+            get
+            {
+                return Properties.Resources.vraiminHover;
+            }
+        }
+
+        public static Bitmap fauxHover
+        {
+            get
+            {
+                return Properties.Resources.fauxminHover;
+            }
+        }
+
         public static Bitmap attention
         {
             get
@@ -133,6 +149,14 @@ namespace Ressources
             get
             {
                 return Properties.Resources.fireworks1;
+            }
+        }
+
+        public static Bitmap fondBlanc
+        {
+            get
+            {
+                return Properties.Resources.fondBlanc;
             }
         }
 
@@ -157,6 +181,14 @@ namespace Ressources
             get
             {
                 return Properties.Resources.retourFleche;
+            }
+        }
+
+        public static Bitmap retourFlecheRouge
+        {
+            get
+            {
+                return Properties.Resources.flecheRetourRouge;
             }
         }
 
@@ -357,6 +389,30 @@ namespace Ressources
             get
             {
                 return Properties.Resources.homeBouton;
+            }
+        }
+
+        public static Bitmap aideHover
+        {
+            get
+            {
+                return Properties.Resources.helpiconeClic;
+            }
+        }
+
+        public static Bitmap sauvegardeHover
+        {
+            get
+            {
+                return Properties.Resources.sauvegardebuttonClic;
+            }
+        }
+
+        public static Bitmap quitterHover
+        {
+            get
+            {
+                return Properties.Resources.homeBoutonClic;
             }
         }
 

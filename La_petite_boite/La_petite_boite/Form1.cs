@@ -72,10 +72,7 @@ namespace La_petite_boite
         ControlButton retour = new ControlButton();
 
         LittleButton actionJoueur = new LittleButton(530);
-        LittleButton precedent = new LittleButton(600);
         
-        List<Bitmap> imagesDiaporama = new List<Bitmap>();
-
         ComboBox listeDossierSauvegarde = new ComboBox();
 
         Lieu Village = new Lieu(470, -28, 448, 270, items.villagePrevious, items.villageAfter, items.mapVillage, new Point(120, 440), "Memory"); //MEMORY
@@ -118,11 +115,15 @@ namespace La_petite_boite
         PictureBox coffre = new PictureBox();
         PictureBox sauvegarde = new PictureBox();
         PictureBox quitterMiniJeu = new PictureBox();
+        PictureBox precedent = new PictureBox();
         List<PictureBox> listeAvatars = new List<PictureBox>();
         Image imgChev = items.bain1;//TEST
 
         List<Bitmap> imagesAvatars = new List<Bitmap>();
         List<Bitmap> imagesAvatarsGris = new List<Bitmap>();
+        List<Bitmap> imagesEnterBoutons = new List<Bitmap>();
+        List<Bitmap> imagesLeaveBoutons = new List<Bitmap>();
+        List<Bitmap> imagesDiaporama = new List<Bitmap>();
 
         Point positionJoueur = new Point();
         String jeuEnCours = "";
@@ -256,9 +257,23 @@ namespace La_petite_boite
             tabBord.Controls.Add(sauvegarde);
             tabBord.Controls.Add(quitterMiniJeu);
             tabBord.Controls.Add(guide);
-            
+
+            //on ajoute dans la liste Bitmaps les images qui vont remplacer les img des PictureBox en cas de survol
+
+            imagesEnterBoutons.Add(items.sauvegardeHover);
+            imagesEnterBoutons.Add(items.quitterHover);
+            imagesEnterBoutons.Add(items.aideHover);
+            imagesEnterBoutons.Add(items.retourFlecheRouge);
+
+            //les images qui doivent apparaitre lorsque l'on quitte les boutons/picturebox
+
+            imagesLeaveBoutons.Add(items.sauvegarde);
+            imagesLeaveBoutons.Add(items.quitter);
+            imagesLeaveBoutons.Add(items.aide);
+            imagesLeaveBoutons.Add(items.retourFleche);
+
             //conteneurEtoilesCoffre
-            
+
             conteneurEtoilesCoffre.Width = 1000;
             conteneurEtoilesCoffre.Height = 111;
             conteneurEtoilesCoffre.BackgroundImage = items.banniereGriseConteneurEtoiles;
@@ -336,31 +351,47 @@ namespace La_petite_boite
             coffre.BackColor = Color.Transparent;
 
             //guide
-            guide.Image = items.aide;
+            guide.Image = imagesLeaveBoutons[2];
             guide.Width = 50;
             guide.Height = 50;
             guide.SizeMode = PictureBoxSizeMode.StretchImage;
             guide.Click += new EventHandler(AfficheMessage);
-            
+            guide.MouseEnter += new EventHandler(boutonEnter);
+            guide.MouseLeave += new EventHandler(boutonLeave);
 
             //sauvegarde
-            sauvegarde.Image = items.sauvegarde;
+            sauvegarde.Image = imagesLeaveBoutons[0];
             sauvegarde.BackColor = Color.Green;
             sauvegarde.Width = 34;
             sauvegarde.Height = 34;
             sauvegarde.SizeMode = PictureBoxSizeMode.StretchImage;
             sauvegarde.BackColor = Color.Transparent;
             sauvegarde.Click += new EventHandler(sauvegardeButton);
+            sauvegarde.MouseEnter += new EventHandler(boutonEnter);
+            sauvegarde.MouseLeave += new EventHandler(boutonLeave);
 
             //quitterMiniJeu
-            quitterMiniJeu.Image = items.quitter;
+            quitterMiniJeu.Image = imagesLeaveBoutons[1];
             quitterMiniJeu.Name = "quitterMiniJeu";
             quitterMiniJeu.Width = 40;
             quitterMiniJeu.Height = 40;
             quitterMiniJeu.SizeMode = PictureBoxSizeMode.StretchImage;
             quitterMiniJeu.BackColor = Color.Transparent;
             quitterMiniJeu.Click += new EventHandler(retourTabBord);
+            quitterMiniJeu.MouseEnter += new EventHandler(boutonEnter);
+            quitterMiniJeu.MouseLeave += new EventHandler(boutonLeave);
 
+            //precedent
+            precedent.Height = 71;
+            precedent.Width = 100;
+            precedent.Left = 50;
+            precedent.Top = 40;
+            precedent.BackColor = Color.Transparent;
+            precedent.SizeMode = PictureBoxSizeMode.StretchImage;
+            precedent.Image = imagesLeaveBoutons[3];
+            precedent.Click += new EventHandler(afficherDiapoPrecedente);
+            precedent.MouseEnter += new EventHandler(boutonEnter);
+            precedent.MouseLeave += new EventHandler(boutonLeave);
 
             //---------------------------------FICHIERS-------------------------------------//
 
@@ -408,15 +439,6 @@ namespace La_petite_boite
             actionJoueur.Height = 90;
             actionJoueur.Width = 500;
             actionJoueur.Font = new Font(privateFontCollection.Families[0], 40);
-
-            //precedent
-            precedent.Height = 120;
-            precedent.Width = 170;
-            precedent.Left = 50;
-            precedent.Top = 40;
-            precedent.BackgroundImageLayout = ImageLayout.Stretch;
-            precedent.BackgroundImage = items.retourFleche;
-            precedent.Click += new EventHandler(afficherDiapoPrecedente);
             
             //-------------------------------CHAMPS------------------------------//
 
@@ -611,6 +633,30 @@ namespace La_petite_boite
 
         }
 
+        private void boutonLeave(object sender, EventArgs e)
+        {
+            PictureBox boutonTabBord = (PictureBox)sender;
+
+            //on determine quelle est la position dans la liste des imgEnter pour determiner l'indice de l'image Leave a montrer
+            Bitmap img = (Bitmap)boutonTabBord.Image;
+
+            int index = imagesEnterBoutons.IndexOf(img);
+
+            boutonTabBord.Image = imagesLeaveBoutons[index];
+        }
+
+        private void boutonEnter(object sender, EventArgs e)
+        {
+            PictureBox boutonTabBord = (PictureBox) sender;
+
+            //on determine quelle est la position dans la liste des imgLeave pour determiner l'indice de l'image Enter a montrer
+            Bitmap img = (Bitmap) boutonTabBord.Image;
+
+            int index = imagesLeaveBoutons.IndexOf(img);
+
+            boutonTabBord.Image = imagesEnterBoutons[index];
+        }
+       
         private void resizableControls(object sender, EventArgs e)
         {
             if (this.Controls.Contains(CarteJeu))
@@ -671,14 +717,13 @@ namespace La_petite_boite
 
         public void afficheAccueil()
         {
-            SetCursorPos(1000, 200);
-            Console.WriteLine(Cursor.Position);
-            SetCursorPos(500, 200);
-            Console.WriteLine(Cursor.Position);
             Table.Controls.Clear();
             Table.ColumnStyles.Clear();
             Table.RowStyles.Clear();
             this.Controls.Clear();
+            Table.ColumnCount = 4;
+            Table.RowCount = 4;
+
             //on affiche l-accueil
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
@@ -960,6 +1005,7 @@ namespace La_petite_boite
 
         public void diaporama()
         {
+            Table.ColumnCount = 5;
             Table.Controls.Clear();
             Table.RowStyles.Clear();
             Table.ColumnStyles.Clear();
@@ -967,19 +1013,27 @@ namespace La_petite_boite
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 57F));
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 12F));
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 21F));
-            Table.Controls.Add(precedent, 0, 0);
+
+            Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+            Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 7F));
+            Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 43F));
+            Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
+            Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+
+            Table.Controls.Add(precedent, 1, 3);
             Table.Controls.Add(textePresentationJeu, 0, 2);
-            Table.Controls.Add(actionJoueur, 0, 3);
-            Table.SetColumnSpan(textePresentationJeu, 4);
-            Table.SetColumnSpan(actionJoueur, 4);
+            Table.Controls.Add(actionJoueur, 2, 3);
+            Table.SetColumnSpan(textePresentationJeu, 5);
+            Table.SetColumnSpan(actionJoueur, 2);
 
             foreach (Control c in Table.Controls)
             {
                 c.Dock = DockStyle.None;
                 c.Anchor = AnchorStyles.None;
             }
-
-            precedent.Dock = DockStyle.Fill;
+            
+            precedent.Dock = DockStyle.None;
+            precedent.Anchor = AnchorStyles.Top;
             actionJoueur.Anchor = AnchorStyles.Top;
             diaporamaHistoire.Controls.Add(Table);
             diaporamaHistoire.Tag = "0";
@@ -993,6 +1047,7 @@ namespace La_petite_boite
             nomJoueur = chevalier.nomJoueur();
             textePresentationJeu.Text = textesDiaporama.ElementAt(0);
             actionJoueur.Text = "Oui";
+            actionJoueur.Width = 200;
             actionJoueur.Click += new EventHandler(ReadyButton);
 
             diaporama();
@@ -1005,6 +1060,7 @@ namespace La_petite_boite
         {
             textePresentationJeu.Text = textesDiaporama.ElementAt(1);
             diaporamaHistoire.Tag = "1";
+            actionJoueur.Width = 500;
             actionJoueur.Text = "Voir le Magicien";
             actionJoueur.Click -= ReadyButton;
             actionJoueur.Click += new EventHandler(afficherDiapoSuivant);
@@ -1019,14 +1075,14 @@ namespace La_petite_boite
             {
                 this.Controls.Clear();
                 //retour a l'accueil
-                this.Controls.Add(accueil);
+                afficheAccueil();
             }
             else if (index.Equals("1"))
             {
                 //retour au premier panel roi
                 diaporamaHistoire.Tag = "0";
                 textePresentationJeu.Text = textesDiaporama.ElementAt(0);
-
+                actionJoueur.Width = 200;
                 actionJoueur.Text = "Oui";
                 actionJoueur.Click -= afficherDiapoSuivant;
                 actionJoueur.Click += new EventHandler(ReadyButton);
@@ -1037,7 +1093,7 @@ namespace La_petite_boite
                 diaporamaHistoire.Tag = "1";
                 textePresentationJeu.Text = textesDiaporama.ElementAt(1);
                 diaporamaHistoire.BackgroundImage = imagesDiaporama.ElementAt(0);
-
+                actionJoueur.Width = 500;
                 actionJoueur.Text = "Voir le Magicien";
                 actionJoueur.Click -= afficherCarte;
                 actionJoueur.Click += new EventHandler(afficherDiapoSuivant);
@@ -1049,7 +1105,7 @@ namespace La_petite_boite
             textePresentationJeu.Text = textesDiaporama.ElementAt(2);
             diaporamaHistoire.Tag = "2";
             diaporamaHistoire.BackgroundImage = imagesDiaporama.ElementAt(1);
-
+            actionJoueur.Width = 500;
             actionJoueur.Text = "Commencer le Jeu";
             actionJoueur.Click -= afficherDiapoSuivant;
             actionJoueur.Click += new EventHandler(afficherCarte);
@@ -1068,6 +1124,7 @@ namespace La_petite_boite
 
         public void Carte()
         {
+            Table.ColumnCount = 4;
             //performance du display a modifier
             typeof(Panel).InvokeMember("DoubleBuffered",
    BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
@@ -1303,9 +1360,11 @@ namespace La_petite_boite
             //on desactive le timer
             timer2.Enabled = false;
             panelJoueur.Hide();
-            imgChevalier.Show();
             chevalier.setPosition(arrivee);
-
+            positionJoueur = chevalier.positionJoueur().getPosition();
+            imgChevalier.Location = positionJoueur;
+            imgChevalier.Show();
+           
             //on change le curseur pour lancer le jeu
             if (arrivee.Cursor == Cursors.Default)
             {
@@ -1595,8 +1654,23 @@ namespace La_petite_boite
             Table.SetColumnSpan(miniJeu, 3);
             Table.SetRowSpan(miniJeu, 2);
             Table.SetRowSpan(imgChevalier, 2);
-
-            System.Threading.Thread.Sleep(2000);
+            
+            if (jeuEnCours.Equals("Chasse aux mots"))
+            {
+                tuto = new tutoChasseAuxMots();
+            }
+            else if (jeuEnCours.Equals("Grand Ou Petit"))
+            {
+                tuto = new tutoGrandOuPetit();
+            }
+            else if (jeuEnCours.Equals("Que fait le Roi?"))
+            {
+                tuto = new tutoQueFaitLeRoi();
+            }
+            else if (jeuEnCours.Equals("Memory"))
+            {
+                tuto = new tutoMemory();
+            }
             tuto.ShowDialog();
         }
 
@@ -1609,31 +1683,28 @@ namespace La_petite_boite
             epreuvesF = chevalier.epreuvesFacultatives();
 
             jeuEnCours = l.Name;
-            if (l.Name == "Chasse aux mots")
+
+            if (jeuEnCours.Equals("Chasse aux mots"))
             {
                 //la chasse aux mots se deroule dans la montagne
                 Jeu.BackgroundImage = items.montagne;
-                tuto = new tutoChasseAuxMots();
                 IndiceJeu = 1;
             }
-            else if (l.Name == "Grand Ou Petit")
+            else if (jeuEnCours.Equals("Grand Ou Petit"))
             {
                 //grand ou petit se deroule dans une clairiere
                 Jeu.BackgroundImage = items.clairiere;
-                tuto = new tutoGrandOuPetit();
                 IndiceJeu = 2;
             }
-            else if (l.Name == "Que fait le Roi?")
+            else if (jeuEnCours.Equals("Que fait le Roi?"))
             {
                 //que fait le roi se deroule a cote de la riviere
                 Jeu.BackgroundImage = items.riviere;
-                tuto = new tutoQueFaitLeRoi();
                 IndiceJeu = 3;
             }
-            else if (l.Name == "Memory")
+            else if (jeuEnCours.Equals("Memory"))
             {
                 Jeu.BackgroundImage = items.village;
-                tuto = new tutoMemory();
                 IndiceJeu = 0;
             }
             else
@@ -1648,30 +1719,26 @@ namespace La_petite_boite
             {
                 //si le joueur a deja gagnee l'epreuve obligatoire,
                 //on peut lui demander s-il veut joueur au niveau suivant
-
                 if (chevalier.getEpreuvesGagnees(IndiceJeu) == 1)
                 {
-                    //s'il a deja gagne les etoiles /pop up personalise
+                    //ici pop up spe
+                    List<String> nomsButtons = new List<string>();
+                    List<int> refEvents = new List<int>();
+                    nomsButtons.Add("Rejouer");
+                    nomsButtons.Add("Niveau suivant");
+                    nomsButtons.Add("Carte");
+                    refEvents.Add(2);
+                    refEvents.Add(3);
+                    refEvents.Add(1);
 
-                    DialogResult res = MessageBox.Show("Tu as deja gagne les etoiles de cette epreuve. Souhaites tu rejouer au premier niveau ou veux/tu passer au niveau suivant ?", "No title", MessageBoxButtons.YesNo, MessageBoxIcon.None);
-
-
-                    if (res == DialogResult.Yes)
-                    {
-                        //pour l-instant, yes = premier niveau
-                        afficheJeu(l.Name, epreuvesO.ElementAt(IndiceJeu));
-                    }
-                    else
-                    {
-                        //no = deuxieme niveau
-                        afficheJeu(l.Name, epreuvesF.ElementAt(IndiceJeu));
-                    }
-
+                    var Popup = new PopUp(ColorTranslator.FromHtml("#27348a"), items.guide, 3, "Tu as deja remportees les etoiles de ce lieu !", nomsButtons, refEvents);
+                    Popup.ShowDialog();
+                    reponsePopUp();
                 }
                 else
                 {
                     //s'il na jamais gagne les etoiles
-                    afficheJeu(l.Name, epreuvesO.ElementAt(IndiceJeu));
+                    afficheJeu(jeuEnCours, epreuvesO.ElementAt(IndiceJeu));
                 }
             }
         }
@@ -1789,16 +1856,35 @@ namespace La_petite_boite
             else if (choixFinMiniJeu == 1)
             {
                 //on affiche et on reload le premier niveau
-                miniJeu.Controls.Clear();
-                epreuvesO.ElementAt(IndiceJeu).chargementPartie();
-                miniJeu.Controls.Add(epreuvesO.ElementAt(IndiceJeu));
-                titreJeu.Text = "Niveau 1 : " + jeuEnCours;
+
+                if (this.Controls.Contains(CarteJeu))
+                {
+                    afficheJeu(jeuEnCours, epreuvesO.ElementAt(IndiceJeu));
+                }
+                else
+                {
+                    miniJeu.Controls.Clear();
+                    epreuvesO.ElementAt(IndiceJeu).chargementPartie();
+                    miniJeu.Controls.Add(epreuvesO.ElementAt(IndiceJeu));
+                    titreJeu.Text = "Niveau 1 : " + jeuEnCours;
+                }
+                
             }
             else if (choixFinMiniJeu == 2)
             {
                 //on joue au deuxieme niveau
-                titreJeu.Text = "Niveau 2 : " + jeuEnCours;
-                epreuvesF.ElementAt(IndiceJeu).chargementPartie();
+                if (this.Controls.Contains(CarteJeu))
+                {
+                    afficheJeu(jeuEnCours, epreuvesO.ElementAt(IndiceJeu));
+                }
+                else
+                {
+                    miniJeu.Controls.Clear();
+                    epreuvesF.ElementAt(IndiceJeu).chargementPartie();
+                    miniJeu.Controls.Add(epreuvesF.ElementAt(IndiceJeu));
+                    titreJeu.Text = "Niveau 2 : " + jeuEnCours;
+                }
+                
             }
             else if (choixFinMiniJeu == 3)
             {
@@ -1937,7 +2023,6 @@ namespace La_petite_boite
             this.Controls.Add(diaporamaHistoire);
         }
         
-
         public void afficheRecompense(object sender, EventArgs e)
         {
             this.Controls.Remove(diaporamaHistoire);

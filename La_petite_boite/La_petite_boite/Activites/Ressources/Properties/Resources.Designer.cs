@@ -559,6 +559,16 @@ namespace Ressources.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap flecheRetourRouge {
+            get {
+                object obj = ResourceManager.GetObject("flecheRetourRouge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap foret1 {
             get {
                 object obj = ResourceManager.GetObject("foret1", resourceCulture);
@@ -742,9 +752,29 @@ namespace Ressources.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap helpiconeClic {
+            get {
+                object obj = ResourceManager.GetObject("helpiconeClic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap homeBouton {
             get {
                 object obj = ResourceManager.GetObject("homeBouton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap homeBoutonClic {
+            get {
+                object obj = ResourceManager.GetObject("homeBoutonClic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1360,6 +1390,16 @@ namespace Ressources.Properties {
         public static System.Drawing.Bitmap sauvegardebutton1 {
             get {
                 object obj = ResourceManager.GetObject("sauvegardebutton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap sauvegardebuttonClic {
+            get {
+                object obj = ResourceManager.GetObject("sauvegardebuttonClic", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -160,6 +160,14 @@ namespace Ressources
             }
         }
 
+        public static Bitmap retourFlecheRouge
+        {
+            get
+            {
+                return Properties.Resources.flecheRetourRouge;
+            }
+        }
+
         public static Bitmap mapCabane
         {
             get
@@ -357,6 +365,30 @@ namespace Ressources
             get
             {
                 return Properties.Resources.homeBouton;
+            }
+        }
+
+        public static Bitmap aideHover
+        {
+            get
+            {
+                return Properties.Resources.helpiconeClic;
+            }
+        }
+
+        public static Bitmap sauvegardeHover
+        {
+            get
+            {
+                return Properties.Resources.sauvegardebuttonClic;
+            }
+        }
+
+        public static Bitmap quitterHover
+        {
+            get
+            {
+                return Properties.Resources.homeBoutonClic;
             }
         }
 

@@ -286,6 +286,10 @@
     <EmbeddedResource Include="Resources\Jeu\fauxmin.png" />
     <EmbeddedResource Include="Resources\Jeu\vraimin.png" />
     <EmbeddedResource Include="Resources\Jeu\exitNoir.png" />
+    <EmbeddedResource Include="Resources\Jeu\flecheRetourRouge.png" />
+    <EmbeddedResource Include="Resources\Jeu\helpiconeClic.png" />
+    <EmbeddedResource Include="Resources\Jeu\homeBoutonClic.png" />
+    <EmbeddedResource Include="Resources\Jeu\sauvegardebuttonClic.png" />
     <Content Include="Resources\miniJeu\pauseFR.wav" />
   </ItemGroup>
   <ItemGroup />

@@ -41,9 +41,9 @@ namespace La_petite_boite
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(352, 459);
+            this.progressBar1.Location = new System.Drawing.Point(348, 469);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(540, 10);
+            this.progressBar1.Size = new System.Drawing.Size(560, 10);
             this.progressBar1.TabIndex = 1;
             // 
             // timer1

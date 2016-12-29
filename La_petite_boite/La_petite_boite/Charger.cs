@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Ressources;
+using System.Collections.Generic;
 
 namespace La_petite_boite
 {
@@ -207,27 +208,31 @@ namespace La_petite_boite
                     }
                 }
 
+                //ici pop up spe
+                List<String> nomsButtons = new List<string>();
+                List<int> refEvents = new List<int>();
+                nomsButtons.Add("Retour");
+                refEvents.Add(0);
+                
                 if (nomJoueur == "")
                 {
-                    String message = "Il faut selectionner une valeur dans la liste";
-                    String titre = "Erreur";
-                    MessageBox.Show(message, titre, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    String message = "Il faut choisir un personnage";
+                    var Popup = new PopUp(ColorTranslator.FromHtml("#f39200"), items.guide, 1, message, nomsButtons, refEvents);
+                    Popup.ShowDialog();
                 }
 
                 //une erreur est toujours possible
                 if (trouve == false && nomJoueur != "")
                 {
                     String message = "Le joueur" + nomJoueur + " n'a pas ete retrouve.";
-                    String titre = "Erreur";
-                    MessageBox.Show(message, titre, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    var Popup = new PopUp(ColorTranslator.FromHtml("#f39200"), items.guide, 1, message, nomsButtons, refEvents);
+                    Popup.ShowDialog();
                 }
             }
             catch (Exception er)
             {
                 Console.WriteLine("Une erreur s'est produite : '{0}'", er);
             }
-
         }
-        
     }
 }

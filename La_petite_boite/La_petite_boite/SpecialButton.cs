@@ -127,7 +127,7 @@ namespace La_petite_boite
     {
         public popUpButton()
         {
-            this.Top = 223;
+            this.Top = 0;
             this.BackColor = ColorTranslator.FromHtml("#e9dce3");
             this.ForeColor = ColorTranslator.FromHtml("#003255");
             this.FlatAppearance.MouseDownBackColor = Color.White;

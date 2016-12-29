@@ -46,7 +46,7 @@ namespace La_petite_boite
             Selection.Height = 40;
             Selection.ForeColor = Color.White;
             Selection.BackColor = Color.Transparent;
-            Selection.Font = new Font(Form1.privateFontCollection.Families[0], 20);
+            Selection.Font = new Font(petiteBoite.privateFontCollection.Families[0], 20);
             
             
             //liste de dossiers de sauvegarde
@@ -60,15 +60,15 @@ namespace La_petite_boite
             
             //ComboBox
 
-            for (int i = 0; i < Form1.listeSauvegarde.Count(); i++)
+            for (int i = 0; i < petiteBoite.listeSauvegarde.Count(); i++)
             {
-                listeDossierSauvegarde.Items.Add(Form1.listeSauvegarde[i]);
+                listeDossierSauvegarde.Items.Add(petiteBoite.listeSauvegarde[i]);
             }
 
             //annonce
 
             annonce.Text = ""; 
-            annonce.Font = new Font(Form1.privateFontCollection.Families[0], 20);
+            annonce.Font = new Font(petiteBoite.privateFontCollection.Families[0], 20);
             annonce.ForeColor = Color.White;
             annonce.BackColor = Color.Transparent;
             annonce.Width = 640;
@@ -89,13 +89,13 @@ namespace La_petite_boite
             //retour
             retour.Text = "Retour";
             retour.Left = 245;
-            retour.Font = new Font(Form1.privateFontCollection.Families[0], 25);
+            retour.Font = new Font(petiteBoite.privateFontCollection.Families[0], 25);
             retour.Click += new EventHandler(retourButton);
 
             //charger
             charger.Text = "Charger";
             charger.Left = 140;
-            charger.Font = new Font(Form1.privateFontCollection.Families[0], 25);
+            charger.Font = new Font(petiteBoite.privateFontCollection.Families[0], 25);
             charger.Click += new EventHandler(chargerMethod);
 
             
@@ -118,7 +118,7 @@ namespace La_petite_boite
 
             if (trouve == true)
             {
-                Form1.chargementReussi = true;
+                petiteBoite.chargementReussi = true;
             }
 
             //on referme la form
@@ -145,11 +145,11 @@ namespace La_petite_boite
                     joueursPossibles.Items.Clear();
                 }
 
-                for (int i = 0; i < Form1.joueursFichier.Count(); i++)
+                for (int i = 0; i < petiteBoite.joueursFichier.Count(); i++)
                 {
-                    if (Form1.joueursFichier[i].Contains(dossier))
+                    if (petiteBoite.joueursFichier[i].Contains(dossier))
                     {
-                        ligne = Form1.joueursFichier[i].Split('-');
+                        ligne = petiteBoite.joueursFichier[i].Split('-');
                         joueursPossibles.Items.Add(ligne[0]);
                     }
                 }
@@ -185,25 +185,25 @@ namespace La_petite_boite
             try
             {
                 //on boucle sur le tableau joueursFichier pour voir quelle ligne contient le nom du joueur
-                for (int i = 0; i < Form1.joueursFichier.Count(); i++)
+                for (int i = 0; i < petiteBoite.joueursFichier.Count(); i++)
                 {
-                    if (Form1.joueursFichier[i].Contains(nomJoueur) && nomJoueur != "")
+                    if (petiteBoite.joueursFichier[i].Contains(nomJoueur) && nomJoueur != "")
                     {
                        
                         //on split la chaine
-                        splitjoueurFichier = Form1.joueursFichier[i].Split('-');
+                        splitjoueurFichier = petiteBoite.joueursFichier[i].Split('-');
 
                         //on enregistre les donnees du joueur pour cr'eer l-instance dans la form1 
-                        Form1.nom = splitjoueurFichier[0];
-                        Form1.age = Convert.ToInt16(splitjoueurFichier[1]);
-                        Form1.avatar = Convert.ToInt16(splitjoueurFichier[2]);
-                        Form1.lieuTemporaire = splitjoueurFichier[3];
-                        Form1.score = Convert.ToInt16(splitjoueurFichier[4]);
-                        Form1.dos = splitjoueurFichier[5];
-                        Form1.epreuvesEmportees[0] = Convert.ToInt16(splitjoueurFichier[6]);
-                        Form1.epreuvesEmportees[1] = Convert.ToInt16(splitjoueurFichier[7]);
-                        Form1.epreuvesEmportees[2] = Convert.ToInt16(splitjoueurFichier[8]);
-                        Form1.epreuvesEmportees[3] = Convert.ToInt16(splitjoueurFichier[9]);
+                        petiteBoite.nom = splitjoueurFichier[0];
+                        petiteBoite.age = Convert.ToInt16(splitjoueurFichier[1]);
+                        petiteBoite.avatar = Convert.ToInt16(splitjoueurFichier[2]);
+                        petiteBoite.lieuTemporaire = splitjoueurFichier[3];
+                        petiteBoite.score = Convert.ToInt16(splitjoueurFichier[4]);
+                        petiteBoite.dos = splitjoueurFichier[5];
+                        petiteBoite.epreuvesEmportees[0] = Convert.ToInt16(splitjoueurFichier[6]);
+                        petiteBoite.epreuvesEmportees[1] = Convert.ToInt16(splitjoueurFichier[7]);
+                        petiteBoite.epreuvesEmportees[2] = Convert.ToInt16(splitjoueurFichier[8]);
+                        petiteBoite.epreuvesEmportees[3] = Convert.ToInt16(splitjoueurFichier[9]);
                         trouve = true;
                     }
                 }

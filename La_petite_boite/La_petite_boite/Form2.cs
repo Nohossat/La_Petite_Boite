@@ -25,7 +25,7 @@ namespace La_petite_boite
             System.IO.File.AppendAllText("../../Resources/dossiers_sauvegarde.txt", nouveauNom.Text);
 
             //on enregistre la valeur saisie dans une variable globale
-            Form1.dossier = nouveauNom.Text;
+            petiteBoite.dossier = nouveauNom.Text;
 
             //on referme la form
             this.Close();

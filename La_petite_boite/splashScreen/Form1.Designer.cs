@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace La_petite_boite
+﻿namespace splashScreen
 {
-    partial class petiteBoite
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -31,39 +29,29 @@ namespace La_petite_boite
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(petiteBoite));
-           
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
+            // timer1
             // 
-            // timer2
-            // 
-            this.timer2.Interval = 20;
-            this.timer2.Tick += new System.EventHandler(this.timerDeplacement);
+            this.timer1.Tick += new System.EventHandler(this.showMainForm);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1268, 689);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1278, 719);
+            this.ClientSize = new System.Drawing.Size(752, 470);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "La petite Boite";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.Resize += new System.EventHandler(this.resizableControls);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Form1";
             this.ResumeLayout(false);
 
         }
-        
+
         #endregion
+
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer timer2;
     }
 }
 

@@ -33,7 +33,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Ecouter = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.conteneurCarte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -83,11 +82,6 @@
             this.Ecouter.UseVisualStyleBackColor = false;
             // 
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 9000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // tutoChasseAuxMots
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -109,6 +103,5 @@
 
         #endregion
         
-        private System.Windows.Forms.Timer timer1;
     }
 }

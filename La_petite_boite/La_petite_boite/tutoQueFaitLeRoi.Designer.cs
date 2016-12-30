@@ -38,7 +38,6 @@
             this.conteneurCarteAPlacer = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.conteneurCarte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -133,10 +132,6 @@
             this.pictureBox6.Tag = "2";
             // 
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 6000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // tutoQueFaitLeRoi
             // 
@@ -160,6 +155,5 @@
 
         #endregion
         
-        private System.Windows.Forms.Timer timer1;
     }
 }

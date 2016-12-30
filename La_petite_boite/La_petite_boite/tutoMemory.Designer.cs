@@ -34,7 +34,6 @@
             this.carte2 = new System.Windows.Forms.PictureBox();
             this.doubleCarte1 = new System.Windows.Forms.PictureBox();
             this.carte1 = new System.Windows.Forms.PictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.conteneurCarte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doubleCarte2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carte2)).BeginInit();
@@ -93,10 +92,6 @@
             this.carte1.TabStop = false;
             this.carte1.Tag = "1";
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 3000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // 
             // 
@@ -120,8 +115,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Timer timer1;
+        
     }
 
 }

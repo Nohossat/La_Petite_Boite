@@ -28,12 +28,20 @@ namespace La_petite_boite
         public tutoQueFaitLeRoi() : base()
         {
             InitializeComponent();
-            QueFaitLeRoi_Load();
-            System.Threading.Thread.Sleep(2000);
-            timer1.Enabled = true;
+
+            tableauFonctions.Add(action1);
+            tableauFonctions.Add(action2);
+            tableauFonctions.Add(action3);
+            tableauFonctions.Add(action4);
+            tableauFonctions.Add(action5);
+
+            chargementPartie();
+
+            System.Threading.Thread.Sleep(1000);
+            timer2.Enabled = true;
         }
         
-        private void QueFaitLeRoi_Load()
+        private void chargementPartie()
         {
             audio.Add(items.roiRentreAuChateauFR);
             audio.Add(items.roiVaALecoleTurc);
@@ -72,25 +80,37 @@ namespace La_petite_boite
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void action1()
         {
             //on ecoute la premiere phrase
             Program.petiteBoite.JouerSon(audio.ElementAt(0));
-            System.Threading.Thread.Sleep(2000);
+        }
+
+        private void action2()
+        {
             //on survole la premiere carte
             Program.petiteBoite.JouerSon(items.ecoleFR);
-            System.Threading.Thread.Sleep(2000);
+        }
+
+        private void action3()
+        {
             //on survole la deuxieme carte
             Program.petiteBoite.JouerSon(items.chateauTurc);
-            System.Threading.Thread.Sleep(2000);
+        }
+
+        private void action4()
+        {
             //on met la bonne carte au bon emplacement
             conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(0).Image = images[1];
             conteneurCarte.Controls.OfType<PictureBox>().ElementAt(0).Hide();
             Refresh();
-            System.Threading.Thread.Sleep(1000);
-            Program.petiteBoite.JouerSon(items.applaudissement);
-            timer1.Enabled = false;
         }
+
+        private void action5()
+        {
+            Program.petiteBoite.JouerSon(items.applaudissement);
+        }
+        
         
     }
 }

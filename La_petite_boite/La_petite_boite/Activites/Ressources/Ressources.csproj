@@ -293,6 +293,7 @@
     <EmbeddedResource Include="Resources\Jeu\fauxminHover.png" />
     <EmbeddedResource Include="Resources\Jeu\vraiminHover.png" />
     <EmbeddedResource Include="Resources\Jeu\fondBlanc.png" />
+    <EmbeddedResource Include="Resources\Jeu\chargementPetit.png" />
     <Content Include="Resources\miniJeu\pauseFR.wav" />
   </ItemGroup>
   <ItemGroup />

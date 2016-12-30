@@ -11,13 +11,13 @@ namespace La_petite_boite
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        public static Form1 petiteBoite;
+        public static petiteBoite petiteBoite;
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            petiteBoite = new Form1();
+            petiteBoite = new petiteBoite();
             Application.Run(petiteBoite);
         }
         

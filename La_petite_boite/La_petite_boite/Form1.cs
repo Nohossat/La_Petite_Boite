@@ -5,18 +5,15 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Drawing.Text;
 using System.Media;
-using Jeu;
 using Ressources;
-using System.Web;
-using System.Resources;
+using System.Threading;
 
 
 namespace La_petite_boite
 {
-    public partial class Form1 : FormSpecial
+    public partial class petiteBoite : FormSpecial
     {
         Assembly _assembly = Assembly.GetExecutingAssembly();
 
@@ -66,8 +63,8 @@ namespace La_petite_boite
         Lieu Village = new Lieu(470, -28, 448, 270, items.villagePrevious, items.villageAfter, items.mapVillage, new Point(120, 440), "Memory"); //MEMORY
         Lieu Chateau = new Lieu(106, 1006, 327, 404, items.chateauPrevious, items.chateauAfter, items.map, new Point(1050, 380), "Chateau");//CHATEAU
         Lieu Cabane = new Lieu(417, 755, 213, 192, items.cabanePrevious, items.cabaneAfter, items.mapCabane, new Point(760, 440), "Chasse aux mots");//CHASSE AUX MOTS
-        Lieu Tronc = new Lieu(80, 600, 177, 196, items.troncPrevious, items.troncAfter, items.mapTronc, new Point(600, 140), "Grand Ou Petit");//GRAND OU PETIT
-        Lieu Montagne = new Lieu(-5, -3, 378, 196, items.montagnePrevious, items.montagneAfter, items.mapMontagne, new Point(120, 140), "Que fait le Roi?");//QUE FAIT LE ROI
+        Lieu Tronc = new Lieu(80, 600, 177, 196, items.troncPrevious, items.troncAfter, items.mapTronc, new Point(600, 136), "Grand Ou Petit");//GRAND OU PETIT
+        Lieu Montagne = new Lieu(-5, -3, 378, 196, items.montagnePrevious, items.montagneAfter, items.mapMontagne, new Point(120, 136), "Que fait le Roi?");//QUE FAIT LE ROI
         Lieu arrivee = new Lieu();
         Lieu accueil = new Lieu();
         public static Lieu positionInitiale = new Lieu();
@@ -130,14 +127,26 @@ namespace La_petite_boite
 
         TextBox prenomField = new TextBox();
         TextBox ageField = new TextBox();
-        
+
+        System.Windows.Forms.Timer fade = new System.Windows.Forms.Timer();
 
         //Charger les elements
-        public Form1()
+        public petiteBoite()
         {
+            Thread t = new Thread(new ThreadStart(splashStart));
+            t.Start();
+            Thread.Sleep(6000);
+
             InitializeComponent();
+            afficheAccueil();
+            t.Abort();
         }
 
+        public void splashStart()
+        {
+            Application.Run(new splash());
+        }
+        
         /*[DllImport("user32.dll", EntryPoint = "SetCursorPos")]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool SetCursorPos(int X, int Y);*/
@@ -145,17 +154,18 @@ namespace La_petite_boite
         private void Form1_Load(object sender, EventArgs e)
         {
             //on determine la resolution de la fenetre
-            Double flagResolution = Screen.PrimaryScreen.Bounds.Height / System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
-            Console.WriteLine("resolution flag :" + System.Windows.Forms.Screen.PrimaryScreen);
+            Double flagResolution = Screen.PrimaryScreen.Bounds.Height / Screen.PrimaryScreen.Bounds.Width;
+            Console.WriteLine("resolution flag :" + Screen.PrimaryScreen);
+
             if (flagResolution == 1366 / 768)
             {
-                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-                this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-                this.ClientSize = new System.Drawing.Size(System.Windows.Forms.Screen.PrimaryScreen.Bounds.X, System.Windows.Forms.Screen.PrimaryScreen.Bounds.Y);
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+                this.ClientSize = new Size(Screen.PrimaryScreen.Bounds.X, Screen.PrimaryScreen.Bounds.Y);
             }
-            {
-                this.ClientSize = new System.Drawing.Size(1292, 726);
-                this.Size = new System.Drawing.Size(1289, 728);
+            else {
+                this.ClientSize = new Size(1292, 726);
+                this.Size = new Size(1292, 728);
             }
 
             this.DoubleBuffered = true;
@@ -166,12 +176,14 @@ namespace La_petite_boite
 
         private void generationElements()
         {
+            //la fonction fadein controle la vitesse d'affichage des differents panneaux. choisir un niveau d'opacite inf a 1 et pair pour que la fonction soit OK
+            this.Opacity = 0.64;
+
             //---------------------LAYOUTS------------------------//
-            
+
             Table.Location = new Point(0, 0);
             Table.Size = new Size(1292, 726);
             Table.AutoSize = true;
-            Table.Name = "Table";
             Table.ColumnCount = 4;
             Table.RowCount = 4;
             Table.BackColor = Color.Transparent;
@@ -184,10 +196,12 @@ namespace La_petite_boite
             Table.Dock = DockStyle.Fill;
             Table.Margin = new Padding(0);
 
+            //---------------------TIMERS------------------------//
+
+            fade.Tick += new System.EventHandler(this.fadein);
 
             //---------------------PANELS------------------------//
 
-            listePanels.Add(chargement);
             listePanels.Add(accueil);
             listePanels.Add(nouveauJoueur);
             listePanels.Add(diaporamaHistoire);
@@ -209,11 +223,7 @@ namespace La_petite_boite
             panelJoueur.Dock = DockStyle.None;
             panelJoueur.Paint += new PaintEventHandler(this.Form1_Paint);
             panelJoueur.BackColor = Color.Transparent;
-
-            //chargement
-            chargement.BackgroundImage = items.chargement;
             
-
             //accueil
             accueil.BackgroundImage = items.accueil;
 
@@ -428,13 +438,13 @@ namespace La_petite_boite
             //commencer
             commencer.Text = "Commencer";
             commencer.Left = 525;
-            commencer.Font = new Font(Form1.privateFontCollection.Families[0], 20);
+            commencer.Font = new Font(privateFontCollection.Families[0], 20);
             commencer.Click += new EventHandler(commencer_button);
 
             //retour
             retour.Text = "Retour";
             retour.Left = 725;
-            retour.Font = new Font(Form1.privateFontCollection.Families[0], 20);
+            retour.Font = new Font(privateFontCollection.Families[0], 20);
             retour.Click += new EventHandler(retourButton);
 
 
@@ -640,6 +650,17 @@ namespace La_petite_boite
 
         }
 
+        private void fadein(object sender, EventArgs e)
+        {
+            //on applique le fade in
+            this.Opacity += 0.02;
+
+            if (this.Opacity == 1)
+            {
+                fade.Stop();
+            }
+        }
+
         public void boutonLeave(object sender, EventArgs e)
         {
             PictureBox boutonTabBord = (PictureBox)sender;
@@ -724,6 +745,11 @@ namespace La_petite_boite
 
         public void afficheAccueil()
         {
+            //affichage leger
+            this.Opacity = 0.80;
+            fade.Enabled = true;
+            fade.Start();
+
             Table.Controls.Clear();
             Table.ColumnStyles.Clear();
             Table.RowStyles.Clear();
@@ -757,28 +783,7 @@ namespace La_petite_boite
 
             this.Controls.Add(accueil);
         }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (progressBar1.Value < 100)
-            {
-                progressBar1.Value += 2;
-            }
-
-            if (progressBar1.Value == 100)
-            {
-                //on remove l-ecran chargement du form
-
-                this.Update();
-
-                afficheAccueil();
-                
-                //on arrete le timer
-                timer1.Enabled = false;
-                
-            }
-        }
-
+        
         //afficher panel Nouvelle Partie
         private void nouvelle_partie_button(object sender, EventArgs e)
         {
@@ -1142,6 +1147,9 @@ namespace La_petite_boite
 
         public void Carte()
         {
+            this.Opacity = 0.80;
+            fade.Start();
+
             Table.ColumnCount = 4;
             //performance du display a modifier
             typeof(Panel).InvokeMember("DoubleBuffered",
@@ -1331,9 +1339,7 @@ namespace La_petite_boite
                     //chateau
                     deplacementVertical(arrivee);
                 }
-
-
-                //deplacement chateau / montagne a regler
+                
             }
             else if (chevalier.positionJoueur().Name.Equals("Memory"))
             {
@@ -1364,8 +1370,7 @@ namespace La_petite_boite
             {
                 if (arrivee.Name.Equals("Chateau"))
                 {
-                    deplacementVertical(Tronc);
-                    deplacementVertical(arrivee);
+                    deplacementHorizontal(arrivee);
                 }
                 else
                 {
@@ -1377,10 +1382,15 @@ namespace La_petite_boite
 
             //on desactive le timer
             timer2.Enabled = false;
+
+            //on cache le panel qui permet le deplacement du joueur
             panelJoueur.Hide();
+            //on actualise la position du joueur dans l'objet Joueur
             chevalier.setPosition(arrivee);
             positionJoueur = chevalier.positionJoueur().getPosition();
+            //on actualise la position de l'avatar
             imgChevalier.Location = positionJoueur;
+            //on affiche a nouveau l'avatar
             imgChevalier.Show();
            
             //on change le curseur pour lancer le jeu
@@ -1573,6 +1583,8 @@ namespace La_petite_boite
         //afficher le mini jeu
         private void afficheJeu(String nomJeu, Panel p)
         {
+            this.Opacity = 0.80;
+            fade.Start();
             this.Controls.Remove(CarteJeu);
             Jeu.Controls.Add(Table);
             this.Controls.Add(Jeu);

@@ -28,7 +28,7 @@ namespace La_petite_boite
             
             // 
             //message
-            this.message.Font = new Font(Form1.privateFontCollection.Families[0], 15);
+            this.message.Font = new Font(petiteBoite.privateFontCollection.Families[0], 15);
             this.message.ForeColor = Color.White;
             this.message.BackColor = Color.Transparent;
             this.message.Location = new Point(96, 175);
@@ -73,7 +73,7 @@ namespace La_petite_boite
                 bouton1.Height = 55;
                 bouton1.Left = 213;
                 bouton1.Text = texteBoutons.ElementAt(0);
-                bouton1.Font = new Font(Form1.privateFontCollection.Families[0], 14);
+                bouton1.Font = new Font(petiteBoite.privateFontCollection.Families[0], 14);
                 bouton1.Click += new EventHandler(tableauFonctions.ElementAt(referenceMethods.ElementAt(0)));
             }
             else if (nbrBoutons == 2)
@@ -89,7 +89,7 @@ namespace La_petite_boite
                     conteneurButtons.Controls[i].Width = 195;
                     conteneurButtons.Controls[i].Height = 55;
                     conteneurButtons.Controls[i].Left = i * 230 + 100;
-                    conteneurButtons.Controls[i].Font = new Font(Form1.privateFontCollection.Families[0], 14);
+                    conteneurButtons.Controls[i].Font = new Font(petiteBoite.privateFontCollection.Families[0], 14);
                     conteneurButtons.Controls[i].Text = texteBoutons.ElementAt(i);
                     conteneurButtons.Controls[i].Click += new EventHandler(tableauFonctions.ElementAt(referenceMethods.ElementAt(i)));
                 }
@@ -110,7 +110,7 @@ namespace La_petite_boite
                     conteneurButtons.Controls[i].Width = 156;
                     conteneurButtons.Controls[i].Height = 55;
                     conteneurButtons.Controls[i].Left = i * 206 + 26;
-                    conteneurButtons.Controls[i].Font = new Font(Form1.privateFontCollection.Families[0], 14);
+                    conteneurButtons.Controls[i].Font = new Font(petiteBoite.privateFontCollection.Families[0], 14);
                     conteneurButtons.Controls[i].Text = texteBoutons.ElementAt(i);
                     conteneurButtons.Controls[i].Click += new EventHandler(tableauFonctions.ElementAt(referenceMethods.ElementAt(i)));
                 }

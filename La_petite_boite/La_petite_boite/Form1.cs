@@ -509,6 +509,7 @@ namespace La_petite_boite
             listeDossierSauvegarde.Width = 250;
             listeDossierSauvegarde.Height = 25;
             listeDossierSauvegarde.Font = new Font(listeDossierSauvegarde.Font.FontFamily, 14);
+            listeDossierSauvegarde.SelectedIndexChanged += new EventHandler(choixDossier);
 
             //on link le tableau listeSauvegarde avec le combobox via une boucle
 
@@ -649,7 +650,7 @@ namespace La_petite_boite
             listeLieux[4] = Chateau;
 
         }
-
+        
         private void fadein(object sender, EventArgs e)
         {
             //on applique le fade in
@@ -848,7 +849,8 @@ namespace La_petite_boite
         }
 
         //traitement des donnees saisies dans le panel Nouvelle Partie
-        private void commencer_button(object sender, EventArgs e)
+
+        private void choixDossier(object sender, EventArgs e)
         {
             //creation d'un dossier permet d'eviter la polysemie par exe
 
@@ -861,9 +863,13 @@ namespace La_petite_boite
             {
                 //choix Nouveau dossier
                 afficheInputBox();
+                this.BeginInvoke((MethodInvoker)delegate { listeDossierSauvegarde.Text = dossier; });
             }
-            
-            
+        }
+
+        private void commencer_button(object sender, EventArgs e)
+        {
+
             //traitement des informations manquantes
             if (prenomField.Text == null || ageField.Text == null || indexAvatar == -1 || dossier.Equals(""))
             {
@@ -903,7 +909,6 @@ namespace La_petite_boite
 
                 var Popup = new PopUp(ColorTranslator.FromHtml("#be1621"), items.attention, 1, message, nomsButtons, refEvents);
                 Popup.ShowDialog();
-                reponsePopUp();
 
                 valeursVides.Clear();
             }
@@ -1531,8 +1536,10 @@ namespace La_petite_boite
 
             for (int i = 0; i < joueursFichier.Count(); i++)
             {
+               
                 if (joueursFichier.ElementAt(i).Contains(chevalier.nomJoueur()) && joueursFichier.ElementAt(i).Contains(chevalier.dossierJoueur()) && enregistrer == false)
                 {
+                    Console.WriteLine(chevalier.dossierJoueur());
                     //on met a jour les donnees
                     joueursFichier[i] = enregistrementJoueur;
                     enregistrer = true;

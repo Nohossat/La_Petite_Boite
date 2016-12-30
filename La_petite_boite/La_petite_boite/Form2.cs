@@ -19,7 +19,7 @@ namespace La_petite_boite
         private ControlButton enregistre = new ControlButton("#000000", "#6d5622");
         private ControlButton retour = new ControlButton("#000000", "#6d5622");
         public List<String> liste = new List<String>();
-        bool existe = false;
+        bool existe;
 
         public Form2()
         {
@@ -53,6 +53,7 @@ namespace La_petite_boite
 
         private void enregistrer(object sender, EventArgs e)
         {
+            existe = false;
             //on verifie que le dossier n'existe pas au prealable
             petiteBoite.chargementTexte("dossiers_sauvegarde.txt", liste);
 
@@ -68,7 +69,7 @@ namespace La_petite_boite
             if (existe)
             {
                 //creation du message d-erreur
-                String message = "Le nom choisi existe deja.Veuillez en choisir un autre.";
+                String message = "Le nom choisi existe deja. Veuillez en choisir un autre.";
                 
                 //Pop up affichage message
                 List<String> nomsButtons = new List<string>();
@@ -78,7 +79,6 @@ namespace La_petite_boite
 
                 var Popup = new PopUp(ColorTranslator.FromHtml("#be1621"), items.attention, 1, message, nomsButtons, refEvents);
                 Popup.ShowDialog();
-                reponsePopUp();
             }
             else
             {
@@ -91,7 +91,6 @@ namespace La_petite_boite
                     {
                         writer.WriteLine(nouveauNom.Text);
                     }
-
                 }
                 catch
                 {
@@ -113,11 +112,6 @@ namespace La_petite_boite
             this.Close();
             this.Dispose();
         }
-
-        public void reponsePopUp()
-        {
-            this.Close();
-            this.Dispose();
-        }
+        
     }
 }

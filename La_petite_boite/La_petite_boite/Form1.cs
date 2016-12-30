@@ -127,14 +127,15 @@ namespace La_petite_boite
 
         TextBox prenomField = new TextBox();
         TextBox ageField = new TextBox();
-        
+
+        System.Windows.Forms.Timer fade = new System.Windows.Forms.Timer();
 
         //Charger les elements
         public petiteBoite()
         {
             Thread t = new Thread(new ThreadStart(splashStart));
             t.Start();
-            Thread.Sleep(5000);
+            Thread.Sleep(6000);
 
             InitializeComponent();
             afficheAccueil();
@@ -153,18 +154,18 @@ namespace La_petite_boite
         private void Form1_Load(object sender, EventArgs e)
         {
             //on determine la resolution de la fenetre
-            Double flagResolution = Screen.PrimaryScreen.Bounds.Height / System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
-            Console.WriteLine("resolution flag :" + System.Windows.Forms.Screen.PrimaryScreen);
+            Double flagResolution = Screen.PrimaryScreen.Bounds.Height / Screen.PrimaryScreen.Bounds.Width;
+            Console.WriteLine("resolution flag :" + Screen.PrimaryScreen);
 
             if (flagResolution == 1366 / 768)
             {
-                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-                this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-                this.ClientSize = new System.Drawing.Size(System.Windows.Forms.Screen.PrimaryScreen.Bounds.X, System.Windows.Forms.Screen.PrimaryScreen.Bounds.Y);
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+                this.ClientSize = new Size(Screen.PrimaryScreen.Bounds.X, Screen.PrimaryScreen.Bounds.Y);
             }
             else {
-                this.ClientSize = new System.Drawing.Size(1292, 726);
-                this.Size = new System.Drawing.Size(1289, 728);
+                this.ClientSize = new Size(1292, 726);
+                this.Size = new Size(1292, 728);
             }
 
             this.DoubleBuffered = true;
@@ -175,8 +176,11 @@ namespace La_petite_boite
 
         private void generationElements()
         {
+            //la fonction fadein controle la vitesse d'affichage des differents panneaux. choisir un niveau d'opacite inf a 1 et pair pour que la fonction soit OK
+            this.Opacity = 0.64;
+
             //---------------------LAYOUTS------------------------//
-            
+
             Table.Location = new Point(0, 0);
             Table.Size = new Size(1292, 726);
             Table.AutoSize = true;
@@ -192,9 +196,12 @@ namespace La_petite_boite
             Table.Dock = DockStyle.Fill;
             Table.Margin = new Padding(0);
 
+            //---------------------TIMERS------------------------//
+
+            fade.Tick += new System.EventHandler(this.fadein);
 
             //---------------------PANELS------------------------//
-            
+
             listePanels.Add(accueil);
             listePanels.Add(nouveauJoueur);
             listePanels.Add(diaporamaHistoire);
@@ -643,6 +650,17 @@ namespace La_petite_boite
 
         }
 
+        private void fadein(object sender, EventArgs e)
+        {
+            //on applique le fade in
+            this.Opacity += 0.02;
+
+            if (this.Opacity == 1)
+            {
+                fade.Stop();
+            }
+        }
+
         public void boutonLeave(object sender, EventArgs e)
         {
             PictureBox boutonTabBord = (PictureBox)sender;
@@ -727,6 +745,11 @@ namespace La_petite_boite
 
         public void afficheAccueil()
         {
+            //affichage leger
+            this.Opacity = 0.80;
+            fade.Enabled = true;
+            fade.Start();
+
             Table.Controls.Clear();
             Table.ColumnStyles.Clear();
             Table.RowStyles.Clear();
@@ -1124,6 +1147,9 @@ namespace La_petite_boite
 
         public void Carte()
         {
+            this.Opacity = 0.80;
+            fade.Start();
+
             Table.ColumnCount = 4;
             //performance du display a modifier
             typeof(Panel).InvokeMember("DoubleBuffered",
@@ -1557,6 +1583,8 @@ namespace La_petite_boite
         //afficher le mini jeu
         private void afficheJeu(String nomJeu, Panel p)
         {
+            this.Opacity = 0.80;
+            fade.Start();
             this.Controls.Remove(CarteJeu);
             Jeu.Controls.Add(Table);
             this.Controls.Add(Jeu);

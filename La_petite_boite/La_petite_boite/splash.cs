@@ -13,22 +13,42 @@ namespace La_petite_boite
 {
     public partial class splash : Form
     {
-        int compteur = 0;
+        bool fadein = false;
+
         public splash()
         {
             InitializeComponent();
+            //il faut forcer le full screen
             this.BackgroundImage = items.chargement;
+            this.Opacity = 0;
             timer1.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            compteur++;
+            // opacity a 0 = transparent et 1 = opaque
 
-            if (compteur == 15)
+            //dans un premier temps fadein
+            if (fadein == false)
             {
-                timer1.Stop();
+                this.Opacity += 0.05;
             }
+
+            if (fadein == false && this.Opacity == 1)
+            {
+                fadein = true;
+            }
+            
+            //dans un deuxieme temps, fade out
+             if (fadein == true)
+             {
+                 this.Opacity -= 0.01;
+             }
+
+             if (fadein == true && this.Opacity == 0.90)
+             {
+                 timer1.Stop();
+             }
         }
     }
 }

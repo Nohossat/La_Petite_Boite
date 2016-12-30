@@ -49,10 +49,10 @@ namespace La_petite_boite
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1268, 689);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1278, 719);
             this.Name = "Form1";
+            this.Location = new System.Drawing.Point(0,0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "La petite Boite";
             this.Load += new System.EventHandler(this.Form1_Load);

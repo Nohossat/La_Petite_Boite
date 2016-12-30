@@ -232,6 +232,14 @@ namespace Ressources
             }
         }
 
+        public static Bitmap chargementPetit
+        {
+            get
+            {
+                return Properties.Resources.chargementPetit;
+            }
+        }
+
         public static Bitmap accueil
         {
             get

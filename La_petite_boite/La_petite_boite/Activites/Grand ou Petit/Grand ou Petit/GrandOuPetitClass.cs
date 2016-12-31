@@ -43,7 +43,7 @@ namespace Grand_ou_Petit
             this.Enabled = true;
             this.BackgroundImage = items.fondBlanc;
             this.BackgroundImageLayout = ImageLayout.Stretch;
-            this.Location = new System.Drawing.Point(0, 0);
+            this.Location = new Point(0, 0);
             this.Controls.Add(this.conteneurPetiteCarte);
             this.Controls.Add(this.conteneurCarteAPlacer);
             this.Controls.Add(this.conteneurGrandeCarte);
@@ -74,16 +74,16 @@ namespace Grand_ou_Petit
                 image.Click += new System.EventHandler(this.cliquerPremiereLigne);
                 image.Top = 0;
                 
-                if (conteneurGrandeCarte.Controls.Count == 12)
+                if (conteneurGrandeCarte.Controls.Count == 10)
                 {
-                    //Grand Ou Petit 12
-                    image.Size = new System.Drawing.Size(92, 112);
-                    image.Left = indexCarte * 97;
+                    //Grand Ou Petit 10
+                    image.Size = new Size(100, 130);
+                    image.Left = indexCarte * 105;
                 }
                 else if (conteneurGrandeCarte.Controls.Count == 8)
                 {
                     //Grand Ou Petit 8
-                    image.Size = new System.Drawing.Size(120, 150);
+                    image.Size = new Size(120, 150);
                     image.Left = indexCarte * 135;
                 }
                 else {
@@ -111,16 +111,16 @@ namespace Grand_ou_Petit
                 image.DragEnter += new DragEventHandler(this.petiteImage_DragEnter);
                 image.Top = 0;
 
-                if (conteneurCarteAPlacer.Controls.Count == 12)
+                if (conteneurCarteAPlacer.Controls.Count == 10)
                 {
-                    //Grand Ou Petit 12
-                    image.Size = new System.Drawing.Size(92, 112);
-                    image.Left = indexCarte * 97;
+                    //Grand Ou Petit 10
+                    image.Size = new Size(100, 130);
+                    image.Left = indexCarte * 105;
                 }
                 else if (conteneurCarteAPlacer.Controls.Count == 8)
                 {
                     //Grand Ou Petit 8
-                    image.Size = new System.Drawing.Size(120, 150);
+                    image.Size = new Size(120, 150);
                     image.Left = indexCarte * 135;
                 }
                 else
@@ -160,16 +160,16 @@ namespace Grand_ou_Petit
                 image.TabStop = false;
                 image.Top = 0;
                 
-                if (conteneurPetiteCarte.Controls.Count == 12)
+                if (conteneurPetiteCarte.Controls.Count == 10)
                 {
-                    //Grand Ou Petit 12
-                    image.Size = new System.Drawing.Size(92, 112);
-                    image.Left = indexCarte * 97;
+                    //Grand Ou Petit 10
+                    image.Size = new Size(100, 130);
+                    image.Left = indexCarte * 105;
                 }
                 else if (conteneurPetiteCarte.Controls.Count == 8)
                 {
                     //Grand Ou Petit 8
-                    image.Size = new System.Drawing.Size(120, 150);
+                    image.Size = new Size(120, 150);
                     image.Left = indexCarte * 135;
                 }
                 else
@@ -282,7 +282,7 @@ namespace Grand_ou_Petit
                     if (petiteImage.Tag != image.Tag)
                     {
                         petiteImage.Image = items.dosCarte;
-                        image.BackColor = Color.Transparent;
+                        petiteImage.BackColor = Color.Transparent;
                         petiteImage.SizeMode = PictureBoxSizeMode.StretchImage;
                         petiteImage.Refresh();
                     }

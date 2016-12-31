@@ -19,7 +19,7 @@ namespace La_petite_boite
         int ordonee;
         int abs;
 
-        public Lieu (int Top, int Left, int Width, int Height, Bitmap imageDebut, Bitmap imageSurvol, Bitmap map, Point p, String nom)
+        public Lieu (int Top, int Left, int Width, int Height, Bitmap imageDebut, Bitmap imageSurvol, Bitmap map, String nom)
         {
             this.Name = nom;
             this.ordonee = Top;
@@ -28,12 +28,14 @@ namespace La_petite_boite
             this.Height = Height;
             this.BackColor = Color.Transparent;
             this.DoubleBuffered = true;
-            this.position = p;
+           // this.position = p;
             this.imgDebut = imageDebut;
             this.imgSurvol = imageSurvol;
             this.map = map;
             this.BackgroundImage = imageDebut;
             this.BackgroundImageLayout = ImageLayout.Stretch;
+            this.Cursor = Cursors.Hand;
+            
         }
 
         public Lieu()
@@ -50,6 +52,7 @@ namespace La_petite_boite
         {
             return this.abs;
         }
+
         public void chargementDebutImage()
         {
             this.BackgroundImage = imgDebut;
@@ -70,6 +73,16 @@ namespace La_petite_boite
         public Point getPosition()
         {
             return this.position;
+        }
+
+        public String getName()
+        {
+            return this.Name;
+        }
+
+        public void setPosition(Point p)
+        {
+            this.position = p;
         }
     }
 }

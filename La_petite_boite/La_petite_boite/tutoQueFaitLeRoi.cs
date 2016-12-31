@@ -29,11 +29,18 @@ namespace La_petite_boite
         {
             InitializeComponent();
 
+            conteneur.Controls.Add(this.conteneurBouton);
+            conteneur.Controls.Add(this.conteneurCarteAPlacer);
+            conteneur.Controls.Add(this.conteneurCarte);
+
+            this.conteneurCarte.Location = new System.Drawing.Point(160, 230);
+            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(160, 80);
+            this.conteneurBouton.Location = new System.Drawing.Point(160, 30);
+
             tableauFonctions.Add(action1);
             tableauFonctions.Add(action2);
             tableauFonctions.Add(action3);
             tableauFonctions.Add(action4);
-            tableauFonctions.Add(action5);
 
             chargementPartie();
 
@@ -71,6 +78,7 @@ namespace La_petite_boite
                 image.Visible = true;
                 image.Enabled = true;
                 image.SizeMode = PictureBoxSizeMode.StretchImage;
+                image.BackColor = Color.White;
             }
             
 
@@ -102,15 +110,10 @@ namespace La_petite_boite
         {
             //on met la bonne carte au bon emplacement
             conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(0).Image = images[1];
+            conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(0).BackColor = Color.White;
             conteneurCarte.Controls.OfType<PictureBox>().ElementAt(0).Hide();
             Refresh();
         }
-
-        private void action5()
-        {
-            Program.petiteBoite.JouerSon(items.applaudissement);
-        }
-        
         
     }
 }

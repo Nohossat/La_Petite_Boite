@@ -28,14 +28,14 @@ namespace La_petite_boite
             this.nouveauNom.Font = new Font(petiteBoite.privateFontCollection.Families[0], 20);
 
             enregistre.Text = "Enregistrer";
-            enregistre.Font = new Font(petiteBoite.privateFontCollection.Families[0], 20);
+            enregistre.Font = new Font(petiteBoite.privateFontCollection.Families[0], 18);
             enregistre.Location = new System.Drawing.Point(110, 104);
             enregistre.Size = new System.Drawing.Size(160, 38);
             enregistre.UseVisualStyleBackColor = true;
             enregistre.Click += new System.EventHandler(enregistrer);
 
             retour.Text = "Retour";
-            retour.Font = new Font(petiteBoite.privateFontCollection.Families[0], 20);
+            retour.Font = new Font(petiteBoite.privateFontCollection.Families[0], 18);
             retour.Location = new System.Drawing.Point(280, 104);
             retour.Size = new System.Drawing.Size(160, 38);
             retour.UseVisualStyleBackColor = true;

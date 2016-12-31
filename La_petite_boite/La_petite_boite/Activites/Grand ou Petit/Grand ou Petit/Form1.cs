@@ -176,11 +176,7 @@ namespace Grand_ou_Petit
         private System.Windows.Forms.PictureBox pictureBox23;
         private System.Windows.Forms.PictureBox pictureBox24;
         private System.Windows.Forms.PictureBox pictureBox33;
-        private System.Windows.Forms.PictureBox pictureBox34;
         private System.Windows.Forms.PictureBox pictureBox35;
-        private System.Windows.Forms.PictureBox pictureBox36;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.PictureBox pictureBox13;
@@ -191,8 +187,6 @@ namespace Grand_ou_Petit
         private System.Windows.Forms.PictureBox pictureBox30;
         private System.Windows.Forms.PictureBox pictureBox31;
         private System.Windows.Forms.PictureBox pictureBox32;
-        private System.Windows.Forms.PictureBox pictureBox28;
-        private System.Windows.Forms.PictureBox pictureBox27;
         private System.Windows.Forms.PictureBox pictureBox26;
         private System.Windows.Forms.PictureBox pictureBox25;
 
@@ -200,8 +194,8 @@ namespace Grand_ou_Petit
         {
             initialize();
             
-            finalScore = 12;
-
+            finalScore = 10;
+            
             //images
             img.Add(items.chateau1);
             img.Add(items.coffre1);
@@ -213,8 +207,6 @@ namespace Grand_ou_Petit
             img.Add(items.foret1);
             img.Add(items.roi1);
             img.Add(items.escalier1);
-            img.Add(items.ecole1);
-            img.Add(items.doudou1);
 
             //sons pour les grandes icones
             sons.Add(items.grandChateauTurc);
@@ -227,8 +219,6 @@ namespace Grand_ou_Petit
             sons.Add(items.grandeForetFR);
             sons.Add(items.grandRoiTurc);
             sons.Add(items.grandEscalierFR);
-            sons.Add(items.grandEcoleFR);
-            sons.Add(items.grandDoudouTurc);
 
             //sons pour les petites icones
             sons.Add(items.petitChateauTurc);
@@ -241,8 +231,6 @@ namespace Grand_ou_Petit
             sons.Add(items.petiteForetFR);
             sons.Add(items.petitRoiTurc);
             sons.Add(items.petitEscalierFR);
-            sons.Add(items.petitEcoleFR);
-            sons.Add(items.petitDoudouTurc);
 
             chargementPartie();
         }

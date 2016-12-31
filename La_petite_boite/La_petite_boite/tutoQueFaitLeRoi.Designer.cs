@@ -51,7 +51,6 @@
             // 
             this.conteneurBouton.Controls.Add(this.button1);
             this.conteneurBouton.Controls.Add(this.button2);
-            this.conteneurBouton.Location = new System.Drawing.Point(160, 100);
             this.conteneurBouton.Name = "conteneurBouton";
             this.conteneurBouton.Size = new System.Drawing.Size(334, 42);
             this.conteneurBouton.TabIndex = 10;
@@ -80,7 +79,6 @@
             // 
             this.conteneurCarte.Controls.Add(this.pictureBox1);
             this.conteneurCarte.Controls.Add(this.pictureBox2);
-            this.conteneurCarte.Location = new System.Drawing.Point(160, 300);
             this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(334, 140);
             this.conteneurCarte.TabIndex = 8;
@@ -108,7 +106,6 @@
             // 
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox5);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox6);
-            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(160, 150);
             this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
             this.conteneurCarteAPlacer.Size = new System.Drawing.Size(334, 140);
             this.conteneurCarteAPlacer.TabIndex = 9;
@@ -135,10 +132,6 @@
             // 
             // tutoQueFaitLeRoi
             // 
-            
-            this.Controls.Add(this.conteneurBouton);
-            this.Controls.Add(this.conteneurCarteAPlacer);
-            this.Controls.Add(this.conteneurCarte);
             this.Name = "tutoQueFaitLeRoi";
             this.Text = "QueFaitLeRoi4";
             this.conteneurCarte.ResumeLayout(false);

@@ -23,16 +23,21 @@ namespace La_petite_boite
         {
             InitializeComponent();
 
+            this.Ecouter.Location = new Point(174, 265);
+            this.conteneurCarte.Location = new Point(120, 40);
+
+            conteneur.Controls.Add(this.Ecouter);
+            conteneur.Controls.Add(this.conteneurCarte);
+
             tableauFonctions.Add(action1);
             tableauFonctions.Add(action2);
-            tableauFonctions.Add(action3);
 
-            ChasseAuxMots_Load();
+            chargementPartie();
             System.Threading.Thread.Sleep(1000);
             timer2.Enabled = true;
         }
 
-        private void ChasseAuxMots_Load()
+        private void chargementPartie()
         {
             this.Enabled = true;
             Ecouter.Enabled = true;
@@ -56,11 +61,7 @@ namespace La_petite_boite
         {
             pictureBox1.Image = items.dosCarte;
         }
-
-        private void action3()
-        {
-            Program.petiteBoite.JouerSon(items.applaudissement);
-        }
+        
         
     }
 }

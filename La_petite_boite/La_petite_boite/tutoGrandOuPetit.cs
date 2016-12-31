@@ -36,6 +36,14 @@ namespace La_petite_boite
             tableauFonctions.Add(action4);
             tableauFonctions.Add(action5);
             
+            this.conteneurPetiteCarte.Location = new Point(160, 280);
+            this.conteneurCarteAPlacer.Location = new Point(160, 140);
+            this.conteneurGrandeCarte.Location = new Point(160, 0);
+
+            conteneur.Controls.Add(this.conteneurPetiteCarte);
+            conteneur.Controls.Add(this.conteneurCarteAPlacer);
+            conteneur.Controls.Add(this.conteneurGrandeCarte);
+
             chargementPartie();
             Thread.Sleep(1000);
             timer2.Enabled = true;
@@ -84,6 +92,7 @@ namespace La_petite_boite
         {
             //on devoile la premiere grde carte
             conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(0).Image = images[0];
+            conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(0).BackColor = Color.White;
             Refresh();
             Program.petiteBoite.JouerSon(audio.ElementAt(0));
         }
@@ -92,6 +101,7 @@ namespace La_petite_boite
         {
             //on devoile la premiere pt carte
             conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(1).Image = images[1];
+            conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(1).BackColor = Color.White;
             Refresh();
             Program.petiteBoite.JouerSon(audio.ElementAt(3));
         }
@@ -100,6 +110,7 @@ namespace La_petite_boite
         {
             //on retourne la premiere pt carte
             conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(1).Image = items.dosCarte;
+            conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(1).BackColor = Color.Transparent;
             Refresh();
         }
 
@@ -107,6 +118,7 @@ namespace La_petite_boite
         {
             //on devoile la deuxieme pt carte
             conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(0).Image = images[0];
+            conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(0).BackColor = Color.White;
             Refresh();
             Program.petiteBoite.JouerSon(audio.ElementAt(2));
         }
@@ -114,9 +126,9 @@ namespace La_petite_boite
         private void action5 ()
         {
             conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(0).Image = images[0];
+            conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(0).BackColor = Color.White;
             conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(0).Hide();
             Refresh();
-            Program.petiteBoite.JouerSon(items.applaudissement);
         }
         
     }

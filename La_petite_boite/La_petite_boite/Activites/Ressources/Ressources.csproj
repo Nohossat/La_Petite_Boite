@@ -294,6 +294,13 @@
     <EmbeddedResource Include="Resources\Jeu\vraiminHover.png" />
     <EmbeddedResource Include="Resources\Jeu\fondBlanc.png" />
     <EmbeddedResource Include="Resources\Jeu\chargementPetit.png" />
+    <EmbeddedResource Include="Resources\Jeu\recompenses.png" />
+    <EmbeddedResource Include="Resources\Jeu\etoileCoffre.png" />
+    <EmbeddedResource Include="Resources\Jeu\etoileCoffreHover.png" />
+    <EmbeddedResource Include="Resources\Jeu\fondRecompense.png" />
+    <None Include="Resources\fondRecompense.png" />
+    <EmbeddedResource Include="Resources\Jeu\fondRecompenseAfter.png" />
+    <None Include="Resources\fondRecompenseAfter.png" />
     <Content Include="Resources\miniJeu\pauseFR.wav" />
   </ItemGroup>
   <ItemGroup />

@@ -26,6 +26,7 @@ namespace La_petite_boite
             this.FlatStyle = FlatStyle.Flat;
             this.Dock = DockStyle.None;
             this.TextAlign = ContentAlignment.MiddleCenter;
+            this.Cursor = Cursors.Hand;
         }
 
         private TextRenderingHint _textRenderingHint = TextRenderingHint.SystemDefault;
@@ -72,6 +73,7 @@ namespace La_petite_boite
     {
         String previousColor;
         String afterColor;
+
         public ControlButton(String prev, String after) : base()
         {
             this.Width = 200;

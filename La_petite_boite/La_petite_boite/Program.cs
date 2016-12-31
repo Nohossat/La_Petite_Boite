@@ -12,6 +12,8 @@ namespace La_petite_boite
         /// The main entry point for the application.
         /// </summary>
         public static petiteBoite petiteBoite;
+        
+
         [STAThread]
         static void Main()
         {
@@ -21,5 +23,6 @@ namespace La_petite_boite
             Application.Run(petiteBoite);
         }
         
+
     }
 }

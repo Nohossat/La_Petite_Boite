@@ -28,7 +28,9 @@ namespace La_petite_boite
 
             tableauFonctions.Add(action1);
             tableauFonctions.Add(action2);
-            tableauFonctions.Add(action3);
+
+            this.conteneurCarte.Location = new System.Drawing.Point(124, 10);
+            conteneur.Controls.Add(this.conteneurCarte);
 
             chargementPartie();
             //timer1.Enabled = true;
@@ -72,19 +74,17 @@ namespace La_petite_boite
         private void action1()
         {
             conteneurCarte.Controls.OfType<PictureBox>().ElementAt(0).Image = items.doudou1;
+            conteneurCarte.Controls.OfType<PictureBox>().ElementAt(0).BackColor = Color.Transparent;
             Program.petiteBoite.JouerSon(items.doudouFR);
         }
 
         private void action2()
         {
             conteneurCarte.Controls.OfType<PictureBox>().ElementAt(1).Image = items.doudou1;
+            conteneurCarte.Controls.OfType<PictureBox>().ElementAt(1).BackColor = Color.Transparent;
             Program.petiteBoite.JouerSon(items.doudouFR);
         }
-
-        private void action3()
-        {
-            Program.petiteBoite.JouerSon(items.applaudissement);
-        }
+        
         
         
     }

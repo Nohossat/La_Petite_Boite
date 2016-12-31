@@ -42,7 +42,6 @@
             // 
             this.conteneurCarte.Controls.Add(this.pictureBox2);
             this.conteneurCarte.Controls.Add(this.pictureBox1);
-            this.conteneurCarte.Location = new System.Drawing.Point(120, 146);
             this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(307, 197);
             this.conteneurCarte.TabIndex = 0;
@@ -74,7 +73,6 @@
             this.Ecouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Ecouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Ecouter.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Ecouter.Location = new System.Drawing.Point(174, 371);
             this.Ecouter.Name = "Ecouter";
             this.Ecouter.Size = new System.Drawing.Size(198, 51);
             this.Ecouter.TabIndex = 1;
@@ -86,8 +84,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.Ecouter);
-            this.Controls.Add(this.conteneurCarte);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(125, 100);
             this.Name = "tutoChasseAuxMots";

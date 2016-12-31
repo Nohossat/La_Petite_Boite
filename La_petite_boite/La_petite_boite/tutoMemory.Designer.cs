@@ -47,7 +47,7 @@
             this.conteneurCarte.Controls.Add(this.carte2);
             this.conteneurCarte.Controls.Add(this.doubleCarte1);
             this.conteneurCarte.Controls.Add(this.carte1);
-            this.conteneurCarte.Location = new System.Drawing.Point(113, 70);
+           
             this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(314, 368);
             this.conteneurCarte.TabIndex = 0;
@@ -99,7 +99,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.conteneurCarte);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "tutoMemory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

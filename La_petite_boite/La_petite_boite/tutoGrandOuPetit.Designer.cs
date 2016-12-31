@@ -54,7 +54,6 @@
             // 
             this.conteneurGrandeCarte.Controls.Add(this.pictureBox2);
             this.conteneurGrandeCarte.Controls.Add(this.pictureBox1);
-            this.conteneurGrandeCarte.Location = new System.Drawing.Point(190, 80);
             this.conteneurGrandeCarte.Name = "conteneurGrandeCarte";
             this.conteneurGrandeCarte.Size = new System.Drawing.Size(292, 140);
             this.conteneurGrandeCarte.TabIndex = 0;
@@ -81,7 +80,6 @@
             // 
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox6);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox5);
-            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(190, 220);
             this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
             this.conteneurCarteAPlacer.Size = new System.Drawing.Size(292, 140);
             this.conteneurCarteAPlacer.TabIndex = 4;
@@ -108,7 +106,6 @@
             // 
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox10);
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox9);
-            this.conteneurPetiteCarte.Location = new System.Drawing.Point(190, 360);
             this.conteneurPetiteCarte.Name = "conteneurPetiteCarte";
             this.conteneurPetiteCarte.Size = new System.Drawing.Size(292, 140);
             this.conteneurPetiteCarte.TabIndex = 5;
@@ -132,19 +129,11 @@
             this.pictureBox9.Tag = "4";
             // 
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 5000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // 
             // tutoGrandOuPetit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.conteneurPetiteCarte);
-            this.Controls.Add(this.conteneurCarteAPlacer);
-            this.Controls.Add(this.conteneurGrandeCarte);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(130, 80);
             this.Name = "tutoGrandOuPetit";

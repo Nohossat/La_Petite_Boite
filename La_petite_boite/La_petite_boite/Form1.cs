@@ -25,11 +25,16 @@ namespace La_petite_boite
 
         public static bool chargementReussi = false;
         public bool sauvegardeFlag = false;
+        bool FonctionChateauActive = false;
+        bool FinJeu = false;
 
         ComboBox listeDossierSauvegarde = new ComboBox();
 
-        ControlButton commencer = new ControlButton();
-        ControlButton retour = new ControlButton();
+        ControlButton commencer = new ControlButton("#ffffff", "#6d5622");
+        ControlButton retour = new ControlButton("#ffffff", "#6d5622");
+
+        Double width;
+        Double height;
 
         public Form tuto;
 
@@ -42,6 +47,7 @@ namespace La_petite_boite
         public int IndiceJeu = 0;
         public int choixFinMiniJeu = 0;
         public static int[] epreuvesEmportees = new int[4];
+        int passageChateau = 0;
 
         public Joueur chevalier;
         public List<Jeu.Jeu> epreuvesO;
@@ -60,11 +66,11 @@ namespace La_petite_boite
 
         LittleButton actionJoueur = new LittleButton(530);
         
-        Lieu Village = new Lieu(470, -28, 448, 270, items.villagePrevious, items.villageAfter, items.mapVillage, new Point(120, 440), "Memory"); //MEMORY
-        Lieu Chateau = new Lieu(106, 1006, 327, 404, items.chateauPrevious, items.chateauAfter, items.map, new Point(1050, 380), "Chateau");//CHATEAU
-        Lieu Cabane = new Lieu(417, 755, 213, 192, items.cabanePrevious, items.cabaneAfter, items.mapCabane, new Point(760, 440), "Chasse aux mots");//CHASSE AUX MOTS
-        Lieu Tronc = new Lieu(80, 600, 177, 196, items.troncPrevious, items.troncAfter, items.mapTronc, new Point(600, 136), "Grand Ou Petit");//GRAND OU PETIT
-        Lieu Montagne = new Lieu(-5, -3, 378, 196, items.montagnePrevious, items.montagneAfter, items.mapMontagne, new Point(120, 136), "Que fait le Roi?");//QUE FAIT LE ROI
+        Lieu Village = new Lieu(470, -28, 448, 270, items.villagePrevious, items.villageAfter, items.mapVillage, "Memory"); //MEMORY
+        Lieu Chateau = new Lieu(106, 1006, 327, 404, items.chateauPrevious, items.chateauAfter, items.map, "Chateau");//CHATEAU
+        Lieu Cabane = new Lieu(417, 755, 213, 192, items.cabanePrevious, items.cabaneAfter, items.mapCabane, "Chasse aux mots");//CHASSE AUX MOTS
+        Lieu Tronc = new Lieu(80, 600, 177, 196, items.troncPrevious, items.troncAfter, items.mapTronc, "Grand Ou Petit");//GRAND OU PETIT
+        Lieu Montagne = new Lieu(-5, -3, 378, 196, items.montagnePrevious, items.montagneAfter, items.mapMontagne, "Que fait le Roi?");//QUE FAIT LE ROI
         Lieu arrivee = new Lieu();
         Lieu accueil = new Lieu();
         public static Lieu positionInitiale = new Lieu();
@@ -74,7 +80,6 @@ namespace La_petite_boite
         Panel saisirInfos = new Panel();
         Panel diaporamaHistoire = new Panel();
         Panel tabBord = new Panel();
-        Panel Recompense = new recompense();
         Panel conteneurTitrePPL = new Panel();
         Panel conteneurInfos = new Panel();
         public static Panel objectif = new Panel();
@@ -133,9 +138,10 @@ namespace La_petite_boite
         //Charger les elements
         public petiteBoite()
         {
+            
             Thread t = new Thread(new ThreadStart(splashStart));
             t.Start();
-            Thread.Sleep(6000);
+            Thread.Sleep(3000);
 
             InitializeComponent();
             afficheAccueil();
@@ -164,6 +170,7 @@ namespace La_petite_boite
                 this.ClientSize = new Size(Screen.PrimaryScreen.Bounds.X, Screen.PrimaryScreen.Bounds.Y);
             }
             else {
+                this.FormBorderStyle = FormBorderStyle.None;
                 this.ClientSize = new Size(1292, 726);
                 this.Size = new Size(1292, 728);
             }
@@ -177,9 +184,8 @@ namespace La_petite_boite
         private void generationElements()
         {
             //la fonction fadein controle la vitesse d'affichage des differents panneaux. choisir un niveau d'opacite inf a 1 et pair pour que la fonction soit OK
-            this.Opacity = 0.64;
-
-            //---------------------LAYOUTS------------------------//
+            
+           //---------------------LAYOUTS------------------------//
 
             Table.Location = new Point(0, 0);
             Table.Size = new Size(1292, 726);
@@ -218,12 +224,20 @@ namespace La_petite_boite
                 p.Location = new Point(0, 0);
             }
 
-            panelJoueur.Size = new Size(1273, 490);
-            panelJoueur.Location = new Point(0, 120);
+            width = this.Width;
+            height = 0.71 * this.Height;
+            Double pY = 0.17 * this.Height;
+
+            panelJoueur.Size = new Size((int)width, (int)height);
+            panelJoueur.Location = new Point(0, (int) pY);
             panelJoueur.Dock = DockStyle.None;
             panelJoueur.Paint += new PaintEventHandler(this.Form1_Paint);
             panelJoueur.BackColor = Color.Transparent;
+
             
+            Console.WriteLine("Size du panelJoueur :" + panelJoueur.Size);
+            Console.WriteLine("Location du panelJoueur :" + panelJoueur.Location);
+
             //accueil
             accueil.BackgroundImage = items.accueil;
 
@@ -404,6 +418,7 @@ namespace La_petite_boite
             precedent.BackColor = Color.Transparent;
             precedent.SizeMode = PictureBoxSizeMode.StretchImage;
             precedent.Image = imagesLeaveBoutons[3];
+            precedent.Cursor = Cursors.Hand;
             precedent.Click += new EventHandler(afficherDiapoPrecedente);
             precedent.MouseEnter += new EventHandler(boutonEnter);
             precedent.MouseLeave += new EventHandler(boutonLeave);
@@ -509,6 +524,7 @@ namespace La_petite_boite
             listeDossierSauvegarde.Width = 250;
             listeDossierSauvegarde.Height = 25;
             listeDossierSauvegarde.Font = new Font(listeDossierSauvegarde.Font.FontFamily, 14);
+            listeDossierSauvegarde.SelectedIndexChanged += new EventHandler(choixDossier);
 
             //on link le tableau listeSauvegarde avec le combobox via une boucle
 
@@ -547,7 +563,7 @@ namespace La_petite_boite
             prenomJoueur.Height = 35;
             prenomJoueur.ForeColor = Color.White;
             prenomJoueur.TextAlign = ContentAlignment.MiddleCenter;
-            prenomJoueur.Font = new Font(privateFontCollection.Families[0], 19);
+            prenomJoueur.Font = new Font(privateFontCollection.Families[0], 17);
             prenomJoueur.BackColor = Color.Transparent;
 
             //age
@@ -611,10 +627,15 @@ namespace La_petite_boite
             titreJeu.Anchor = AnchorStyles.Bottom;
             titreJeu.TextAlign = ContentAlignment.BottomCenter;
             titreJeu.Dock = DockStyle.None;
-
-
+            
             //elements de la carte
 
+            posLieu(Village, 0.09, 0.64);
+            posLieu(Chateau, 0.82, 0.55);
+            posLieu(Cabane, 0.59, 0.64);
+            posLieu(Tronc, 0.47, 0.2);
+            posLieu(Montagne, 0.09, 0.2);
+            
 
             Village.Click += new EventHandler(declencheTimer);
             Village.CursorChanged += new EventHandler(LanceMiniJeu);
@@ -647,7 +668,26 @@ namespace La_petite_boite
             listeLieux[2] = Tronc;
             listeLieux[3] = Montagne;
             listeLieux[4] = Chateau;
+        }
+        
+        public void posLieu (Lieu a, Double x, Double y)
+        {
+            width = x * this.Width;
+            height = y * this.Height;
 
+            if ((int)width % 2 != 0)
+            {
+                //si impair
+                width += 1;
+            }
+
+            if ((int)height % 2 != 0)
+            {
+                //si impair
+                height += 1;
+            }
+
+            a.setPosition(new Point((int)width, (int)height));
         }
 
         private void fadein(object sender, EventArgs e)
@@ -702,7 +742,7 @@ namespace La_petite_boite
             son.Dispose();
         }
 
-        public void chargementTexte(String nomFichier, List<String> tableauRes)
+        public static void chargementTexte(String nomFichier, List<String> tableauRes)
         {
             try
             {
@@ -746,9 +786,9 @@ namespace La_petite_boite
         public void afficheAccueil()
         {
             //affichage leger
-            this.Opacity = 0.80;
-            fade.Enabled = true;
-            fade.Start();
+            //this.Opacity = 0.50;
+            //fade.Enabled = true;
+            //fade.Start();
 
             Table.Controls.Clear();
             Table.ColumnStyles.Clear();
@@ -848,19 +888,29 @@ namespace La_petite_boite
         }
 
         //traitement des donnees saisies dans le panel Nouvelle Partie
+
+        private void choixDossier(object sender, EventArgs e)
+        {
+            //creation d'un dossier permet d'eviter la polysemie par exe
+
+            if (listeDossierSauvegarde.SelectedIndex > 0)
+            {
+                //choix parmi les valeurs du combobox
+                dossier = Convert.ToString(listeDossierSauvegarde.SelectedItem);
+            }
+            else if (listeDossierSauvegarde.SelectedIndex == 0)
+            {
+                //choix Nouveau dossier
+                afficheInputBox();
+                this.BeginInvoke((MethodInvoker)delegate { listeDossierSauvegarde.Text = dossier; });
+            }
+        }
+
         private void commencer_button(object sender, EventArgs e)
         {
-            //il faut donner un nouveau nom de dossier, 
-            //l -enregistrer dans la liste fichiersSauvegarde
-            //l-attribuer au perso
-
-            if (listeDossierSauvegarde.SelectedIndex == 0)
-            {
-                afficheInputBox();
-            }
 
             //traitement des informations manquantes
-            if (prenomField.Text == null || ageField.Text == null || indexAvatar == -1 || listeDossierSauvegarde.SelectedIndex == -1)
+            if (prenomField.Text == null || ageField.Text == null || indexAvatar == -1 || dossier.Equals(""))
             {
                 List<String> valeursVides = new List<string>();
 
@@ -876,12 +926,11 @@ namespace La_petite_boite
                 {
                     valeursVides.Add("avatar");
                 }
-                if (listeDossierSauvegarde.SelectedIndex == -1)
+                if (dossier.Equals(""))
                 {
                     valeursVides.Add("dossier de sauvegarde");
                 }
-                Console.WriteLine(valeursVides.Count);
-
+                
                 //creation du message d-erreur
                 String message = "Il manque les informations suivantes : ";
 
@@ -890,33 +939,42 @@ namespace La_petite_boite
                     Console.WriteLine(s);
                     message = message + Environment.NewLine + s;
                 }
-                afficheMessageBox("Valeurs manquantes", message);
+                
+                //Pop up affichage message
+                List<String> nomsButtons = new List<string>();
+                List<int> refEvents = new List<int>();
+                nomsButtons.Add("Retour");
+                refEvents.Add(0);
+
+                var Popup = new PopUp(ColorTranslator.FromHtml("#be1621"), items.attention, 1, message, nomsButtons, refEvents);
+                Popup.ShowDialog();
 
                 valeursVides.Clear();
             }
             else
             {
-                //les valeurs sont non nulles ou non vides mais il faut les valider
+                //Validation des donnees
+
                 bool existe = false;
                 bool isNumerical;
                 int ageJoueur;
                 String top = Convert.ToString(0);
                 String left = Convert.ToString(0);
                 String etoile = Convert.ToString(0);
-
-
-                //il faut s-avoir si un nouveau nom de dossier a ete donne ou s-il a ete choisi dans la liste existante
-                if (dossier == "")
-                {
-                    dossier = Convert.ToString(listeDossierSauvegarde.SelectedItem);
-                }
-
-                //il faut s-assurer que le prenom n-existe pas dans la liste des joueurs
+                
+                //il faut s-assurer que le prenom n-existe pas dans la liste des joueurs d'un mm dossier
                 for (int i = 0; i < joueursFichier.Count(); i++)
                 {
                     if (joueursFichier[i].Contains(prenomField.Text.ToLower()))
                     {
-                        existe = true;
+                        Console.WriteLine(joueursFichier[i]);
+                        Console.WriteLine(dossier);
+
+                        if (joueursFichier[i].Contains(dossier))
+                        {
+                            existe = true;
+                        }
+                        
                     }
                 }
 
@@ -926,17 +984,26 @@ namespace La_petite_boite
                 //il faut communiquer avec l-utilisateur
                 if (existe == true || isNumerical == false)
                 {
+                    String message = "";
+                    List<String> nomsButtons = new List<string>();
+                    List<int> refEvents = new List<int>();
+                    nomsButtons.Add("Retour");
+                    refEvents.Add(0);
+                    
                     if (existe == true)
                     {
-                        String message = "Le personnage " + prenomField.Text.ToLower() + " existe deja." + Environment.NewLine + "Veuillez choisir un autre nom";
-                        afficheMessageBox("Erreur", message);
+                        message = "Le personnage " + prenomField.Text.ToLower() + " existe deja dans ce dossier." + Environment.NewLine + "Veuillez choisir un autre dossier de sauvegarde ou un autre nom";
+                       
                     }
 
                     if (isNumerical == false)
                     {
-                        String message = "L'age doit etre un nombre entier";
-                        afficheMessageBox("Erreur", message);
+                        message = "L'age doit etre un nombre entier";
                     }
+
+                    var Popup = new PopUp(ColorTranslator.FromHtml("#be1621"), items.attention, 1, message, nomsButtons, refEvents);
+                    Popup.ShowDialog();
+                    reponsePopUp();
                 }
                 else
                 {
@@ -944,7 +1011,7 @@ namespace La_petite_boite
                     //apres toutes les verifications, on peut enregistrer le nouveau joueur
                     String enregistrementJoueur = prenomField.Text.ToLower() + "-" + ageJoueur + "-" + indexAvatar + "-" + Montagne.Name + "-" + etoile + "-" + dossier + "-" + epreuves[0] + "-" + epreuves[1] + "-" + epreuves[2] + "-" + epreuves[3];
 
-                    //on l-enreigistre d-abord dans la liste joueursFichier, la fonction quitter va enregistrer les donnees en dur
+                    //on l-enregistre d-abord dans la liste joueursFichier, la fonction quitter va enregistrer les donnees en dur
                     joueursFichier.Add(enregistrementJoueur);
 
                     //il faut creer une nouvelle instance de joueur
@@ -1057,6 +1124,7 @@ namespace La_petite_boite
             
             precedent.Dock = DockStyle.None;
             precedent.Anchor = AnchorStyles.Top;
+            precedent.Show();
             actionJoueur.Anchor = AnchorStyles.Top;
             diaporamaHistoire.Controls.Add(Table);
             diaporamaHistoire.Tag = "0";
@@ -1065,16 +1133,27 @@ namespace La_petite_boite
 
         private void afficherDiaporama()
         {
-            //on affiche la planche avec le roi puis la planche avec le magicien...le bouton doit clignoter
             //lors du diaporama on a le texte et une voix off qui explique l-histoire
             nomJoueur = chevalier.nomJoueur();
             textePresentationJeu.Text = textesDiaporama.ElementAt(0);
-            actionJoueur.Text = "Oui";
-            actionJoueur.Width = 200;
-            actionJoueur.Click += new EventHandler(ReadyButton);
 
+            //On retire la methode afficheRecompense si le joueur est deja passe par le chateau
+            if (FonctionChateauActive == true)
+            {
+                if (passageChateau == 1)
+                {
+                    actionJoueur.Click -= retourTabBord;
+                   
+                }
+                else if (passageChateau == 2) {
+                    actionJoueur.Click -= afficheRecompense;
+                }
+            }
+
+            actionJoueur.Text = "Oui";
+            actionJoueur.Width = 150;
+            actionJoueur.Click += new EventHandler(ReadyButton);
             diaporama();
-            
             this.Controls.Clear();
             this.Controls.Add(diaporamaHistoire);
         }
@@ -1096,9 +1175,20 @@ namespace La_petite_boite
 
             if (index.Equals("0"))
             {
-                this.Controls.Clear();
-                //retour a l'accueil
-                afficheAccueil();
+                if (FonctionChateauActive == true)
+                {
+                    //retour carte si on est au chateau
+                    FonctionChateauActive = false;
+                    this.Controls.Clear();
+                    Carte();
+                }
+                else
+                {
+                    this.Controls.Clear();
+                    //retour a l'accueil
+                    afficheAccueil();
+                }
+                
             }
             else if (index.Equals("1"))
             {
@@ -1186,12 +1276,27 @@ namespace La_petite_boite
             this.Controls.Add(CarteJeu);
             //on determine les positions et les dimensions des lieux selon la taille de la form
             positionLieux();
+
+            if (FinJeu == true)
+            {
+                //affichage pop up pour recuperer les recompenses une fois
+                FinJeu = false;
+                //ici pop up spe
+                List<String> nomsButtons = new List<string>();
+                List<int> refEvents = new List<int>();
+                nomsButtons.Add("Retour");
+                refEvents.Add(0);
+
+                var Popup = new PopUp(ColorTranslator.FromHtml("#28225c"), items.felicitations, 1, "Tu as recolte toutes les etoiles!"+ Environment.NewLine +"Rends-toi au Chateau pour ouvrir le coffre et decouvrir ses tresors!", nomsButtons, refEvents);
+                Popup.ShowDialog();
+                reponsePopUp();
+            }
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             //on fait le repaint
-            e.Graphics.DrawImage(imagesAvatars[chevalier.avatarJoueur()], positionJoueur.X, positionJoueur.Y - 120, 123, 160);
+            e.Graphics.DrawImage(imagesAvatars[chevalier.avatarJoueur()], positionJoueur.X, positionJoueur.Y - 120, 123, 150);
         }
 
         public void positionLieux()
@@ -1501,7 +1606,6 @@ namespace La_petite_boite
         {
             //sauvegarde en pleine partie / enregistrement dans le tableau joueursFichier. l-enregistrement en dur se fera a la fermeture de l-application
             Boolean enregistrer = false;
-            chevalier.setPosition(arrivee);
             Console.WriteLine(chevalier.positionJoueur());
             String enregistrementJoueur = chevalier.nomJoueur() + "-" + chevalier.ageJoueur() + "-" + chevalier.avatarJoueur() + "-" + chevalier.positionJoueur().Name + "-" + chevalier.scoreJoueur() + "-" + chevalier.dossierJoueur() + "-" + chevalier.getEpreuvesGagnees(0) + "-" + chevalier.getEpreuvesGagnees(1) + "-" + chevalier.getEpreuvesGagnees(2) + "-" + chevalier.getEpreuvesGagnees(3);
 
@@ -1509,8 +1613,10 @@ namespace La_petite_boite
 
             for (int i = 0; i < joueursFichier.Count(); i++)
             {
-                if (joueursFichier.ElementAt(i).Contains(chevalier.nomJoueur()) && enregistrer == false)
+               
+                if (joueursFichier.ElementAt(i).Contains(chevalier.nomJoueur()) && joueursFichier.ElementAt(i).Contains(chevalier.dossierJoueur()) && enregistrer == false)
                 {
+                    Console.WriteLine(chevalier.dossierJoueur());
                     //on met a jour les donnees
                     joueursFichier[i] = enregistrementJoueur;
                     enregistrer = true;
@@ -1535,8 +1641,6 @@ namespace La_petite_boite
                 refEvents.Add(0);
             }
             
-            
-
             if (enregistrer == true)
             {
                 var Popup = new PopUp(ColorTranslator.FromHtml("#006532"), items.guide, 1, "Les donnees ont ete sauvegardees !", nomsButtons, refEvents);
@@ -1581,14 +1685,39 @@ namespace La_petite_boite
         //MINI JEUX
 
         //afficher le mini jeu
+        public void afficheTuto()
+        {
+            if (jeuEnCours.Equals("Chasse aux mots"))
+            {
+                tuto = new tutoChasseAuxMots();
+            }
+            else if (jeuEnCours.Equals("Grand Ou Petit"))
+            {
+                tuto = new tutoGrandOuPetit();
+            }
+            else if (jeuEnCours.Equals("Que fait le Roi?"))
+            {
+                tuto = new tutoQueFaitLeRoi();
+            }
+            else if (jeuEnCours.Equals("Memory"))
+            {
+                tuto = new tutoMemory();
+            }
+            tuto.ShowDialog();
+           // Application.Run(tuto);
+        }
+
         private void afficheJeu(String nomJeu, Panel p)
         {
+            
             this.Opacity = 0.80;
             fade.Start();
             this.Controls.Remove(CarteJeu);
             Jeu.Controls.Add(Table);
             this.Controls.Add(Jeu);
+
             //on ajoute le minijeu
+            miniJeu.Controls.Clear();
             miniJeu.Controls.Add(p);
             conteneurEtoilesCoffre.Margin = new Padding(0);
             coffre.Top = 5;
@@ -1682,30 +1811,18 @@ namespace La_petite_boite
             Table.SetColumnSpan(miniJeu, 3);
             Table.SetRowSpan(miniJeu, 2);
             Table.SetRowSpan(imgChevalier, 2);
+
+            Thread t = new Thread(new ThreadStart(afficheTuto));
+            t.Start();
+            //Thread.Sleep(6000);
+            //t.Abort();
             
-            if (jeuEnCours.Equals("Chasse aux mots"))
-            {
-                tuto = new tutoChasseAuxMots();
-            }
-            else if (jeuEnCours.Equals("Grand Ou Petit"))
-            {
-                tuto = new tutoGrandOuPetit();
-            }
-            else if (jeuEnCours.Equals("Que fait le Roi?"))
-            {
-                tuto = new tutoQueFaitLeRoi();
-            }
-            else if (jeuEnCours.Equals("Memory"))
-            {
-                tuto = new tutoMemory();
-            }
-            tuto.ShowDialog();
         }
 
         private void LanceMiniJeu(object sender, EventArgs e)
         {
             Lieu l = (Lieu)sender;
-            Boolean FonctionChateauActive = false;
+            FonctionChateauActive = false;
 
             epreuvesO = chevalier.epreuvesJoueur();
             epreuvesF = chevalier.epreuvesFacultatives();
@@ -1774,22 +1891,19 @@ namespace La_petite_boite
         //retour vers La Carte ou l-Accueil depuis le moni jeu
         private void retourTabBord(object sender, EventArgs e)
         {
-            Control source = (Control)sender;
-            Control parent = source.Parent;
-            Control grandParent = parent.Parent;
 
-            if (grandParent.Parent == Jeu)
+            if (this.Controls.Contains(Jeu))
             {
                 miniJeu.Controls.Clear();
                 this.Controls.Remove(Jeu);
                 Carte();
             }
-            else if (grandParent == diaporamaHistoire)
+            else if (this.Controls.Contains(diaporamaHistoire))
             {
                 this.Controls.Remove(diaporamaHistoire);
                 Carte();
             }
-            else if (grandParent == CarteJeu)
+            else if (this.Controls.Contains(CarteJeu))
             {
                 List<String> nomsButtons = new List<string>();
                 List<int> refEvents = new List<int>();
@@ -1822,6 +1936,11 @@ namespace La_petite_boite
                     //on enregistre les nouvelles etoiles
                     chevalier.setJoueurScore(3);
 
+                    if (chevalier.scoreJoueur() == 12)
+                    {
+                        FinJeu = true;
+                    }
+                    
                     //on met les etoiles dans conteneurEtoiles
 
                     ajoutEtoiles();
@@ -2034,6 +2153,7 @@ namespace La_petite_boite
 
             if (chevalier.scoreJoueur() < 12)
             {
+                passageChateau = 1;
                 actionJoueur.Text = "Retour";
                 actionJoueur.Click -= afficherCarte;
                 actionJoueur.Click += new EventHandler(retourTabBord);
@@ -2042,6 +2162,7 @@ namespace La_petite_boite
             }
             else
             {
+                passageChateau = 2;
                 actionJoueur.Text = "Coffre";
                 actionJoueur.Click -= afficherCarte;
                 actionJoueur.Click += new EventHandler(afficheRecompense);
@@ -2053,13 +2174,10 @@ namespace La_petite_boite
         
         public void afficheRecompense(object sender, EventArgs e)
         {
-            this.Controls.Remove(diaporamaHistoire);
-            Table.Controls.Clear();
-            Table.RowStyles.Clear();
-            Table.ColumnStyles.Clear();
-
-            recompense PanelRecompense = new recompense();
+            recompense PanelRecompense = new recompense(privateFontCollection);
+            
             this.Controls.Add(PanelRecompense);
+            PanelRecompense.BringToFront();
         }
         
     }
@@ -2095,16 +2213,30 @@ namespace La_petite_boite
     public abstract class PopForm : Form
     {
         Button exit = new Button();
-        Label label1 = new Label();
+        SpecialLabel label1 = new SpecialLabel();
+        public delegate void actionTuto();
+        public List<actionTuto> tableauFonctions = new List<actionTuto>();
+        int compteur = -1;
+        public System.Windows.Forms.Timer timer2 = new System.Windows.Forms.Timer();
+        public Panel conteneur = new Panel();
 
         protected PopForm () 
         {
-            this.ClientSize = new Size(540, 530);
-            this.BackColor = Color.Beige;
+            this.ClientSize = new Size(540, 530); 
+            this.BackColor = ColorTranslator.FromHtml("#4d78ab");
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.None;
             this.AutoScaleMode = AutoScaleMode.Font;
             this.AutoScaleDimensions = new SizeF(6F, 13F);
+
+            //conteneur
+
+            this.Controls.Add(conteneur);
+            conteneur.Location = new Point(0,100);
+            conteneur.Size = new Size(540, 430);
+            //timer2
+            timer2.Interval = 2000;
+            timer2.Tick += new EventHandler(timerPause);
 
             //exit
             this.exit.BackgroundImage = items.exit;
@@ -2125,18 +2257,35 @@ namespace La_petite_boite
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new Point(200, 40);
+            this.label1.ForeColor = Color.White;
+            this.label1.Font = new Font(petiteBoite.privateFontCollection.Families[0], 30);
+            this.label1.Location = new Point(130, 20);
             this.label1.TabIndex = 6;
             this.label1.Text = "Regles du jeu";
             this.label1.TextAlign = ContentAlignment.MiddleCenter;
             this.Controls.Add(label1);
+            
         }
 
         private void sortieApplication(object sender, EventArgs e)
         {
             this.Close();
             this.Dispose();
+        }
+
+        private void timerPause(object sender, EventArgs e)
+        {
+            compteur++;
+            Console.WriteLine(compteur);
+
+            if (compteur < tableauFonctions.Count)
+            {
+                tableauFonctions[compteur]();
+            }
+            else
+            {
+                timer2.Stop();
+            }
         }
 
     }

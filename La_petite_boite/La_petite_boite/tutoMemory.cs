@@ -20,14 +20,23 @@ namespace La_petite_boite
         public PictureBox carte1;
         Random localisation = new Random(); 
         List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
-        int compteur = 0;
         
 
         public tutoMemory() : base()
         {
             InitializeComponent();
+
+            tableauFonctions.Add(action1);
+            tableauFonctions.Add(action2);
+
+            this.conteneurCarte.Location = new System.Drawing.Point(124, 10);
+            conteneur.Controls.Add(this.conteneurCarte);
+
             chargementPartie();
-            timer1.Enabled = true;
+            //timer1.Enabled = true;
+
+            System.Threading.Thread.Sleep(1000);
+            timer2.Enabled = true;
         }
 
         public void chargementPartie()
@@ -61,23 +70,22 @@ namespace La_petite_boite
                 image.BackColor = Color.Transparent;
             }
         }
-        
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            SoundPlayer sound = new SoundPlayer();
 
-            if (compteur < 2)
-            {
-                conteneurCarte.Controls.OfType<PictureBox>().ElementAt(compteur).Image = items.doudou1;
-                Program.petiteBoite.JouerSon(items.doudouFR);
-                compteur++;
-            }
-            else
-            {
-                timer1.Enabled = false;
-                Program.petiteBoite.JouerSon(items.applaudissement);
-            }
+        private void action1()
+        {
+            conteneurCarte.Controls.OfType<PictureBox>().ElementAt(0).Image = items.doudou1;
+            conteneurCarte.Controls.OfType<PictureBox>().ElementAt(0).BackColor = Color.Transparent;
+            Program.petiteBoite.JouerSon(items.doudouFR);
         }
+
+        private void action2()
+        {
+            conteneurCarte.Controls.OfType<PictureBox>().ElementAt(1).Image = items.doudou1;
+            conteneurCarte.Controls.OfType<PictureBox>().ElementAt(1).BackColor = Color.Transparent;
+            Program.petiteBoite.JouerSon(items.doudouFR);
+        }
+        
+        
         
     }
 }

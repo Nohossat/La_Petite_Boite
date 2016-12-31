@@ -33,7 +33,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Ecouter = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.conteneurCarte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -43,7 +42,6 @@
             // 
             this.conteneurCarte.Controls.Add(this.pictureBox2);
             this.conteneurCarte.Controls.Add(this.pictureBox1);
-            this.conteneurCarte.Location = new System.Drawing.Point(120, 146);
             this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(307, 197);
             this.conteneurCarte.TabIndex = 0;
@@ -75,7 +73,6 @@
             this.Ecouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Ecouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Ecouter.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Ecouter.Location = new System.Drawing.Point(174, 371);
             this.Ecouter.Name = "Ecouter";
             this.Ecouter.Size = new System.Drawing.Size(198, 51);
             this.Ecouter.TabIndex = 1;
@@ -83,17 +80,10 @@
             this.Ecouter.UseVisualStyleBackColor = false;
             // 
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 9000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // tutoChasseAuxMots
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.Ecouter);
-            this.Controls.Add(this.conteneurCarte);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(125, 100);
             this.Name = "tutoChasseAuxMots";
@@ -109,6 +99,5 @@
 
         #endregion
         
-        private System.Windows.Forms.Timer timer1;
     }
 }

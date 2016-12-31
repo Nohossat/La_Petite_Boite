@@ -38,7 +38,6 @@
             this.conteneurCarteAPlacer = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.conteneurCarte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -52,7 +51,6 @@
             // 
             this.conteneurBouton.Controls.Add(this.button1);
             this.conteneurBouton.Controls.Add(this.button2);
-            this.conteneurBouton.Location = new System.Drawing.Point(160, 100);
             this.conteneurBouton.Name = "conteneurBouton";
             this.conteneurBouton.Size = new System.Drawing.Size(334, 42);
             this.conteneurBouton.TabIndex = 10;
@@ -81,7 +79,6 @@
             // 
             this.conteneurCarte.Controls.Add(this.pictureBox1);
             this.conteneurCarte.Controls.Add(this.pictureBox2);
-            this.conteneurCarte.Location = new System.Drawing.Point(160, 300);
             this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(334, 140);
             this.conteneurCarte.TabIndex = 8;
@@ -109,7 +106,6 @@
             // 
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox5);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox6);
-            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(160, 150);
             this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
             this.conteneurCarteAPlacer.Size = new System.Drawing.Size(334, 140);
             this.conteneurCarteAPlacer.TabIndex = 9;
@@ -133,17 +129,9 @@
             this.pictureBox6.Tag = "2";
             // 
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 6000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // tutoQueFaitLeRoi
             // 
-            
-            this.Controls.Add(this.conteneurBouton);
-            this.Controls.Add(this.conteneurCarteAPlacer);
-            this.Controls.Add(this.conteneurCarte);
             this.Name = "tutoQueFaitLeRoi";
             this.Text = "QueFaitLeRoi4";
             this.conteneurCarte.ResumeLayout(false);
@@ -160,6 +148,5 @@
 
         #endregion
         
-        private System.Windows.Forms.Timer timer1;
     }
 }

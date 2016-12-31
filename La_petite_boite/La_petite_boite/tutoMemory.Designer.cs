@@ -34,7 +34,6 @@
             this.carte2 = new System.Windows.Forms.PictureBox();
             this.doubleCarte1 = new System.Windows.Forms.PictureBox();
             this.carte1 = new System.Windows.Forms.PictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.conteneurCarte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doubleCarte2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carte2)).BeginInit();
@@ -48,7 +47,7 @@
             this.conteneurCarte.Controls.Add(this.carte2);
             this.conteneurCarte.Controls.Add(this.doubleCarte1);
             this.conteneurCarte.Controls.Add(this.carte1);
-            this.conteneurCarte.Location = new System.Drawing.Point(113, 70);
+           
             this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(314, 368);
             this.conteneurCarte.TabIndex = 0;
@@ -93,10 +92,6 @@
             this.carte1.TabStop = false;
             this.carte1.Tag = "1";
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 3000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // 
             // 
@@ -104,7 +99,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.conteneurCarte);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "tutoMemory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -120,8 +114,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Timer timer1;
+        
     }
 
 }

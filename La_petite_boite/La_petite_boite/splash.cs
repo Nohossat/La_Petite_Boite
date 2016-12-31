@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ressources;
+using System.Drawing.Text;
 
 namespace La_petite_boite
 {
     public partial class splash : Form
     {
         bool fadein = false;
+        public static PrivateFontCollection privateFontCollection;
 
         public splash()
         {
@@ -34,13 +36,14 @@ namespace La_petite_boite
                 this.Opacity += 0.05;
             }
 
-            if (fadein == false && this.Opacity == 1)
+            if (fadein == false && this.Opacity == 0.5)
             {
                 fadein = true;
+                timer1.Stop();
             }
             
             //dans un deuxieme temps, fade out
-             if (fadein == true)
+            /* if (fadein == true)
              {
                  this.Opacity -= 0.01;
              }
@@ -48,7 +51,26 @@ namespace La_petite_boite
              if (fadein == true && this.Opacity == 0.90)
              {
                  timer1.Stop();
-             }
+             }*/
+        }
+
+        private void splash_Load(object sender, EventArgs e)
+        {
+            //on determine la resolution de la fenetre
+            Double flagResolution = Screen.PrimaryScreen.Bounds.Height / Screen.PrimaryScreen.Bounds.Width;
+            
+            if (flagResolution == 1366 / 768)
+            {
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+                this.ClientSize = new Size(Screen.PrimaryScreen.Bounds.X, Screen.PrimaryScreen.Bounds.Y);
+            }
+            else
+            {
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.ClientSize = new Size(1292, 726);
+                this.Size = new Size(1292, 728);
+            }
         }
     }
 }

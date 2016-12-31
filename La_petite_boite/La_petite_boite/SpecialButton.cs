@@ -26,6 +26,7 @@ namespace La_petite_boite
             this.FlatStyle = FlatStyle.Flat;
             this.Dock = DockStyle.None;
             this.TextAlign = ContentAlignment.MiddleCenter;
+            this.Cursor = Cursors.Hand;
         }
 
         private TextRenderingHint _textRenderingHint = TextRenderingHint.SystemDefault;
@@ -70,12 +71,17 @@ namespace La_petite_boite
 
     public class ControlButton : bouton
     {
-        public ControlButton()
+        String previousColor;
+        String afterColor;
+
+        public ControlButton(String prev, String after) : base()
         {
             this.Width = 200;
             this.Height = 70;
             this.Top = 590;
-            this.ForeColor = SystemColors.ControlLightLight;
+            this.previousColor = prev;
+            this.afterColor = after;
+            this.ForeColor = ColorTranslator.FromHtml(prev);
             this.MouseEnter += new EventHandler(changeColorButton);
             this.MouseLeave += new EventHandler(PreviousColorButton);
         }
@@ -84,14 +90,14 @@ namespace La_petite_boite
         {
             Button b = (Button)sender;
 
-            b.ForeColor = SystemColors.ControlLightLight;
+            b.ForeColor = ColorTranslator.FromHtml(previousColor);
         }
 
         private void changeColorButton(object sender, EventArgs e)
         {
             Button b = (Button)sender;
 
-            b.ForeColor = ColorTranslator.FromHtml("#6d5622");
+            b.ForeColor = ColorTranslator.FromHtml(afterColor);
         }
         
     }

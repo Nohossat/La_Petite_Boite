@@ -22,12 +22,22 @@ namespace La_petite_boite
         public tutoChasseAuxMots() : base()
         {
             InitializeComponent();
-            ChasseAuxMots_Load();
+
+            this.Ecouter.Location = new Point(174, 265);
+            this.conteneurCarte.Location = new Point(120, 40);
+
+            conteneur.Controls.Add(this.Ecouter);
+            conteneur.Controls.Add(this.conteneurCarte);
+
+            tableauFonctions.Add(action1);
+            tableauFonctions.Add(action2);
+
+            chargementPartie();
             System.Threading.Thread.Sleep(1000);
-            timer1.Enabled = true;
+            timer2.Enabled = true;
         }
 
-        private void ChasseAuxMots_Load()
+        private void chargementPartie()
         {
             this.Enabled = true;
             Ecouter.Enabled = true;
@@ -37,21 +47,21 @@ namespace La_petite_boite
             sounds.Add(items.doudouFR);
             sounds.Add(items.jardinTurc);
         }
-        
-        private void timer1_Tick(object sender, EventArgs e)
+
+        private void action1 ()
         {
             //on clique sur Ecouter
             Program.petiteBoite.JouerSon(sounds.ElementAt(0));
             //le bouton Ecouter est disabled
             Ecouter.Enabled = false;
             //on clique dessus et elle se retourne
-            System.Threading.Thread.Sleep(1000);
-            pictureBox1.Image = items.dosCarte;
-            System.Threading.Thread.Sleep(500);
-            Program.petiteBoite.JouerSon(items.applaudissement);
-            //on arrete le timer et on active le jeu
-            timer1.Enabled = false;
         }
+
+        private void action2()
+        {
+            pictureBox1.Image = items.dosCarte;
+        }
+        
         
     }
 }

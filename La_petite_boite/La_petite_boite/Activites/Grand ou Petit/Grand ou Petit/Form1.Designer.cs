@@ -585,12 +585,8 @@ namespace Grand_ou_Petit
             this.pictureBox23 = new System.Windows.Forms.PictureBox();
             this.pictureBox24 = new System.Windows.Forms.PictureBox();
             this.pictureBox33 = new System.Windows.Forms.PictureBox();
-            this.pictureBox34 = new System.Windows.Forms.PictureBox();
             this.pictureBox35 = new System.Windows.Forms.PictureBox();
-            this.pictureBox36 = new System.Windows.Forms.PictureBox();
             this.conteneurCarteAPlacer = new System.Windows.Forms.Panel();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
@@ -602,8 +598,6 @@ namespace Grand_ou_Petit
             this.pictureBox31 = new System.Windows.Forms.PictureBox();
             this.pictureBox32 = new System.Windows.Forms.PictureBox();
             this.conteneurGrandeCarte = new System.Windows.Forms.Panel();
-            this.pictureBox28 = new System.Windows.Forms.PictureBox();
-            this.pictureBox27 = new System.Windows.Forms.PictureBox();
             this.pictureBox26 = new System.Windows.Forms.PictureBox();
             this.pictureBox25 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -624,12 +618,8 @@ namespace Grand_ou_Petit
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).BeginInit();
             this.conteneurCarteAPlacer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
@@ -641,8 +631,6 @@ namespace Grand_ou_Petit
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
             this.conteneurGrandeCarte.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -667,10 +655,8 @@ namespace Grand_ou_Petit
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox35);
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox21);
             this.conteneurPetiteCarte.Controls.Add(this.pictureBox23);
-            this.conteneurPetiteCarte.Controls.Add(this.pictureBox34);
-            this.conteneurPetiteCarte.Controls.Add(this.pictureBox36);
-            this.conteneurPetiteCarte.Location = new System.Drawing.Point(5, 248);
-            this.conteneurPetiteCarte.Size = new System.Drawing.Size(1200, 116);
+            this.conteneurPetiteCarte.Location = new Point(5, 300);
+            this.conteneurPetiteCarte.Size = new Size(1200, 135);
             this.conteneurPetiteCarte.TabIndex = 15;
             // 
             // pictureBox17
@@ -726,16 +712,6 @@ namespace Grand_ou_Petit
             this.pictureBox23.Name = "pictureBox23";
             this.pictureBox23.Tag = "10";
 
-            // pictureBox34
-            // 
-            this.pictureBox34.Name = "pictureBox34";
-            this.pictureBox34.Tag = "11";
-            // 
-            // pictureBox36
-            // 
-            this.pictureBox36.Name = "pictureBox36";
-            this.pictureBox36.Tag = "12";
-            // 
             // conteneurCarteAPlacer
             // 
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox32);
@@ -748,21 +724,10 @@ namespace Grand_ou_Petit
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox16);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox12);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox11);
-            this.conteneurCarteAPlacer.Controls.Add(this.pictureBox10);
-            this.conteneurCarteAPlacer.Controls.Add(this.pictureBox9);
-            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(5, 127);
-            this.conteneurCarteAPlacer.Size = new System.Drawing.Size(1200, 116);
+            this.conteneurCarteAPlacer.Location = new Point(5, 155);
+            this.conteneurCarteAPlacer.Size = new Size(1200, 135);
             this.conteneurCarteAPlacer.TabIndex = 14;
             // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Tag = "12";
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Tag = "11";
             // 
             // pictureBox11
             // 
@@ -831,21 +796,9 @@ namespace Grand_ou_Petit
             this.conteneurGrandeCarte.Controls.Add(this.pictureBox8);
             this.conteneurGrandeCarte.Controls.Add(this.pictureBox25);
             this.conteneurGrandeCarte.Controls.Add(this.pictureBox26);
-            this.conteneurGrandeCarte.Controls.Add(this.pictureBox27);
-            this.conteneurGrandeCarte.Controls.Add(this.pictureBox28);
             this.conteneurGrandeCarte.Location = new System.Drawing.Point(5, 10);
-            this.conteneurGrandeCarte.Size = new System.Drawing.Size(1200, 112);
+            this.conteneurGrandeCarte.Size = new System.Drawing.Size(1200, 135);
             this.conteneurGrandeCarte.TabIndex = 12;
-            // 
-            // pictureBox28
-            // 
-            this.pictureBox28.Name = "pictureBox28";
-            this.pictureBox28.Tag = "12";
-            // 
-            // pictureBox27
-            // 
-            this.pictureBox27.Name = "pictureBox27";
-            this.pictureBox27.Tag = "11";
             // 
             // pictureBox26
             // 
@@ -902,7 +855,7 @@ namespace Grand_ou_Petit
             // 
             // PANEL
             // 
-            this.ClientSize = new System.Drawing.Size(1200, 400);
+            this.ClientSize = new System.Drawing.Size(1090, 465);
             this.conteneurPetiteCarte.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
@@ -913,12 +866,8 @@ namespace Grand_ou_Petit
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).EndInit();
             this.conteneurCarteAPlacer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
@@ -930,8 +879,6 @@ namespace Grand_ou_Petit
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
             this.conteneurGrandeCarte.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

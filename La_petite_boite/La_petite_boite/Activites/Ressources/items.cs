@@ -94,7 +94,46 @@ namespace Ressources
         }
 
         //images JeuPPL
-        
+
+        public static Bitmap fondRecompenseAfter
+        {
+            get
+            {
+                return Properties.Resources.fondRecompenseAfter;
+            }
+        }
+
+        public static Bitmap fondRecompense
+        {
+            get
+            {
+                return Properties.Resources.fondRecompense;
+            }
+        }
+
+        public static Bitmap etoileCoffreHover
+        {
+            get
+            {
+                return Properties.Resources.etoileCoffreHover;
+            }
+        }
+
+        public static Bitmap etoileCoffre
+        {
+            get
+            {
+                return Properties.Resources.etoileCoffre;
+            }
+        }
+
+        public static Bitmap recompenses
+        {
+            get
+            {
+                return Properties.Resources.recompenses;
+            }
+        }
 
         public static Bitmap exit
         {

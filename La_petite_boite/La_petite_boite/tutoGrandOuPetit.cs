@@ -7,6 +7,7 @@ using System.Reflection;
 using System.IO;
 using System.Media;
 using Ressources;
+using System.Threading;
 
 namespace La_petite_boite
 {
@@ -28,9 +29,24 @@ namespace La_petite_boite
         public tutoGrandOuPetit() : base()
         {
             InitializeComponent();
+
+            tableauFonctions.Add(action1);
+            tableauFonctions.Add(action2);
+            tableauFonctions.Add(action3);
+            tableauFonctions.Add(action4);
+            tableauFonctions.Add(action5);
+            
+            this.conteneurPetiteCarte.Location = new Point(160, 280);
+            this.conteneurCarteAPlacer.Location = new Point(160, 140);
+            this.conteneurGrandeCarte.Location = new Point(160, 0);
+
+            conteneur.Controls.Add(this.conteneurPetiteCarte);
+            conteneur.Controls.Add(this.conteneurCarteAPlacer);
+            conteneur.Controls.Add(this.conteneurGrandeCarte);
+
             chargementPartie();
-            System.Threading.Thread.Sleep(2000);
-            timer1.Enabled = true;
+            Thread.Sleep(1000);
+            timer2.Enabled = true;
         }
 
         private void chargementPartie()
@@ -71,38 +87,49 @@ namespace La_petite_boite
                 image.Image = items.dosCarte;
             }
         }
-
-        private void timer1_Tick(object sender, EventArgs e)
+        
+        private void action1 ()
         {
             //on devoile la premiere grde carte
             conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(0).Image = images[0];
+            conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(0).BackColor = Color.White;
             Refresh();
             Program.petiteBoite.JouerSon(audio.ElementAt(0));
-            System.Threading.Thread.Sleep(3000);
+        }
+
+        private void action2 ()
+        {
             //on devoile la premiere pt carte
             conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(1).Image = images[1];
+            conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(1).BackColor = Color.White;
             Refresh();
             Program.petiteBoite.JouerSon(audio.ElementAt(3));
-            System.Threading.Thread.Sleep(2000);
+        }
+
+        private void action3 ()
+        {
             //on retourne la premiere pt carte
             conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(1).Image = items.dosCarte;
+            conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(1).BackColor = Color.Transparent;
             Refresh();
-            System.Threading.Thread.Sleep(2000);
+        }
+
+        private void action4 ()
+        {
             //on devoile la deuxieme pt carte
             conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(0).Image = images[0];
+            conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(0).BackColor = Color.White;
             Refresh();
             Program.petiteBoite.JouerSon(audio.ElementAt(2));
-            System.Threading.Thread.Sleep(2000);
-            //on la pose dans l'emplacement
+        }
+
+        private void action5 ()
+        {
             conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(0).Image = images[0];
+            conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(0).BackColor = Color.White;
             conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(0).Hide();
             Refresh();
-            Program.petiteBoite.JouerSon(items.applaudissement);
-            //on la retire du conteneur petite carte
-            //on enable le bouton GO
-            timer1.Enabled = false;
         }
-        
         
     }
 }

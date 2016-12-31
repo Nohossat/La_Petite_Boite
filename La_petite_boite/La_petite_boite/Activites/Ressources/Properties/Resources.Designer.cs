@@ -509,6 +509,26 @@ namespace Ressources.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap etoileCoffre {
+            get {
+                object obj = ResourceManager.GetObject("etoileCoffre", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap etoileCoffreHover {
+            get {
+                object obj = ResourceManager.GetObject("etoileCoffreHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap etoileGrise {
             get {
                 object obj = ResourceManager.GetObject("etoileGrise", resourceCulture);
@@ -592,6 +612,26 @@ namespace Ressources.Properties {
         public static System.Drawing.Bitmap fondBlanc {
             get {
                 object obj = ResourceManager.GetObject("fondBlanc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap fondRecompense {
+            get {
+                object obj = ResourceManager.GetObject("fondRecompense", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap fondRecompenseAfter {
+            get {
+                object obj = ResourceManager.GetObject("fondRecompenseAfter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1201,6 +1241,16 @@ namespace Ressources.Properties {
         public static System.IO.UnmanagedMemoryStream questionBoiteTurc {
             get {
                 return ResourceManager.GetStream("questionBoiteTurc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap recompenses {
+            get {
+                object obj = ResourceManager.GetObject("recompenses", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

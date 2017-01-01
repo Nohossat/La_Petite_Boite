@@ -11,6 +11,7 @@ using Jeu;
 using System.IO;
 using System.Media;
 using Ressources;
+using System.Drawing.Text;
 
 namespace Chasse_aux_mots
 {
@@ -231,4 +232,6 @@ namespace Chasse_aux_mots
             JouerSon(sons[index], choixSon, ref carteACliquerTag);
         }
     }
+
+    
 }

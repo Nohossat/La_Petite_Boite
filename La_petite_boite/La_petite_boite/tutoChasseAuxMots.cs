@@ -15,7 +15,7 @@ namespace La_petite_boite
         public Panel conteneurCarte;
         public PictureBox pictureBox2;
         public PictureBox pictureBox1;
-        public Button Ecouter;
+        public bouton1 Ecouter;
         
         List<Stream> sounds = new List<Stream>();
         
@@ -62,6 +62,7 @@ namespace La_petite_boite
             pictureBox1.Image = items.dosCarte;
         }
         
-        
     }
+
+
 }

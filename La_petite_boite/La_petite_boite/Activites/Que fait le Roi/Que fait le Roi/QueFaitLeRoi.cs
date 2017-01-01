@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ressources;
+using System.Drawing.Text;
 
 namespace Que_fait_le_Roi
 {
@@ -279,4 +280,6 @@ namespace Que_fait_le_Roi
             Refresh();
         }
     }
+
+   
 }

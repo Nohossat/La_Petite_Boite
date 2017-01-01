@@ -125,14 +125,15 @@ namespace Que_fait_le_Roi
 
     public partial class QueFaitLeRoi8Panel : QueFaitLeRoiClass
     {
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private bouton button1 = new bouton();
+        private bouton button2 = new bouton();
+        private bouton button3 = new bouton();
+        private bouton button4 = new bouton();
+        private bouton button5 = new bouton();
+        private bouton button6 = new bouton();
+        private bouton button7 = new bouton();
+        private bouton button8 = new bouton();
+
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
@@ -233,19 +234,19 @@ namespace Que_fait_le_Roi
         private System.Windows.Forms.PictureBox pictureBox22;
         private System.Windows.Forms.PictureBox pictureBox23;
         private System.Windows.Forms.PictureBox pictureBox24;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
 
+        private bouton button1 = new bouton();
+        private bouton button2 = new bouton();
+        private bouton button3 = new bouton();
+        private bouton button4 = new bouton();
+        private bouton button5 = new bouton();
+        private bouton button6 = new bouton();
+        private bouton button7 = new bouton();
+        private bouton button8 = new bouton();
+        private bouton button9 = new bouton();
+        private bouton button10 = new bouton();
+        private bouton button11 = new bouton();
+        private bouton button12 = new bouton();
 
         public QueFaitLeRoi12Panel(List<String> TextesBoutons)
         {
@@ -321,8 +322,7 @@ namespace Que_fait_le_Roi
             this.pictureBox22.Image = items.pijama1;
             this.pictureBox21.Image = items.pause1;
         }
-
-
+        
     }
 
     public class bouton : Button

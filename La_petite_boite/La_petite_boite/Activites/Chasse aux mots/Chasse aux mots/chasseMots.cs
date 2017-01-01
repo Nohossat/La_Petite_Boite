@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Media;
@@ -22,7 +23,7 @@ namespace Chasse_aux_mots
         public Random localisation = new Random();
         public List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
         public List<Stream> sons = new List<Stream>();
-        public Button Ecouter;
+        public bouton1 Ecouter;
         public Boolean[] trouves;
         int indexCarte;
 
@@ -163,6 +164,55 @@ namespace Chasse_aux_mots
             imageCliqueTag = (String)image.Tag;
 
             reponse(finalScore, image, ref trouves[index]);
+        }
+
+    }
+
+    public class bouton1 : Button
+    {
+        public bouton1()
+        {
+            this.UseCompatibleTextRendering = true;
+            this.TextRenderingHint = TextRenderingHint.AntiAlias;
+            this.FlatAppearance.BorderSize = 0;
+            this.TabStop = false;
+            this.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+            this.ForeColor = Color.White;
+            this.BackColor = ColorTranslator.FromHtml("#b35344");
+            this.FlatAppearance.MouseDownBackColor = ColorTranslator.FromHtml("#770f00");
+            this.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#770f00");
+            this.FlatStyle = FlatStyle.Flat;
+            this.Dock = DockStyle.None;
+            this.TextAlign = ContentAlignment.MiddleCenter;
+            this.Cursor = Cursors.Hand;
+            this.GotFocus += new EventHandler(myBtn_GotFocus);
+            this.LostFocus += new EventHandler(myBtn_LostFocus);
+        }
+
+        private TextRenderingHint _textRenderingHint = TextRenderingHint.SystemDefault;
+
+        public TextRenderingHint TextRenderingHint
+        {
+            get { return _textRenderingHint; }
+            set { _textRenderingHint = value; }
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            e.Graphics.TextRenderingHint = _textRenderingHint;
+            base.OnPaint(e);
+        }
+
+        private void myBtn_GotFocus(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            b.BackColor = ColorTranslator.FromHtml("#770f00");
+        }
+
+        private void myBtn_LostFocus(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            b.BackColor = ColorTranslator.FromHtml("#b35344");
         }
 
     }

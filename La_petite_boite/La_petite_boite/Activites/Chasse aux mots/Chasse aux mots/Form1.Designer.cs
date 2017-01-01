@@ -115,7 +115,7 @@ namespace Chasse_aux_mots
             this.pictureBox3 = new PictureBox();
             this.pictureBox2 = new PictureBox();
             this.pictureBox1 = new PictureBox();
-            this.Ecouter = new Button();
+            this.Ecouter = new bouton1();
             this.conteneurCarte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -196,7 +196,7 @@ namespace Chasse_aux_mots
 
         public void initializeChasseAuxMots8()
         {
-            this.Ecouter = new System.Windows.Forms.Button();
+            this.Ecouter = new bouton1();
             this.conteneurCarte = new System.Windows.Forms.Panel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
@@ -319,7 +319,7 @@ namespace Chasse_aux_mots
 
         public void initialize()
         {
-            this.Ecouter = new System.Windows.Forms.Button();
+            this.Ecouter = new bouton1();
             this.conteneurCarte = new System.Windows.Forms.Panel();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();

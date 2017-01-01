@@ -622,8 +622,8 @@ namespace La_petite_boite
             posLieu(Village, 0.09, 0.64);
             posLieu(Chateau, 0.82, 0.55);
             posLieu(Cabane, 0.59, 0.64);
-            posLieu(Tronc, 0.47, 0.2);
-            posLieu(Montagne, 0.09, 0.2);
+            posLieu(Tronc, 0.47, 0.21);
+            posLieu(Montagne, 0.09, 0.21);
             
 
             Village.Click += new EventHandler(declencheTimer);
@@ -2130,7 +2130,7 @@ namespace La_petite_boite
             if (chevalier.scoreJoueur() < 12)
             {
                 passageChateau = 1;
-                actionJoueur.Text = Textes[11];
+                actionJoueur.Text = Textes[26];
                 actionJoueur.Click -= afficherCarte;
                 actionJoueur.Click += new EventHandler(retourTabBord);
                 precedent.Hide();
@@ -2139,7 +2139,7 @@ namespace La_petite_boite
             else
             {
                 passageChateau = 2;
-                actionJoueur.Text = Textes[37];
+                actionJoueur.Text = Textes[114];
                 actionJoueur.Click -= afficherCarte;
                 actionJoueur.Click += new EventHandler(afficheRecompense);
                 textePresentationJeu.Text = String.Format(Textes[6], Environment.NewLine);

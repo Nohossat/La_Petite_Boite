@@ -9,7 +9,7 @@ using System.Drawing.Text;
 using System.Media;
 using Ressources;
 using System.Threading;
-
+using System.Text;
 
 namespace La_petite_boite
 {
@@ -116,13 +116,14 @@ namespace La_petite_boite
         SpecialButton quitter = new SpecialButton();
         
         String jeuEnCours = "";
-        String message = "";
+        //String message = "";
         String nomJoueur = "";
         public static String dossier = "";
         public static String nom;
         public static String dos;
         public static String lieuTemporaire;
         public static String resultatJeu;
+        public static List<String> Textes = new List<string>();
         public static List<String> joueursFichier = new List<string>();
         public static List<String> listeSauvegarde = new List<string>();
         List<String> textesDiaporama = new List<String>();
@@ -141,8 +142,17 @@ namespace La_petite_boite
             
             Thread t = new Thread(new ThreadStart(splashStart));
             t.Start();
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
 
+            //---------------------------------FICHIERS-------------------------------------//
+
+            //on lit le fichier Joueurs et on cree une nouvelle instance Joueur avec les donnees trouvees
+            //if Francais
+
+            chargementTexte("textesFR.txt", Textes);
+            chargementTexte("Joueurs.txt", joueursFichier);
+            chargementTexte("dossiers_sauvegarde.txt", listeSauvegarde);
+            
             InitializeComponent();
             afficheAccueil();
             t.Abort();
@@ -185,7 +195,8 @@ namespace La_petite_boite
         {
             //la fonction fadein controle la vitesse d'affichage des differents panneaux. choisir un niveau d'opacite inf a 1 et pair pour que la fonction soit OK
             
-           //---------------------LAYOUTS------------------------//
+            
+            //---------------------LAYOUTS------------------------//
 
             Table.Location = new Point(0, 0);
             Table.Size = new Size(1292, 726);
@@ -204,7 +215,7 @@ namespace La_petite_boite
 
             //---------------------TIMERS------------------------//
 
-            fade.Tick += new System.EventHandler(this.fadein);
+            fade.Tick += new EventHandler(this.fadein);
 
             //---------------------PANELS------------------------//
 
@@ -233,11 +244,7 @@ namespace La_petite_boite
             panelJoueur.Dock = DockStyle.None;
             panelJoueur.Paint += new PaintEventHandler(this.Form1_Paint);
             panelJoueur.BackColor = Color.Transparent;
-
             
-            Console.WriteLine("Size du panelJoueur :" + panelJoueur.Size);
-            Console.WriteLine("Location du panelJoueur :" + panelJoueur.Location);
-
             //accueil
             accueil.BackgroundImage = items.accueil;
 
@@ -423,13 +430,7 @@ namespace La_petite_boite
             precedent.MouseEnter += new EventHandler(boutonEnter);
             precedent.MouseLeave += new EventHandler(boutonLeave);
 
-            //---------------------------------FICHIERS-------------------------------------//
-
-            //on lit le fichier Joueurs et on cree une nouvelle instance Joueur avec les donnees trouvees
-
-            chargementTexte("Joueurs.txt", joueursFichier);
-            chargementTexte("dossiers_sauvegarde.txt", listeSauvegarde);
-
+            
             //--------------------------------BOUTONS----------------------------------------//
 
             //nouvelle partie
@@ -591,16 +592,15 @@ namespace La_petite_boite
             gain.Size = new Size(150, 70);
             gain.TextAlign = ContentAlignment.MiddleCenter;
             objectif.Controls.Add(gain);
-            
+
 
             //texte pour le diaporama
-
-            textesDiaporama.Add("Bienvenue à toi " + nomJoueur + ", je suis le roi Kazan." + Environment.NewLine + "Es - tu pret pour la mission que j'ai a te confier?");
-            textesDiaporama.Add("Avant de commencer, rends visite au magicien. " + Environment.NewLine + "Il te donnera de precieux conseils pour la suite de l'aventure");
-            textesDiaporama.Add("Bienvenue à toi " + nomJoueur + " , je suis le magicien Kazan, et je serai ton guide tout au long de ton périple. " + Environment.NewLine + "Bon courage!");
-            textesDiaporama.Add("est-ce que tu as vraiment recolter toutes les etoiles?");
-
-
+            
+            textesDiaporama.Add(String.Format(Textes[1], nomJoueur, Environment.NewLine));
+            textesDiaporama.Add(String.Format(Textes[2], Environment.NewLine));
+            textesDiaporama.Add(String.Format(Textes[3], nomJoueur, Environment.NewLine));
+            textesDiaporama.Add(Textes[4]);
+            
             textePresentationJeu.Width = 1100;
             textePresentationJeu.Height = 300;
             textePresentationJeu.Top = 0;
@@ -690,6 +690,7 @@ namespace La_petite_boite
             a.setPosition(new Point((int)width, (int)height));
         }
 
+        //ameliorer le fadein
         private void fadein(object sender, EventArgs e)
         {
             //on applique le fade in
@@ -746,7 +747,7 @@ namespace La_petite_boite
         {
             try
             {
-                using (var reader = new StreamReader(nomFichier))
+                using (var reader = new StreamReader(nomFichier, Encoding.GetEncoding("iso-8859-1")))
                 {
                     String line;
                     while ((line = reader.ReadLine()) != null)
@@ -757,7 +758,7 @@ namespace La_petite_boite
             }
             catch (Exception e)
             {
-                Console.Write("Le fichier n'a pas pu etre lu" + e);
+                Console.Write("The file can't be read !" + e);
             }
         }
 
@@ -777,7 +778,7 @@ namespace La_petite_boite
             }
             catch
             {
-                Console.Write("Erreur lors de l'ecriture du fichier");
+                Console.Write("Can't write into the specified file");
             }
         }
 
@@ -916,23 +917,23 @@ namespace La_petite_boite
 
                 if (prenomField.Text == "")
                 {
-                    valeursVides.Add("prenom");
+                    valeursVides.Add(Textes[6]);
                 }
                 if (ageField.Text == "")
                 {
-                    valeursVides.Add("age");
+                    valeursVides.Add(Textes[7]);
                 }
                 if (indexAvatar == -1)
                 {
-                    valeursVides.Add("avatar");
+                    valeursVides.Add(Textes[8]);
                 }
                 if (dossier.Equals(""))
                 {
-                    valeursVides.Add("dossier de sauvegarde");
+                    valeursVides.Add(Textes[9]);
                 }
                 
                 //creation du message d-erreur
-                String message = "Il manque les informations suivantes : ";
+                String message = Textes[10];
 
                 foreach (String s in valeursVides)
                 {
@@ -943,7 +944,7 @@ namespace La_petite_boite
                 //Pop up affichage message
                 List<String> nomsButtons = new List<string>();
                 List<int> refEvents = new List<int>();
-                nomsButtons.Add("Retour");
+                nomsButtons.Add(Textes[11]);
                 refEvents.Add(0);
 
                 var Popup = new PopUp(ColorTranslator.FromHtml("#be1621"), items.attention, 1, message, nomsButtons, refEvents);
@@ -987,18 +988,18 @@ namespace La_petite_boite
                     String message = "";
                     List<String> nomsButtons = new List<string>();
                     List<int> refEvents = new List<int>();
-                    nomsButtons.Add("Retour");
+                    nomsButtons.Add(Textes[11]);
                     refEvents.Add(0);
                     
                     if (existe == true)
                     {
-                        message = "Le personnage " + prenomField.Text.ToLower() + " existe deja dans ce dossier." + Environment.NewLine + "Veuillez choisir un autre dossier de sauvegarde ou un autre nom";
+                        message = String.Format(Textes[12], prenomField.Text.ToLower(), Environment.NewLine);
                        
                     }
 
                     if (isNumerical == false)
                     {
-                        message = "L'age doit etre un nombre entier";
+                        message = Textes[13];
                     }
 
                     var Popup = new PopUp(ColorTranslator.FromHtml("#be1621"), items.attention, 1, message, nomsButtons, refEvents);
@@ -1025,10 +1026,6 @@ namespace La_petite_boite
         }
 
         //Fonctions d'affichage de messages
-        private DialogResult afficheMessageBox(String titre, String message)
-        {
-            return MessageBox.Show(message, titre, MessageBoxButtons.OKCancel, MessageBoxIcon.None);
-        }
 
         private void afficheInputBox()
         {
@@ -1150,7 +1147,7 @@ namespace La_petite_boite
                 }
             }
 
-            actionJoueur.Text = "Oui";
+            actionJoueur.Text = Textes[14];
             actionJoueur.Width = 150;
             actionJoueur.Click += new EventHandler(ReadyButton);
             diaporama();
@@ -1163,7 +1160,7 @@ namespace La_petite_boite
             textePresentationJeu.Text = textesDiaporama.ElementAt(1);
             diaporamaHistoire.Tag = "1";
             actionJoueur.Width = 500;
-            actionJoueur.Text = "Voir le Magicien";
+            actionJoueur.Text = Textes[15];
             actionJoueur.Click -= ReadyButton;
             actionJoueur.Click += new EventHandler(afficherDiapoSuivant);
         }
@@ -1171,7 +1168,6 @@ namespace La_petite_boite
         public void afficherDiapoPrecedente(object sender, EventArgs e)
         {
             String index = (String)diaporamaHistoire.Tag;
-            Console.WriteLine("index du diapo :" + index);
 
             if (index.Equals("0"))
             {
@@ -1196,7 +1192,7 @@ namespace La_petite_boite
                 diaporamaHistoire.Tag = "0";
                 textePresentationJeu.Text = textesDiaporama.ElementAt(0);
                 actionJoueur.Width = 200;
-                actionJoueur.Text = "Oui";
+                actionJoueur.Text = Textes[14];
                 actionJoueur.Click -= afficherDiapoSuivant;
                 actionJoueur.Click += new EventHandler(ReadyButton);
             }
@@ -1207,7 +1203,7 @@ namespace La_petite_boite
                 textePresentationJeu.Text = textesDiaporama.ElementAt(1);
                 diaporamaHistoire.BackgroundImage = imagesDiaporama.ElementAt(0);
                 actionJoueur.Width = 500;
-                actionJoueur.Text = "Voir le Magicien";
+                actionJoueur.Text = Textes[15];
                 actionJoueur.Click -= afficherCarte;
                 actionJoueur.Click += new EventHandler(afficherDiapoSuivant);
             }
@@ -1219,10 +1215,9 @@ namespace La_petite_boite
             diaporamaHistoire.Tag = "2";
             diaporamaHistoire.BackgroundImage = imagesDiaporama.ElementAt(1);
             actionJoueur.Width = 500;
-            actionJoueur.Text = "Commencer le Jeu";
+            actionJoueur.Text = Textes[16];
             actionJoueur.Click -= afficherDiapoSuivant;
             actionJoueur.Click += new EventHandler(afficherCarte);
-            Console.WriteLine("index du diapo :" + diaporamaHistoire.Tag);
         }
 
         //afficher la Carte
@@ -1237,18 +1232,14 @@ namespace La_petite_boite
 
         public void Carte()
         {
-            this.Opacity = 0.80;
-            fade.Start();
+            //this.Opacity = 0.80;
+            //fade.Start();
 
             Table.ColumnCount = 4;
             //performance du display a modifier
-            typeof(Panel).InvokeMember("DoubleBuffered",
-   BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
-   null, CarteJeu, new object[] { true });
+            typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, CarteJeu, new object[] { true });
 
-            typeof(Panel).InvokeMember("DoubleBuffered",
-  BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
-  null, panelJoueur, new object[] { true });
+            typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, panelJoueur, new object[] { true });
 
             //on vide le layout
             Table.Controls.Clear();
@@ -1259,9 +1250,8 @@ namespace La_petite_boite
             imgChevalier.Height = 160;
             ajoutEtoiles();
             panelJoueur.Hide();
+
             //on initialise les elements de la carte 
-            
-            
             conteneurEtoilesCoffre.Controls.Add(ConteneurEtoile);
             conteneurEtoilesCoffre.Controls.Add(coffre);
             CarteJeu.Controls.Add(conteneurEtoilesCoffre);
@@ -1284,10 +1274,11 @@ namespace La_petite_boite
                 //ici pop up spe
                 List<String> nomsButtons = new List<string>();
                 List<int> refEvents = new List<int>();
-                nomsButtons.Add("Retour");
+                nomsButtons.Add(Textes[11]);
                 refEvents.Add(0);
-
-                var Popup = new PopUp(ColorTranslator.FromHtml("#28225c"), items.felicitations, 1, "Tu as recolte toutes les etoiles!"+ Environment.NewLine +"Rends-toi au Chateau pour ouvrir le coffre et decouvrir ses tresors!", nomsButtons, refEvents);
+                
+                var message = String.Format(Textes[17], Environment.NewLine);
+                var Popup = new PopUp(ColorTranslator.FromHtml("#28225c"), items.felicitations, 1, message, nomsButtons, refEvents);
                 Popup.ShowDialog();
                 reponsePopUp();
             }
@@ -1482,7 +1473,6 @@ namespace La_petite_boite
                     //montagne
                     deplacementVertical(arrivee);
                 }
-
             }
 
             //on desactive le timer
@@ -1627,7 +1617,7 @@ namespace La_petite_boite
 
             List<String> nomsButtons = new List<string>();
             List<int> refEvents = new List<int>();
-            nomsButtons.Add("Retour");
+            nomsButtons.Add(Textes[11]);
 
             if (choixFinMiniJeu == 3)
             {
@@ -1643,15 +1633,17 @@ namespace La_petite_boite
             
             if (enregistrer == true)
             {
-                var Popup = new PopUp(ColorTranslator.FromHtml("#006532"), items.guide, 1, "Les donnees ont ete sauvegardees !", nomsButtons, refEvents);
+                var message = Textes[18];
+                var Popup = new PopUp(ColorTranslator.FromHtml("#006532"), items.guide, 1, message, nomsButtons, refEvents);
                 Popup.ShowDialog();
-                reponsePopUp();
+                //reponsePopUp();
             }
             else
             {
-                var Popup = new PopUp(ColorTranslator.FromHtml("#be1621"), items.attention, 1, "Une erreur s-est produite, les donnees n-ont pas pu etre enregistrees.", nomsButtons, refEvents);
+                var message = Textes[19];
+                var Popup = new PopUp(ColorTranslator.FromHtml("#be1621"), items.attention, 1, message , nomsButtons, refEvents);
                 Popup.ShowDialog();
-                reponsePopUp();
+                //reponsePopUp();
             }
         }
 
@@ -1704,14 +1696,12 @@ namespace La_petite_boite
                 tuto = new tutoMemory();
             }
             tuto.ShowDialog();
-           // Application.Run(tuto);
         }
 
         private void afficheJeu(String nomJeu, Panel p)
         {
-            
-            this.Opacity = 0.80;
-            fade.Start();
+            //this.Opacity = 0.80;
+            //fade.Start();
             this.Controls.Remove(CarteJeu);
             Jeu.Controls.Add(Table);
             this.Controls.Add(Jeu);
@@ -1748,11 +1738,11 @@ namespace La_petite_boite
             {
                 if (epreuvesO.Contains(miniJeu.Controls[0]))
                 {
-                    titreJeu.Text = "Niveau 1 : ";
+                    titreJeu.Text = Textes[20];
                 }
                 else
                 {
-                    titreJeu.Text = "Niveau 2 : ";
+                    titreJeu.Text = Textes[21];
                 }
 
                 titreJeu.Text = titreJeu.Text + jeuEnCours;
@@ -1816,7 +1806,6 @@ namespace La_petite_boite
             t.Start();
             //Thread.Sleep(6000);
             //t.Abort();
-            
         }
 
         private void LanceMiniJeu(object sender, EventArgs e)
@@ -1869,14 +1858,15 @@ namespace La_petite_boite
                     //ici pop up spe
                     List<String> nomsButtons = new List<string>();
                     List<int> refEvents = new List<int>();
-                    nomsButtons.Add("Rejouer");
-                    nomsButtons.Add("Niveau suivant");
-                    nomsButtons.Add("Carte");
+                    nomsButtons.Add(Textes[11]);
+                    nomsButtons.Add(Textes[22]);
+                    nomsButtons.Add(Textes[23]);
                     refEvents.Add(2);
                     refEvents.Add(3);
                     refEvents.Add(1);
 
-                    var Popup = new PopUp(ColorTranslator.FromHtml("#27348a"), items.guide, 3, "Tu as deja remportees les etoiles de ce lieu !", nomsButtons, refEvents);
+                    var message = Textes[24];
+                    var Popup = new PopUp(ColorTranslator.FromHtml("#27348a"), items.guide, 3, message, nomsButtons, refEvents);
                     Popup.ShowDialog();
                     reponsePopUp();
                 }
@@ -1907,11 +1897,12 @@ namespace La_petite_boite
             {
                 List<String> nomsButtons = new List<string>();
                 List<int> refEvents = new List<int>();
-                nomsButtons.Add("Sauvegarder et Retour a l'accueil");
-                nomsButtons.Add("Retour a la Carte");
+                nomsButtons.Add(Textes[25]);
+                nomsButtons.Add(Textes[26]);
                 refEvents.Add(4);
                 refEvents.Add(0);
-                var Popup = new PopUp(ColorTranslator.FromHtml("#f39200"), items.attention, 2, "Tu es sur le point de quitter la partie."+ Environment.NewLine+"Souhaites - tu sauvegarder tes donnees ?", nomsButtons, refEvents);
+                var message = String.Format(Textes[27], Environment.NewLine);
+                var Popup = new PopUp(ColorTranslator.FromHtml("#f39200"), items.attention, 2, message, nomsButtons, refEvents);
                 Popup.ShowDialog();
                 reponsePopUp();
             }
@@ -1949,14 +1940,15 @@ namespace La_petite_boite
                 //ici pop up spe
                 List<String> nomsButtons = new List<string>();
                 List<int> refEvents = new List<int>();
-                nomsButtons.Add("Rejouer");
-                nomsButtons.Add("Niveau 2");
-                nomsButtons.Add("Carte");
+                nomsButtons.Add(Textes[28]);
+                nomsButtons.Add(Textes[21]);
+                nomsButtons.Add(Textes[23]);
                 refEvents.Add(2);
                 refEvents.Add(3);
                 refEvents.Add(1);
 
-                var Popup = new PopUp(ColorTranslator.FromHtml("#28225c"), items.felicitations, 3, "Niveau 1 reussi!", nomsButtons, refEvents);
+                var message = Textes[29];
+                var Popup = new PopUp(ColorTranslator.FromHtml("#28225c"), items.felicitations, 3, message, nomsButtons, refEvents);
                 Popup.ShowDialog();
                 reponsePopUp();
             }
@@ -1979,14 +1971,14 @@ namespace La_petite_boite
 
                 List<String> nomsButtons = new List<string>();
                 List<int> refEvents = new List<int>();
-                nomsButtons.Add("Niveau 1");
-                nomsButtons.Add("Niveau 2");
-                nomsButtons.Add("Carte");
+                nomsButtons.Add(Textes[20]);
+                nomsButtons.Add(Textes[21]);
+                nomsButtons.Add(Textes[23]);
                 refEvents.Add(2);
                 refEvents.Add(3);
                 refEvents.Add(1);
-                
-                var Popup = new PopUp(ColorTranslator.FromHtml("#28225c"), items.felicitations, 3, "Niveau 2 reussi! Quete terminee", nomsButtons, refEvents);
+                var message = Textes[30];
+                var Popup = new PopUp(ColorTranslator.FromHtml("#28225c"), items.felicitations, 3, message, nomsButtons, refEvents);
                 Popup.ShowDialog();
                 reponsePopUp();
             }
@@ -2013,7 +2005,7 @@ namespace La_petite_boite
                     miniJeu.Controls.Clear();
                     epreuvesO.ElementAt(IndiceJeu).chargementPartie();
                     miniJeu.Controls.Add(epreuvesO.ElementAt(IndiceJeu));
-                    titreJeu.Text = "Niveau 1 : " + jeuEnCours;
+                    titreJeu.Text = Textes[20] + ": " +jeuEnCours;
                 }
                 
             }
@@ -2029,7 +2021,7 @@ namespace La_petite_boite
                     miniJeu.Controls.Clear();
                     epreuvesF.ElementAt(IndiceJeu).chargementPartie();
                     miniJeu.Controls.Add(epreuvesF.ElementAt(IndiceJeu));
-                    titreJeu.Text = "Niveau 2 : " + jeuEnCours;
+                    titreJeu.Text = Textes[21] + ": " + jeuEnCours;
                 }
                 
             }
@@ -2104,44 +2096,46 @@ namespace La_petite_boite
 
         //aide du jeu
 
-        public void ConseilsGuide()
+        public String ConseilsGuide()
         {
-            if (guide.Parent.Parent.Name.Equals("Carte"))
+            String message = "";
+
+            if (this.Controls.Contains(CarteJeu))
             {
-                message = "Clique sur un des lieux gris pour te deplacer sur la carte et acceder aux jeux";
+                message = Textes[31];
             }
-            else if (guide.Parent.Parent.Parent.Name.Equals("Jeu"))
+            else if (this.Controls.Contains(Jeu))
             {
                 if (jeuEnCours == "Memory")
                 {
-                    message = "Clique sur une 1ère carte et puis sur une 2ème. Si tu entends et vois la même chose, c'est gagné ! Arriveras-tu à retourner toutes les cartes ?";
+                    message = String.Format(Textes[32], Environment.NewLine);
                 }
                 else if (jeuEnCours == "Chasse aux mots")
                 {
-                    message = "Écoute bien et retrouve la bonne image.";
+                    message = Textes[33];
                 }
                 else if (jeuEnCours == "Que fait le Roi?")
                 {
-                    message = "Clique sur un bouton et écoute la phrase. Retrouve l'image qui correspond. Aide toi des indices en cliquant sur les images.";
+                    message = String.Format(Textes[34], Environment.NewLine);
                 }
                 else if (jeuEnCours == "Grand ou Petit")
                 {
-                    message = "Choisis et clique sur une carte de la 1ère ligne et écoute bien. Retrouve la même image mais en plus petit dans la dernière ligne. Glisse la sous la grande image.";
+                    message = String.Format(Textes[35], Environment.NewLine);
                 }
             }
+
+            return message;
         }
 
         public void AfficheMessage(object sender, EventArgs e)
         {
-            ConseilsGuide();
             List<String> nomsButtons = new List<string>();
             List<int> refEvents = new List<int>();
-            nomsButtons.Add("Retour");
+            nomsButtons.Add(Textes[11]);
             refEvents.Add(0);
-            
+            var message = ConseilsGuide();
             var Popup = new PopUp(ColorTranslator.FromHtml("#27348a"), items.guide, 1, message, nomsButtons, refEvents);
             Popup.ShowDialog();
-
         }
 
     //revelation du coffre
@@ -2154,19 +2148,19 @@ namespace La_petite_boite
             if (chevalier.scoreJoueur() < 12)
             {
                 passageChateau = 1;
-                actionJoueur.Text = "Retour";
+                actionJoueur.Text = Textes[11];
                 actionJoueur.Click -= afficherCarte;
                 actionJoueur.Click += new EventHandler(retourTabBord);
                 precedent.Hide();
-                textePresentationJeu.Text = "Il te manque des etoiles pour ouvrir le coffre. Reviens me voir lorsque ta quete sera achevee.";
+                textePresentationJeu.Text = String.Format(Textes[36], Environment.NewLine);
             }
             else
             {
                 passageChateau = 2;
-                actionJoueur.Text = "Coffre";
+                actionJoueur.Text = Textes[37];
                 actionJoueur.Click -= afficherCarte;
                 actionJoueur.Click += new EventHandler(afficheRecompense);
-                textePresentationJeu.Text = "Bravo, jeune chevalier, tu as recolte toutes les etoiles. Clique sur le coffre pour decouvrir son contenu.";
+                textePresentationJeu.Text = String.Format(Textes[37], Environment.NewLine);
             }
             
             this.Controls.Add(diaporamaHistoire);
@@ -2261,7 +2255,7 @@ namespace La_petite_boite
             this.label1.Font = new Font(petiteBoite.privateFontCollection.Families[0], 30);
             this.label1.Location = new Point(130, 20);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Regles du jeu";
+            this.label1.Text = petiteBoite.Textes[43];
             this.label1.TextAlign = ContentAlignment.MiddleCenter;
             this.Controls.Add(label1);
             

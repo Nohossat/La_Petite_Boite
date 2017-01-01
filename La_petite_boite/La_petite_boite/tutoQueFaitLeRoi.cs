@@ -58,9 +58,9 @@ namespace La_petite_boite
             this.Enabled = true;
 
             button1.Tag = "1";
-            button1.Text = "Le roi rentre au château.";
+            button1.Text = petiteBoite.Textes[51];
             button2.Tag = "2";
-            button2.Text = "Kral okula girer.";
+            button2.Text = petiteBoite.Textes[52];
 
             pictureBox1.Image = items.chateau1;
             pictureBox2.Image = items.ecole1;

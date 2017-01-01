@@ -73,7 +73,7 @@ namespace Que_fait_le_Roi
                 else
                 {
                     bouton.Left = indexcarte * 102;
-                    bouton.Size = new System.Drawing.Size(100, 37);
+                    bouton.Size = new Size(100, 37);
                 }
 
                 bouton.Tag = "";
@@ -89,8 +89,9 @@ namespace Que_fait_le_Roi
                 image.BorderStyle = BorderStyle.FixedSingle;
                 image.AllowDrop = false;
                 image.Image = null;
-                image.Size = new System.Drawing.Size(130, 160);
+                image.Size = new Size(130, 160);
                 image.SizeMode = PictureBoxSizeMode.StretchImage;
+                image.BackColor = Color.Transparent;
                 image.TabStop = false;
                 image.Top = 5;
 
@@ -105,7 +106,7 @@ namespace Que_fait_le_Roi
                 else
                 {
                     image.Left = indexcarte * 102;
-                    image.Size = new System.Drawing.Size(100, 120);
+                    image.Size = new Size(100, 120);
                 }
 
                 image.DragDrop += new DragEventHandler(this.Image_DragDrop);
@@ -152,7 +153,7 @@ namespace Que_fait_le_Roi
                 else
                 {
                     image.Left = indexcarte * 102;
-                    image.Size = new System.Drawing.Size(100, 120);
+                    image.Size = new Size(100, 120);
                 }
                 
                 image.MouseDown += new MouseEventHandler(this.receveurImage_MouseDown);

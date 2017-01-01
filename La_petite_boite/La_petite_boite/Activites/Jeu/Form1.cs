@@ -41,8 +41,5 @@ namespace Jeu
             son.Play();
             son.Dispose();
         }
-
-        
-
     }
 }

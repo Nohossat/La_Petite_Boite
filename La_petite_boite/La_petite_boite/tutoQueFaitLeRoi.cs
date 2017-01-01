@@ -33,9 +33,9 @@ namespace La_petite_boite
             conteneur.Controls.Add(this.conteneurCarteAPlacer);
             conteneur.Controls.Add(this.conteneurCarte);
 
-            this.conteneurCarte.Location = new System.Drawing.Point(160, 230);
-            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(160, 80);
-            this.conteneurBouton.Location = new System.Drawing.Point(160, 30);
+            this.conteneurCarte.Location = new Point(160, 230);
+            this.conteneurCarteAPlacer.Location = new Point(160, 80);
+            this.conteneurBouton.Location = new Point(160, 30);
 
             tableauFonctions.Add(action1);
             tableauFonctions.Add(action2);
@@ -58,9 +58,9 @@ namespace La_petite_boite
             this.Enabled = true;
 
             button1.Tag = "1";
-            button1.Text = petiteBoite.Textes[51];
+            button1.Text = petiteBoite.Textes[74];
             button2.Tag = "2";
-            button2.Text = petiteBoite.Textes[52];
+            button2.Text = petiteBoite.Textes[75];
 
             pictureBox1.Image = items.chateau1;
             pictureBox2.Image = items.ecole1;

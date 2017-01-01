@@ -39,7 +39,7 @@ namespace La_petite_boite
 
             //label Selection
 
-            Selection.Text = petiteBoite.Textes[44];
+            Selection.Text = petiteBoite.Textes[58];
             Selection.Top = 120;
             Selection.Left = 0;
             Selection.Width = 640;
@@ -87,13 +87,13 @@ namespace La_petite_boite
             //BUTTONS
 
             //retour
-            retour.Text = petiteBoite.Textes[11];
+            retour.Text = petiteBoite.Textes[26];
             retour.Left = 245;
             retour.Font = new Font(petiteBoite.privateFontCollection.Families[0], 25);
             retour.Click += new EventHandler(retourButton);
 
             //charger
-            charger.Text = petiteBoite.Textes[45];
+            charger.Text = petiteBoite.Textes[59];
             charger.Left = 140;
             charger.Font = new Font(petiteBoite.privateFontCollection.Families[0], 25);
             charger.Click += new EventHandler(chargerMethod);
@@ -162,12 +162,12 @@ namespace La_petite_boite
                 if (joueursPossibles.Items.Count > 0)
                 {
                     joueursPossibles.Visible = true;
-                    annonce.Text = petiteBoite.Textes[46];
+                    annonce.Text = petiteBoite.Textes[60];
                     charger.Enabled = true; 
                 }
                 else
                 {
-                    annonce.Text = petiteBoite.Textes[47];
+                    annonce.Text = petiteBoite.Textes[61];
                     charger.Enabled = false;
                 }
                 
@@ -193,7 +193,7 @@ namespace La_petite_boite
                         //on split la chaine
                         splitjoueurFichier = petiteBoite.joueursFichier[i].Split('-');
 
-                        //on enregistre les donnees du joueur pour cr'eer l-instance dans la form1 
+                        //on enregistre les donnees du joueur pour creer l-instance dans la form1 
                         petiteBoite.nom = splitjoueurFichier[0];
                         petiteBoite.age = Convert.ToInt16(splitjoueurFichier[1]);
                         petiteBoite.avatar = Convert.ToInt16(splitjoueurFichier[2]);
@@ -216,7 +216,7 @@ namespace La_petite_boite
                 
                 if (nomJoueur == "")
                 {
-                    String message = petiteBoite.Textes[48];
+                    String message = petiteBoite.Textes[62];
                     var Popup = new PopUp(ColorTranslator.FromHtml("#f39200"), items.guide, 1, message, nomsButtons, refEvents);
                     Popup.ShowDialog();
                 }
@@ -224,7 +224,7 @@ namespace La_petite_boite
                 //une erreur est toujours possible
                 if (trouve == false && nomJoueur != "")
                 {
-                    String message = String.Format(petiteBoite.Textes[49], nomJoueur);
+                    String message = String.Format(petiteBoite.Textes[63], nomJoueur);
                     var Popup = new PopUp(ColorTranslator.FromHtml("#f39200"), items.guide, 1, message, nomsButtons, refEvents);
                     Popup.ShowDialog();
                 }

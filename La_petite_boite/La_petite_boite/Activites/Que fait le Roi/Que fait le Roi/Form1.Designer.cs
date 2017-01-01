@@ -106,10 +106,7 @@ namespace Que_fait_le_Roi
         public void initialize()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QueFaitLeRoi));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            
             this.conteneurCarte = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -287,7 +284,6 @@ namespace Que_fait_le_Roi
             this.conteneurBouton.Location = new System.Drawing.Point(10, 12);
             this.conteneurBouton.Name = "conteneurBouton";
             this.conteneurBouton.Size = new System.Drawing.Size(1090, 44);
-            this.conteneurBouton.TabIndex = 16;
             // 
             // 
             // conteneurCarteAPlacer
@@ -303,7 +299,6 @@ namespace Que_fait_le_Roi
             this.conteneurCarteAPlacer.Location = new System.Drawing.Point(10, 82);
             this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
             this.conteneurCarteAPlacer.Size = new System.Drawing.Size(1090, 168);
-            this.conteneurCarteAPlacer.TabIndex = 15;
             // 
             // conteneurCarte
             // 
@@ -318,7 +313,6 @@ namespace Que_fait_le_Roi
             this.conteneurCarte.Location = new System.Drawing.Point(10, 302);
             this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(1090, 167);
-            this.conteneurCarte.TabIndex = 14;
 
             // Emplacements
             this.pictureBox15.Tag = "8";
@@ -476,7 +470,6 @@ namespace Que_fait_le_Roi
             this.conteneurCarteAPlacer.Location = new System.Drawing.Point(5, 96);
             this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
             this.conteneurCarteAPlacer.Size = new System.Drawing.Size(1240, 142);
-            this.conteneurCarteAPlacer.TabIndex = 21;
 
             // conteneurCarte
             // 
@@ -495,7 +488,6 @@ namespace Que_fait_le_Roi
             this.conteneurCarte.Location = new System.Drawing.Point(5, 255);
             this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(1240, 139);
-            this.conteneurCarte.TabIndex = 20;
 
             // conteneurBouton
             // 
@@ -514,7 +506,6 @@ namespace Que_fait_le_Roi
             this.conteneurBouton.Location = new System.Drawing.Point(5, 25);
             this.conteneurBouton.Name = "conteneurBouton";
             this.conteneurBouton.Size = new System.Drawing.Size(1240, 44);
-            this.conteneurBouton.TabIndex = 25;
             // 
             // 
             //Emplacements

@@ -36,16 +36,20 @@ namespace La_petite_boite
         int compteur = 0;
         Double largeur;
         Double longueur;
+        
 
         public recompense(PrivateFontCollection pfc)
         {
-            initialize();
             Double Left;
+            initialize();
+            //configuration du panel
             this.BackgroundImage = items.recompenses;
             this.BackgroundImageLayout = ImageLayout.Stretch;
             this.Size = new Size(1273, 689);
             this.Anchor = AnchorStyles.None;
             this.Dock = DockStyle.Fill;
+
+            //configuration du bouton retour
             Left = 0.77 * this.Width;
             retourButton.Click += new EventHandler(retour);
             retourButton.MouseEnter += new EventHandler(PreviousColorButton);
@@ -54,7 +58,7 @@ namespace La_petite_boite
             retourButton.BackColor = Color.Transparent;
             retourButton.BackgroundImageLayout = ImageLayout.Stretch;
             retourButton.ForeColor = Color.White;
-            retourButton.Text = "Retour vers la Carte";
+            retourButton.Text = petiteBoite.Textes[66];
             retourButton.Font = new Font(pfc.Families[0], 22);
             retourButton.Location = new Point((int) Left, -2);
             retourButton.Size = new Size(300,71);

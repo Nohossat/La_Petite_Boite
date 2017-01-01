@@ -53,7 +53,6 @@
             this.conteneurBouton.Controls.Add(this.button2);
             this.conteneurBouton.Name = "conteneurBouton";
             this.conteneurBouton.Size = new System.Drawing.Size(334, 42);
-            this.conteneurBouton.TabIndex = 10;
             // 
             // button1
             // 
@@ -61,8 +60,6 @@
             this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 37);
-            this.button1.TabIndex = 1;
-            this.button1.Tag = "";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -71,8 +68,6 @@
             this.button2.Location = new System.Drawing.Point(130, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 37);
-            this.button2.TabIndex = 4;
-            this.button2.Tag = "";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // conteneurCarte
@@ -81,42 +76,31 @@
             this.conteneurCarte.Controls.Add(this.pictureBox2);
             this.conteneurCarte.Name = "conteneurCarte";
             this.conteneurCarte.Size = new System.Drawing.Size(334, 140);
-            this.conteneurCarte.TabIndex = 8;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 130);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Tag = "1";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(130, 3);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 130);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Tag = "2";
             // 
             // 
             // conteneurCarteAPlacer
             // 
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox5);
             this.conteneurCarteAPlacer.Controls.Add(this.pictureBox6);
-            this.conteneurCarteAPlacer.Name = "conteneurCarteAPlacer";
             this.conteneurCarteAPlacer.Size = new System.Drawing.Size(334, 140);
-            this.conteneurCarteAPlacer.TabIndex = 9;
             // 
             // pictureBox5
             // 
             this.pictureBox5.Location = new System.Drawing.Point(3, 3);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(100, 130);
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
             this.pictureBox5.Tag = "1";
             // 
             // pictureBox6
@@ -124,8 +108,6 @@
             this.pictureBox6.Location = new System.Drawing.Point(130, 3);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(100, 130);
-            this.pictureBox6.TabIndex = 1;
-            this.pictureBox6.TabStop = false;
             this.pictureBox6.Tag = "2";
             // 
             // 

@@ -42,12 +42,12 @@ namespace La_petite_boite
                 jeuxObligatoires.Add(new MemoryPanel());
                 jeuxObligatoires.Add(new ChasseAuxMotsPanel());
                 jeuxObligatoires.Add(new GrandOuPetit());
-                jeuxObligatoires.Add(new QueFaitLeRoi4Panel());
+                jeuxObligatoires.Add(new QueFaitLeRoi4Panel(petiteBoite.Textes));
 
                 jeuxFacultatifs.Add(new Memory12Panel());
                 jeuxFacultatifs.Add(new ChasseAuxMots8Panel());
                 jeuxFacultatifs.Add(new GrandOuPetit8Panel());
-                jeuxFacultatifs.Add(new QueFaitLeRoi8Panel());
+                jeuxFacultatifs.Add(new QueFaitLeRoi8Panel(petiteBoite.Textes));
 
             }
             else
@@ -56,12 +56,12 @@ namespace La_petite_boite
                 jeuxObligatoires.Add(new Memory12Panel());
                 jeuxObligatoires.Add(new ChasseAuxMots8Panel());
                 jeuxObligatoires.Add(new GrandOuPetit8Panel());
-                jeuxObligatoires.Add(new QueFaitLeRoi8Panel());
+                jeuxObligatoires.Add(new QueFaitLeRoi8Panel(petiteBoite.Textes));
 
                 jeuxFacultatifs.Add(new Memory18Panel());
                 jeuxFacultatifs.Add(new ChasseAuxMots12Panel());
                 jeuxFacultatifs.Add(new GrandOuPetit12Panel());
-                jeuxFacultatifs.Add(new QueFaitLeRoi12Panel());
+                jeuxFacultatifs.Add(new QueFaitLeRoi12Panel(petiteBoite.Textes));
             }
         }
 

@@ -15,7 +15,7 @@ namespace La_petite_boite
         public Panel conteneurCarte;
         public PictureBox pictureBox2;
         public PictureBox pictureBox1;
-        public Button Ecouter;
+        public bouton1 Ecouter;
         
         List<Stream> sounds = new List<Stream>();
         
@@ -23,6 +23,7 @@ namespace La_petite_boite
         {
             InitializeComponent();
 
+            this.Ecouter.Font = new Font(petiteBoite.privateFontCollection.Families[0], 17);
             this.Ecouter.Location = new Point(174, 265);
             this.conteneurCarte.Location = new Point(120, 40);
 
@@ -62,6 +63,7 @@ namespace La_petite_boite
             pictureBox1.Image = items.dosCarte;
         }
         
-        
     }
+
+
 }

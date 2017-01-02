@@ -39,7 +39,7 @@ namespace La_petite_boite
 
             //label Selection
 
-            Selection.Text = "Selectionne un dossier de sauvegarde";
+            Selection.Text = petiteBoite.Textes[58];
             Selection.Top = 120;
             Selection.Left = 0;
             Selection.Width = 640;
@@ -82,18 +82,18 @@ namespace La_petite_boite
             joueursPossibles.Width = 200;
             joueursPossibles.Left = 220;
             joueursPossibles.Height = 200;
-            joueursPossibles.Font = new System.Drawing.Font("Segoe UI Symbol", 13, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            joueursPossibles.Font = new Font("Segoe UI Symbol", 13, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
 
             //BUTTONS
 
             //retour
-            retour.Text = "Retour";
+            retour.Text = petiteBoite.Textes[26];
             retour.Left = 245;
             retour.Font = new Font(petiteBoite.privateFontCollection.Families[0], 25);
             retour.Click += new EventHandler(retourButton);
 
             //charger
-            charger.Text = "Charger";
+            charger.Text = petiteBoite.Textes[59];
             charger.Left = 140;
             charger.Font = new Font(petiteBoite.privateFontCollection.Families[0], 25);
             charger.Click += new EventHandler(chargerMethod);
@@ -162,12 +162,12 @@ namespace La_petite_boite
                 if (joueursPossibles.Items.Count > 0)
                 {
                     joueursPossibles.Visible = true;
-                    annonce.Text = "Choisir parmi la liste de personnages";
-                    charger.Enabled = true;
+                    annonce.Text = petiteBoite.Textes[60];
+                    charger.Enabled = true; 
                 }
                 else
                 {
-                    annonce.Text = "Il n'y a pas de joueurs dans ce dossier !";
+                    annonce.Text = petiteBoite.Textes[61];
                     charger.Enabled = false;
                 }
                 
@@ -193,7 +193,7 @@ namespace La_petite_boite
                         //on split la chaine
                         splitjoueurFichier = petiteBoite.joueursFichier[i].Split('-');
 
-                        //on enregistre les donnees du joueur pour cr'eer l-instance dans la form1 
+                        //on enregistre les donnees du joueur pour creer l-instance dans la form1 
                         petiteBoite.nom = splitjoueurFichier[0];
                         petiteBoite.age = Convert.ToInt16(splitjoueurFichier[1]);
                         petiteBoite.avatar = Convert.ToInt16(splitjoueurFichier[2]);
@@ -211,12 +211,12 @@ namespace La_petite_boite
                 //ici pop up spe
                 List<String> nomsButtons = new List<string>();
                 List<int> refEvents = new List<int>();
-                nomsButtons.Add("Retour");
+                nomsButtons.Add(petiteBoite.Textes[11]);
                 refEvents.Add(0);
                 
                 if (nomJoueur == "")
                 {
-                    String message = "Il faut choisir un personnage";
+                    String message = petiteBoite.Textes[62];
                     var Popup = new PopUp(ColorTranslator.FromHtml("#f39200"), items.guide, 1, message, nomsButtons, refEvents);
                     Popup.ShowDialog();
                 }
@@ -224,14 +224,14 @@ namespace La_petite_boite
                 //une erreur est toujours possible
                 if (trouve == false && nomJoueur != "")
                 {
-                    String message = "Le joueur" + nomJoueur + " n'a pas ete retrouve.";
+                    String message = String.Format(petiteBoite.Textes[63], nomJoueur);
                     var Popup = new PopUp(ColorTranslator.FromHtml("#f39200"), items.guide, 1, message, nomsButtons, refEvents);
                     Popup.ShowDialog();
                 }
             }
             catch (Exception er)
             {
-                Console.WriteLine("Une erreur s'est produite : '{0}'", er);
+                Console.WriteLine("An error occurred : '{0}'", er);
             }
         }
     }

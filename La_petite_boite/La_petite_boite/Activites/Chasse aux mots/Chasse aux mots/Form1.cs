@@ -11,12 +11,13 @@ using Jeu;
 using System.IO;
 using System.Media;
 using Ressources;
+using System.Drawing.Text;
 
 namespace Chasse_aux_mots
 {
     public partial class ChasseAuxMots : Form
     {
-        public ChasseAuxMots()
+        public ChasseAuxMots() 
         {
             InitializeComponent();
         }
@@ -52,9 +53,8 @@ namespace Chasse_aux_mots
         PictureBox pictureBox3;
         PictureBox pictureBox2;
         PictureBox pictureBox1;
-        
-        
-        public ChasseAuxMotsPanel()
+
+        public ChasseAuxMotsPanel(PrivateFontCollection pfc) : base(pfc)
         {
             initializeChasseAuxMots4();
             chargementPartie();
@@ -79,7 +79,33 @@ namespace Chasse_aux_mots
             sons.Add(items.chateauTurc);
             sons.Add(items.roiFR);
         }
-        
+
+        public ChasseAuxMotsPanel() : base()
+        {
+            initializeChasseAuxMots4();
+            chargementPartie();
+            finalScore = 4;
+            trouves = new Boolean[4];
+            //on reunit l-ensemble des flags dans un tableau
+
+            for (int i = 0; i < trouves.Count(); i++)
+            {
+                trouves[i] = false;
+            }
+
+            pictureBox1.Image = items.doudou1;
+            pictureBox2.Image = items.jardin1;
+            pictureBox3.Image = items.chateau1;
+            pictureBox4.Image = items.roi1;
+
+            //on regroupe l-ensemble des audios dans un vecteur pour faciliter leur gestion
+
+            sons.Add(items.doudouTurc);
+            sons.Add(items.jardinTurc);
+            sons.Add(items.chateauTurc);
+            sons.Add(items.roiFR);
+        }
+
         private void Ecouter_Click(object sender, EventArgs e)
         {
             Random choix = new Random();
@@ -108,7 +134,7 @@ namespace Chasse_aux_mots
         PictureBox pictureBox1;
         
 
-        public ChasseAuxMots8Panel()
+        public ChasseAuxMots8Panel(PrivateFontCollection pfc) : base(pfc)
         {
             initializeChasseAuxMots8();
             chargementPartie();
@@ -142,7 +168,42 @@ namespace Chasse_aux_mots
             sons.Add(items.litFR);
             sons.Add(items.roiFR);
         }
-        
+
+        public ChasseAuxMots8Panel() : base()
+        {
+            initializeChasseAuxMots8();
+            chargementPartie();
+            finalScore = 8;
+            trouves = new Boolean[8];
+            //on reunit l-ensemble des flags dans un tableau
+
+            for (int i = 0; i < trouves.Count(); i++)
+            {
+                trouves[i] = false;
+            }
+
+            //on affecte les images aux cartes
+            pictureBox1.Image = items.doudou1;
+            pictureBox2.Image = items.jardin1;
+            pictureBox3.Image = items.chateau1;
+            pictureBox4.Image = items.foret1;
+            pictureBox5.Image = items.chaise1;
+            pictureBox6.Image = items.table1;
+            pictureBox7.Image = items.lit1;
+            pictureBox8.Image = items.roi1;
+
+            //on regroupe l-ensemble des audios dans un vecteur pour faciliter leur gestion
+
+            sons.Add(items.doudouFR);
+            sons.Add(items.jardinTurc);
+            sons.Add(items.chateauTurc);
+            sons.Add(items.foretTurc);
+            sons.Add(items.chaiseTurc);
+            sons.Add(items.tableFR);
+            sons.Add(items.litFR);
+            sons.Add(items.roiFR);
+        }
+
         private void Ecouter_Click(object sender, EventArgs e)
         {
             Random choix = new Random();
@@ -174,7 +235,7 @@ namespace Chasse_aux_mots
         private System.Windows.Forms.PictureBox pictureBox1;
         
 
-        public ChasseAuxMots12Panel()
+        public ChasseAuxMots12Panel(PrivateFontCollection pfc) : base (pfc)
         {
             initialize();
             chargementPartie();
@@ -216,7 +277,50 @@ namespace Chasse_aux_mots
             sons.Add(items.escalierTurc);
             sons.Add(items.ecoleTurc);
         }
-        
+
+        public ChasseAuxMots12Panel() : base()
+        {
+            initialize();
+            chargementPartie();
+            finalScore = 12;
+            trouves = new Boolean[12];
+
+            pictureBox1.Image = items.doudou1;
+            pictureBox2.Image = items.jardin1;
+            pictureBox3.Image = items.chateau1;
+            pictureBox4.Image = items.foret1;
+            pictureBox5.Image = items.chaise1;
+            pictureBox6.Image = items.table1;
+            pictureBox7.Image = items.lit1;
+            pictureBox8.Image = items.roi1;
+            pictureBox9.Image = items.pont1;
+            pictureBox10.Image = items.coffre1;
+            pictureBox11.Image = items.escalier1;
+            pictureBox12.Image = items.ecole1;
+
+            //on reunit l-ensemble des flags dans un tableau
+
+            for (int i = 0; i < trouves.Count(); i++)
+            {
+                trouves[i] = false;
+            }
+
+            //on regroupe l-ensemble des audios dans un vecteur pour faciliter leur gestion
+
+            sons.Add(items.doudouFR);
+            sons.Add(items.jardinFR);
+            sons.Add(items.chateauFR);
+            sons.Add(items.foretFR);
+            sons.Add(items.chaiseFR);
+            sons.Add(items.tableTurc);
+            sons.Add(items.litTurc);
+            sons.Add(items.roiTurc);
+            sons.Add(items.pontFR);
+            sons.Add(items.coffreFR);
+            sons.Add(items.escalierTurc);
+            sons.Add(items.ecoleTurc);
+        }
+
         private void Ecouter_Click(object sender, EventArgs e)
         {
             Random choix = new Random();
@@ -231,4 +335,6 @@ namespace Chasse_aux_mots
             JouerSon(sons[index], choixSon, ref carteACliquerTag);
         }
     }
+
+    
 }

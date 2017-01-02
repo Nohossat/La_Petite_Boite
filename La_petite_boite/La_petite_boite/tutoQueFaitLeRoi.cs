@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Media;
 using Ressources;
 using System.IO;
+using System.Drawing.Text;
 
 namespace La_petite_boite
 {
@@ -13,8 +14,8 @@ namespace La_petite_boite
     {
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
-        private Button button1;
-        private Button button2;
+        private bouton1 button1;
+        private bouton1 button2;
         private Panel conteneurCarte;
         private Panel conteneurBouton;
         private PictureBox pictureBox6;
@@ -33,9 +34,9 @@ namespace La_petite_boite
             conteneur.Controls.Add(this.conteneurCarteAPlacer);
             conteneur.Controls.Add(this.conteneurCarte);
 
-            this.conteneurCarte.Location = new System.Drawing.Point(160, 230);
-            this.conteneurCarteAPlacer.Location = new System.Drawing.Point(160, 80);
-            this.conteneurBouton.Location = new System.Drawing.Point(160, 30);
+            this.conteneurCarte.Location = new Point(160, 230);
+            this.conteneurCarteAPlacer.Location = new Point(160, 80);
+            this.conteneurBouton.Location = new Point(160, 30);
 
             tableauFonctions.Add(action1);
             tableauFonctions.Add(action2);
@@ -58,9 +59,9 @@ namespace La_petite_boite
             this.Enabled = true;
 
             button1.Tag = "1";
-            button1.Text = "Le roi rentre au château.";
+            button1.Text = petiteBoite.Textes[74];
             button2.Tag = "2";
-            button2.Text = "Kral okula girer.";
+            button2.Text = petiteBoite.Textes[75];
 
             pictureBox1.Image = items.chateau1;
             pictureBox2.Image = items.ecole1;
@@ -115,5 +116,54 @@ namespace La_petite_boite
             Refresh();
         }
         
+    }
+
+    public class bouton1 : Button
+    {
+        public bouton1()
+        {
+            this.UseCompatibleTextRendering = true;
+            this.TextRenderingHint = TextRenderingHint.AntiAlias;
+            this.FlatAppearance.BorderSize = 0;
+            this.TabStop = false;
+            this.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+            this.ForeColor = Color.White;
+            this.BackColor = ColorTranslator.FromHtml("#b35344");
+            this.FlatAppearance.MouseDownBackColor = ColorTranslator.FromHtml("#770f00");
+            this.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#770f00");
+            this.FlatStyle = FlatStyle.Flat;
+            this.Dock = DockStyle.None;
+            this.TextAlign = ContentAlignment.MiddleCenter;
+            this.Cursor = Cursors.Hand;
+            this.GotFocus += new EventHandler(myBtn_GotFocus);
+            this.LostFocus += new EventHandler(myBtn_LostFocus);
+        }
+
+        private TextRenderingHint _textRenderingHint = TextRenderingHint.SystemDefault;
+
+        public TextRenderingHint TextRenderingHint
+        {
+            get { return _textRenderingHint; }
+            set { _textRenderingHint = value; }
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            e.Graphics.TextRenderingHint = _textRenderingHint;
+            base.OnPaint(e);
+        }
+
+        private void myBtn_GotFocus(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            b.BackColor = ColorTranslator.FromHtml("#770f00");
+        }
+
+        private void myBtn_LostFocus(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            b.BackColor = ColorTranslator.FromHtml("#b35344");
+        }
+
     }
 }

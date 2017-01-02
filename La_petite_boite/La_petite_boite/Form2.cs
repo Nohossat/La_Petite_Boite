@@ -27,19 +27,19 @@ namespace La_petite_boite
             this.label1.Font = new Font(petiteBoite.privateFontCollection.Families[0], 20);
             this.nouveauNom.Font = new Font(petiteBoite.privateFontCollection.Families[0], 20);
 
-            enregistre.Text = "Enregistrer";
+            enregistre.Text = petiteBoite.Textes[69];
             enregistre.Font = new Font(petiteBoite.privateFontCollection.Families[0], 18);
-            enregistre.Location = new System.Drawing.Point(110, 104);
-            enregistre.Size = new System.Drawing.Size(160, 38);
+            enregistre.Location = new Point(110, 104);
+            enregistre.Size = new Size(160, 38);
             enregistre.UseVisualStyleBackColor = true;
-            enregistre.Click += new System.EventHandler(enregistrer);
+            enregistre.Click += new EventHandler(enregistrer);
 
-            retour.Text = "Retour";
+            retour.Text = petiteBoite.Textes[26];
             retour.Font = new Font(petiteBoite.privateFontCollection.Families[0], 18);
-            retour.Location = new System.Drawing.Point(280, 104);
-            retour.Size = new System.Drawing.Size(160, 38);
+            retour.Location = new Point(280, 104);
+            retour.Size = new Size(160, 38);
             retour.UseVisualStyleBackColor = true;
-            retour.Click += new System.EventHandler(retourForm);
+            retour.Click += new EventHandler(retourForm);
 
             // label1
             // 
@@ -48,7 +48,7 @@ namespace La_petite_boite
             label1.ForeColor = ColorTranslator.FromHtml("#000000");
             label1.Location = new Point(20, 47);
             label1.Size = new Size(180, 25);
-            label1.Text = "Nouveau dossier";
+            label1.Text = petiteBoite.Textes[70];
         }
 
         private void enregistrer(object sender, EventArgs e)

@@ -13,13 +13,14 @@ namespace Ressources
 {
     public class items
     {
+
         public items ()
         {
 
         }
 
         //font
-
+        
         public static PrivateFontCollection chargementFont()
         {
             Stream fontStream;

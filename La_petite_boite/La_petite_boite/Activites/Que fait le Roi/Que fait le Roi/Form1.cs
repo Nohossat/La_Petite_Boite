@@ -9,23 +9,29 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Jeu;
 using Ressources;
+using System.IO;
+using System.Drawing.Text;
 
 namespace Que_fait_le_Roi
 {
     public partial class QueFaitLeRoi : Form
     {
+        public static List<String> Textes = new List<string>();
+
         public QueFaitLeRoi()
         {
             InitializeComponent();
+            chargementTexte("textesFR.txt", Textes);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             //QuefaitleRoi4
             this.Controls.Remove(this.button3);
             this.Controls.Remove(this.button2);
             this.Controls.Remove(this.button1);
-            this.Controls.Add(new QueFaitLeRoi4Panel());
+            this.Controls.Add(new QueFaitLeRoi4Panel(Textes));
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -34,7 +40,7 @@ namespace Que_fait_le_Roi
             this.Controls.Remove(this.button3);
             this.Controls.Remove(this.button2);
             this.Controls.Remove(this.button1);
-            this.Controls.Add(new QueFaitLeRoi8Panel());
+            this.Controls.Add(new QueFaitLeRoi8Panel(Textes));
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -43,7 +49,26 @@ namespace Que_fait_le_Roi
             this.Controls.Remove(this.button3);
             this.Controls.Remove(this.button2);
             this.Controls.Remove(this.button1);
-            this.Controls.Add(new QueFaitLeRoi12Panel());
+            this.Controls.Add(new QueFaitLeRoi12Panel(Textes));
+        }
+
+        public static void chargementTexte(String nomFichier, List<String> tableauRes)
+        {
+            try
+            {
+                using (var reader = new StreamReader(nomFichier, Encoding.GetEncoding("iso-8859-1")))
+                {
+                    String line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        tableauRes.Add(line);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Write("The file can't be read !" + e);
+            }
         }
     }
 
@@ -57,26 +82,26 @@ namespace Que_fait_le_Roi
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        
+        private bouton button1 = new bouton();
+        private bouton button2 = new bouton();
+        private bouton button3 = new bouton();
+        private bouton button4 = new bouton();
 
-        public QueFaitLeRoi4Panel()
+
+        public QueFaitLeRoi4Panel(List<String> TextesBoutons)
         {
             initialize();
             chargementPartie();
             score = 0;
             finalScore = 4;
             button1.Tag = "1";
-            button1.Text = "Le roi rentre au château.";
+            button1.Text = TextesBoutons[74];
             button2.Tag = "2";
-            button2.Text = "Kral okula girer.";
+            button2.Text = TextesBoutons[75];
             button3.Tag = "3";
-            button3.Text = "Le roi traverse la forêt.";
+            button3.Text = TextesBoutons[76];
             button4.Tag = "4";
-            button4.Text = "Kral bahceyi gecer.";
+            button4.Text = TextesBoutons[77];
 
             //sons pour les boutons
             sons.Add(items.roiRentreAuChateauFR); //0
@@ -100,14 +125,15 @@ namespace Que_fait_le_Roi
 
     public partial class QueFaitLeRoi8Panel : QueFaitLeRoiClass
     {
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private bouton button1 = new bouton();
+        private bouton button2 = new bouton();
+        private bouton button3 = new bouton();
+        private bouton button4 = new bouton();
+        private bouton button5 = new bouton();
+        private bouton button6 = new bouton();
+        private bouton button7 = new bouton();
+        private bouton button8 = new bouton();
+
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
@@ -124,50 +150,50 @@ namespace Que_fait_le_Roi
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.PictureBox pictureBox12;
-        
 
-        public QueFaitLeRoi8Panel()
+
+        public QueFaitLeRoi8Panel(List<String> TextesBoutons)
         {
             initialize();
             chargementPartie();
             score = 0;
             finalScore = 8;
             button1.Tag = "1";
-            button1.Text = "Kral şatoya girer.";
+            button1.Text = TextesBoutons[80];
             button2.Tag = "2";
-            button2.Text = "Le roi rentre à l'école.";
+            button2.Text = TextesBoutons[81];
             button3.Tag = "3";
-            button3.Text = "Kral ormani geçer.";
+            button3.Text = TextesBoutons[82];
             button4.Tag = "4";
-            button4.Text = "Le roi traverse le jardin.";
+            button4.Text = TextesBoutons[83];
             button5.Tag = "5";
-            button5.Text = "Kral merdivenleri cikar.";
+            button5.Text = TextesBoutons[84];
             button6.Tag = "6";
-            button6.Text = "Le roi grimpe sur le lit.";
+            button6.Text = TextesBoutons[85];
             button7.Tag = "7";
-            button7.Text = "Kral sandalyeye cikar.";
+            button7.Text = TextesBoutons[86];
             button8.Tag = "8";
-            button8.Text = "Qu'est-ce qu'il y a dans cette boite ?";
+            button8.Text = TextesBoutons[87];
 
             //sons pour les boutons
             sons.Add(items.roiRentreAuChateauTurc);
             sons.Add(items.roiVaALecoleFR);
-            sons.Add(items.roiTraverseLaForetTurc); 
-            sons.Add(items.roiTraverseLeJardinFR); 
-            sons.Add(items.roiMonteEscalierTurc); 
-            sons.Add(items.roiMonteLitFR); 
-            sons.Add(items.roiMonteChaiseTurc); 
-            sons.Add(items.questionBoiteFR); 
+            sons.Add(items.roiTraverseLaForetTurc);
+            sons.Add(items.roiTraverseLeJardinFR);
+            sons.Add(items.roiMonteEscalierTurc);
+            sons.Add(items.roiMonteLitFR);
+            sons.Add(items.roiMonteChaiseTurc);
+            sons.Add(items.questionBoiteFR);
 
             //sons pour les images
-            sons.Add(items.chateauTurc); 
-            sons.Add(items.ecoleFR); 
-            sons.Add(items.foretTurc); 
-            sons.Add(items.jardinFR); 
-            sons.Add(items.escalierTurc); 
-            sons.Add(items.litFR); 
-            sons.Add(items.chaiseTurc); 
-            sons.Add(items.coffreFR); 
+            sons.Add(items.chateauTurc);
+            sons.Add(items.ecoleFR);
+            sons.Add(items.foretTurc);
+            sons.Add(items.jardinFR);
+            sons.Add(items.escalierTurc);
+            sons.Add(items.litFR);
+            sons.Add(items.chaiseTurc);
+            sons.Add(items.coffreFR);
 
             //picturebox
             this.pictureBox1.Image = items.chateau1;
@@ -179,10 +205,10 @@ namespace Que_fait_le_Roi
             this.pictureBox14.Image = items.chaise1;
             this.pictureBox16.Image = items.coffre1;
         }
-        
+
     }
 
-   public partial class QueFaitLeRoi12Panel : QueFaitLeRoiClass
+    public partial class QueFaitLeRoi12Panel : QueFaitLeRoiClass
     {
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.PictureBox pictureBox11;
@@ -208,21 +234,21 @@ namespace Que_fait_le_Roi
         private System.Windows.Forms.PictureBox pictureBox22;
         private System.Windows.Forms.PictureBox pictureBox23;
         private System.Windows.Forms.PictureBox pictureBox24;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        
 
-        public QueFaitLeRoi12Panel()
+        private bouton button1 = new bouton();
+        private bouton button2 = new bouton();
+        private bouton button3 = new bouton();
+        private bouton button4 = new bouton();
+        private bouton button5 = new bouton();
+        private bouton button6 = new bouton();
+        private bouton button7 = new bouton();
+        private bouton button8 = new bouton();
+        private bouton button9 = new bouton();
+        private bouton button10 = new bouton();
+        private bouton button11 = new bouton();
+        private bouton button12 = new bouton();
+
+        public QueFaitLeRoi12Panel(List<String> TextesBoutons)
         {
             initialize();
             chargementPartie();
@@ -230,29 +256,29 @@ namespace Que_fait_le_Roi
             finalScore = 12;
 
             button1.Tag = "1";
-            button1.Text = "Le roi rentre au château.";
+            button1.Text = TextesBoutons[90];
             button2.Tag = "2";
-            button2.Text = "Kral okula girer.";
+            button2.Text = TextesBoutons[91];
             button3.Tag = "3";
-            button3.Text = "Le roi traverse la forêt.";
+            button3.Text = TextesBoutons[92];
             button4.Tag = "4";
-            button4.Text = "Kral bahceyi gecer.";
+            button4.Text = TextesBoutons[93];
             button5.Tag = "5";
-            button5.Text = "Le roi monte l'escalier.";
+            button5.Text = TextesBoutons[94];
             button6.Tag = "6";
-            button6.Text = "Kral yataga cikar.";
+            button6.Text = TextesBoutons[95];
             button7.Tag = "7";
-            button7.Text = "Le roi grimpe sur la chaise.";
+            button7.Text = TextesBoutons[96];
             button8.Tag = "8";
-            button8.Text = "Bu kutuda ne var ?";
+            button8.Text = TextesBoutons[97];
             button9.Tag = "9";
-            button9.Text = "Kral bir banyo alir.";
+            button9.Text = TextesBoutons[98];
             button10.Tag = "10";
-            button10.Text = "Le roi s'installe à table.";
+            button10.Text = TextesBoutons[99];
             button11.Tag = "11";
-            button11.Text = "Kral pijama giyer.";
+            button11.Text = TextesBoutons[100];
             button12.Tag = "12";
-            button12.Text = "Le roi fait une pause.";
+            button12.Text = TextesBoutons[101];
 
             //sons pour les boutons
             sons.Add(items.roiRentreAuChateauFR);
@@ -297,6 +323,54 @@ namespace Que_fait_le_Roi
             this.pictureBox21.Image = items.pause1;
         }
         
-        
+    }
+
+    public class bouton : Button
+    {
+        public bouton()
+        {
+            this.UseCompatibleTextRendering = true;
+            this.TextRenderingHint = TextRenderingHint.AntiAlias;
+            this.FlatAppearance.BorderSize = 0;
+            this.TabStop = false;
+            this.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+            this.ForeColor = Color.White; 
+            this.BackColor = ColorTranslator.FromHtml("#b35344");
+            this.FlatAppearance.MouseDownBackColor = ColorTranslator.FromHtml("#770f00");
+            this.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#770f00");
+            this.FlatStyle = FlatStyle.Flat;
+            this.Dock = DockStyle.None;
+            this.TextAlign = ContentAlignment.MiddleCenter;
+            this.Cursor = Cursors.Hand;
+            this.GotFocus += new EventHandler(myBtn_GotFocus);
+            this.LostFocus += new EventHandler(myBtn_LostFocus);
+        }
+
+        private TextRenderingHint _textRenderingHint = TextRenderingHint.SystemDefault;
+
+        public TextRenderingHint TextRenderingHint
+        {
+            get { return _textRenderingHint; }
+            set { _textRenderingHint = value; }
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            e.Graphics.TextRenderingHint = _textRenderingHint;
+            base.OnPaint(e);
+        }
+
+        private void myBtn_GotFocus(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            b.BackColor = ColorTranslator.FromHtml("#770f00");
+        }
+
+        private void myBtn_LostFocus(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            b.BackColor = ColorTranslator.FromHtml("#b35344");
+        }
+
     }
 }

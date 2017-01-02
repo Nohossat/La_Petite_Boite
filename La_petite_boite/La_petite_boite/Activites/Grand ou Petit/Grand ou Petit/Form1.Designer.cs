@@ -13,7 +13,7 @@ namespace Grand_ou_Petit
         /// <summary>
         /// Nettoyage des ressources utilisées.
         /// </summary>
-        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
+        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -98,7 +98,7 @@ namespace Grand_ou_Petit
         /// <summary>
         /// Nettoyage des ressources utilisées.
         /// </summary>
-        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
+        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -158,7 +158,7 @@ namespace Grand_ou_Petit
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.Tag = "4";
-            
+
             // 
             // pictureBox3
             // 
@@ -195,7 +195,7 @@ namespace Grand_ou_Petit
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.TabIndex = 15;
             this.pictureBox8.Tag = "4";
-            
+
             // 
             // pictureBox7
             // 
@@ -284,7 +284,7 @@ namespace Grand_ou_Petit
         /// <summary>
         /// Nettoyage des ressources utilisées.
         /// </summary>
-        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
+        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -562,7 +562,7 @@ namespace Grand_ou_Petit
         /// <summary>
         /// Nettoyage des ressources utilisées.
         /// </summary>
-        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
+        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -679,7 +679,7 @@ namespace Grand_ou_Petit
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.Tag = "4";
             // 
-            
+
             // pictureBox24
             // 
             this.pictureBox24.Name = "pictureBox24";
@@ -739,7 +739,7 @@ namespace Grand_ou_Petit
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Tag = "9";
             // 
-           
+
             // pictureBox16
             // 
             this.pictureBox16.Name = "pictureBox16";
@@ -755,7 +755,7 @@ namespace Grand_ou_Petit
             this.pictureBox29.Name = "pictureBox29";
             this.pictureBox29.Tag = "6";
             // 
-           
+
             // pictureBox31
             // 
             this.pictureBox31.Name = "pictureBox31";
@@ -827,7 +827,7 @@ namespace Grand_ou_Petit
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Tag = "6";
             // 
-            
+
             // 
             // pictureBox5
             // 
@@ -894,4 +894,3 @@ namespace Grand_ou_Petit
         }
     }
 }
-

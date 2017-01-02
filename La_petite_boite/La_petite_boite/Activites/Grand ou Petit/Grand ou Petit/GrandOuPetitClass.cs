@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ressources;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace Grand_ou_Petit
 {
@@ -33,9 +34,9 @@ namespace Grand_ou_Petit
         int indexEmplacement;
         int indexCarte;
 
-        public GrandOuPetitClass ()
+        public GrandOuPetitClass()
         {
-            
+
         }
 
         public new void chargementPartie()
@@ -48,7 +49,6 @@ namespace Grand_ou_Petit
             this.Controls.Add(this.conteneurCarteAPlacer);
             this.Controls.Add(this.conteneurGrandeCarte);
             this.Name = "GrandOuPetit";
-            this.Text = "Grand ou Petit?";
 
             conteneurGrandeCarte.BackColor = Color.Transparent;
             conteneurPetiteCarte.BackColor = Color.Transparent;
@@ -71,9 +71,9 @@ namespace Grand_ou_Petit
                 image.TabStop = false;
                 image.Image = items.dosCarte;
                 image.Enabled = true;
-                image.Click += new System.EventHandler(this.cliquerPremiereLigne);
+                image.Click += new EventHandler(this.cliquerPremiereLigne);
                 image.Top = 0;
-                
+
                 if (conteneurGrandeCarte.Controls.Count == 10)
                 {
                     //Grand Ou Petit 10
@@ -86,7 +86,8 @@ namespace Grand_ou_Petit
                     image.Size = new Size(120, 150);
                     image.Left = indexCarte * 135;
                 }
-                else {
+                else
+                {
                     //Grand Ou Petit
                     image.Size = new Size(130, 160);
                     image.Left = indexCarte * 145;
@@ -109,6 +110,7 @@ namespace Grand_ou_Petit
                 image.BorderStyle = BorderStyle.FixedSingle;
                 image.DragDrop += new DragEventHandler(this.petiteImage_DragDrop);
                 image.DragEnter += new DragEventHandler(this.petiteImage_DragEnter);
+                image.DragOver += new DragEventHandler(this.petiteImageDragOver);
                 image.Top = 0;
 
                 if (conteneurCarteAPlacer.Controls.Count == 10)
@@ -129,7 +131,7 @@ namespace Grand_ou_Petit
                     image.Size = new Size(130, 160);
                     image.Left = indexCarte * 145;
                 }
-                
+
                 coordonneesCarteAPlacer.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
                 indexCarte++;
             }
@@ -147,7 +149,7 @@ namespace Grand_ou_Petit
                 coordonneesCarteAPlacer.Remove(conteneurCarteAPlacer.Controls[indexEmplacement].Location);
                 indexEmplacement++;
             }
-            
+
 
             //récupérer les localisations des petites cartes
             foreach (PictureBox image in conteneurPetiteCarte.Controls)
@@ -159,7 +161,7 @@ namespace Grand_ou_Petit
                 image.SizeMode = PictureBoxSizeMode.StretchImage;
                 image.TabStop = false;
                 image.Top = 0;
-                
+
                 if (conteneurPetiteCarte.Controls.Count == 10)
                 {
                     //Grand Ou Petit 10
@@ -182,6 +184,7 @@ namespace Grand_ou_Petit
                 coordonneesPetiteCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
                 image.MouseDown += new MouseEventHandler(this.receveurImage_MouseDown);
                 image.MouseEnter += new EventHandler(this.receveurImage_MouseEnter);
+                image.GiveFeedback += new GiveFeedbackEventHandler(this.DragSource_GiveFeedback);
                 indexCarte++;
             }
 
@@ -204,12 +207,12 @@ namespace Grand_ou_Petit
                 premiereCarteSelectionnee = (String)carteCourante.Tag;
                 carteRetournee = true;
                 index = Int32.Parse(premiereCarteSelectionnee) - 1;
-                
+
                 //on devoile la carte
                 carteCourante.BackColor = Color.White;
                 carteCourante.Image = img[index];
                 Refresh();
-                
+
 
                 //on ecoute le son associe a la carte
                 JouerSon(sons[index]);
@@ -228,6 +231,7 @@ namespace Grand_ou_Petit
         private void petiteImage_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Move;
+            Cursor.Current = CursorUtil.CreateCursor((Bitmap)petiteImageRecup, 0, 0);
         }
 
         private void petiteImage_DragDrop(object sender, DragEventArgs e)
@@ -238,7 +242,7 @@ namespace Grand_ou_Petit
             image.SizeMode = PictureBoxSizeMode.CenterImage;
             Refresh();
             destinationCarte = (String)image.Tag;
-            
+
             if (premiereCarteSelectionnee.Equals(deuxiemeCarteSelectionnee) & premiereCarteSelectionnee.Equals(destinationCarte))
             {
                 this.score++;
@@ -288,7 +292,7 @@ namespace Grand_ou_Petit
                         petiteImage.Refresh();
                     }
                 }
-                
+
                 image.Image = new Bitmap(img[index], new Size(80, 104));
                 image.SizeMode = PictureBoxSizeMode.CenterImage;
                 image.BackColor = Color.White;
@@ -299,7 +303,7 @@ namespace Grand_ou_Petit
                 {
                     petiteImage.AllowDrop = true;
                 }
-
+                this.AllowDrop = true;
                 //lecture du son lié à la petite carte
                 petiteImageRecup = image.Image;
                 conteneurCarteAPlacer.DoDragDrop("x", DragDropEffects.Move);
@@ -318,5 +322,65 @@ namespace Grand_ou_Petit
             }
         }
 
+        private void petiteImageDragOver(object sender, DragEventArgs e)
+        {
+            Cursor.Current = CursorUtil.CreateCursor((Bitmap)petiteImageRecup, 0, 0);
+            Refresh();
+        }
+
+        private void DragSource_GiveFeedback(object sender, GiveFeedbackEventArgs e)
+        {
+            //customize the drag cursor for the given DragDropEffect for this control
+            Cursor.Current = CursorUtil.CreateCursor((Bitmap)petiteImageRecup, 0, 0);
+        }
+
+    }
+
+    public class CursorUtil
+    {
+        public struct IconInfo
+        {
+            public bool fIcon;
+            public int xHotspot;
+            public int yHotspot;
+            public IntPtr hbmMask;
+            public IntPtr hbmColor;
+        }
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr CreateIconIndirect(ref IconInfo icon);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool GetIconInfo(IntPtr hIcon, ref IconInfo pIconInfo);
+
+        [DllImport("gdi32.dll")]
+        public static extern bool DeleteObject(IntPtr handle);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        extern static bool DestroyIcon(IntPtr handle);
+
+        // Based on the article and comments here:
+        // http://www.switchonthecode.com/tutorials/csharp-tutorial-how-to-use-custom-cursors
+        // Note that the returned Cursor must be disposed of after use, or you'll leak memory!
+
+        public static Cursor CreateCursor(Bitmap bm, int xHotspot, int yHotspot)
+        {
+            IntPtr cursorPtr;
+            IntPtr ptr = bm.GetHicon();
+            IconInfo tmp = new IconInfo();
+            GetIconInfo(ptr, ref tmp);
+            tmp.xHotspot = xHotspot;
+            tmp.yHotspot = yHotspot;
+            tmp.fIcon = false;
+            cursorPtr = CreateIconIndirect(ref tmp);
+
+            if (tmp.hbmColor != IntPtr.Zero) DeleteObject(tmp.hbmColor);
+            if (tmp.hbmMask != IntPtr.Zero) DeleteObject(tmp.hbmMask);
+            if (ptr != IntPtr.Zero) DestroyIcon(ptr);
+
+            return new Cursor(cursorPtr);
+        }
+        
     }
 }

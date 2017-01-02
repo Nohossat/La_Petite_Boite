@@ -17,7 +17,7 @@ namespace La_petite_boite
 
         delegate void actionButton(object sender, EventArgs e);
         List<actionButton> tableauFonctions = new List<actionButton>();
-        public Label message = new Label();
+        public SpecialLabel message = new SpecialLabel();
         public PictureBox animation = new PictureBox();
         public Panel conteneurButtons = new Panel();
 

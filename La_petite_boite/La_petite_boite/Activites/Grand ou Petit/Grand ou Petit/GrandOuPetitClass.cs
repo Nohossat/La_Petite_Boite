@@ -181,6 +181,7 @@ namespace Grand_ou_Petit
 
                 coordonneesPetiteCarte.Add(image.Location); //on ajoute à la liste points la localisation des PictureBox
                 image.MouseDown += new MouseEventHandler(this.receveurImage_MouseDown);
+                image.MouseEnter += new EventHandler(this.receveurImage_MouseEnter);
                 indexCarte++;
             }
 
@@ -300,11 +301,22 @@ namespace Grand_ou_Petit
                 }
 
                 //lecture du son lié à la petite carte
-                JouerSon(sons[index + finalScore]);
                 petiteImageRecup = image.Image;
                 conteneurCarteAPlacer.DoDragDrop("x", DragDropEffects.Move);
             }
         }
-        
+
+        private void receveurImage_MouseEnter(object sender, EventArgs e)
+        {
+            PictureBox image = (PictureBox)sender;
+
+            if (image.SizeMode == PictureBoxSizeMode.CenterImage)
+            {
+                deuxiemeCarteSelectionnee = (String)image.Tag;
+                int index = Int32.Parse(deuxiemeCarteSelectionnee) - 1;
+                JouerSon(sons[index + finalScore]);
+            }
+        }
+
     }
 }

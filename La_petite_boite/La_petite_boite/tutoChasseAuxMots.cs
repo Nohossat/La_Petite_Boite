@@ -23,6 +23,7 @@ namespace La_petite_boite
         {
             InitializeComponent();
 
+            this.Ecouter.Font = new Font(petiteBoite.privateFontCollection.Families[0], 17);
             this.Ecouter.Location = new Point(174, 265);
             this.conteneurCarte.Location = new Point(120, 40);
 

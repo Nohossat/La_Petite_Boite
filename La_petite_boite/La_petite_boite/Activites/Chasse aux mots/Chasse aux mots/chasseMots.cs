@@ -23,13 +23,18 @@ namespace Chasse_aux_mots
         public Random localisation = new Random();
         public List<Point> coordonneesCartes = new List<Point>(); //liste des localisations des PictureBox
         public List<Stream> sons = new List<Stream>();
-        public bouton1 Ecouter;
+        public bouton1 Ecouter = new bouton1();
         public Boolean[] trouves;
         int indexCarte;
 
-        public chasseMots ()
+        public chasseMots()
         {
+            Ecouter.Font = new Font(Ecouter.Font.FontFamily, 14);
+        }
 
+        public chasseMots (PrivateFontCollection pfc)
+        {
+            Ecouter.Font = new Font(pfc.Families[0], 17);
         }
 
         public new void chargementPartie()
@@ -42,17 +47,10 @@ namespace Chasse_aux_mots
             this.Text = "Form1";
             this.BackgroundImage = items.fondBlanc;
             this.BackgroundImageLayout = ImageLayout.Stretch;
-
             Ecouter.Enabled = true;
-            Ecouter.BackColor = System.Drawing.SystemColors.HotTrack;
-            Ecouter.FlatAppearance.BorderSize = 0;
-            Ecouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            Ecouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            Ecouter.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             Ecouter.Name = "Ecouter";
-            Ecouter.Size = new System.Drawing.Size(140, 51);
+            Ecouter.Size = new Size(140, 51);
             Ecouter.Text = "Ecouter";
-            Ecouter.UseVisualStyleBackColor = false;
 
             carteACliquerTag = "";
             imageCliqueTag = "";

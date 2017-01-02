@@ -15,7 +15,6 @@ namespace La_petite_boite
     public partial class splash : Form
     {
         bool fadein = false;
-        public static PrivateFontCollection privateFontCollection;
 
         public splash()
         {
@@ -36,7 +35,7 @@ namespace La_petite_boite
                 this.Opacity += 0.05;
             }
 
-            if (fadein == false && this.Opacity == 0.5)
+            if (fadein == false && this.Opacity == 0.7)
             {
                 fadein = true;
                 timer1.Stop();

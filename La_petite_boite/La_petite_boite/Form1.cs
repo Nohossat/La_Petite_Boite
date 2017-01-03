@@ -183,7 +183,7 @@ namespace La_petite_boite
                 this.Size = new Size(1292, 726);
             }
 
-            if (Screen.PrimaryScreen.Bounds.Width < 1292)
+            if (Screen.PrimaryScreen.Bounds.Width < 1100)
             {
                 //le tableau de bord et les etoiles sont plus petits
                 responsiveTab = true;

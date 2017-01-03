@@ -27,6 +27,24 @@ namespace La_petite_boite
             this.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
         }
 
+        public Etoile(int width, int height, int L, int choix)
+        {
+            if (choix == 1)
+            {
+                this.Image = items.etoileJaune;
+            }
+            else
+            {
+                this.Image = items.etoileGrise;
+            }
+            this.Width = width;
+            this.Height = height;
+            this.Top = 0;
+            this.Left = L;
+            this.BackColor = Color.Transparent;
+            this.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+        }
+
         public Etoile(int L, int T, int choix)
         {
             if (choix == 1)
@@ -39,6 +57,24 @@ namespace La_petite_boite
             }
             this.Width = 50;
             this.Height = 50;
+            this.Top = T;
+            this.Left = L;
+            this.BackColor = Color.Transparent;
+            this.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+        }
+
+        public Etoile(int width, int height, int L, int T, int choix)
+        {
+            if (choix == 1)
+            {
+                this.Image = items.etoileJaune;
+            }
+            else
+            {
+                this.Image = items.etoileGrise;
+            }
+            this.Width = width;
+            this.Height = height;
             this.Top = T;
             this.Left = L;
             this.BackColor = Color.Transparent;

@@ -73,6 +73,15 @@ namespace La_petite_boite
 
         private void action1()
         {
+            //on met la souris sur une premiere picturebox
+            conteneurCarte.Controls.OfType<PictureBox>().ElementAt(0).Cursor = Cursors.Hand;
+           
+            p.x = conteneurCarte.Controls.OfType<PictureBox>().ElementAt(0).Location.X + 200;
+            p.y = conteneurCarte.Controls.OfType<PictureBox>().ElementAt(0).Location.Y + 200;
+
+            Win32.ClientToScreen(this.Handle, ref p);
+            Win32.SetCursorPos(p.x, p.y);
+
             conteneurCarte.Controls.OfType<PictureBox>().ElementAt(0).Image = items.doudou1;
             conteneurCarte.Controls.OfType<PictureBox>().ElementAt(0).BackColor = Color.Transparent;
             Program.petiteBoite.JouerSon(items.doudouFR);
@@ -80,12 +89,19 @@ namespace La_petite_boite
 
         private void action2()
         {
+            //on met la souris sur une premiere picturebox
+            conteneurCarte.Controls.OfType<PictureBox>().ElementAt(1).Cursor = Cursors.Hand;
+
+            p.x = conteneurCarte.Controls.OfType<PictureBox>().ElementAt(1).Location.X + 200;
+            p.y = conteneurCarte.Controls.OfType<PictureBox>().ElementAt(1).Location.Y + 200;
+
+            Win32.ClientToScreen(this.Handle, ref p);
+            Win32.SetCursorPos(p.x, p.y);
+
             conteneurCarte.Controls.OfType<PictureBox>().ElementAt(1).Image = items.doudou1;
             conteneurCarte.Controls.OfType<PictureBox>().ElementAt(1).BackColor = Color.Transparent;
             Program.petiteBoite.JouerSon(items.doudouFR);
         }
-        
-        
         
     }
 }

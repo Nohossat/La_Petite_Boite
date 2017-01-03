@@ -1,0 +1,116 @@
+DIAPORAMA - 1 a 6 (les chiffres representent les lignes des chaines de caracteres)
+Bienvenue a toi {0}, je suis le roi Kazan. {1} Es - tu pret pour la mission que j'ai a te confier?
+Avant de commencer, rends visite au magicien. {0} Il te donnera de precieux conseils pour la suite de l'aventure
+Bienvenue à toi {0}, je suis le magicien Kazan, et je serai ton guide tout au long de ton périple. {1} Bon courage!
+Est-ce que tu as vraiment recolter toutes les etoiles?
+Il te manque des etoiles pour ouvrir le coffre. {0} Reviens me voir lorsque ta quete sera achevee.
+Bravo, jeune chevalier, tu as recolte toutes les etoiles. {0} Clique sur le coffre pour decouvrir son contenu.
+
+BOUTONS - 10 a 18
+ACTIONJOUEURTEXTES - 10 a 12
+Oui
+Voir le Magicien
+Commencer le Jeu
+AUTRESBOUTONS - 14 a 18
+Nouvelle Partie
+Charger Partie
+Quitter
+Commencer
+Retour
+
+NOUVELLEPARTIE - 21 a 28
+Prenom
+Age
+Avatar
+Dossier de sauvegarde
+Il manque les informations suivantes
+Retour
+Le personnage {0} existe deja dans ce dossier. {1} Veuillez choisir un autre dossier de sauvegarde ou un autre nom
+L'age doit etre un nombre entier
+
+MINIJEU - 31 a 40
+Niveau 1
+Niveau 2
+Niveau suivant
+Carte
+Tu as deja remportees les etoiles de ce lieu !
+Rejouer
+Niveau 1 reussi!
+Niveau 2 reussi! Quete terminee
+Regles du jeu
+Tu as recolte toutes les etoiles! {0} Rends-toi au Chateau pour ouvrir le coffre et decouvrir ses tresors!
+
+TABLEAUBORDTextes - 43 a 45
+Sauvegarder et Retour a l'accueil
+Retour a la Carte
+Tu es sur le point de quitter la partie. {0} Souhaites - tu sauvegarder tes donnees ?
+SAUVEGARDETextes - 47 a 48
+Les donnees ont ete sauvegardees !
+Une erreur s'est produite, les donnees n'ont pas pu etre enregistrees.
+
+AIDETextes - 51 a 55
+Clique sur un des lieux pour te deplacer sur la carte et acceder aux jeux
+Clique sur une 1ère carte et puis sur une 2ème.{0} Si tu entends et vois la même chose, c'est gagné ! {0} Arriveras-tu à retourner toutes les cartes ?
+Écoute bien et retrouve la bonne image.
+Clique sur un bouton et écoute la phrase. {0} Retrouve l'image qui correspond. {0} Aide toi des indices en cliquant sur les images.
+Choisis et clique sur une carte de la 1ère ligne et écoute bien. {0} Retrouve la même image mais en plus petit dans la dernière ligne. {0} Glisse la sous la grande image.
+
+CHARGERTextes - 58 a 63
+Selectionne un dossier de sauvegarde
+Charger
+Choisir parmi la liste de personnages
+Il n'y a pas de joueurs dans ce dossier !
+Il faut choisir un personnage
+Le joueur {0} n'a pas ete retrouve
+
+RECOMPENSES - 66
+Retour vers la Carte
+
+NOUVEAUDOSSIER - 69 a 70
+Enregistrer
+Nouveau Dossier
+
+QUEFAITLEROITextes
+QUEFAITLEROI4 - 74 a 77
+Le roi rentre au château
+Kral okula girer
+Le roi traverse la forêt
+Kral bahceyi gecer
+
+QUEFAITLEROI8 - 80 a 87
+Kral satoya girer
+Le roi rentre à l'école
+Kral ormani geçer
+Le roi traverse le jardin
+Kral merdivenleri cikar
+Le roi grimpe sur le lit
+Kral sandalyeye cikar
+Qu'est-ce qu'il y a dans cette boite ?
+
+QUEFAITLEROI8 - 90 a 101
+Le roi rentre au château
+Kral okula girer
+Le roi traverse la forêt
+Kral bahceyi gecer
+Le roi monte l'escalier
+Kral yataga cikar
+Le roi grimpe sur la chaise
+Bu kutuda ne var
+Kral bir banyo alir
+Le roi s'installe à table
+Kral pijama giyer
+Le roi fait une pause
+
+MENU PPL - 104
+Menu Principal
+
+PANNEAUNOUVELLEPARTIE - 107 a 110
+Choix du chevalier
+Dossier de sauvegarde
+Prenom
+Age
+
+AUTRES - 113 a 115
+Gain
+Coffre
+OK

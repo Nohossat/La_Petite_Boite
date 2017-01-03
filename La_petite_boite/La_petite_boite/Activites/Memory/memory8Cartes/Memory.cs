@@ -226,8 +226,8 @@ namespace memory8Cartes
                     ImageEnAttente2 = carteCourante;
                     ImageEnAttente1.Enabled = true;
                 }
-                //si les deux derneires cartes ont ete selectionnees
-                if (this.score == 3 && ImageEnAttente1 != null && ImageEnAttente2 != null)
+                //si les deux dernieres cartes ont ete selectionnees
+                if (this.score == (finalScore-1) && ImageEnAttente1 != null && ImageEnAttente2 != null)
                 {
                     JouerSon(items.applaudissement);
                     ImageEnAttente1.Enabled = false;

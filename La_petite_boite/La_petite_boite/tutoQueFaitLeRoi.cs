@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using System.Media;
 using Ressources;
 using System.IO;
 using System.Drawing.Text;

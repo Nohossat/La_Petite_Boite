@@ -17,6 +17,7 @@ namespace La_petite_boite
         public PictureBox pictureBox1;
         public bouton1 Ecouter;
         
+
         List<Stream> sounds = new List<Stream>();
         
         public tutoChasseAuxMots() : base()
@@ -51,6 +52,13 @@ namespace La_petite_boite
 
         private void action1 ()
         {
+            //on met la souris sur le bouton Ecouter
+            p.x = 174;
+            p.y = 265;
+
+            Win32.ClientToScreen(this.Handle, ref p);
+            Win32.SetCursorPos(p.x, p.y);
+
             //on clique sur Ecouter
             Program.petiteBoite.JouerSon(sounds.ElementAt(0));
             //le bouton Ecouter est disabled
@@ -60,6 +68,13 @@ namespace La_petite_boite
 
         private void action2()
         {
+            //on met la souris sur la carte
+            p.x = 16;
+            p.y = 17;
+
+            Win32.ClientToScreen(this.Handle, ref p);
+            Win32.SetCursorPos(p.x, p.y);
+
             pictureBox1.Image = items.dosCarte;
         }
         

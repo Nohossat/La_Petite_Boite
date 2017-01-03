@@ -10,6 +10,7 @@ using System.Media;
 using Ressources;
 using System.Threading;
 using System.Text;
+using System.Runtime.InteropServices;
 
 namespace La_petite_boite
 {
@@ -182,7 +183,7 @@ namespace La_petite_boite
             else {
                 this.FormBorderStyle = FormBorderStyle.None;
                 this.ClientSize = new Size(1292, 726);
-                this.Size = new Size(1292, 728);
+                this.Size = new Size(1292, 726);
             }
 
             this.DoubleBuffered = true;
@@ -1317,7 +1318,9 @@ namespace La_petite_boite
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawImage(imagesAvatars[chevalier.avatarJoueur()], positionJoueur.X, positionJoueur.Y - 120, 123, 156);
+            Double hauteur = 0.17 * this.Height;
+            int h = positionJoueur.Y - (int)hauteur;
+            e.Graphics.DrawImage(imagesAvatars[chevalier.avatarJoueur()], positionJoueur.X, h, 123, 160);
         }
 
         public void positionLieux()
@@ -2244,6 +2247,7 @@ namespace La_petite_boite
         int compteur = -1;
         public System.Windows.Forms.Timer timer2 = new System.Windows.Forms.Timer();
         public Panel conteneur = new Panel();
+        public Win32.POINT p = new Win32.POINT();
 
         protected PopForm () 
         {
@@ -2313,5 +2317,21 @@ namespace La_petite_boite
             }
         }
 
+    }
+
+    public class Win32
+    {
+        [DllImport("User32.Dll")]
+        public static extern long SetCursorPos(int x, int y);
+
+        [DllImport("User32.Dll")]
+        public static extern bool ClientToScreen(IntPtr hWnd, ref POINT point);
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct POINT
+        {
+            public int x;
+            public int y;
+        }
     }
 }

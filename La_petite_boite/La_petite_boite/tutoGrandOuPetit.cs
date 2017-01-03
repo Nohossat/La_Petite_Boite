@@ -90,6 +90,12 @@ namespace La_petite_boite
         
         private void action1 ()
         {
+            //on met la souris sur la premiere grande carte
+            p.x = 115;
+            p.y = 3;
+
+            Win32.ClientToScreen(this.Handle, ref p);
+            Win32.SetCursorPos(p.x, p.y);
             //on devoile la premiere grde carte
             conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(0).Image = images[0];
             conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(0).BackColor = Color.White;
@@ -99,6 +105,13 @@ namespace La_petite_boite
 
         private void action2 ()
         {
+            //on met la souris sur la premiere pt carte
+            p.x = 3;
+            p.y = 3;
+
+            Win32.ClientToScreen(this.Handle, ref p);
+            Win32.SetCursorPos(p.x, p.y);
+
             //on devoile la premiere pt carte
             conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(1).Image = images[1];
             conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(1).BackColor = Color.White;
@@ -108,6 +121,7 @@ namespace La_petite_boite
 
         private void action3 ()
         {
+            
             //on retourne la premiere pt carte
             conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(1).Image = items.dosCarte;
             conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(1).BackColor = Color.Transparent;
@@ -116,6 +130,13 @@ namespace La_petite_boite
 
         private void action4 ()
         {
+            // on met la souris sur la deuxieme pt carte
+            p.x = 115;
+            p.y = 3;
+
+            Win32.ClientToScreen(this.Handle, ref p);
+            Win32.SetCursorPos(p.x, p.y);
+
             //on devoile la deuxieme pt carte
             conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(0).Image = images[0];
             conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(0).BackColor = Color.White;

@@ -374,6 +374,7 @@ namespace La_petite_boite
             imgChevalier.BackColor = Color.Transparent;
             imgChevalier.Dock = DockStyle.None;
             imgChevalier.Anchor = AnchorStyles.None;
+           
 
             //coffre
             coffre.Image = items.coffre;
@@ -1057,6 +1058,7 @@ namespace La_petite_boite
 
             if (chargementReussi == true)
             {
+                chargementReussi = false;
                 //on retrouve le lieu associe a la valeur contenu dans lieuTemporaire (recupere dans Charger.cs)
                 for (i = 0; i < listeLieux.Length; i++)
                 {
@@ -1228,6 +1230,9 @@ namespace La_petite_boite
 
         private void afficherCarte(object sender, EventArgs e)
         {
+            Table.ColumnCount = 4;
+            //on vide le layout
+            Table.Controls.Clear();
             this.Controls.Clear();
             Carte();
         }
@@ -1236,15 +1241,19 @@ namespace La_petite_boite
         {
             //this.Opacity = 0.80;
             //fade.Start();
-            
+            Table.ColumnCount = 4;
+            //on vide le layout
+            Table.Controls.Clear();
+
             //performance du display a modifier
-            
+
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, CarteJeu, new object[] { true });
 
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, panelJoueur, new object[] { true });
             
             imgChevalier.Image = imagesAvatars[chevalier.avatarJoueur()];
             positionJoueur = chevalier.positionJoueur().getPosition();
+            Console.WriteLine(positionJoueur);
             imgChevalier.Location = positionJoueur;
             imgChevalier.Width = 123;
             imgChevalier.Height = 160;
@@ -1301,15 +1310,14 @@ namespace La_petite_boite
                 reponsePopUp();
             }
 
-            Table.ColumnCount = 4;
+            //Table.ColumnCount = 4;
             //on vide le layout
-            Table.Controls.Clear();
+            //Table.Controls.Clear();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            //on fait le repaint
-            e.Graphics.DrawImage(imagesAvatars[chevalier.avatarJoueur()], positionJoueur.X, positionJoueur.Y - 120, 123, 150);
+            e.Graphics.DrawImage(imagesAvatars[chevalier.avatarJoueur()], positionJoueur.X, positionJoueur.Y - 120, 123, 156);
         }
 
         public void positionLieux()
@@ -2012,6 +2020,7 @@ namespace La_petite_boite
             if (choixFinMiniJeu == 0)
             {
                 //on revient a la carte
+                Table.Controls.Clear();
                 this.Controls.Remove(Jeu);
                 Carte();
             }

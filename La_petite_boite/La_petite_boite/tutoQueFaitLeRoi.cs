@@ -90,24 +90,53 @@ namespace La_petite_boite
 
         private void action1()
         {
+            //on met la souris sur le premier bouton
+            p.x = button1.Location.X + 200;
+            p.y = button1.Location.Y + 140;
+
+            Win32.ClientToScreen(this.Handle, ref p);
+            Win32.SetCursorPos(p.x, p.y);
+
             //on ecoute la premiere phrase
             Program.petiteBoite.JouerSon(audio.ElementAt(0));
         }
 
         private void action2()
         {
+            pictureBox1.Cursor = Cursors.Hand;
+            //on met la souris sur la premiere picturebox
+            p.x = pictureBox1.Location.X + 230;
+            p.y = pictureBox1.Location.Y + 400;
+
+            Win32.ClientToScreen(this.Handle, ref p);
+            Win32.SetCursorPos(p.x, p.y);
+
             //on survole la premiere carte
             Program.petiteBoite.JouerSon(items.ecoleFR);
         }
 
         private void action3()
         {
+            pictureBox2.Cursor = Cursors.Hand;
+            //on met la souris sur la deuxieme picturebox
+            p.x = pictureBox2.Location.X + 220;
+            p.y = pictureBox2.Location.Y + 400;
+
+            Win32.ClientToScreen(this.Handle, ref p);
+            Win32.SetCursorPos(p.x, p.y);
             //on survole la deuxieme carte
             Program.petiteBoite.JouerSon(items.chateauTurc);
         }
 
         private void action4()
         {
+            //on met la souris sur l'emplacement
+            p.x = pictureBox1.Location.X + 230;
+            p.y = pictureBox1.Location.Y + 220;
+
+            Win32.ClientToScreen(this.Handle, ref p);
+            Win32.SetCursorPos(p.x, p.y);
+
             //on met la bonne carte au bon emplacement
             conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(0).Image = images[1];
             conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(0).BackColor = Color.White;

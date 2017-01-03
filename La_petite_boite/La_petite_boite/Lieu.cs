@@ -28,7 +28,6 @@ namespace La_petite_boite
             this.Height = Height;
             this.BackColor = Color.Transparent;
             this.DoubleBuffered = true;
-           // this.position = p;
             this.imgDebut = imageDebut;
             this.imgSurvol = imageSurvol;
             this.map = map;

@@ -90,12 +90,14 @@ namespace La_petite_boite
         
         private void action1 ()
         {
-            //on met la souris sur la premiere grande carte
-            p.x = 115;
-            p.y = 3;
+            conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(0).Cursor = Cursors.Hand;
+            //on met la souris sur la premiere carte
+            p.x = conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(0).Location.X + 200;
+            p.y = conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(0).Location.Y + 180;
 
             Win32.ClientToScreen(this.Handle, ref p);
             Win32.SetCursorPos(p.x, p.y);
+
             //on devoile la premiere grde carte
             conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(0).Image = images[0];
             conteneurGrandeCarte.Controls.OfType<PictureBox>().ElementAt(0).BackColor = Color.White;
@@ -105,9 +107,10 @@ namespace La_petite_boite
 
         private void action2 ()
         {
-            //on met la souris sur la premiere pt carte
-            p.x = 3;
-            p.y = 3;
+            conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(1).Cursor = Cursors.Hand;
+            //on met la souris sur la premiere carte
+            p.x = conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(1).Location.X + 200;
+            p.y = conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(1).Location.Y + 440;
 
             Win32.ClientToScreen(this.Handle, ref p);
             Win32.SetCursorPos(p.x, p.y);
@@ -121,7 +124,6 @@ namespace La_petite_boite
 
         private void action3 ()
         {
-            
             //on retourne la premiere pt carte
             conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(1).Image = items.dosCarte;
             conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(1).BackColor = Color.Transparent;
@@ -130,9 +132,10 @@ namespace La_petite_boite
 
         private void action4 ()
         {
-            // on met la souris sur la deuxieme pt carte
-            p.x = 115;
-            p.y = 3;
+            conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(0).Cursor = Cursors.Hand;
+            //on met la souris sur la premiere carte
+            p.x = conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(0).Location.X + 200;
+            p.y = conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(0).Location.Y + 440;
 
             Win32.ClientToScreen(this.Handle, ref p);
             Win32.SetCursorPos(p.x, p.y);
@@ -146,6 +149,15 @@ namespace La_petite_boite
 
         private void action5 ()
         {
+            conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(0).Cursor = Cursors.Hand;
+            //on met la souris sur la premiere carte
+            p.x = conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(0).Location.X + 200;
+            p.y = conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(0).Location.Y + 290;
+
+            Win32.ClientToScreen(this.Handle, ref p);
+            Win32.SetCursorPos(p.x, p.y);
+
+            //on place la carte correspondante dans l'emplacement situe en dessous de la carte correspondante
             conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(0).Image = images[0];
             conteneurCarteAPlacer.Controls.OfType<PictureBox>().ElementAt(0).BackColor = Color.White;
             conteneurPetiteCarte.Controls.OfType<PictureBox>().ElementAt(0).Hide();

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ressources;
 using System.Drawing.Text;
+using System.Runtime.InteropServices;
 
 namespace Que_fait_le_Roi
 {
@@ -58,7 +59,7 @@ namespace Que_fait_le_Roi
             foreach (Button bouton in conteneurBouton.Controls)
             {
                 bouton.Enabled = true;
-                bouton.Font = new Font("Verdana", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                bouton.Font = new Font("Verdana", 8.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
                 bouton.Size = new Size(130, 37);
                 bouton.UseVisualStyleBackColor = true;
                 bouton.Top = 3;
@@ -112,10 +113,12 @@ namespace Que_fait_le_Roi
 
                 image.DragDrop += new DragEventHandler(this.Image_DragDrop);
                 image.DragEnter += new DragEventHandler(this.Image_DragEnter);
+                image.DragOver += new DragEventHandler(this.imageDragOver);
                 coordonneesCarteAPlacer.Add(image.Location);
                 indexcarte++;
             }
-
+            //conteneurCarte.DragOver += new DragEventHandler(this.imageDragOver);
+            this.DragOver += new DragEventHandler(this.imageDragOver);
             //on melange les boutons et les emplacements
             foreach (Button bouton in conteneurBouton.Controls)
             {
@@ -136,7 +139,6 @@ namespace Que_fait_le_Roi
                 image.Visible = true;
                 image.Enabled = true;
                 image.BackColor = Color.White;
-                //image.MouseMove += new MouseEventHandler(imageMouseMove);
                 image.Cursor = Cursors.Hand;
                 image.Size = new Size(130, 160);
                 image.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -159,6 +161,7 @@ namespace Que_fait_le_Roi
                 
                 image.MouseDown += new MouseEventHandler(this.receveurImage_MouseDown);
                 image.MouseEnter += new EventHandler(imageMouseEnter);
+                image.GiveFeedback += new GiveFeedbackEventHandler(this.dragSourceGiveFeedback);
                 coordonneesCarte.Add(image.Location);
                 indexcarte++;
             }
@@ -196,6 +199,7 @@ namespace Que_fait_le_Roi
         public void Image_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.All;
+            Cursor.Current = CursorUtil.CreateCursor((Bitmap)imageRecuperee, 0, 0);
         }
 
         public void Image_DragDrop(object sender, DragEventArgs e)
@@ -268,18 +272,66 @@ namespace Que_fait_le_Roi
             conteneurCarteAPlacer.DoDragDrop("x", DragDropEffects.All);
             
         }
-
-        public void imageMouseMove(object sender, MouseEventArgs e)
+        
+        private void imageDragOver(object sender, DragEventArgs e)
         {
-            PictureBox image = (PictureBox)sender;
-            Console.WriteLine(image.Name);
-            Console.WriteLine(mouseLocation.X);
-            image.Left = e.X;
-            image.Top = e.Y;
-
+            Cursor.Current = CursorUtil.CreateCursor((Bitmap)imageRecuperee, 0, 0);
             Refresh();
         }
+
+        private void dragSourceGiveFeedback(object sender, GiveFeedbackEventArgs e)
+        {
+            //customize the drag cursor for the given DragDropEffect for this control
+            Cursor.Current = CursorUtil.CreateCursor((Bitmap)imageRecuperee, 0, 0);
+        }
+
     }
 
-   
+    public class CursorUtil
+    {
+        public struct IconInfo
+        {
+            public bool fIcon;
+            public int xHotspot;
+            public int yHotspot;
+            public IntPtr hbmMask;
+            public IntPtr hbmColor;
+        }
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr CreateIconIndirect(ref IconInfo icon);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool GetIconInfo(IntPtr hIcon, ref IconInfo pIconInfo);
+
+        [DllImport("gdi32.dll")]
+        public static extern bool DeleteObject(IntPtr handle);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        extern static bool DestroyIcon(IntPtr handle);
+
+        // Based on the article and comments here:
+        // http://www.switchonthecode.com/tutorials/csharp-tutorial-how-to-use-custom-cursors
+        // Note that the returned Cursor must be disposed of after use, or you'll leak memory!
+
+        public static Cursor CreateCursor(Bitmap bm, int xHotspot, int yHotspot)
+        {
+            IntPtr cursorPtr;
+            IntPtr ptr = bm.GetHicon();
+            IconInfo tmp = new IconInfo();
+            GetIconInfo(ptr, ref tmp);
+            tmp.xHotspot = xHotspot;
+            tmp.yHotspot = yHotspot;
+            tmp.fIcon = false;
+            cursorPtr = CreateIconIndirect(ref tmp);
+
+            if (tmp.hbmColor != IntPtr.Zero) DeleteObject(tmp.hbmColor);
+            if (tmp.hbmMask != IntPtr.Zero) DeleteObject(tmp.hbmMask);
+            if (ptr != IntPtr.Zero) DestroyIcon(ptr);
+
+            return new Cursor(cursorPtr);
+        }
+
+    }
 }

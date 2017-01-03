@@ -21,6 +21,7 @@ namespace La_petite_boite
             InitializeComponent();
             //il faut forcer le full screen
             this.BackgroundImage = items.chargement;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
             this.Opacity = 0;
             timer1.Start();
         }

@@ -52,14 +52,16 @@ namespace La_petite_boite
 
         private void action1 ()
         {
+            Ecouter.Cursor = Cursors.Hand;
+           
             //on met la souris sur le bouton Ecouter
-            p.x = 174;
-            p.y = 265;
+            p.x = Ecouter.Location.X + 130;
+            p.y = Ecouter.Location.Y + 130;
 
             Win32.ClientToScreen(this.Handle, ref p);
             Win32.SetCursorPos(p.x, p.y);
 
-            //on clique sur Ecouter
+           //on clique sur Ecouter
             Program.petiteBoite.JouerSon(sounds.ElementAt(0));
             //le bouton Ecouter est disabled
             Ecouter.Enabled = false;
@@ -68,13 +70,13 @@ namespace La_petite_boite
 
         private void action2()
         {
+            pictureBox1.Cursor = Cursors.Hand;
             //on met la souris sur la carte
-            p.x = 16;
-            p.y = 17;
+            p.x = pictureBox1.Location.X + 200;
+            p.y = pictureBox1.Location.Y + 200;
 
             Win32.ClientToScreen(this.Handle, ref p);
             Win32.SetCursorPos(p.x, p.y);
-
             pictureBox1.Image = items.dosCarte;
         }
         

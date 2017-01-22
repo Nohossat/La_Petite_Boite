@@ -40,28 +40,28 @@ namespace La_petite_boite
             {
                 this.niveau = 1;
                 jeuxObligatoires.Add(new MemoryPanel());
-                jeuxObligatoires.Add(new ChasseAuxMotsPanel(petiteBoite.privateFontCollection));
+                jeuxObligatoires.Add(new ChasseAuxMotsPanel(petiteBoite.fontPopUp));
                 jeuxObligatoires.Add(new GrandOuPetit());
-                jeuxObligatoires.Add(new QueFaitLeRoi4Panel(petiteBoite.Textes));
+                jeuxObligatoires.Add(new QueFaitLeRoi4Panel(petiteBoite.Textes, petiteBoite.fontPopUp));
 
                 jeuxFacultatifs.Add(new Memory12Panel());
-                jeuxFacultatifs.Add(new ChasseAuxMots8Panel(petiteBoite.privateFontCollection));
+                jeuxFacultatifs.Add(new ChasseAuxMots8Panel(petiteBoite.fontPopUp));
                 jeuxFacultatifs.Add(new GrandOuPetit8Panel());
-                jeuxFacultatifs.Add(new QueFaitLeRoi8Panel(petiteBoite.Textes));
+                jeuxFacultatifs.Add(new QueFaitLeRoi8Panel(petiteBoite.Textes, petiteBoite.fontPopUp));
 
             }
             else
             {
                 this.niveau = 2;
                 jeuxObligatoires.Add(new Memory12Panel());
-                jeuxObligatoires.Add(new ChasseAuxMots8Panel(petiteBoite.privateFontCollection));
+                jeuxObligatoires.Add(new ChasseAuxMots8Panel(petiteBoite.fontPopUp));
                 jeuxObligatoires.Add(new GrandOuPetit8Panel());
-                jeuxObligatoires.Add(new QueFaitLeRoi8Panel(petiteBoite.Textes));
+                jeuxObligatoires.Add(new QueFaitLeRoi8Panel(petiteBoite.Textes, petiteBoite.fontPopUp));
 
                 jeuxFacultatifs.Add(new Memory18Panel());
-                jeuxFacultatifs.Add(new ChasseAuxMots12Panel(petiteBoite.privateFontCollection));
+                jeuxFacultatifs.Add(new ChasseAuxMots12Panel(petiteBoite.fontPopUp));
                 jeuxFacultatifs.Add(new GrandOuPetit12Panel());
-                jeuxFacultatifs.Add(new QueFaitLeRoi12Panel(petiteBoite.Textes));
+                jeuxFacultatifs.Add(new QueFaitLeRoi12Panel(petiteBoite.Textes, petiteBoite.fontPopUp));
             }
         }
 
@@ -127,6 +127,7 @@ namespace La_petite_boite
         {
             this.position = p;
         }
+
         public void setEpreuvesRemportees (int i)
         {
             this.epreuvesGagnees[i] = 1;

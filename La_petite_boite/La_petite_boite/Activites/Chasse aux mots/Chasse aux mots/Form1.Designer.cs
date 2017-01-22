@@ -130,31 +130,15 @@ namespace Chasse_aux_mots
             this.conteneurCarte.Controls.Add(this.pictureBox1);
             this.conteneurCarte.Size = new Size(600, 197);
             
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Name = "pictureBox4";
+            //picturebox Tags
             this.pictureBox4.Tag = "4";
-            
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Tag = "3";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Tag = "2";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Tag = "1";
             // 
             // Ecouter
             // 
-            this.Ecouter.Location = new Point(200, 210);
+            this.Ecouter.Location = new Point(220, 210);
             this.Ecouter.Click += new System.EventHandler(this.Ecouter_Click);
             // 
             // 
@@ -195,15 +179,15 @@ namespace Chasse_aux_mots
 
         public void initializeChasseAuxMots8()
         {
-            this.conteneurCarte = new System.Windows.Forms.Panel();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.conteneurCarte = new Panel();
+            this.pictureBox8 = new PictureBox();
+            this.pictureBox7 = new PictureBox();
+            this.pictureBox6 = new PictureBox();
+            this.pictureBox5 = new PictureBox();
+            this.pictureBox4 = new PictureBox();
+            this.pictureBox3 = new PictureBox();
+            this.pictureBox2 = new PictureBox();
+            this.pictureBox1 = new PictureBox();
             this.conteneurCarte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -219,7 +203,7 @@ namespace Chasse_aux_mots
             // 
             // Ecouter
             // 
-            this.Ecouter.Location = new System.Drawing.Point(210, 380);
+            this.Ecouter.Location = new Point(210, 380);
             this.Ecouter.Click += new System.EventHandler(this.Ecouter_Click);
             // 
             // conteneurCarte
@@ -232,54 +216,21 @@ namespace Chasse_aux_mots
             this.conteneurCarte.Controls.Add(this.pictureBox3);
             this.conteneurCarte.Controls.Add(this.pictureBox2);
             this.conteneurCarte.Controls.Add(this.pictureBox1);
-            this.conteneurCarte.Size = new System.Drawing.Size(590, 348);
+            this.conteneurCarte.Size = new Size(590, 348);
             // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Name = "pictureBox8";
+            // pictureBox Tags
             this.pictureBox8.Tag = "8";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Tag = "7";
-
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Tag = "6";
-
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Tag = "5";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Tag = "4";
-
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Tag = "3";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Tag = "2";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Tag = "1";
             // 
             // ChasseAuxMots8Panel
             // 
-            this.ClientSize = new System.Drawing.Size(605, 470);
+            this.ClientSize = new Size(605, 470);
             this.conteneurCarte.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
@@ -317,19 +268,19 @@ namespace Chasse_aux_mots
 
         public void initialize()
         {
-            this.conteneurCarte = new System.Windows.Forms.Panel();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.conteneurCarte = new Panel();
+            this.pictureBox12 = new PictureBox();
+            this.pictureBox11 = new PictureBox();
+            this.pictureBox10 = new PictureBox();
+            this.pictureBox9 = new PictureBox();
+            this.pictureBox8 = new PictureBox();
+            this.pictureBox7 = new PictureBox();
+            this.pictureBox6 = new PictureBox();
+            this.pictureBox5 = new PictureBox();
+            this.pictureBox4 = new PictureBox();
+            this.pictureBox3 = new PictureBox();
+            this.pictureBox2 = new PictureBox();
+            this.pictureBox1 = new PictureBox();
             this.conteneurCarte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
@@ -349,7 +300,7 @@ namespace Chasse_aux_mots
             // 
             // Ecouter
             // 
-            this.Ecouter.Location = new System.Drawing.Point(360, 380);
+            this.Ecouter.Location = new Point(360, 380);
             this.Ecouter.Click += new System.EventHandler(this.Ecouter_Click);
             // 
             // conteneurCarte
@@ -366,66 +317,20 @@ namespace Chasse_aux_mots
             this.conteneurCarte.Controls.Add(this.pictureBox3);
             this.conteneurCarte.Controls.Add(this.pictureBox2);
             this.conteneurCarte.Controls.Add(this.pictureBox1);
-            this.conteneurCarte.Size = new System.Drawing.Size(870, 380);
+            this.conteneurCarte.Size = new Size(870, 380);
             // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Name = "pictureBox12";
+            // pictureBox Tags
             this.pictureBox12.Tag = "12";
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Tag = "11";
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Tag = "10";
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Tag = "9";
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Tag = "8";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Tag = "7";
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Tag = "6";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Tag = "5";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Tag = "4";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Tag = "3";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Tag = "2";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Tag = "1";
             // 
             // ChasseAuxMots12Panel

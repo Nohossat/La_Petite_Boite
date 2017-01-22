@@ -41,8 +41,8 @@ Regles du jeu
 Tu as recolte toutes les etoiles! {0} Rends-toi au Chateau pour ouvrir le coffre et decouvrir ses tresors!
 
 TABLEAUBORDTextes - 43 a 45
-Sauvegarder et Retour a l'accueil
-Retour a la Carte
+Sauvegarder  Accueil
+Carte
 Tu es sur le point de quitter la partie. {0} Souhaites - tu sauvegarder tes donnees ?
 SAUVEGARDETextes - 47 a 48
 Les donnees ont ete sauvegardees !
@@ -110,7 +110,8 @@ Dossier de sauvegarde
 Prenom
 Age
 
-AUTRES - 113 a 115
+AUTRES - 113 a 116
 Gain
 Coffre
 OK
+Accueil

@@ -71,6 +71,7 @@ namespace Grand_ou_Petit
                 image.TabStop = false;
                 image.Image = items.dosCarte;
                 image.Enabled = true;
+                image.Cursor = Cursors.Hand;
                 image.Click += new EventHandler(this.cliquerPremiereLigne);
                 image.Top = 0;
 
@@ -157,6 +158,7 @@ namespace Grand_ou_Petit
                 image.Enabled = true;
                 image.Visible = true;
                 image.BackColor = Color.Transparent;
+                image.Cursor = Cursors.Hand;
                 image.Image = items.dosCarte;
                 image.SizeMode = PictureBoxSizeMode.StretchImage;
                 image.TabStop = false;
@@ -196,6 +198,10 @@ namespace Grand_ou_Petit
                 image.Location = p;
                 coordonneesPetiteCarte.Remove(p);
             }
+
+            this.AllowDrop = true;
+            this.DragEnter += new DragEventHandler(this.petiteImage_DragEnter);
+            this.DragOver += new DragEventHandler(this.petiteImageDragOver);
         }
 
         private void cliquerPremiereLigne(object sender, EventArgs e)
@@ -249,6 +255,7 @@ namespace Grand_ou_Petit
                 cartePetiteDejaSelectionnee = false;
                 carteRetournee = false;
                 conteneurPetiteCarte.Controls[index].Hide();
+                conteneurPetiteCarte.Controls[index].Cursor = Cursors.Default;
                 conteneurGrandeCarte.Controls[index].Enabled = false;
                 JouerSon(items.applaudissement);
                 image.Enabled = false;

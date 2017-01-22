@@ -19,6 +19,7 @@ namespace La_petite_boite
             this.Dock = DockStyle.None;
             this.TextRenderingHint = TextRenderingHint.AntiAlias;
         }
+
         private TextRenderingHint _textRenderingHint = TextRenderingHint.SystemDefault;
 
         public TextRenderingHint TextRenderingHint

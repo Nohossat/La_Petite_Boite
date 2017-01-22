@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using System.Reflection;
 using System.IO;
-using System.Media;
 using Ressources;
 
 namespace La_petite_boite
@@ -81,6 +78,4 @@ namespace La_petite_boite
         }
         
     }
-
-
 }

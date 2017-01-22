@@ -133,7 +133,8 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Jeu\maturafont.TTF" />
-    <None Include="Resources\miniJeu\pontFR.wav" />
+    <EmbeddedResource Include="Resources\Jeu\lucida.ttf" />
+    <EmbeddedResource Include="Resources\miniJeu\pontFR.wav" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\miniJeu\ecoleFR.wav" />
@@ -145,7 +146,7 @@
     <EmbeddedResource Include="Resources\miniJeu\escalierTurc.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\miniJeu\pijama.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\pijama.wav" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\miniJeu\roiTurc.wav" />
@@ -298,10 +299,8 @@
     <EmbeddedResource Include="Resources\Jeu\etoileCoffre.png" />
     <EmbeddedResource Include="Resources\Jeu\etoileCoffreHover.png" />
     <EmbeddedResource Include="Resources\Jeu\fondRecompense.png" />
-    <None Include="Resources\fondRecompense.png" />
     <EmbeddedResource Include="Resources\Jeu\fondRecompenseAfter.png" />
-    <None Include="Resources\fondRecompenseAfter.png" />
-    <Content Include="Resources\miniJeu\pauseFR.wav" />
+    <EmbeddedResource Include="Resources\miniJeu\pauseFR.wav" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

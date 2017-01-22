@@ -43,8 +43,7 @@ namespace Chasse_aux_mots
             this.Location = new Point(0, 0);
             this.Controls.Add(this.Ecouter);
             this.Controls.Add(this.conteneurCarte);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "ChasseAuxMots";
             this.BackgroundImage = items.fondBlanc;
             this.BackgroundImageLayout = ImageLayout.Stretch;
             Ecouter.Enabled = true;
@@ -56,7 +55,7 @@ namespace Chasse_aux_mots
             imageCliqueTag = "";
             
             conteneurCarte.BackColor = Color.Transparent;
-            conteneurCarte.Location = new System.Drawing.Point(15, 10);
+            conteneurCarte.Location = new Point(15, 10);
             conteneurCarte.Name = "conteneurCarte";
 
             indexCarte = 0;
@@ -97,7 +96,8 @@ namespace Chasse_aux_mots
                         image.Top = 183;
                     }
                 }
-                
+
+                image.Cursor = Cursors.Hand;
                 image.Size = new Size(130, 160);
                 image.SizeMode = PictureBoxSizeMode.StretchImage;
                 image.TabIndex = 3;
@@ -122,6 +122,7 @@ namespace Chasse_aux_mots
         public void AffichageDosCarte(PictureBox img, ref Boolean trouve)
         {
             img.Image = items.dosCarte;
+            img.Cursor = Cursors.Default;
             trouve = true;
         }
 
@@ -176,9 +177,9 @@ namespace Chasse_aux_mots
             this.TabStop = false;
             this.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             this.ForeColor = Color.White;
-            this.BackColor = ColorTranslator.FromHtml("#b35344");
-            this.FlatAppearance.MouseDownBackColor = ColorTranslator.FromHtml("#770f00");
-            this.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#770f00");
+            this.BackColor = ColorTranslator.FromHtml("#95c464");
+            this.FlatAppearance.MouseDownBackColor = ColorTranslator.FromHtml("#95aa52");
+            this.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#95aa52");
             this.FlatStyle = FlatStyle.Flat;
             this.Dock = DockStyle.None;
             this.TextAlign = ContentAlignment.MiddleCenter;
@@ -204,13 +205,13 @@ namespace Chasse_aux_mots
         private void myBtn_GotFocus(object sender, EventArgs e)
         {
             Button b = (Button)sender;
-            b.BackColor = ColorTranslator.FromHtml("#770f00");
+            b.BackColor = ColorTranslator.FromHtml("#95aa52");
         }
 
         private void myBtn_LostFocus(object sender, EventArgs e)
         {
             Button b = (Button)sender;
-            b.BackColor = ColorTranslator.FromHtml("#b35344");
+            b.BackColor = ColorTranslator.FromHtml("#95c464");
         }
 
     }

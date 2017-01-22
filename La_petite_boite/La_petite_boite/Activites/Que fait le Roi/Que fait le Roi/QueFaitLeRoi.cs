@@ -31,9 +31,14 @@ namespace Que_fait_le_Roi
         public Boolean sonBoutonEcoute;
         public List<Stream> sons = new List<Stream>();
         public Point mouseLocation;
+        public PrivateFontCollection fontPopUp;
 
+        public QueFaitLeRoiClass (PrivateFontCollection pfc)
+        {
+            fontPopUp = pfc;
+        }
 
-        public QueFaitLeRoiClass ()
+        public QueFaitLeRoiClass()
         {
 
         }
@@ -58,11 +63,12 @@ namespace Que_fait_le_Roi
             indexcarte = 0;
             foreach (Button bouton in conteneurBouton.Controls)
             {
-                bouton.Enabled = true;
-                bouton.Font = new Font("Verdana", 8.25F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-                bouton.Size = new Size(130, 37);
-                bouton.UseVisualStyleBackColor = true;
-                bouton.Top = 3;
+                bouton.Click += new EventHandler(this.Ecouter);
+
+                if (fontPopUp != null)
+                {
+                    bouton.Font = new Font(fontPopUp.Families[0], 8);
+                }
 
                 if (conteneurCarte.Controls.Count == 4)
                 {
@@ -77,9 +83,7 @@ namespace Que_fait_le_Roi
                     bouton.Left = indexcarte * 102;
                     bouton.Size = new Size(100, 37);
                 }
-
-                bouton.Tag = "";
-                bouton.Click += new EventHandler(this.Ecouter);
+                
                 indexcarte++;
                 coordonneesBouton.Add(bouton.Location);
             }
@@ -117,8 +121,7 @@ namespace Que_fait_le_Roi
                 coordonneesCarteAPlacer.Add(image.Location);
                 indexcarte++;
             }
-            //conteneurCarte.DragOver += new DragEventHandler(this.imageDragOver);
-            this.DragOver += new DragEventHandler(this.imageDragOver);
+           
             //on melange les boutons et les emplacements
             foreach (Button bouton in conteneurBouton.Controls)
             {
@@ -178,6 +181,9 @@ namespace Que_fait_le_Roi
             this.Controls.Add(this.conteneurBouton);
             this.Controls.Add(this.conteneurCarteAPlacer);
             this.Controls.Add(this.conteneurCarte);
+            this.DragOver += new DragEventHandler(this.imageDragOver);
+            this.DragEnter += new DragEventHandler(this.imageDragOver);
+            this.AllowDrop = true;
         }
         
         public void Ecouter(object sender, EventArgs e)
@@ -200,6 +206,12 @@ namespace Que_fait_le_Roi
         {
             e.Effect = DragDropEffects.All;
             Cursor.Current = CursorUtil.CreateCursor((Bitmap)imageRecuperee, 0, 0);
+        }
+
+        private void imageDragOver(object sender, DragEventArgs e)
+        {
+            Cursor.Current = CursorUtil.CreateCursor((Bitmap)imageRecuperee, 0, 0);
+            this.Refresh();
         }
 
         public void Image_DragDrop(object sender, DragEventArgs e)
@@ -273,12 +285,6 @@ namespace Que_fait_le_Roi
             
         }
         
-        private void imageDragOver(object sender, DragEventArgs e)
-        {
-            Cursor.Current = CursorUtil.CreateCursor((Bitmap)imageRecuperee, 0, 0);
-            Refresh();
-        }
-
         private void dragSourceGiveFeedback(object sender, GiveFeedbackEventArgs e)
         {
             //customize the drag cursor for the given DragDropEffect for this control

@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Ressources;
 
 namespace La_petite_boite
 {
@@ -42,6 +37,61 @@ namespace La_petite_boite
             e.Graphics.TextRenderingHint = _textRenderingHint;
             base.OnPaint(e);
         }
+    }
+
+    public class bouton1 : Button
+    {
+        public bouton1()
+        {
+            this.UseCompatibleTextRendering = true;
+            this.TextRenderingHint = TextRenderingHint.AntiAlias;
+            this.FlatAppearance.BorderSize = 0;
+            this.TabStop = false;
+            this.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+            this.ForeColor = Color.White;
+            this.BackColor = ColorTranslator.FromHtml("#95c464");
+            this.FlatAppearance.MouseDownBackColor = ColorTranslator.FromHtml("#95aa52");
+            this.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#95aa52");
+            this.Font = new Font(petiteBoite.fontPopUp.Families[0], 9);
+            this.FlatStyle = FlatStyle.Flat;
+            this.Dock = DockStyle.None;
+            this.TextAlign = ContentAlignment.MiddleCenter;
+            this.Cursor = Cursors.Hand;
+            this.GotFocus += new EventHandler(myBtn_GotFocus);
+            this.LostFocus += new EventHandler(myBtn_LostFocus);
+        }
+
+        private TextRenderingHint _textRenderingHint = TextRenderingHint.SystemDefault;
+
+        public TextRenderingHint TextRenderingHint
+        {
+            get { return _textRenderingHint; }
+            set { _textRenderingHint = value; }
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            e.Graphics.TextRenderingHint = _textRenderingHint;
+            base.OnPaint(e);
+        }
+
+        private void myBtn_GotFocus(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            b.BackColor = ColorTranslator.FromHtml("#95aa52");
+        }
+
+        private void myBtn_LostFocus(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            b.BackColor = ColorTranslator.FromHtml("#95c464");
+        }
+
+        public void gotFocus()
+        {
+            this.BackColor = ColorTranslator.FromHtml("#95aa52");
+        }
+
     }
 
     public class SpecialButton : bouton

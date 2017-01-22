@@ -21,21 +21,19 @@ namespace Ressources
 
         //font
         
-        public static PrivateFontCollection chargementFont()
+        public static PrivateFontCollection chargementFont(String nomfichier)
         {
             Stream fontStream;
            
-
            // specify embedded resource name
-            string resource = "Ressources.Resources.Jeu.maturafont.TTF";
+            string resource = nomfichier;
 
             //access resource
             try
             {
                 // receive resource stream
                 fontStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource);
-                Console.WriteLine("Chargement reussi");
-
+                
                 // create an unsafe memory block for the font data
                 IntPtr data = Marshal.AllocCoTaskMem((int)fontStream.Length);
 
@@ -67,33 +65,7 @@ namespace Ressources
                 return null;
             }
         }
-
-        //chargementTexte
-
-        public static List<String> chargementTexte(String nomFichier)
-        {
-            List<String> tableauRes = new List<string>();
-
-            try
-            {
-                using (StreamReader reader = new StreamReader(@"C:\Users\Nohossat TRAORE\Desktop\La_Petite_Boite\La_petite_boite\Ressources\Resources\Jeu\" + nomFichier))
-                {
-                    
-                     String line;
-                    while ((line = reader.ReadLine()) != null)
-                    {
-                        tableauRes.Add(line);
-                    }
-                }
-                return tableauRes;
-            }
-            catch (Exception e)
-            {
-                Console.Write("Le fichier n'a pas pu etre lu" + e);
-                return null;
-            }
-        }
-
+        
         //images JeuPPL
 
         public static Bitmap fondRecompenseAfter

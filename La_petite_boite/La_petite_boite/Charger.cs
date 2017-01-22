@@ -42,11 +42,11 @@ namespace La_petite_boite
             Selection.Text = petiteBoite.Textes[58];
             Selection.Top = 120;
             Selection.Left = 0;
-            Selection.Width = 640;
+            Selection.Width = 640; 
             Selection.Height = 40;
-            Selection.ForeColor = Color.White;
+            Selection.ForeColor = ColorTranslator.FromHtml("#1a3852");
             Selection.BackColor = Color.Transparent;
-            Selection.Font = new Font(petiteBoite.privateFontCollection.Families[0], 20);
+            Selection.Font = new Font(petiteBoite.fontPopUp.Families[0], 16);
             
             
             //liste de dossiers de sauvegarde
@@ -60,7 +60,7 @@ namespace La_petite_boite
             
             //ComboBox
 
-            for (int i = 0; i < petiteBoite.listeSauvegarde.Count(); i++)
+            for (int i = 1; i < petiteBoite.listeSauvegarde.Count(); i++)
             {
                 listeDossierSauvegarde.Items.Add(petiteBoite.listeSauvegarde[i]);
             }
@@ -68,8 +68,8 @@ namespace La_petite_boite
             //annonce
 
             annonce.Text = ""; 
-            annonce.Font = new Font(petiteBoite.privateFontCollection.Families[0], 20);
-            annonce.ForeColor = Color.White;
+            annonce.Font = new Font(petiteBoite.fontPopUp.Families[0], 16);
+            annonce.ForeColor = ColorTranslator.FromHtml("#1a3852");
             annonce.BackColor = Color.Transparent;
             annonce.Width = 640;
             annonce.Height = 35;

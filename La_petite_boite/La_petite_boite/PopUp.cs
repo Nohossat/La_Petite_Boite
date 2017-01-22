@@ -28,11 +28,11 @@ namespace La_petite_boite
             
             // 
             //message
-            this.message.Font = new Font(petiteBoite.privateFontCollection.Families[0], 15);
+            this.message.Font = new Font(petiteBoite.fontPopUp.Families[0], 15);
             this.message.ForeColor = Color.White;
             this.message.BackColor = Color.Transparent;
-            this.message.Location = new Point(96, 175);
-            this.message.Size = new Size(440, 75);
+            this.message.Location = new Point(46, 175);
+            this.message.Size = new Size(520, 75);
             this.message.TabIndex = 3;
             this.message.TextAlign = ContentAlignment.MiddleCenter;
             this.message.Text = message;
@@ -54,13 +54,13 @@ namespace La_petite_boite
             this.conteneurButtons.BorderStyle = BorderStyle.None;
 
             //on stocke les fonctions dans un tableau pour pouvoir les appeler plus facilement
-            tableauFonctions.Add(Retour);
-            tableauFonctions.Add(Carte);
-            tableauFonctions.Add(Niveau1);
-            tableauFonctions.Add(Niveau2);
-            tableauFonctions.Add(SauvegardeRetourAccueil);
-            tableauFonctions.Add(RetourAccueil);
-            tableauFonctions.Add(Quitter);
+            tableauFonctions.Add(Retour); //0
+            tableauFonctions.Add(Carte); //1
+            tableauFonctions.Add(Niveau1); //2
+            tableauFonctions.Add(Niveau2); //3
+            tableauFonctions.Add(SauvegardeRetourAccueil); //4
+            tableauFonctions.Add(RetourAccueil); //5
+            tableauFonctions.Add(Quitter); //6
 
             //on attribue la couleur du background
             BackColor = fond;
@@ -73,7 +73,7 @@ namespace La_petite_boite
                 bouton1.Height = 55;
                 bouton1.Left = 213;
                 bouton1.Text = texteBoutons.ElementAt(0);
-                bouton1.Font = new Font(petiteBoite.privateFontCollection.Families[0], 14);
+                bouton1.Font = new Font(petiteBoite.fontPopUp.Families[0], 12);
                 bouton1.Click += new EventHandler(tableauFonctions.ElementAt(referenceMethods.ElementAt(0)));
             }
             else if (nbrBoutons == 2)
@@ -89,7 +89,7 @@ namespace La_petite_boite
                     conteneurButtons.Controls[i].Width = 195;
                     conteneurButtons.Controls[i].Height = 55;
                     conteneurButtons.Controls[i].Left = i * 230 + 100;
-                    conteneurButtons.Controls[i].Font = new Font(petiteBoite.privateFontCollection.Families[0], 14);
+                    conteneurButtons.Controls[i].Font = new Font(petiteBoite.fontPopUp.Families[0], 12);
                     conteneurButtons.Controls[i].Text = texteBoutons.ElementAt(i);
                     conteneurButtons.Controls[i].Click += new EventHandler(tableauFonctions.ElementAt(referenceMethods.ElementAt(i)));
                 }
@@ -110,7 +110,7 @@ namespace La_petite_boite
                     conteneurButtons.Controls[i].Width = 156;
                     conteneurButtons.Controls[i].Height = 55;
                     conteneurButtons.Controls[i].Left = i * 206 + 26;
-                    conteneurButtons.Controls[i].Font = new Font(petiteBoite.privateFontCollection.Families[0], 14);
+                    conteneurButtons.Controls[i].Font = new Font(petiteBoite.fontPopUp.Families[0], 12);
                     conteneurButtons.Controls[i].Text = texteBoutons.ElementAt(i);
                     conteneurButtons.Controls[i].Click += new EventHandler(tableauFonctions.ElementAt(referenceMethods.ElementAt(i)));
                 }

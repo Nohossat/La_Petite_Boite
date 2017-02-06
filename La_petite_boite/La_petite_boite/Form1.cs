@@ -34,12 +34,14 @@ namespace La_petite_boite
         ComboBox listeDossierSauvegarde = new ComboBox();
 
         //BOUTONS
-        ControlButton commencer = new ControlButton("#ffffff", "#6d5622");
-        ControlButton retour = new ControlButton("#ffffff", "#6d5622");
         LittleButton actionJoueur = new LittleButton(530);
-        SpecialButton nouvellePartie = new SpecialButton();
-        SpecialButton chargerPartie = new SpecialButton();
-        SpecialButton quitter = new SpecialButton();
+
+        SpecialButton nouvellePartie = new SpecialButton("#003255", "#A52A2A", 500, 90);
+        SpecialButton chargerPartie = new SpecialButton("#003255", "#A52A2A", 500, 90);
+        SpecialButton quitter = new SpecialButton("#003255", "#A52A2A", 500, 90);
+        SpecialButton contact = new SpecialButton("#A52A2A", "#A52A2A", 200, 90);
+        SpecialButton commencer = new SpecialButton("#ffffff", "#6d5622", 200, 70);
+        SpecialButton retour = new SpecialButton("#ffffff", "#6d5622", 200, 70);
 
         Double width;
         Double height;
@@ -86,7 +88,6 @@ namespace La_petite_boite
         Panel saisirInfos = new Panel();
         Panel diaporamaHistoire = new Panel();
         Panel tabBord = new Panel();
-        Panel conteneurTitrePPL = new Panel();
         Panel conteneurInfos = new Panel();
         public static TableLayoutPanelPlus objectif = new TableLayoutPanelPlus();
         public static Panel chargerJoueur = new Panel();
@@ -94,6 +95,7 @@ namespace La_petite_boite
         public static Panel conteneurEtoilesCoffre = new Panel();
         public Panel etoilesObjectif = new Panel();
         public Panel Jeu = new Panel();
+        public Panel pageContact = new Panel();
         public Panel CarteJeu = new Panel();
         public Panel panelJoueur = new Panel();
         List<Panel> listePanels = new List<Panel>();
@@ -115,12 +117,10 @@ namespace La_petite_boite
         public static PrivateFontCollection privateFontCollection;
         public static PrivateFontCollection fontPopUp;
 
-        SpecialLabel menuPrincipal = new SpecialLabel();
-        SpecialLabel Titre = new SpecialLabel();
+        SpecialLabel titrePrincipal = new SpecialLabel();
         SpecialLabel textePresentationJeu = new SpecialLabel();
         
         String jeuEnCours = "";
-        //String message = "";
         String nomJoueur = "";
         public static String dossier = "";
         public static String nom;
@@ -146,7 +146,6 @@ namespace La_petite_boite
             
             Thread t = new Thread(new ThreadStart(splashStart));
             t.Start();
-            Thread.Sleep(6000);
 
             //---------------------------------FICHIERS-------------------------------------//
 
@@ -156,8 +155,9 @@ namespace La_petite_boite
             chargementTexte("textesFR.txt", Textes);
             chargementTexte("Joueurs.txt", joueursFichier);
             chargementTexte("dossiers_sauvegarde.txt", listeSauvegarde);
-            
             InitializeComponent();
+            Thread.Sleep(6000);
+            
             afficheAccueil();
             t.Abort();
         }
@@ -204,7 +204,6 @@ namespace La_petite_boite
 
             //---------------------LAYOUTS------------------------//
             
-            
             Table.Location = new Point(0, 0);
             Table.Size = new Size(1292, 726);
             Table.AutoSize = true;
@@ -213,10 +212,6 @@ namespace La_petite_boite
             Table.BackColor = Color.Transparent;
             Table.AutoSizeMode = AutoSizeMode.GrowOnly;
             Table.GrowStyle = TableLayoutPanelGrowStyle.AddRows;
-            Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
-            Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
-            Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
-            Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
             Table.Dock = DockStyle.Fill;
             Table.Margin = new Padding(0);
             
@@ -232,6 +227,7 @@ namespace La_petite_boite
             listePanels.Add(diaporamaHistoire);
             listePanels.Add(CarteJeu);
             listePanels.Add(Jeu);
+            listePanels.Add(pageContact);
             listePanels.Add(panelJoueur);
 
             foreach (Panel p in listePanels)
@@ -255,6 +251,9 @@ namespace La_petite_boite
 
             //accueil
             accueil.BackgroundImage = items.accueil;
+
+            //pageContact
+            pageContact.BackgroundImage = items.accueil;
 
             //ecran nouveau joueur
             nouveauJoueur.BackgroundImage = items.menu;
@@ -461,25 +460,26 @@ namespace La_petite_boite
 
             //nouvelle partie
             nouvellePartie.Text = Textes[14];
-            nouvellePartie.Top = 265;
             nouvellePartie.Click += new EventHandler(nouvelle_partie_button);
             nouvellePartie.Font = new Font(privateFontCollection.Families[0], 40);
             
 
             //chargerPartie
             chargerPartie.Text = Textes[15];
-            chargerPartie.Top = 365;
             chargerPartie.Click += new EventHandler(charger_partie_button);
             chargerPartie.Font = new Font(privateFontCollection.Families[0], 40);
             
 
             //quitter
             quitter.Text = Textes[16];
-            quitter.Top = 560;
             quitter.Click += new EventHandler(quitterPartie);
             quitter.Font = new Font(privateFontCollection.Families[0], 40);
-            
 
+            //contact
+            contact.Text = Textes[117];
+            contact.Click += new EventHandler(affichePageContact);
+            contact.Font = new Font(privateFontCollection.Families[0], 20);
+            
             //commencer
             commencer.Text = Textes[17];
             commencer.Left = 525;
@@ -504,41 +504,19 @@ namespace La_petite_boite
             
 
             //-------------------------------CHAMPS------------------------------//
-
-            //contenu du menu ppl pour qu'il soit resizable
-
-            conteneurTitrePPL.Top = 10;
-            conteneurTitrePPL.Left = 0;
-            conteneurTitrePPL.Width = this.Width;
-            conteneurTitrePPL.Height = 160;
-            conteneurTitrePPL.BackColor = Color.Transparent;
-            conteneurTitrePPL.Dock = DockStyle.Top;
-
+            
             //menu principal
 
-            menuPrincipal.Text = Textes[104];
-            menuPrincipal.Top = 10;
-            menuPrincipal.Left = 0;
-            menuPrincipal.Width = this.Width;
-            menuPrincipal.Height = 160;
-            menuPrincipal.Font = new Font(privateFontCollection.Families[0], 65);
-            menuPrincipal.ForeColor = Color.Brown;
-            menuPrincipal.BackColor = Color.Transparent;
-            menuPrincipal.TextAlign = ContentAlignment.MiddleCenter;
-            menuPrincipal.AutoSize = false;
-            menuPrincipal.Dock = DockStyle.Fill;
-
-            //Titre pour le panneau nouveau personnage
-            Titre.Text = Textes[107];
-            Titre.Top = 45;
-            Titre.Width = this.Width;
-            Titre.Height = 160;
-            Titre.Font = new Font(privateFontCollection.Families[0], 60);
-            Titre.ForeColor = ColorTranslator.FromHtml("#6d5622");
-            Titre.BackColor = Color.Transparent;
-            Titre.TextAlign = ContentAlignment.MiddleCenter;
-            Titre.AutoSize = false;
-            Titre.Dock = DockStyle.Fill;
+            titrePrincipal.Text = Textes[104];
+            titrePrincipal.Width = this.Width;
+            titrePrincipal.Height = 160;
+            titrePrincipal.Font = new Font(privateFontCollection.Families[0], 65);
+            titrePrincipal.ForeColor = Color.Brown;
+            titrePrincipal.BackColor = Color.Transparent;
+            titrePrincipal.TextAlign = ContentAlignment.MiddleCenter;
+            titrePrincipal.AutoSize = false;
+            titrePrincipal.Dock = DockStyle.Fill;
+            
 
             //dossier de sauvegarde
             dossierSauvegarde.Text = Textes[108];
@@ -815,14 +793,19 @@ namespace La_petite_boite
             //fade.Enabled = true;
             //fade.Start();
 
+            this.Controls.Clear();
             Table.Controls.Clear();
             Table.ColumnStyles.Clear();
             Table.RowStyles.Clear();
-            this.Controls.Clear();
+            
             Table.ColumnCount = 4;
             Table.RowCount = 4;
 
             //on affiche l-accueil
+            Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
+            Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
+            Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
+            Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
@@ -830,13 +813,15 @@ namespace La_petite_boite
 
             accueil.Controls.Add(Table);
 
+            titrePrincipal.Text = Textes[104];
+            titrePrincipal.ForeColor = Color.Brown;
+
             //on affiche les boutons a l-ecran accueil
-            conteneurTitrePPL.Controls.Clear();
-            conteneurTitrePPL.Controls.Add(menuPrincipal);
-            Table.Controls.Add(conteneurTitrePPL, 0, 0);
+            Table.Controls.Add(titrePrincipal, 0, 0);
             Table.Controls.Add(nouvellePartie, 0, 1);
             Table.Controls.Add(chargerPartie, 0, 2);
-            Table.Controls.Add(quitter, 0, 3);
+            Table.Controls.Add(quitter, 1, 3);
+            Table.Controls.Add(contact, 3, 3);
 
             foreach (Control c in Table.Controls)
             {
@@ -845,44 +830,92 @@ namespace La_petite_boite
                 c.Anchor = AnchorStyles.None;
             }
 
+            Table.SetColumnSpan(quitter, 2);
+            Table.SetColumnSpan(contact, 1);
+
             nouvellePartie.Anchor = AnchorStyles.Bottom;
             chargerPartie.Anchor = AnchorStyles.Top;
-
             this.Controls.Add(accueil);
+        }
+
+        //affichePageContact
+
+        public void affichePageContact(object sender, EventArgs e)
+        {
+            //texte de lapage Contact
+            SpecialLabel presentation = new SpecialLabel();
+
+            presentation.Text = String.Format(Textes[118], Environment.NewLine);
+            presentation.Width = 1100;
+            presentation.Height = 500;
+            presentation.Top = 0;
+            presentation.Left = 0;
+            presentation.Font = new Font(fontPopUp.Families[0], 20);
+            presentation.ForeColor = ColorTranslator.FromHtml("#fff");
+            presentation.BackColor = Color.Transparent;
+            presentation.TextAlign = ContentAlignment.MiddleCenter;
+
+            retour.previousColor = "#003255";
+            retour.afterColor = "#A52A2A";
+            retour.ForeColor = ColorTranslator.FromHtml(retour.previousColor);
+            retour.Font = new Font(privateFontCollection.Families[0], 40);
+
+            this.Controls.Clear();
+            Table.Controls.Clear();
+           
+            //on change le titre de la page
+            titrePrincipal.Text = Textes[117];
+            
+            Table.Controls.Add(titrePrincipal, 0, 0);
+            Table.Controls.Add(presentation, 0, 1);
+            Table.Controls.Add(retour, 0, 3);
+
+            foreach (Control c in Table.Controls)
+            {
+                Table.SetColumnSpan(c, 4);
+                c.Dock = DockStyle.None;
+                c.Anchor = AnchorStyles.None;
+            }
+
+            Table.SetRowSpan(presentation,2);
+
+            pageContact.Controls.Add(Table);
+            this.Controls.Add(pageContact);
         }
         
         //afficher panel Nouvelle Partie
+
         private void nouvelle_partie_button(object sender, EventArgs e)
         {
             //on cache l/accueil
             this.Controls.Remove(accueil);
-            
+
+            retour.previousColor = "#ffffff";
+            retour.afterColor = "#6d5622";
+            retour.ForeColor = ColorTranslator.FromHtml(retour.previousColor);
+            retour.Font = new Font(privateFontCollection.Families[0], 20);
+
             Table.Controls.Clear();
             Table.ColumnStyles.Clear();
             Table.RowStyles.Clear();
             Table.ColumnCount = 4;
             Table.RowCount = 4;
-
-            //on affiche l-accueil
+            
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 22F));
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 38F));
             Table.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
-
-            //on affiche l-accueil
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
             Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
 
-            conteneurTitrePPL.Controls.Clear();
-            conteneurTitrePPL.Controls.Add(Titre);
+            
             conteneurInfos.Controls.Add(choixAvatar);
             conteneurInfos.Controls.Add(saisirInfos);
 
             choixAvatar.Dock = DockStyle.None;
             saisirInfos.Dock = DockStyle.None;
-            conteneurTitrePPL.Dock = DockStyle.Fill;
             commencer.Dock = DockStyle.None;
             retour.Dock = DockStyle.None;
 
@@ -890,12 +923,16 @@ namespace La_petite_boite
             saisirInfos.Anchor = AnchorStyles.Top;
             commencer.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             retour.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            
+            titrePrincipal.Text = Textes[107];
+            titrePrincipal.ForeColor = ColorTranslator.FromHtml("#6d5622");
 
             //on ajoute choixAvatar et saisirInfos au panneau nouveauJoueur
-            Table.Controls.Add(conteneurTitrePPL, 0, 0); 
+            Table.Controls.Add(titrePrincipal, 0, 0); 
             Table.Controls.Add(conteneurInfos, 1, 1);
             Table.Controls.Add(commencer, 1, 3);
             Table.Controls.Add(retour, 2, 3);
+            
 
             //on ajoute les elements prenom et age au panneau saisirInfos
             saisirInfos.Controls.Add(prenomField);
@@ -906,8 +943,9 @@ namespace La_petite_boite
             saisirInfos.Controls.Add(listeDossierSauvegarde);
 
             //on fusionne les trois premieres lignes du tableau
-            Table.SetColumnSpan(conteneurTitrePPL, 4);
+            Table.SetColumnSpan(titrePrincipal, 4);
             Table.SetColumnSpan(conteneurInfos, 2);
+            Table.SetColumnSpan(retour, 1);
             Table.SetRowSpan(conteneurInfos, 2);
             
             nouveauJoueur.Controls.Add(Table);
@@ -2330,6 +2368,9 @@ namespace La_petite_boite
         
     }
 
+    //Classes annexes
+
+    #region
     public class TableLayoutPanelPlus : TableLayoutPanel
     {
         public TableLayoutPanelPlus()
@@ -2453,4 +2494,6 @@ namespace La_petite_boite
             public int y;
         }
     }
+
+#endregion
 }

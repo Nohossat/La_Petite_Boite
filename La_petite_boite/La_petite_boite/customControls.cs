@@ -96,42 +96,23 @@ namespace La_petite_boite
 
     public class SpecialButton : bouton
     {
-        public SpecialButton()
-        {
-            this.Width = 500;
-            this.Height = 90;
-            this.ForeColor = ColorTranslator.FromHtml("#003255");
-            this.MouseEnter += new EventHandler(changeColorButton);
-            this.MouseLeave += new EventHandler(PreviousColorButton);
-        }
-        
-        private void PreviousColorButton(object sender, EventArgs e)
-        {
-            Button b = (Button)sender;
-            b.ForeColor = ColorTranslator.FromHtml("#003255");
-        }
+        public String previousColor;
+        public String afterColor;
 
-        private void changeColorButton(object sender, EventArgs e)
+        public SpecialButton(String prev, String after, int width, int height)
         {
-            Button b = (Button)sender;
-            b.ForeColor = Color.Brown;
-            //b.ForeColor = ColorTranslator.FromHtml("#a14e6d");
-        }
-    }
+            //pour les gros boutons
+            //width = 500
+            //height = 90
 
-    public class ControlButton : bouton
-    {
-        String previousColor;
-        String afterColor;
-
-        public ControlButton(String prev, String after) : base()
-        {
-            this.Width = 200;
-            this.Height = 70;
-            this.Top = 590;
+            //pour les petits boutons
+            // width = 200
+            // height = 70
+            this.Width = width;
+            this.Height = height;
             this.previousColor = prev;
             this.afterColor = after;
-            this.ForeColor = ColorTranslator.FromHtml(prev);
+            this.ForeColor = ColorTranslator.FromHtml(previousColor);
             this.MouseEnter += new EventHandler(changeColorButton);
             this.MouseLeave += new EventHandler(PreviousColorButton);
         }
@@ -139,19 +120,16 @@ namespace La_petite_boite
         private void PreviousColorButton(object sender, EventArgs e)
         {
             Button b = (Button)sender;
-
             b.ForeColor = ColorTranslator.FromHtml(previousColor);
         }
 
         private void changeColorButton(object sender, EventArgs e)
         {
             Button b = (Button)sender;
-
             b.ForeColor = ColorTranslator.FromHtml(afterColor);
         }
-        
     }
-
+    
     public class LittleButton : bouton
     {
         public LittleButton(int top)
@@ -206,5 +184,31 @@ namespace La_petite_boite
         }
     }
 
-    
+    public class SpecialLabel : Label
+    {
+        public SpecialLabel()
+        {
+            this.UseCompatibleTextRendering = true;
+            this.AutoSize = false;
+            this.TextAlign = ContentAlignment.MiddleCenter;
+            this.Dock = DockStyle.None;
+            this.TextRenderingHint = TextRenderingHint.AntiAlias;
+        }
+
+        private TextRenderingHint _textRenderingHint = TextRenderingHint.SystemDefault;
+
+        public TextRenderingHint TextRenderingHint
+        {
+            get { return _textRenderingHint; }
+            set { _textRenderingHint = value; }
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            e.Graphics.TextRenderingHint = _textRenderingHint;
+            base.OnPaint(e);
+        }
+    }
+
+
 }

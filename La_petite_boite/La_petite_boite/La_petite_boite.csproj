@@ -115,10 +115,7 @@
     <Compile Include="recompense1.Designer.cs">
       <DependentUpon>recompense1.cs</DependentUpon>
     </Compile>
-    <Compile Include="SpecialButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="SpecialLabel.cs">
+    <Compile Include="customControls.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="splash.cs">

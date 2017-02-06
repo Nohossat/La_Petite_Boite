@@ -16,8 +16,8 @@ namespace La_petite_boite
     {
         
         private SpecialLabel label1 = new SpecialLabel(); 
-        private ControlButton enregistre = new ControlButton("#000000", "#6d5622");
-        private ControlButton retour = new ControlButton("#000000", "#6d5622");
+        private SpecialButton enregistre = new SpecialButton("#000000", "#6d5622", 200, 70);
+        private SpecialButton retour = new SpecialButton("#000000", "#6d5622", 200, 70);
         public List<String> liste = new List<String>();
         bool existe;
 
